@@ -4,10 +4,10 @@ Category: Python
 Tags: python, flask, web
 Authors: Daw-Ran Liou
 Summary: Thoughts after finishing my blog app using Python Flask
+Cover: /images/flask-logo.png
 
 Last long weekend after my geek marathon I finally
-finished reading [Flask Web Development: Developing Web Applications with Python]
-(http://www.amazon.com/Flask-Web-Development-Developing-Applications/dp/1449372627)
+finished reading [Flask Web Development: Developing Web Applications with Python](http://www.amazon.com/Flask-Web-Development-Developing-Applications/dp/1449372627)
 and deployed my blog app on Heroku.
 It was such rewarding to see my web app running online,
 not only as a novice web application developer but also
@@ -19,7 +19,7 @@ start building web apps, and a little bit about the book.
 
 BTW, here’s the link to my blog: https://blog.dawran6.com
 
-## Flask
+# Flask
 
 _Okay, why Flask? There are tons of web frameworks out there, why Flask?_
 
@@ -59,11 +59,11 @@ I have to admit that I’m biased,
 since I have no other web developing experience with other frameworks,
 but I hope to convince you in the next section.
 
-## Flask as a learning tool
+# Flask as a learning tool
 
 I’ve learned some great properties in Flask as a learning tool along my journey.
 
-### Starting Small
+## Starting Small
 The first thing you know about Flask is —
 “___Flask is a microframework for Python…___”.
 Flask is designed to be extended.
@@ -93,7 +93,7 @@ and later on, if I need to extend the feature,
 I can always look out for PyPI packages that serves my need.
 This leads to my second point— the extensiblility
 
-### Extensibility
+## Extensibility
 
 Because Flask does not make any assumption about anything
 (besides that you are building a web app of course, stop being picky!),
@@ -109,7 +109,7 @@ deal with the login session for you and have all kinds of goodies to make your c
 _(Note: There are a great community support for
 Flask extensions and lots of them are great! I won’t talk about those in this article though.)_
 
-### Popularity
+## Popularity
 
 Unarguably Flask is one of the most popular web frameworks.
 __With great popularity comes great community.__
@@ -118,7 +118,7 @@ and resources in all sorts of forms on the Internet.
 So, in the end if you are not using Flask,
 be my guest to use any of the popular frameworks out there.
 
-## How I learned in the hard way
+# How I learned in the hard way
 
 It’s such a long route for me to learn web development now think of it.
 What I used to do was to read a lot of online tutorials and code along the way.
@@ -148,7 +148,7 @@ There’s only one thing I wished the book to tell me more — deployment.
 I think the last mile in the book was the longest part.
 Anyways, the book isn’t about DevOps after all.
 
-## Final Words
+# Final Words
 
 I am sharing my thoughts not because I know a lot about this topic.
 On the contrary, I am sharing because I am just some dude who

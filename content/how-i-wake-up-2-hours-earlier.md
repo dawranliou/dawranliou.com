@@ -5,6 +5,7 @@ Tags: life-style
 Authors: Daw-Ran Liou
 Summary: My morning routines
 layout: post
+Cover: https://tombasson.files.wordpress.com/2015/01/morning-routine.jpg
 
 ## Here’s how I kick off my workdays
 
