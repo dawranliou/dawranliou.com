@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Python Truth Value Testing is Awesome</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+<body>
+
+    <div class="navigation pure-menu pure-menu-horizontal">
+        <a href="/" class="pure-menu-heading  pure-menu-link">Daw-Ran Liou</a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"></li>
+
+            <li class="pure-menu-item"><a href="/category/life.html" class="pure-menu-link">Life</a></li>
+            <li class="pure-menu-item pure-menu-selected"><a href="/category/python.html" class="pure-menu-link">Python</a></li>
+        </ul>
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+<div class="pure-u-3-4 meta-data">
+    <a href="/category/python.html" class="category">Python</a><br />
+
+    <a class="author" href="/author/daw-ran-liou.html">Daw-Ran Liou</a>
+    &mdash; <abbr title="2016-02-25T10:20:00-08:00">Thu 25 February 2016</abbr>
+</div>        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>Python Truth Value Testing is Awesome</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p>I’m constantly amazed by the simplicity and readability Python provides.
+(See The <a href="https://www.python.org/dev/peps/pep-0020/">Zen of Python</a>.) 
+As the industry evolves, more and more codes written each day,
+how to read code fast is a rising question every developer would face.
+Imaging the times when you faced a new code base and need to ramp up the knowledge in
+order to work with it. Lot’s of reading, isn’t it? This is why I think Python is a great
+modern programming language. Let’s talk about one of the features Python provides —
+the <a href="https://docs.python.org/3.5/library/stdtypes.html#truth-value-testing">truth value testing</a>.</p>
+<p>(Go ahead and read the docs in Python’s official documentation.
+You cannot avoid reading documentations while developing software.)</p>
+<p>Basically the doc tells you that any object could be used for if-condition,
+while-condition, or boolean operation. Let’s look at the following code:</p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;non-zero number is truthy!&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;non-empty list is truthy!&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">{</span><span class="s1">&#39;attr&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">}:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;non-empty dict is truthy!&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="s1">&#39;a_string&#39;</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;non-empty string is truthy!&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="c1"># print(&#39;0 is not truthy!&#39;)</span>
+<span class="k">if</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="c1"># print(&#39;empty string is not truthy!&#39;)</span>
+<span class="k">if</span> <span class="p">[]:</span>
+    <span class="c1"># print(&#39;empty list is not truthy!&#39;)</span>
+<span class="k">if</span> <span class="p">{}:</span>
+    <span class="c1"># print(&#39;empty dict is not truthy!&#39;)</span>
+</pre></div>
+
+
+<p>This feature gives us a very consistent way of writing code. Unlike writing code in Java,
+I don’t need to remember whether the return type is a null pointer or a boolean false when
+calling a method. In Python, a simple truth testing would give me the answer I want,
+because they both gives me a False.</p>
+<p>The truth testing feature also makes a very sweet combo with the Boolean Operators. Consider the code below:</p>
+<div class="highlight"><pre><span></span><span class="n">ENV_VAR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="err">‘</span><span class="n">ENV_VAR</span><span class="err">’</span><span class="p">)</span> <span class="ow">or</span> <span class="o">&lt;</span><span class="n">default_value</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>This code reads: get the <code>ENV_VAR</code> value from the OS’s environment, if can’t find it,
+just use a default value. It looks pretty neat, isn’t it? Imaging this code written in Java:</p>
+<div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">ENV_VAR</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">getEnvVar</span><span class="p">(</span><span class="s2">&quot;ENV_VAR&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="n">null</span><span class="p">):</span>
+    <span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="n">getEnvVar</span><span class="p">(</span><span class="s2">&quot;ENV_VAR&quot;</span><span class="p">);</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">default_value</span><span class="o">&gt;</span><span class="p">;</span>
+</pre></div>
+
+
+<p>Needless to say, lot’s of noise for my eyes when reading it.</p>
+<p>Why this would work is because the Python or-operator does something slightly difference
+than what we learn on the truth table. When evaluating the line <code>x or y</code>, what Python does is
+to do <code>if x is false, then y, else x</code>. Again, the ‘if x is false’ statement wouldn’t work
+without the truth value testing feature in Python.</p>
+    </div>
+
+    <footer>
+        <div class="tags">
+            <a href="/tag/python.html">python</a>
+            <a href="/tag/tip.html">tip</a>
+        </div>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="/author/daw-ran-liou.html">Daw-Ran Liou</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+
+    <footer class="index-footer">
+
+        <a href="/" title="Daw-Ran Liou">Daw-Ran Liou</a>
+        <a href="/category/life.html">Life</a>
+        <a href="/category/python.html">Python</a>
+        <a href="http://getpelican.com/">Pelican</a>
+        <a href="http://python.org/">Python.org</a>
+        <a href="http://jinja.pocoo.org/">Jinja2</a>
+        <a href="#">You can modify those links in your config file</a>
+
+    </footer>
+
+</body>
+</html>
