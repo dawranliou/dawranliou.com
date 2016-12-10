@@ -2,9 +2,12 @@ Title: Completed my first hackathon!
 Date: 2016-03-10 10:20
 Category: Life
 Tags: python
+Slug: first-hackathon
 Authors: Daw-Ran Liou
 Summary: It was such a blast!
-Cover: http://static6.businessinsider.com/image/54b6da48eab8ea7d5a328030/theres-a-new-way-to-land-a-job-in-tech-the-collegiate-hackathon.jpg
+Cover: /images/hackathon.jpg
+
+![alt hackathon](/images/hackathon.jpg)
 
 It was such a amazing experience. There’s no such thing that make you,
 and your teammate pull a all-nighter and still gives you one of the

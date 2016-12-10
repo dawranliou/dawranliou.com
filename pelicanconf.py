@@ -25,18 +25,18 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-# Blogroll
+MAIN_MENU = True
+
 LINKS = (
-        ('You can modify those links in your config file', '#'),
+        # ('You can modify those links in your config file', '#'),
 )
 
 # Social widget
 SOCIAL = (
-        ('linkedin', '#'),
-        ('twitter', '#'),
-        ('github', '#'),
-        ('medium', '#'),
-        ('instagram', '#'),
+        ('linkedin', 'https://www.linkedin.com/in/randyliou'),
+        ('twitter', 'https://twitter.com/dawranliou'),
+        ('github', 'https://github.com/dawran6'),
+        ('medium', 'https://medium.com/@dawran6'),
 )
 
 MENUITEMS = (
@@ -80,4 +80,4 @@ STATIC_PATHS = ['images']
 # THEME setting
 THEME = 'themes/Flex'
 
-#USE_LESS = True
+USE_LESS = True

@@ -2,11 +2,12 @@ Title: Python Truth Value Testing is Awesome
 Date: 2016-02-25 10:20
 Category: Python
 Tags: python, tip
+Slug: truth-value-testing
 Authors: Daw-Ran Liou
-Summary: What I love about python — 1 
+Summary: What I love about python — 1
 
 I’m constantly amazed by the simplicity and readability Python provides.
-(See The [Zen of Python](https://www.python.org/dev/peps/pep-0020/).) 
+(See The [Zen of Python](https://www.python.org/dev/peps/pep-0020/).)
 As the industry evolves, more and more codes written each day,
 how to read code fast is a rising question every developer would face.
 Imaging the times when you faced a new code base and need to ramp up the knowledge in

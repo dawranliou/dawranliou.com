@@ -2,9 +2,13 @@ Title: First Game Programming Experience with Python and Pyglet under 30 Minutes
 Date: 2016-01-27 10:20
 Category: Python
 Tags: python, game
+Slug: first-game-with-pyglet
 Authors: Daw-Ran Liou
 Summary: Make games with Python
 Cover: /images/pyglet-logo.png
+
+![alt pyglet](/images/pyglet-logo.png)
+_"Pyglet logo" by Pyglet is licensed under [Alex Holkner](https://bitbucket.org/pyglet/pyglet/raw/ce5be4874dcb90d1ea2374ccafd630fe67bc3027/LICENSE)_
 
 This is my first experience with game programming,
 and also my first time working with the

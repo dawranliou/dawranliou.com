@@ -2,6 +2,7 @@ Title: Practical Uses of Python AND and OR Boolean Operators
 Date: 2016-03-02 10:20
 Category: Python
 Tags: python, tip
+Slug: practicle-boolean-operators
 Authors: Daw-Ran Liou
 Summary: Why I love Python - 2
 
