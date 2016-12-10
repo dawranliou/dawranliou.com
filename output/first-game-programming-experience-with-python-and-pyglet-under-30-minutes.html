@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>"First Game Programming Experience with Python and Pyglet under 30 Minutes"</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+<body>
+
+    <div class="navigation pure-menu pure-menu-horizontal">
+        <a href="/" class="pure-menu-heading  pure-menu-link">Daw-Ran Liou</a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"></li>
+
+            <li class="pure-menu-item"><a href="/category/life.html" class="pure-menu-link">Life</a></li>
+            <li class="pure-menu-item pure-menu-selected"><a href="/category/misc.html" class="pure-menu-link">misc</a></li>
+        </ul>
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+<div class="pure-u-3-4 meta-data">
+    <a href="/category/misc.html" class="category">misc</a><br />
+
+    <a class="author" href="/author/daw-ran-liou.html">Daw-Ran Liou</a>
+    &mdash; <abbr title="2016-01-27T00:00:00-08:00">Wed 27 January 2016</abbr>
+</div>        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>"First Game Programming Experience with Python and Pyglet under 30 Minutes"</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p>This is my first experience with game programming,
+and also my first time working with the
+Python <a href="https://bitbucket.org/pyglet/pyglet/wiki/Home">Pyglet</a> package.
+I got to say I feel so much accomplishment even though it’s just a dumb,
+simple, ghetto game that could be done within 100 lines of codes.
+It really amazes me how things could get done so easily these days.</p>
+<p>I was in the <a href="http://www.meetup.com/sfpython/">San Francisco Python Meetup Group</a>
+and joined
+<a href="http://simeonfranklin.com/talk/pyglet/slides.html">Simeon’s Pyglet tutorial session</a>,
+which really gave me a blast.
+In his tutorial, he showed some fundamental building blocks for
+Pyglet game programming like showing images on window, how to do animation,
+listening to keyboard or mouse event, and so on.
+After half an hour diving into the tutorial, suddenly he said,
+“<em>are you ready to make a game now?</em>”</p>
+<p>That was a shock. I don’t even know where to start!
+However, the goal was simple, to create a simple game with
+50 to 100 lines of code within the next hour.
+So I start with the simplest game idea that I could think of —
+to dodge whatever falls from the sky.
+The more you dodge, the more score you have,
+till you got hit and the game’s over.
+Simple enough, eh?
+Now I’m going to find a nice 8-bit character for my game.
+Guess what I found? Mega Man!</p>
+<p><em>It’s time to get hands dirty!</em></p>
+<p>Surprisingly, the coding process wasn’t as hard as expected.
+I don’t have a really good code design for my game so
+I simply make incremental progress along the way.
+The result might have been chaotic but it turned out
+good enough for my little game. This is what I did in order:</p>
+<ol>
+<li>Make a window</li>
+<li>Show a still picture of Mega Man at the bottom of the window</li>
+<li>Show a still picture of the ball at the top of the window</li>
+<li>Make Pyglet listen to the left and right arrow keys and shifts the Mega Man accordingly</li>
+<li>Let Pyglet update the ball position every time the clock ticks</li>
+<li>Add a Game class that saves the “state of the game”. I’ll explain this later. OOP rocks!</li>
+<li>Refactor the code to use a Game object for updating the Mega Man position and the ball position</li>
+<li>Add the logic to detect and handle collision between Mega Man and the ball</li>
+<li>Add the score label and the score logic</li>
+<li>Done!</li>
+</ol>
+<p>My git repo is here: https://github.com/dawran6/pyglet-tutorial/blob/master/megaman.py.
+The code is less than 100 lines so it shouldn’t be hard to
+follow even though I didn’t put too much thought on the structure.
+Like the famous quote says: “<strong><em>if your first product does not embarrass you,
+you are shipping it too late.</em></strong>”
+Leave me comments or tweet me @randydliou if you have any thought want to share.</p>
+<p>Come back to the step number 6 above.
+There’re some good reasons to have a game state class defined in the code:</p>
+<ol>
+<li>
+<p><strong>You don’t need to declare global variable everywhere.</strong>
+I don’t like global variables. They make my code harder to maintain.</p>
+</li>
+<li>
+<p><strong>Games are full of states that need to be tracked and
+it’s a good idea to wrap those together for clarity.</strong>
+In my case, the states I am tracking is the position of Mega Man,
+the position of the ball, the score, and if the game is terminated.
+If the game gets bigger with more objects on the window, this list could increase a lot.</p>
+</li>
+</ol>
+<p>That’s it! It was a very entertaining and accomplishing experience. I had a lot of fun trying out something new. I think Pyglet did a pretty decent job maintain their documentation. It wasn’t hard for me to find the information that I needed. Highly recommend to give it a try if you’ve never done game programming before!</p>
+    </div>
+
+    <footer>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="/author/daw-ran-liou.html">Daw-Ran Liou</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+
+    <footer class="index-footer">
+
+        <a href="/" title="Daw-Ran Liou">Daw-Ran Liou</a>
+        <a href="/category/life.html">Life</a>
+        <a href="/category/misc.html">misc</a>
+        <a href="http://getpelican.com/">Pelican</a>
+        <a href="http://python.org/">Python.org</a>
+        <a href="http://jinja.pocoo.org/">Jinja2</a>
+        <a href="#">You can modify those links in your config file</a>
+
+    </footer>
+
+</body>
+</html>
