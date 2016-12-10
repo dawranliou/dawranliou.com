@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Practical Uses of Python AND and OR Boolean Operators</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+<body>
+
+    <div class="navigation pure-menu pure-menu-horizontal">
+        <a href="/" class="pure-menu-heading  pure-menu-link">Daw-Ran Liou</a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"></li>
+
+            <li class="pure-menu-item"><a href="/category/life.html" class="pure-menu-link">Life</a></li>
+            <li class="pure-menu-item pure-menu-selected"><a href="/category/python.html" class="pure-menu-link">Python</a></li>
+        </ul>
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+<div class="pure-u-3-4 meta-data">
+    <a href="/category/python.html" class="category">Python</a><br />
+
+    <a class="author" href="/author/daw-ran-liou.html">Daw-Ran Liou</a>
+    &mdash; <abbr title="2016-03-02T10:20:00-08:00">Wed 02 March 2016</abbr>
+</div>        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>Practical Uses of Python AND and OR Boolean Operators</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p>In my previous post — Python Truth Value Testing is Awesome, 
+I mentioned about the sweet combo of the truth value testing and the boolean operators,
+and gave an example for it using the or-operator. One of my colleagues gave me a comment
+that the or-operator all seems legit, but the and-operator seems pretty anti-intuitive.
+This raise the question in me: <a href="http://stackoverflow.com/questions/35657101/practical-examples-of-python-and-operator">is there any practical example of using the and-operator
+which also takes the advantage of the generic truth value testing</a>?
+Here’s what I found.</p>
+<h1>The Definitions</h1>
+<p>Let’s include <a href="https://docs.python.org/3.5/reference/expressions.html#boolean-operations">the definitions</a>
+again to make this post more comprehensive:</p>
+<ul>
+<li>The expression <code>x and y</code> first evaluates x; if x is false, its value is returned; otherwise, y is evaluated and the resulting value is returned.</li>
+<li>The expression <code>x or y</code> first evaluates x; if x is true, its value is returned; otherwise, y is evaluated and the resulting value is returned.</li>
+</ul>
+<p>Yes indeed, at first glance neither of the operator seems intuitive compare to the
+traditional boolean operator that only works for True and False as the operants.
+Yet this is another thing I love about Python — the consistency. According to
+<a href="https://www.python.org/dev/peps/pep-0020/">the Zen of Python</a>:</p>
+<blockquote>
+<p>Special cases aren't special enough to break the rules.</p>
+</blockquote>
+<p>Go ahead and plug in the True/False value into the above definitions. I’m not kidding.
+If you haven’t done that, do it now. See where this is going? They still give you the
+right values the same as what we expected. This more generic form of the operations does
+not break the rules. Now the million dollar question is, what do we do with these generic
+boolean operators? Hear me out.</p>
+<h1>Practical examples</h1>
+<p>Here’s my practical example for using both operators:</p>
+<p>Also, thanks to <a href="http://stackoverflow.com/users/248296/warvariuc">warvariuc</a>
+on <a href="http://stackoverflow.com/questions/35657101/practical-examples-of-python-and-operator/35662540#35662540">Stackoverflow</a>
+to give an example for getting regex results:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">re</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">r&#39;\w(\d+)&#39;</span><span class="p">,</span> <span class="s1">&#39;test123&#39;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">number</span> <span class="o">=</span> <span class="n">match</span> <span class="ow">and</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">number</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;123&#39;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">r&#39;\w(\d+)&#39;</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">number</span> <span class="o">=</span> <span class="n">match</span> <span class="ow">and</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">number</span>
+</pre></div>
+
+
+<h1>OR is a fallback, AND is a guard</h1>
+<p><a href="http://stackoverflow.com/questions/4477850/python-and-or-operators-return-value/28321263#28321263">This</a>
+is the best analogy I find.</p>
+<p>Think of this way for the OR-operator: the second value serves as a <strong>fallback</strong> value if something’s wrong
+(does not exists, or have a False-y value) with the first.</p>
+<p>On the other hand, for the AND-operator, the first value serves as a <strong>guard</strong> for retrieving the second value.
+If the first value failed the truth value testing, the second won’t be accessed. With this analogy,
+when I look at the and keyword in the code above, I tend to read “and” as “and then…,” because there’s
+this hidden truth value testing behind the scene.</p>
+<p>This is such a nice short-hand, isn’t it? If you’re like me, a Python programmer transitioning from Java,
+think about the fallback and the guard I talked about when you find yourself in the place to write if-else
+code blocks just to do variable assignment. You might get your Ah-ha moment just like me while doing the
+research for this article.</p>
+    </div>
+
+    <footer>
+        <div class="tags">
+            <a href="/tag/python.html">python</a>
+            <a href="/tag/tip.html">tip</a>
+        </div>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="/author/daw-ran-liou.html">Daw-Ran Liou</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+
+    <footer class="index-footer">
+
+        <a href="/" title="Daw-Ran Liou">Daw-Ran Liou</a>
+        <a href="/category/life.html">Life</a>
+        <a href="/category/python.html">Python</a>
+        <a href="http://getpelican.com/">Pelican</a>
+        <a href="http://python.org/">Python.org</a>
+        <a href="http://jinja.pocoo.org/">Jinja2</a>
+        <a href="#">You can modify those links in your config file</a>
+
+    </footer>
+
+</body>
+</html>
