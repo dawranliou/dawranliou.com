@@ -38,6 +38,24 @@ boolean operators? Hear me out.
 
 Here’s my practical example for using both operators:
 
+```python
+my_shopping_list = []
+
+next_item_to_buy = my_shopping_list and my_shopping_list.pop()
+# >> next_item_to_buy = []
+
+print(my_shopping_list or 'empty list')
+# >> empty list
+
+my_shopping_list = ['eggs', 'kales', 'apples']
+
+next_item_to_buy = my_shopping_list and my_shopping_list.pop()
+# >> next_item_to_buy = 'apples'
+
+print(my_shopping_list or 'empty list')
+# >> ['eggs', 'kales']
+```
+
 Also, thanks to [warvariuc](http://stackoverflow.com/users/248296/warvariuc)
 on [Stackoverflow](http://stackoverflow.com/questions/35657101/practical-examples-of-python-and-operator/35662540#35662540)
 to give an example for getting regex results:

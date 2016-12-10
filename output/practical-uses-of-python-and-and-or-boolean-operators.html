@@ -73,6 +73,24 @@ not break the rules. Now the million dollar question is, what do we do with thes
 boolean operators? Hear me out.</p>
 <h1>Practical examples</h1>
 <p>Here’s my practical example for using both operators:</p>
+<div class="highlight"><pre><span></span><span class="n">my_shopping_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">next_item_to_buy</span> <span class="o">=</span> <span class="n">my_shopping_list</span> <span class="ow">and</span> <span class="n">my_shopping_list</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="c1"># &gt;&gt; next_item_to_buy = []</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">my_shopping_list</span> <span class="ow">or</span> <span class="s1">&#39;empty list&#39;</span><span class="p">)</span>
+<span class="c1"># &gt;&gt; empty list</span>
+
+<span class="n">my_shopping_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;eggs&#39;</span><span class="p">,</span> <span class="s1">&#39;kales&#39;</span><span class="p">,</span> <span class="s1">&#39;apples&#39;</span><span class="p">]</span>
+
+<span class="n">next_item_to_buy</span> <span class="o">=</span> <span class="n">my_shopping_list</span> <span class="ow">and</span> <span class="n">my_shopping_list</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="c1"># &gt;&gt; next_item_to_buy = &#39;apples&#39;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">my_shopping_list</span> <span class="ow">or</span> <span class="s1">&#39;empty list&#39;</span><span class="p">)</span>
+<span class="c1"># &gt;&gt; [&#39;eggs&#39;, &#39;kales&#39;]</span>
+</pre></div>
+
+
 <p>Also, thanks to <a href="http://stackoverflow.com/users/248296/warvariuc">warvariuc</a>
 on <a href="http://stackoverflow.com/questions/35657101/practical-examples-of-python-and-operator/35662540#35662540">Stackoverflow</a>
 to give an example for getting regex results:</p>

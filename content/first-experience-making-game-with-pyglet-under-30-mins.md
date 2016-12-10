@@ -4,6 +4,7 @@ Category: Python
 Tags: python, game
 Authors: Daw-Ran Liou
 Summary: Make games with Python
+Cover: /images/pyglet-logo.png
 
 This is my first experience with game programming,
 and also my first time working with the
