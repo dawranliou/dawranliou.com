@@ -3,8 +3,14 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'Daw-Ran Liou'
-SITENAME = 'Daw-Ran Liou'
-SITEURL = ''
+SITEURL = 'http://localhost:8000'
+SITENAME = '%s\'s Blog' % AUTHOR
+SITETITLE = AUTHOR
+SITESUBTITLE = 'Software Developer - Maker'
+SITEDESCRIPTION = '%s\'s Thoughts and Writings' % AUTHOR
+SITELOGO = '//en.gravatar.com/userimage/99964636/f9367cffe912e77fa93af6784d93b99e.jpg?size=120'
+FAVICON = '/images/favicon.ico'
+PYGMENTS_STYLE = 'monokai'
 
 PATH = 'content'
 
@@ -20,20 +26,58 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
+LINKS = (
+        ('You can modify those links in your config file', '#'),
+)
 
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+SOCIAL = (
+        ('linkedin', '#'),
+        ('twitter', '#'),
+        ('github', '#'),
+        ('medium', '#'),
+        ('instagram', '#'),
+)
+
+MENUITEMS = (
+        ('Archives', '/archives.html'),
+        ('Categories', '/categories.html'),
+        ('Tags', '/tags.html'),
+)
+
+CC_LICENSE = {
+    'name': 'Creative Commons Attribution-ShareAlike',
+    'version': '4.0',
+    'slug': 'by-sa'
+}
+
+COPYRIGHT_YEAR = 2016
 
 DEFAULT_PAGINATION = 10
 
+PLUGIN_PATHS = ['pelican-plugins']
+#PLUGINS = ['sitemap', 'post_stats']
+
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.6,
+        'indexes': 0.6,
+        'pages': 0.5,
+    },
+    'changefreqs': {
+        'articles': 'monthly',
+        'indexes': 'daily',
+        'pages': 'monthly',
+    }
+}
+
 # Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+# RELATIVE_URLS = True
 
 STATIC_PATHS = ['images']
 
-THEME = 'themes/medius'
+# THEME setting
+THEME = 'themes/Flex'
+
+#USE_LESS = True
