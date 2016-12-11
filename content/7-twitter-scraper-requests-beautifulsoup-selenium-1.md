@@ -12,6 +12,8 @@ Requests, BeautifulSoup, and Selenium. In this tutorial, I’ll show you the
 step-by-step process of how I build a Twitter Search web scraper without using 
 their REST API.
 
+---
+
 _“Well, why not use their API?”_ you might ask. I have two reasons:
 
 Not all the websites expose REST APIs to clients. In order to retrieve data from 
