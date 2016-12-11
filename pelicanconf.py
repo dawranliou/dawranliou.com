@@ -19,8 +19,8 @@ TIMEZONE = 'America/Los_Angeles'
 DEFAULT_LANG = 'en'
 
 # Feed generation is usually not desired when developing
-FEED_ALL_ATOM = None
-CATEGORY_FEED_ATOM = None
+FEED_ALL_ATOM = 'feeds/all.atom.xml'
+CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
@@ -37,6 +37,7 @@ SOCIAL = (
         ('twitter', 'https://twitter.com/dawranliou'),
         ('github', 'https://github.com/dawran6'),
         ('medium', 'https://medium.com/@dawran6'),
+        ('rss', '//dawranliou.com/feeds/all.atom.xml')
 )
 
 MENUITEMS = (
@@ -56,7 +57,7 @@ COPYRIGHT_YEAR = 2016
 DEFAULT_PAGINATION = 10
 
 PLUGIN_PATHS = ['pelican-plugins']
-#PLUGINS = ['sitemap', 'post_stats']
+PLUGINS = ['sitemap', 'post_stats']
 
 SITEMAP = {
     'format': 'xml',
