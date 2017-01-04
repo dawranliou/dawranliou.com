@@ -1,5 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Daw-Ran Liou's Blog</title><link href="http://localhost:8000/" rel="alternate"></link><link href="http://localhost:8000/feeds/life.atom.xml" rel="self"></link><id>http://localhost:8000/</id><updated>2016-03-10T10:20:00-08:00</updated><entry><title>Completed my first hackathon!</title><link href="http://localhost:8000/first-hackathon.html" rel="alternate"></link><published>2016-03-10T10:20:00-08:00</published><updated>2016-03-10T10:20:00-08:00</updated><author><name>Daw-Ran Liou</name></author><id>tag:localhost:8000,2016-03-10:first-hackathon.html</id><summary type="html">&lt;p&gt;&lt;img alt="alt hackathon" src="/images/hackathon.jpg" /&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Daw-Ran Liou's Blog - Life</title><link href="http://localhost:8000/" rel="alternate"></link><link href="http://localhost:8000/feeds/life.atom.xml" rel="self"></link><id>http://localhost:8000/</id><updated>2017-01-04T00:00:00-08:00</updated><entry><title>40 Books I Read in 2016</title><link href="http://localhost:8000/40-books-in-2016.html" rel="alternate"></link><published>2017-01-04T00:00:00-08:00</published><updated>2017-01-04T00:00:00-08:00</updated><author><name>Daw-Ran Liou</name></author><id>tag:localhost,2017-01-04:/40-books-in-2016.html</id><summary type="html">&lt;p&gt;Summarizing the books I read in 2016&lt;/p&gt;</summary><content type="html">&lt;h3&gt;1. The Lean Startup&lt;/h3&gt;
+&lt;p&gt;I think I've been exposed to the "lean" concept a lot from day to day. When I 
+read the book, it wasn't a big surprise to me.&lt;/p&gt;
+&lt;h3&gt;2. Soft Skills - The Software Developer's Life Manual&lt;/h3&gt;
+&lt;p&gt;THE single most influential book to me. This book talks every aspect of life but
+software development.&lt;/p&gt;
+&lt;h3&gt;3. Flask Web Development&lt;/h3&gt;
+&lt;p&gt;This book really gives me a great foundation of developing Flask app. Before I 
+read this book, I was jumping around the online tutorials but they didn't work out for me.&lt;/p&gt;
+&lt;h3&gt;4. How to Win Friends &amp;amp; Influence People&lt;/h3&gt;
+&lt;p&gt;This is yet another very influential book. This classic book helps me to improve
+my social life and my friendships.&lt;/p&gt;
+&lt;h3&gt;5. The Millionaire Real Estate Investor&lt;/h3&gt;
+&lt;p&gt;This is a great investment book. Not only did it change the way I thought about 
+investing in real estate, but also give you a concrete plan for investing. 
+However, the concrete plan part of the book is kind of hard to digest for me.&lt;/p&gt;
+&lt;h3&gt;6. The War of Art&lt;/h3&gt;
+&lt;p&gt;This classic book helps me to understand one of my worst enemy - 
+procrastination. However, reading the book was like being lectured, which I 
+don't typically enjoy.&lt;/p&gt;
+&lt;h3&gt;7. The Autobiography of Benjamin Franklin&lt;/h3&gt;
+&lt;p&gt;Benjamin Franklin is such a fascinating person that I need to read his 
+autobiography to know him.&lt;/p&gt;
+&lt;h3&gt;8. Rich Dad Poor Dad&lt;/h3&gt;
+&lt;p&gt;Another very influential book that changed the way I think about money.&lt;/p&gt;
+&lt;h3&gt;9. The Power of Habit&lt;/h3&gt;
+&lt;p&gt;Habit is one of the most important that dominates our daily lives without being 
+notice. To understand it and be able to change it is so powerful that benefits 
+all aspects of our lives.&lt;/p&gt;
+&lt;h3&gt;10. Think and Grow Rich&lt;/h3&gt;
+&lt;p&gt;A classic book. It's amazing how often I heard about this book from various 
+people. The book's content is too hard for me to digest. Need to read it again.&lt;/p&gt;
+&lt;h3&gt;11. You are a Badass&lt;/h3&gt;
+&lt;p&gt;This is a very motivating and fun book. Love yourself and others!&lt;/p&gt;
+&lt;h3&gt;12. The End of Jobs&lt;/h3&gt;
+&lt;p&gt;I highly recommend this book! It changed a lot how I think about career. Its 
+target audience it not specific to software engineers (unlike Soft Skills, my 
+bible) so go read it everyone!&lt;/p&gt;
+&lt;h3&gt;13. Year of Yes&lt;/h3&gt;
+&lt;p&gt;Shonda Rhimes told about the amazing story of her Year of Yes.&lt;/p&gt;
+&lt;h3&gt;14. The Martian (2nd time!)&lt;/h3&gt;
+&lt;p&gt;This is the FIRST EVER book that I read twice in such a short period of time. 
+This book is witty, is fun, and is full of science! If you like the movie you'll
+definitely enjoy the book, I promise! Some of the best parts are in the book 
+only. This is definitely one of my all-time favorites.&lt;/p&gt;
+&lt;h3&gt;15. Ready Player One (2nd time!)&lt;/h3&gt;
+&lt;p&gt;This is the SECOND EVER book that I read twice in such short period of time. 
+It's full of imaginations and excitements! I enjoyed every moment reading it. Of
+course it's one of my all-time favorites too!&lt;/p&gt;
+&lt;h3&gt;16. Pitch Anything&lt;/h3&gt;
+&lt;p&gt;I have the audio book version of it. It's always enjoyable listening to the 
+author reading his/her own book. A lot of parts in the book is sort of 
+irrelevant to me, but some of the pitches he made were just so crazily 
+enchanting.&lt;/p&gt;
+&lt;h3&gt;17. The Hitchhiker's Guide to the Galaxy&lt;/h3&gt;
+&lt;p&gt;Classic sci-fi book. I don't always get its jokes but it's a fun read.&lt;/p&gt;
+&lt;h3&gt;18. So Good They Can't Ignore You (still reading)&lt;/h3&gt;
+&lt;p&gt;I highly recommend this book even though I haven't finished it. This book breaks
+the wide-spread "follow your passion" mindset about our dream jobs. Instead, it 
+focused on the craftsmanship mindset.&lt;/p&gt;
+&lt;h3&gt;19. Code Name Verity (still reading)&lt;/h3&gt;
+&lt;p&gt;A beautiful story about friendships. Still reading.&lt;/p&gt;
+&lt;h3&gt;20. The 7 Habits of Highly Effective People&lt;/h3&gt;
+&lt;p&gt;This is one of the best self development books I’ve read and the lessons I 
+learned from it really apply to everyone. In stead of thinking in efficiency, 
+this book focuses on the ‘effectiveness’ of the work you do. It’s a subtle mind 
+shift, but it definitely helped making the decisions for where should you put 
+the energies in. Even after fist published 25 years ago, the advices are still 
+so relevant these days. No wonder this is a classic book of its genre. I love 
+this book and bought a hard copy with me for reference.&lt;/p&gt;
+&lt;h3&gt;21. How to Talk to Anyone&lt;/h3&gt;
+&lt;p&gt;It’s a fun read but not so much I could grabbed on after reading it. The book’s 
+goal is to bridge the gap where Dale Carnegie’s How to Win Friends and Influence
+People, which published 80 years ago, didn’t tell the people living in the 21st 
+century what to do. I love hearing about all the fun stories in the book.&lt;/p&gt;
+&lt;h3&gt;22. The Like Switch&lt;/h3&gt;
+&lt;p&gt;I enjoyed this book better than How to Talk to Anyone, even though the feelings 
+I had to this book is somewhat similar to the other. It might be because the 
+author was a former FBI agent and the stories was much more intrigue to me.&lt;/p&gt;
+&lt;h3&gt;23. Quiet - The Power of Introverts in a World That Can't Stop Talking&lt;/h3&gt;
+&lt;p&gt;I’ve never felt so much connection to a book. This is yet another phenomenal 
+book I’ve read. I learned so much about myself after reading it. I feel so much 
+appreciation for Susan Cain, the author, for putting up the effort researching 
+about the topic that’s so relevant to half of the population in this world. This
+book has saved me from being doubt about a big part of myself.&lt;/p&gt;
+&lt;h3&gt;24. Lean in (Translation: 挺身而進)&lt;/h3&gt;
+&lt;p&gt;This is a great book that I think everyone should read. To me the book is about 
+understanding, and supporting each other. Not only it’s applicable for female, 
+but also the minority groups. Learning from Sheryl Sandburg’s marriage, I am 
+more certain than ever that parents could both be successful in their career and
+also have a great family.&lt;/p&gt;
+&lt;h3&gt;25. Hackers: Heroes of the Computer Revolution&lt;/h3&gt;
+&lt;p&gt;Reading the history of generations of hackers is like THE history of computer. 
+It was the hackers that drove the entire computer revolutions. (&lt;em&gt;Respects&lt;/em&gt;) I’d 
+like to recommend this book to anyone who’s in the software/computer industry.&lt;/p&gt;</content><category term="book"></category></entry><entry><title>Completed my first hackathon!</title><link href="http://localhost:8000/first-hackathon.html" rel="alternate"></link><published>2016-03-10T10:20:00-08:00</published><updated>2016-03-10T10:20:00-08:00</updated><author><name>Daw-Ran Liou</name></author><id>tag:localhost,2016-03-10:/first-hackathon.html</id><summary type="html">&lt;p&gt;It was such a blast!&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="alt hackathon" src="/images/hackathon.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;It was such a amazing experience. There’s no such thing that make you,
 and your teammate pull a all-nighter and still gives you one of the
 best times of your life, except hackathon. (Hackathon rocks!) I want to
@@ -52,7 +146,7 @@ you want to present in the demo. And be focused on making that happen. Everythin
 else is the extra 80% burden that drags you along the way.&lt;/p&gt;
 &lt;p&gt;It’s amazing how things are so clear afterwards. I got two lessons learned in the end:
 1. Know your tools well — go build up the coding muscle memory!
-1. Design for demo — keep demo in mind all the time!&lt;/p&gt;</summary><category term="python"></category></entry><entry><title>How I wake up 2 hours earlier every day and become happier</title><link href="http://localhost:8000/morning-routine.html" rel="alternate"></link><published>2016-01-27T10:20:00-08:00</published><updated>2016-01-27T10:20:00-08:00</updated><author><name>Daw-Ran Liou</name></author><id>tag:localhost:8000,2016-01-27:morning-routine.html</id><summary type="html">&lt;p&gt;&lt;img alt="alt morning-routine" src="https://tombasson.files.wordpress.com/2015/01/morning-routine.jpg" /&gt;&lt;/p&gt;
+1. Design for demo — keep demo in mind all the time!&lt;/p&gt;</content><category term="python"></category></entry><entry><title>How I wake up 2 hours earlier every day and become happier</title><link href="http://localhost:8000/morning-routine.html" rel="alternate"></link><published>2016-01-27T10:20:00-08:00</published><updated>2016-01-27T10:20:00-08:00</updated><author><name>Daw-Ran Liou</name></author><id>tag:localhost,2016-01-27:/morning-routine.html</id><summary type="html">&lt;p&gt;My morning routines&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="alt morning-routine" src="https://tombasson.files.wordpress.com/2015/01/morning-routine.jpg"&gt;&lt;/p&gt;
 &lt;h2&gt;Here’s how I kick off my workdays&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;6:00 AM:
 the alarm went off.
@@ -174,4 +268,4 @@ less pressure by the time I go to bed.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Healthier&lt;/strong&gt; — I’m eating proper breakfast everyday!&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;To sum up all above, I’m a happier developer now!&lt;/strong&gt;&lt;/p&gt;</summary><category term="life-style"></category></entry></feed>
+&lt;p&gt;&lt;strong&gt;To sum up all above, I’m a happier developer now!&lt;/strong&gt;&lt;/p&gt;</content><category term="life-style"></category></entry></feed>

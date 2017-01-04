@@ -5,29 +5,36 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://localhost:8000/</loc>
-<lastmod>2016-12-10T21:40:39-00:00</lastmod>
+<lastmod>2017-01-04T07:24:18-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>http://localhost:8000/archives.html</loc>
-<lastmod>2016-12-10T21:40:39-00:00</lastmod>
+<lastmod>2017-01-04T07:24:18-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>http://localhost:8000/tags.html</loc>
-<lastmod>2016-12-10T21:40:39-00:00</lastmod>
+<lastmod>2017-01-04T07:24:18-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>http://localhost:8000/categories.html</loc>
-<lastmod>2016-12-10T21:40:39-00:00</lastmod>
+<lastmod>2017-01-04T07:24:18-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>http://localhost:8000/40-books-in-2016.html</loc>
+<lastmod>2017-01-04T00:00:00-08:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.6</priority>
 </url>
 
@@ -96,13 +103,34 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://localhost:8000/category/life.html</loc>
-<lastmod>2016-03-10T10:20:00-07:53</lastmod>
+<lastmod>2017-01-04T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
 
 <url>
 <loc>http://localhost:8000/category/python.html</loc>
+<lastmod>2016-11-17T00:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>http://localhost:8000/tag/book.html</loc>
+<lastmod>2017-01-04T00:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>http://localhost:8000/tag/python.html</loc>
+<lastmod>2016-11-17T00:00:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
+<loc>http://localhost:8000/tag/best-practice.html</loc>
 <lastmod>2016-11-17T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
@@ -116,8 +144,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://localhost:8000/tag/life-style.html</loc>
-<lastmod>2016-01-27T10:20:00-07:53</lastmod>
+<loc>http://localhost:8000/tag/flask.html</loc>
+<lastmod>2016-02-18T10:20:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
@@ -130,27 +158,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://localhost:8000/tag/flask.html</loc>
-<lastmod>2016-02-18T10:20:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.6</priority>
-</url>
-
-<url>
-<loc>http://localhost:8000/tag/best-practice.html</loc>
-<lastmod>2016-11-17T00:00:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.6</priority>
-</url>
-
-<url>
-<loc>http://localhost:8000/tag/python.html</loc>
-<lastmod>2016-11-17T00:00:00-07:53</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.6</priority>
-</url>
-
-<url>
 <loc>http://localhost:8000/tag/game.html</loc>
 <lastmod>2016-01-27T10:20:00-07:53</lastmod>
 <changefreq>daily</changefreq>
@@ -158,8 +165,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://localhost:8000/tag/life-style.html</loc>
+<lastmod>2016-01-27T10:20:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.6</priority>
+</url>
+
+<url>
 <loc>http://localhost:8000/author/daw-ran-liou.html</loc>
-<lastmod>2016-11-17T00:00:00-07:53</lastmod>
+<lastmod>2017-01-04T00:00:00-07:53</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.6</priority>
 </url>
