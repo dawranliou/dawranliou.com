@@ -80,15 +80,12 @@ enchanting.
 ### 17. The Hitchhiker's Guide to the Galaxy
 Classic sci-fi book. I don't always get its jokes but it's a fun read.
 
-### 18. So Good They Can't Ignore You (still reading)
+### 18. So Good They Can't Ignore You
 I highly recommend this book even though I haven't finished it. This book breaks
 the wide-spread "follow your passion" mindset about our dream jobs. Instead, it 
 focused on the craftsmanship mindset.
 
-### 19. Code Name Verity (still reading)
-A beautiful story about friendships. Still reading.
-
-### 20. The 7 Habits of Highly Effective People
+### 19. The 7 Habits of Highly Effective People
 This is one of the best self development books I’ve read and the lessons I 
 learned from it really apply to everyone. In stead of thinking in efficiency, 
 this book focuses on the ‘effectiveness’ of the work you do. It’s a subtle mind 
@@ -97,33 +94,68 @@ the energies in. Even after fist published 25 years ago, the advices are still
 so relevant these days. No wonder this is a classic book of its genre. I love 
 this book and bought a hard copy with me for reference.
 
-### 21. How to Talk to Anyone
+### 20. How to Talk to Anyone
 It’s a fun read but not so much I could grabbed on after reading it. The book’s 
 goal is to bridge the gap where Dale Carnegie’s How to Win Friends and Influence
 People, which published 80 years ago, didn’t tell the people living in the 21st 
 century what to do. I love hearing about all the fun stories in the book.
 
-### 22. The Like Switch
+### 21. The Like Switch
 I enjoyed this book better than How to Talk to Anyone, even though the feelings 
 I had to this book is somewhat similar to the other. It might be because the 
 author was a former FBI agent and the stories was much more intrigue to me.
 
-### 23. Quiet - The Power of Introverts in a World That Can't Stop Talking
+### 22. Quiet - The Power of Introverts in a World That Can't Stop Talking
 I’ve never felt so much connection to a book. This is yet another phenomenal 
 book I’ve read. I learned so much about myself after reading it. I feel so much 
 appreciation for Susan Cain, the author, for putting up the effort researching 
 about the topic that’s so relevant to half of the population in this world. This
 book has saved me from being doubt about a big part of myself.
 
-### 24. Lean in (Translation: 挺身而進)
+### 23. Lean in (Translation: 挺身而進)
 This is a great book that I think everyone should read. To me the book is about 
 understanding, and supporting each other. Not only it’s applicable for female, 
 but also the minority groups. Learning from Sheryl Sandburg’s marriage, I am 
 more certain than ever that parents could both be successful in their career and
 also have a great family.
 
-### 25. Hackers: Heroes of the Computer Revolution
+### 24. Hackers: Heroes of the Computer Revolution
 Reading the history of generations of hackers is like THE history of computer. 
 It was the hackers that drove the entire computer revolutions. (*Respects*) I’d 
 like to recommend this book to anyone who’s in the software/computer industry.
+
+### 25. The Personal MBA
+
+### 26. Getting to Yes
+
+### 27. The Hard Thing about Hard Things
+
+### 28. The Richest Man in Babylon
+
+### 29. The 4-hour Work Week
+
+### 30. The Willpower Instinct
+
+### 31. Trump: The Art of The Deal
+
+### 32. The E-myth Revisited
+
+### 33. Mistborn: The Final Empire
+
+### 34. A Brief History of Time
+
+### 35. Redshirts
+
+### 36. Speaker for the Dead
+
+### 37. The 10X Rule
+
+### 38. A Monster Calls
+
+### 39. Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People
+
+### 40. 台灣不教的中國近代史
+
+### 41. Code Name Verity (still reading)
+A beautiful story about friendships. Still reading.
 
