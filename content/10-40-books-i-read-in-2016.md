@@ -5,87 +5,139 @@ Tags: book
 Slug: 40-books-in-2016
 Authors: Daw-Ran Liou
 Summary: Summarizing the books I read in 2016
-Cover:
+Cover: https://s.gr-assets.com/assets/challenges/2016/reading_challenge_banner-a0ce4577a8ece15e3dc5d17084080244.png
+
+![alt 2016-read-challenge](https://s.gr-assets.com/assets/challenges/2016/reading_challenge_banner-a0ce4577a8ece15e3dc5d17084080244.png)
+
+I challenged myself to read 10 books this year and I ended up reading 40 of them. Phew.
+What a great year, 2016! I really picked up this new-found habbit of reading.
+Feel free to add me friends on [Goodread](https://www.goodreads.com/user/show/62701324-daw-ran-liou)
+to see which book I'm currently reading. Let's read more! Here's my top 5 picks in 2016:
+
+1. Mistborn: The Final Empire (#33)
+2. Soft Skills - The Software Developer's Life Manual (#2)
+3. The 4-hour Work Week (#29)
+4. The Martian (#14)
+5. Ready Player One (#15)
+
 
 ### 1. The Lean Startup
+![alt the-lean-startup](https://images.gr-assets.com/books/1333576876m/10127019.jpg)
+
 I think I've been exposed to the "lean" concept a lot from day to day. When I 
 read the book, it wasn't a big surprise to me.
 
 ### 2. Soft Skills - The Software Developer's Life Manual
+![alt soft-skills](https://images.gr-assets.com/books/1419180921m/23232941.jpg)
+
 THE single most influential book to me. This book talks every aspect of life but
 software development.
 
 ### 3. Flask Web Development
+![alt flask-web-dev](https://images.gr-assets.com/books/1390432971m/18774655.jpg)
+
 This book really gives me a great foundation of developing Flask app. Before I 
 read this book, I was jumping around the online tutorials but they didn't work out for me.
 
 ### 4. How to Win Friends & Influence People
+![alt win-firends](https://images.gr-assets.com/books/1442726934m/4865.jpg)
+
 This is yet another very influential book. This classic book helps me to improve
 my social life and my friendships.
 
 ### 5. The Millionaire Real Estate Investor 
+![alt millionaire-real-estate](https://images.gr-assets.com/books/1417407442m/136205.jpg)
+
 This is a great investment book. Not only did it change the way I thought about 
 investing in real estate, but also give you a concrete plan for investing. 
 However, the concrete plan part of the book is kind of hard to digest for me.
 
 ### 6. The War of Art
+![alt war-of-art](https://images.gr-assets.com/books/1388176109m/1319.jpg)
+
 This classic book helps me to understand one of my worst enemy - 
 procrastination. However, reading the book was like being lectured, which I 
 don't typically enjoy.
 
 ### 7. The Autobiography of Benjamin Franklin
+![alt ben-franklin](https://images.gr-assets.com/books/1428170518m/52309.jpg)
+
 Benjamin Franklin is such a fascinating person that I need to read his 
 autobiography to know him.
 
 ### 8. Rich Dad Poor Dad
+![alt rick-dad-poor-dad](https://images.gr-assets.com/books/1388211242m/69571.jpg)
+
 Another very influential book that changed the way I think about money.
 
 ### 9. The Power of Habit
+![alt power-of-habit](https://images.gr-assets.com/books/1366758683m/12609433.jpg)
+
 Habit is one of the most important that dominates our daily lives without being 
 notice. To understand it and be able to change it is so powerful that benefits 
 all aspects of our lives.
 
 ### 10. Think and Grow Rich
+![alt think-grow-rich](https://images.gr-assets.com/books/1463241782m/30186948.jpg)
+
 A classic book. It's amazing how often I heard about this book from various 
 people. The book's content is too hard for me to digest. Need to read it again.
 
 ### 11. You are a Badass
+![alt badass](https://images.gr-assets.com/books/1351539051m/15843166.jpg)
+
 This is a very motivating and fun book. Love yourself and others!
 
 ### 12. The End of Jobs
+![alt end-of-jobs](https://images.gr-assets.com/books/1438463792m/25827122.jpg)
+
 I highly recommend this book! It changed a lot how I think about career. Its 
 target audience it not specific to software engineers (unlike Soft Skills, my 
 bible) so go read it everyone!
 
 ### 13. Year of Yes
+![alt year-of-yes](https://images.gr-assets.com/books/1443552148m/25690958.jpg)
+
 Shonda Rhimes told about the amazing story of her Year of Yes.
 
 ### 14. The Martian (2nd time!)
+![alt martian](https://images.gr-assets.com/books/1413706054m/18007564.jpg)
+
 This is the FIRST EVER book that I read twice in such a short period of time. 
 This book is witty, is fun, and is full of science! If you like the movie you'll
 definitely enjoy the book, I promise! Some of the best parts are in the book 
 only. This is definitely one of my all-time favorites.
 
 ### 15. Ready Player One (2nd time!)
+![alt ready-player-one](https://images.gr-assets.com/books/1406383612m/9969571.jpg)
+
 This is the SECOND EVER book that I read twice in such short period of time. 
 It's full of imaginations and excitements! I enjoyed every moment reading it. Of
 course it's one of my all-time favorites too!
 
 ### 16. Pitch Anything
+![alt pitch-anything](https://images.gr-assets.com/books/1347796457m/10321016.jpg)
+
 I have the audio book version of it. It's always enjoyable listening to the 
 author reading his/her own book. A lot of parts in the book is sort of 
 irrelevant to me, but some of the pitches he made were just so crazily 
 enchanting.
 
 ### 17. The Hitchhiker's Guide to the Galaxy
+![alt hitchhikers-guide](https://images.gr-assets.com/books/1327656754m/11.jpg)
+
 Classic sci-fi book. I don't always get its jokes but it's a fun read.
 
 ### 18. So Good They Can't Ignore You
+![alt so-good-they-cant-ignore-you](https://images.gr-assets.com/books/1360564614m/13525945.jpg)
+
 I highly recommend this book even though I haven't finished it. This book breaks
 the wide-spread "follow your passion" mindset about our dream jobs. Instead, it 
 focused on the craftsmanship mindset.
 
 ### 19. The 7 Habits of Highly Effective People
+![alt 7-habits](https://images.gr-assets.com/books/1421842784m/36072.jpg)
+
 This is one of the best self development books I’ve read and the lessons I 
 learned from it really apply to everyone. In stead of thinking in efficiency, 
 this book focuses on the ‘effectiveness’ of the work you do. It’s a subtle mind 
@@ -95,24 +147,32 @@ so relevant these days. No wonder this is a classic book of its genre. I love
 this book and bought a hard copy with me for reference.
 
 ### 20. How to Talk to Anyone
+![alt how-to-talk-to-anyone](https://images.gr-assets.com/books/1388184197m/35210.jpg)
+
 It’s a fun read but not so much I could grabbed on after reading it. The book’s 
 goal is to bridge the gap where Dale Carnegie’s How to Win Friends and Influence
 People, which published 80 years ago, didn’t tell the people living in the 21st 
 century what to do. I love hearing about all the fun stories in the book.
 
 ### 21. The Like Switch
+![alt like-switch](https://images.gr-assets.com/books/1421037599m/21412226.jpg)
+
 I enjoyed this book better than How to Talk to Anyone, even though the feelings 
 I had to this book is somewhat similar to the other. It might be because the 
 author was a former FBI agent and the stories was much more intrigue to me.
 
 ### 22. Quiet - The Power of Introverts in a World That Can't Stop Talking
+![alt quiet](https://images.gr-assets.com/books/1328562861m/8520610.jpg)
+
 I’ve never felt so much connection to a book. This is yet another phenomenal 
 book I’ve read. I learned so much about myself after reading it. I feel so much 
 appreciation for Susan Cain, the author, for putting up the effort researching 
 about the topic that’s so relevant to half of the population in this world. This
 book has saved me from being doubt about a big part of myself.
 
-### 23. Lean in (Translation: 挺身而進)
+### 23. Lean in
+![alt lean-in](https://images.gr-assets.com/books/1364250803m/16071764.jpg)
+
 This is a great book that I think everyone should read. To me the book is about 
 understanding, and supporting each other. Not only it’s applicable for female, 
 but also the minority groups. Learning from Sheryl Sandburg’s marriage, I am 
@@ -120,31 +180,43 @@ more certain than ever that parents could both be successful in their career and
 also have a great family.
 
 ### 24. Hackers: Heroes of the Computer Revolution
+![alt hackers](https://images.gr-assets.com/books/1435697935m/56829.jpg)
+
 Reading the history of generations of hackers is like THE history of computer. 
 It was the hackers that drove the entire computer revolutions. (*Respects*) I’d 
 like to recommend this book to anyone who’s in the software/computer industry.
 
 ### 25. The Personal MBA
+![alt personal-mba](https://images.gr-assets.com/books/1348014445m/9512985.jpg)
+
 Having a technical backgraound, I know so little about business side and this book
 is perfect for peoople like me to start thinking in business. Now I need to turn
 those knowledges into actions. Recommend to all the tech fellows.
 
 ### 26. Getting to Yes
+![alt getting-to-yes](https://images.gr-assets.com/books/1442289862m/313605.jpg)
+
 Seek mutual benefits and always aim for win-win.
 
 ### 27. The Hard Thing about Hard Things
+![alt hard-thing](https://images.gr-assets.com/books/1386609333m/18176747.jpg)
+
 The book's first part tells the CRAZY startup story of Ben Horowitz. Reading
 his words, I was so terrified and yet amazed by all the things he'd been through.
 In the rests of the book, Ben explained what the hard things are and what he'd
 learned from it. I am full of respect to the author and anyone starting a company.
 
 ### 28. The Richest Man in Babylon
+![alt richest-man-in-babylon](https://images.gr-assets.com/books/1348336780m/1052.jpg)
+
 Full of wise thoughts about personal finance. My favorite quote is _"A part of what
 I earned is mine to keep."_ Pay yourself first when you get the paycheck, instead of
 paying the merchants. Financial education is so important yet totally missed-out in
 our education. Glad that I start gaining more knowledge about it.
 
 ### 29. The 4-hour Work Week
+![alt 4-hour](https://images.gr-assets.com/books/1394578573m/6444424.jpg)
+
 This is one of my favorites. I can't tell you how much my mind was blown by this book.
 Recommended by my brother, I read this book back-to-back twice and wished every word
 would be memorized by heart.
@@ -152,6 +224,8 @@ would be memorized by heart.
 tells you exactly how. This is THE book that completely change the course of my life.
 
 ### 30. The Willpower Instinct
+![alt willpower-instinct](https://images.gr-assets.com/books/1436737104m/10865206.jpg)
+
 Understanding what willpower is and how does it work have such an impact to my life.
 Willpower is like superpower that we all have. Understand it and utilize it properly
 makes us all superheroes. _(Side note: I was reading the Mistborn trilogy on the side
@@ -161,10 +235,14 @@ burn a bit of your willpower reserves away. There're certain way you can do to r
 willpower, but if you don't use them wisely, they'll be burned out very quickly.)_
 
 ### 31. Trump: The Art of The Deal
+![alt the-art-of-the-deal](https://images.gr-assets.com/books/1442705949m/1032.jpg)
+
 Get's a sneak peak into Donal Trump's mind. This person is a great businessman with
 a great mind. I'm giving him more respect after reading this book.
 
 ### 32. The E-myth Revisited
+![alt e-myth-revisited](https://images.gr-assets.com/books/1435673032m/81948.jpg)
+
 This is a great companion book for The 4-hour Work Week. This book explained about the
 "E-myth", the Entrepreneur Myth, for most technician-changed entrepreneur. The product
 of a business isn't the real product of an entrepreneur. It is the business itself that is the
@@ -173,6 +251,8 @@ business. There's a distinction between good product and good business. Good pro
 does not necessary lead to good business.
 
 ### 33. Mistborn: The Final Empire
+![alt mistborn-1](https://images.gr-assets.com/books/1314601971m/6547258.jpg)
+
 No doubt this is the my favorite novel of the year! OMG I've never enjoyed a novel this
 much, and yet this is my very first book in the high-fantasy genre. I'll definitely read
 more fantasy books in the future.
@@ -188,6 +268,8 @@ It's the longest book I read in ages but I totally enjoyed every minute of 30 ho
 I just can't wait to reading the rest of two books of the trilogy.
 
 ### 34. A Brief History of Time
+![alt brief-history-of-time](https://images.gr-assets.com/books/1333578746m/3869.jpg)
+
 I forgot most of the Quantum Mechanics and General Astronomy I learned in College.
 But this is a very good introductory book for understanding those concepts plus more
 contemporary science that's not covered in college curriculum. I was listening to
@@ -195,24 +277,48 @@ audio version of this book and I just didn't have time to let the concepts sink 
 Still, the book is fun and reminds me of the amazing mother nature. Or the universe.
 
 ### 35. Redshirts
+![alt redshirts](https://images.gr-assets.com/books/1348617890m/13055592.jpg)
+
 Hugo winner! It was a fun and casual book. It has very interesting prospect of the
 science fiction world.
 
 ### 36. Speaker for the Dead
+![alt speaker-for-the-dead](https://images.gr-assets.com/books/1295660894m/7967.jpg)
+
 The second book of The Ender Quintet. This book felt so different from Ender's Game.
 It has so much more depth in emotions and morals. I still like Ender's Game more, but
 not because this book isn't great. Speaker for the Dead is just too overwhelming to
 me to grasp. Likely I'll revisit this book in the future.
 
 ### 37. The 10X Rule
+![alt 10x-rule](https://images.gr-assets.com/books/1310779133m/10339170.jpg)
 
+Set your goal to incredibly high and take massive action towards it.
 
 ### 38. A Monster Calls
+![alt a-monster-calls](https://images.gr-assets.com/books/1474081871m/28588061.jpg)
+
+A very beautiful story about facing death. 
 
 ### 39. Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People
+![alt grokking-algorithms](https://images.gr-assets.com/books/1458747997m/22847284.jpg)
+
+I love this algorithm book! Especially the part explaining dynamic programming. 
+All the illustrations are beautiful and feels very friendly, which makes an algorithm
+book much more intriguing.
 
 ### 40. 台灣不教的中國近代史
+![alt modern-history-china](https://images.gr-assets.com/books/1426748118m/25173379.jpg)
+
+我最喜歡的部份是蔣中正的故事。蔣中正在中國近代史中是滿爭議的人物，所以我很想多了解這個人。
+作者出生在中國大陸、經歷過文化大革命，後來到日本定居。從他的角度說了蔣中正是怎麼崛起、抗日、
+敗給中國共產黨。不論他對後世的影響，我很佩服蔣中正做事的決心、打仗的謀略、跟面對高壓環境的
+能力。我比較驚訝的是抗日之後，他幾乎像是性情大變，形勢錯估得離譜然後就輸得一塌糊塗。不知道
+是我看錯他的個性還是抗日改變了他。書的其他部分還滿有趣的但我沒有很喜歡作者敘事的語氣，滿多
+時候帶了太多個人情感。
 
 ### 41. Code Name Verity (still reading)
+![alt code-name-verity](https://images.gr-assets.com/books/1373223199m/16250900.jpg)
+
 A beautiful story about friendships. Still reading.
 

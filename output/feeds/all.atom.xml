@@ -1,67 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Daw-Ran Liou's Blog</title><link href="http://localhost:8000/" rel="alternate"></link><link href="http://localhost:8000/feeds/all.atom.xml" rel="self"></link><id>http://localhost:8000/</id><updated>2017-01-04T00:00:00-08:00</updated><entry><title>40 Books I Read in 2016</title><link href="http://localhost:8000/40-books-in-2016.html" rel="alternate"></link><published>2017-01-04T00:00:00-08:00</published><updated>2017-01-04T00:00:00-08:00</updated><author><name>Daw-Ran Liou</name></author><id>tag:localhost,2017-01-04:/40-books-in-2016.html</id><summary type="html">&lt;p&gt;Summarizing the books I read in 2016&lt;/p&gt;</summary><content type="html">&lt;h3&gt;1. The Lean Startup&lt;/h3&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Daw-Ran Liou's Blog</title><link href="http://localhost:8000/" rel="alternate"></link><link href="http://localhost:8000/feeds/all.atom.xml" rel="self"></link><id>http://localhost:8000/</id><updated>2017-01-04T00:00:00-08:00</updated><entry><title>40 Books I Read in 2016</title><link href="http://localhost:8000/40-books-in-2016.html" rel="alternate"></link><published>2017-01-04T00:00:00-08:00</published><updated>2017-01-04T00:00:00-08:00</updated><author><name>Daw-Ran Liou</name></author><id>tag:localhost,2017-01-04:/40-books-in-2016.html</id><summary type="html">&lt;p&gt;Summarizing the books I read in 2016&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="alt 2016-read-challenge" src="https://s.gr-assets.com/assets/challenges/2016/reading_challenge_banner-a0ce4577a8ece15e3dc5d17084080244.png"&gt;&lt;/p&gt;
+&lt;p&gt;I challenged myself to read 10 books this year and I ended up reading 40 of them. Phew.
+What a great year, 2016! I really picked up this new-found habbit of reading.
+Feel free to add me friends on &lt;a href="https://www.goodreads.com/user/show/62701324-daw-ran-liou"&gt;Goodread&lt;/a&gt;
+to see which book I'm currently reading. Let's read more! Here's my top 5 picks in 2016:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Mistborn: The Final Empire (#33)&lt;/li&gt;
+&lt;li&gt;Soft Skills - The Software Developer's Life Manual (#2)&lt;/li&gt;
+&lt;li&gt;The 4-hour Work Week (#29)&lt;/li&gt;
+&lt;li&gt;The Martian (#14)&lt;/li&gt;
+&lt;li&gt;Ready Player One (#15)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;1. The Lean Startup&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt the-lean-startup" src="https://images.gr-assets.com/books/1333576876m/10127019.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;I think I've been exposed to the "lean" concept a lot from day to day. When I 
 read the book, it wasn't a big surprise to me.&lt;/p&gt;
 &lt;h3&gt;2. Soft Skills - The Software Developer's Life Manual&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt soft-skills" src="https://images.gr-assets.com/books/1419180921m/23232941.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;THE single most influential book to me. This book talks every aspect of life but
 software development.&lt;/p&gt;
 &lt;h3&gt;3. Flask Web Development&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt flask-web-dev" src="https://images.gr-assets.com/books/1390432971m/18774655.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;This book really gives me a great foundation of developing Flask app. Before I 
 read this book, I was jumping around the online tutorials but they didn't work out for me.&lt;/p&gt;
 &lt;h3&gt;4. How to Win Friends &amp;amp; Influence People&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt win-firends" src="https://images.gr-assets.com/books/1442726934m/4865.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;This is yet another very influential book. This classic book helps me to improve
 my social life and my friendships.&lt;/p&gt;
 &lt;h3&gt;5. The Millionaire Real Estate Investor&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt millionaire-real-estate" src="https://images.gr-assets.com/books/1417407442m/136205.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;This is a great investment book. Not only did it change the way I thought about 
 investing in real estate, but also give you a concrete plan for investing. 
 However, the concrete plan part of the book is kind of hard to digest for me.&lt;/p&gt;
 &lt;h3&gt;6. The War of Art&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt war-of-art" src="https://images.gr-assets.com/books/1388176109m/1319.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;This classic book helps me to understand one of my worst enemy - 
 procrastination. However, reading the book was like being lectured, which I 
 don't typically enjoy.&lt;/p&gt;
 &lt;h3&gt;7. The Autobiography of Benjamin Franklin&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt ben-franklin" src="https://images.gr-assets.com/books/1428170518m/52309.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;Benjamin Franklin is such a fascinating person that I need to read his 
 autobiography to know him.&lt;/p&gt;
 &lt;h3&gt;8. Rich Dad Poor Dad&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt rick-dad-poor-dad" src="https://images.gr-assets.com/books/1388211242m/69571.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;Another very influential book that changed the way I think about money.&lt;/p&gt;
 &lt;h3&gt;9. The Power of Habit&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt power-of-habit" src="https://images.gr-assets.com/books/1366758683m/12609433.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;Habit is one of the most important that dominates our daily lives without being 
 notice. To understand it and be able to change it is so powerful that benefits 
 all aspects of our lives.&lt;/p&gt;
 &lt;h3&gt;10. Think and Grow Rich&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt think-grow-rich" src="https://images.gr-assets.com/books/1463241782m/30186948.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;A classic book. It's amazing how often I heard about this book from various 
 people. The book's content is too hard for me to digest. Need to read it again.&lt;/p&gt;
 &lt;h3&gt;11. You are a Badass&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt badass" src="https://images.gr-assets.com/books/1351539051m/15843166.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;This is a very motivating and fun book. Love yourself and others!&lt;/p&gt;
 &lt;h3&gt;12. The End of Jobs&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt end-of-jobs" src="https://images.gr-assets.com/books/1438463792m/25827122.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;I highly recommend this book! It changed a lot how I think about career. Its 
 target audience it not specific to software engineers (unlike Soft Skills, my 
 bible) so go read it everyone!&lt;/p&gt;
 &lt;h3&gt;13. Year of Yes&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt year-of-yes" src="https://images.gr-assets.com/books/1443552148m/25690958.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;Shonda Rhimes told about the amazing story of her Year of Yes.&lt;/p&gt;
 &lt;h3&gt;14. The Martian (2nd time!)&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt martian" src="https://images.gr-assets.com/books/1413706054m/18007564.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;This is the FIRST EVER book that I read twice in such a short period of time. 
 This book is witty, is fun, and is full of science! If you like the movie you'll
 definitely enjoy the book, I promise! Some of the best parts are in the book 
 only. This is definitely one of my all-time favorites.&lt;/p&gt;
 &lt;h3&gt;15. Ready Player One (2nd time!)&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt ready-player-one" src="https://images.gr-assets.com/books/1406383612m/9969571.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;This is the SECOND EVER book that I read twice in such short period of time. 
 It's full of imaginations and excitements! I enjoyed every moment reading it. Of
 course it's one of my all-time favorites too!&lt;/p&gt;
 &lt;h3&gt;16. Pitch Anything&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt pitch-anything" src="https://images.gr-assets.com/books/1347796457m/10321016.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;I have the audio book version of it. It's always enjoyable listening to the 
 author reading his/her own book. A lot of parts in the book is sort of 
 irrelevant to me, but some of the pitches he made were just so crazily 
 enchanting.&lt;/p&gt;
 &lt;h3&gt;17. The Hitchhiker's Guide to the Galaxy&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt hitchhikers-guide" src="https://images.gr-assets.com/books/1327656754m/11.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;Classic sci-fi book. I don't always get its jokes but it's a fun read.&lt;/p&gt;
-&lt;h3&gt;18. So Good They Can't Ignore You (still reading)&lt;/h3&gt;
+&lt;h3&gt;18. So Good They Can't Ignore You&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt so-good-they-cant-ignore-you" src="https://images.gr-assets.com/books/1360564614m/13525945.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;I highly recommend this book even though I haven't finished it. This book breaks
 the wide-spread "follow your passion" mindset about our dream jobs. Instead, it 
 focused on the craftsmanship mindset.&lt;/p&gt;
-&lt;h3&gt;19. Code Name Verity (still reading)&lt;/h3&gt;
-&lt;p&gt;A beautiful story about friendships. Still reading.&lt;/p&gt;
-&lt;h3&gt;20. The 7 Habits of Highly Effective People&lt;/h3&gt;
+&lt;h3&gt;19. The 7 Habits of Highly Effective People&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt 7-habits" src="https://images.gr-assets.com/books/1421842784m/36072.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;This is one of the best self development books I’ve read and the lessons I 
 learned from it really apply to everyone. In stead of thinking in efficiency, 
 this book focuses on the ‘effectiveness’ of the work you do. It’s a subtle mind 
@@ -69,31 +98,136 @@ shift, but it definitely helped making the decisions for where should you put
 the energies in. Even after fist published 25 years ago, the advices are still 
 so relevant these days. No wonder this is a classic book of its genre. I love 
 this book and bought a hard copy with me for reference.&lt;/p&gt;
-&lt;h3&gt;21. How to Talk to Anyone&lt;/h3&gt;
+&lt;h3&gt;20. How to Talk to Anyone&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt how-to-talk-to-anyone" src="https://images.gr-assets.com/books/1388184197m/35210.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;It’s a fun read but not so much I could grabbed on after reading it. The book’s 
 goal is to bridge the gap where Dale Carnegie’s How to Win Friends and Influence
 People, which published 80 years ago, didn’t tell the people living in the 21st 
 century what to do. I love hearing about all the fun stories in the book.&lt;/p&gt;
-&lt;h3&gt;22. The Like Switch&lt;/h3&gt;
+&lt;h3&gt;21. The Like Switch&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt like-switch" src="https://images.gr-assets.com/books/1421037599m/21412226.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;I enjoyed this book better than How to Talk to Anyone, even though the feelings 
 I had to this book is somewhat similar to the other. It might be because the 
 author was a former FBI agent and the stories was much more intrigue to me.&lt;/p&gt;
-&lt;h3&gt;23. Quiet - The Power of Introverts in a World That Can't Stop Talking&lt;/h3&gt;
+&lt;h3&gt;22. Quiet - The Power of Introverts in a World That Can't Stop Talking&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt quiet" src="https://images.gr-assets.com/books/1328562861m/8520610.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;I’ve never felt so much connection to a book. This is yet another phenomenal 
 book I’ve read. I learned so much about myself after reading it. I feel so much 
 appreciation for Susan Cain, the author, for putting up the effort researching 
 about the topic that’s so relevant to half of the population in this world. This
 book has saved me from being doubt about a big part of myself.&lt;/p&gt;
-&lt;h3&gt;24. Lean in (Translation: 挺身而進)&lt;/h3&gt;
+&lt;h3&gt;23. Lean in&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt lean-in" src="https://images.gr-assets.com/books/1364250803m/16071764.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;This is a great book that I think everyone should read. To me the book is about 
 understanding, and supporting each other. Not only it’s applicable for female, 
 but also the minority groups. Learning from Sheryl Sandburg’s marriage, I am 
 more certain than ever that parents could both be successful in their career and
 also have a great family.&lt;/p&gt;
-&lt;h3&gt;25. Hackers: Heroes of the Computer Revolution&lt;/h3&gt;
+&lt;h3&gt;24. Hackers: Heroes of the Computer Revolution&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt hackers" src="https://images.gr-assets.com/books/1435697935m/56829.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;Reading the history of generations of hackers is like THE history of computer. 
 It was the hackers that drove the entire computer revolutions. (&lt;em&gt;Respects&lt;/em&gt;) I’d 
-like to recommend this book to anyone who’s in the software/computer industry.&lt;/p&gt;</content><category term="book"></category></entry><entry><title>Never Write For-Loops Again</title><link href="http://localhost:8000/never-write-for-loops.html" rel="alternate"></link><published>2016-11-17T00:00:00-08:00</published><updated>2016-11-17T00:00:00-08:00</updated><author><name>Daw-Ran Liou</name></author><id>tag:localhost,2016-11-17:/never-write-for-loops.html</id><summary type="html">&lt;p&gt;Challenge yourself to use awesome language features instead of for-loops&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is a challenge. I challenge you to avoid writing for-loops in every scenario.
+like to recommend this book to anyone who’s in the software/computer industry.&lt;/p&gt;
+&lt;h3&gt;25. The Personal MBA&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt personal-mba" src="https://images.gr-assets.com/books/1348014445m/9512985.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Having a technical backgraound, I know so little about business side and this book
+is perfect for peoople like me to start thinking in business. Now I need to turn
+those knowledges into actions. Recommend to all the tech fellows.&lt;/p&gt;
+&lt;h3&gt;26. Getting to Yes&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt getting-to-yes" src="https://images.gr-assets.com/books/1442289862m/313605.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Seek mutual benefits and always aim for win-win.&lt;/p&gt;
+&lt;h3&gt;27. The Hard Thing about Hard Things&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt hard-thing" src="https://images.gr-assets.com/books/1386609333m/18176747.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;The book's first part tells the CRAZY startup story of Ben Horowitz. Reading
+his words, I was so terrified and yet amazed by all the things he'd been through.
+In the rests of the book, Ben explained what the hard things are and what he'd
+learned from it. I am full of respect to the author and anyone starting a company.&lt;/p&gt;
+&lt;h3&gt;28. The Richest Man in Babylon&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt richest-man-in-babylon" src="https://images.gr-assets.com/books/1348336780m/1052.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Full of wise thoughts about personal finance. My favorite quote is &lt;em&gt;"A part of what
+I earned is mine to keep."&lt;/em&gt; Pay yourself first when you get the paycheck, instead of
+paying the merchants. Financial education is so important yet totally missed-out in
+our education. Glad that I start gaining more knowledge about it.&lt;/p&gt;
+&lt;h3&gt;29. The 4-hour Work Week&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt 4-hour" src="https://images.gr-assets.com/books/1394578573m/6444424.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;This is one of my favorites. I can't tell you how much my mind was blown by this book.
+Recommended by my brother, I read this book back-to-back twice and wished every word
+would be memorized by heart.
+"The End of Jobs" tells the importance of having one's own business, and this book
+tells you exactly how. This is THE book that completely change the course of my life.&lt;/p&gt;
+&lt;h3&gt;30. The Willpower Instinct&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt willpower-instinct" src="https://images.gr-assets.com/books/1436737104m/10865206.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Understanding what willpower is and how does it work have such an impact to my life.
+Willpower is like superpower that we all have. Understand it and utilize it properly
+makes us all superheroes. &lt;em&gt;(Side note: I was reading the Mistborn trilogy on the side
+while reading The Willpower Instinct. A fun idea came to me. The willpowers are like
+Mistings' Allomancy powers. Every time you draw willpower to face challenges, you
+burn a bit of your willpower reserves away. There're certain way you can do to recharge
+willpower, but if you don't use them wisely, they'll be burned out very quickly.)&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;31. Trump: The Art of The Deal&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt the-art-of-the-deal" src="https://images.gr-assets.com/books/1442705949m/1032.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Get's a sneak peak into Donal Trump's mind. This person is a great businessman with
+a great mind. I'm giving him more respect after reading this book.&lt;/p&gt;
+&lt;h3&gt;32. The E-myth Revisited&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt e-myth-revisited" src="https://images.gr-assets.com/books/1435673032m/81948.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;This is a great companion book for The 4-hour Work Week. This book explained about the
+"E-myth", the Entrepreneur Myth, for most technician-changed entrepreneur. The product
+of a business isn't the real product of an entrepreneur. It is the business itself that is the
+real product of an entrepreneur. The product of business is just a bi-product of good
+business. There's a distinction between good product and good business. Good product
+does not necessary lead to good business.&lt;/p&gt;
+&lt;h3&gt;33. Mistborn: The Final Empire&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt mistborn-1" src="https://images.gr-assets.com/books/1314601971m/6547258.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;No doubt this is the my favorite novel of the year! OMG I've never enjoyed a novel this
+much, and yet this is my very first book in the high-fantasy genre. I'll definitely read
+more fantasy books in the future.&lt;/p&gt;
+&lt;p&gt;This book completely blew my mind away! That was the most satisfying reading experience one could get. 
+Brandon Sanderson is a genius. The fantasy world he created was simply amazing - its well-thought
+magic system was the reason I first start reading the book but it was the characters and the twisted 
+plots that stopped me from putting it down! It's full of tensions and OMG-that-did-not-just-happened 
+throughout the book. I literary cried at a very emotional moment. I never cried over a book before. 
+That how great it is. &lt;/p&gt;
+&lt;p&gt;It's the longest book I read in ages but I totally enjoyed every minute of 30 hours. 
+I just can't wait to reading the rest of two books of the trilogy.&lt;/p&gt;
+&lt;h3&gt;34. A Brief History of Time&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt brief-history-of-time" src="https://images.gr-assets.com/books/1333578746m/3869.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;I forgot most of the Quantum Mechanics and General Astronomy I learned in College.
+But this is a very good introductory book for understanding those concepts plus more
+contemporary science that's not covered in college curriculum. I was listening to
+audio version of this book and I just didn't have time to let the concepts sink in.
+Still, the book is fun and reminds me of the amazing mother nature. Or the universe.&lt;/p&gt;
+&lt;h3&gt;35. Redshirts&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt redshirts" src="https://images.gr-assets.com/books/1348617890m/13055592.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Hugo winner! It was a fun and casual book. It has very interesting prospect of the
+science fiction world.&lt;/p&gt;
+&lt;h3&gt;36. Speaker for the Dead&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt speaker-for-the-dead" src="https://images.gr-assets.com/books/1295660894m/7967.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;The second book of The Ender Quintet. This book felt so different from Ender's Game.
+It has so much more depth in emotions and morals. I still like Ender's Game more, but
+not because this book isn't great. Speaker for the Dead is just too overwhelming to
+me to grasp. Likely I'll revisit this book in the future.&lt;/p&gt;
+&lt;h3&gt;37. The 10X Rule&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt 10x-rule" src="https://images.gr-assets.com/books/1310779133m/10339170.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Set your goal to incredibly high and take massive action towards it.&lt;/p&gt;
+&lt;h3&gt;38. A Monster Calls&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt a-monster-calls" src="https://images.gr-assets.com/books/1474081871m/28588061.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;A very beautiful story about facing death. &lt;/p&gt;
+&lt;h3&gt;39. Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt grokking-algorithms" src="https://images.gr-assets.com/books/1458747997m/22847284.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;I love this algorithm book! Especially the part explaining dynamic programming. 
+All the illustrations are beautiful and feels very friendly, which makes an algorithm
+book much more intriguing.&lt;/p&gt;
+&lt;h3&gt;40. 台灣不教的中國近代史&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt modern-history-china" src="https://images.gr-assets.com/books/1426748118m/25173379.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;我最喜歡的部份是蔣中正的故事。蔣中正在中國近代史中是滿爭議的人物，所以我很想多了解這個人。
+作者出生在中國大陸、經歷過文化大革命，後來到日本定居。從他的角度說了蔣中正是怎麼崛起、抗日、
+敗給中國共產黨。不論他對後世的影響，我很佩服蔣中正做事的決心、打仗的謀略、跟面對高壓環境的
+能力。我比較驚訝的是抗日之後，他幾乎像是性情大變，形勢錯估得離譜然後就輸得一塌糊塗。不知道
+是我看錯他的個性還是抗日改變了他。書的其他部分還滿有趣的但我沒有很喜歡作者敘事的語氣，滿多
+時候帶了太多個人情感。&lt;/p&gt;
+&lt;h3&gt;41. Code Name Verity (still reading)&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="alt code-name-verity" src="https://images.gr-assets.com/books/1373223199m/16250900.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;A beautiful story about friendships. Still reading.&lt;/p&gt;</content><category term="book"></category></entry><entry><title>Never Write For-Loops Again</title><link href="http://localhost:8000/never-write-for-loops.html" rel="alternate"></link><published>2016-11-17T00:00:00-08:00</published><updated>2016-11-17T00:00:00-08:00</updated><author><name>Daw-Ran Liou</name></author><id>tag:localhost,2016-11-17:/never-write-for-loops.html</id><summary type="html">&lt;p&gt;Challenge yourself to use awesome language features instead of for-loops&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is a challenge. I challenge you to avoid writing for-loops in every scenario.
 Also, I challenge you to find the scenarios that are so freaking hard to write 
 anything else but a for-loop. Please share your findings. I’d like to hear about
 them.&lt;/p&gt;
