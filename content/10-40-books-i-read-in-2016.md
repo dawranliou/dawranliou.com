@@ -5,7 +5,7 @@ Tags: book
 Slug: 40-books-in-2016
 Authors: Daw-Ran Liou
 Summary: Summarizing the books I read in 2016
-Cover: https://s.gr-assets.com/assets/challenges/2016/reading_challenge_banner-a0ce4577a8ece15e3dc5d17084080244.png
+Cover: images/10-40-books-i-read-in-2016.jpg
 
 ![alt 2016-read-challenge](https://s.gr-assets.com/assets/challenges/2016/reading_challenge_banner-a0ce4577a8ece15e3dc5d17084080244.png)
 
