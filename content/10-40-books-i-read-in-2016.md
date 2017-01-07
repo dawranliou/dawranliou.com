@@ -125,24 +125,70 @@ It was the hackers that drove the entire computer revolutions. (*Respects*) I’
 like to recommend this book to anyone who’s in the software/computer industry.
 
 ### 25. The Personal MBA
+Having a technical backgraound, I know so little about business side and this book
+is perfect for peoople like me to start thinking in business. Now I need to turn
+those knowledges into actions. Recommend to all the tech fellows.
 
 ### 26. Getting to Yes
+Seek mutual benefits and always aim for win-win.
 
 ### 27. The Hard Thing about Hard Things
+The book's first part tells the CRAZY startup story of Ben Horowitz. Reading
+his words, I was so terrified and yet amazed by all the things he'd been through.
+In the rests of the book, Ben explained what the hard things are and what he'd
+learned from it. I am full of respect to the author and anyone starting a company.
 
 ### 28. The Richest Man in Babylon
+Full of wise thoughts about personal finance. My favorite quote is _"A part of what
+I earned is mine to keep."_ Pay yourself first when you get the paycheck, instead of
+paying the merchants. Financial education is so important yet totally missed-out in
+our education. Glad that I start gaining more knowledge about it.
 
 ### 29. The 4-hour Work Week
+This is one of my favorites. I can't tell you how much my mind was blown by this book.
+Recommended by my brother, I read this book back-to-back twice and wished every word
+would be memorized by heart.
+"The End of Jobs" tells the importance of having one's own business, and this book
+tells you exactly how. This is THE book that completely change the course of my life.
 
 ### 30. The Willpower Instinct
+Understanding what willpower is and how does it work have such an impact to my life.
+Willpower is like superpower that we all have. Understand it and utilize it properly
+makes us all superheroes. _(Side note: I was reading the Mistborn trilogy on the side
+while reading The Willpower Instinct. A fun idea came to me. The willpowers are like
+Mistings' Allomancy powers. Every time you draw willpower to face challenges, you
+burn a bit of your willpower reserves away. There're certain way you can do to recharge
+willpower, but if you don't use them wisely, they'll be burned out very quickly.)_
 
 ### 31. Trump: The Art of The Deal
+Get's a sneak peak into Donal Trump's mind. This person is a great businessman with
+a great mind. I'm giving him more respect after reading this book.
 
 ### 32. The E-myth Revisited
+This is a great companion book for The 4-hour Work Week. This book explained about the
+"E-myth", the Entrepreneur Myth, for most technician-changed entrepreneur. The product
+of a business isn't the real product of an entrepreneur. It is the business itself that is the
+real product of an entrepreneur. The product of business is just a bi-product of good
+business. There's a distinction between good product and good business. Good product
+does not necessary lead to good business.
 
 ### 33. Mistborn: The Final Empire
+No doubt this is the my favorite novel of the year! OMG I've never enjoyed a novel this
+much, and yet this is my very first book in the high-fantasy genre. I'll definitely read
+more fantasy books in the future.
+
+This book completely blew my mind away! That was the most satisfying reading experience one could get. 
+Brandon Sanderson is a genius. The fantasy world he created was simply amazing - its well-thought
+magic system was the reason I first start reading the book but it was the characters and the twisted 
+plots that stopped me from putting it down! It's full of tensions and OMG-that-did-not-just-happened 
+throughout the book. I literary cried at a very emotional moment. I never cried over a book before. 
+That how great it is. 
+
+It's the longest book I read in ages but I totally enjoyed every minute of 30 hours. 
+I just can't wait to reading the rest of two books of the trilogy.
 
 ### 34. A Brief History of Time
+
 
 ### 35. Redshirts
 
