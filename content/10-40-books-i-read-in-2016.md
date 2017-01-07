@@ -188,13 +188,24 @@ It's the longest book I read in ages but I totally enjoyed every minute of 30 ho
 I just can't wait to reading the rest of two books of the trilogy.
 
 ### 34. A Brief History of Time
-
+I forgot most of the Quantum Mechanics and General Astronomy I learned in College.
+But this is a very good introductory book for understanding those concepts plus more
+contemporary science that's not covered in college curriculum. I was listening to
+audio version of this book and I just didn't have time to let the concepts sink in.
+Still, the book is fun and reminds me of the amazing mother nature. Or the universe.
 
 ### 35. Redshirts
+Hugo winner! It was a fun and casual book. It has very interesting prospect of the
+science fiction world.
 
 ### 36. Speaker for the Dead
+The second book of The Ender Quintet. This book felt so different from Ender's Game.
+It has so much more depth in emotions and morals. I still like Ender's Game more, but
+not because this book isn't great. Speaker for the Dead is just too overwhelming to
+me to grasp. Likely I'll revisit this book in the future.
 
 ### 37. The 10X Rule
+
 
 ### 38. A Monster Calls
 
