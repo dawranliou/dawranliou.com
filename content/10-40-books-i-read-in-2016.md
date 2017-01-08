@@ -7,7 +7,7 @@ Authors: Daw-Ran Liou
 Summary: Summarizing the books I read in 2016
 Cover: images/10-40-books-i-read-in-2016.jpg
 
-![alt 2016-read-challenge](https://s.gr-assets.com/assets/challenges/2016/reading_challenge_banner-a0ce4577a8ece15e3dc5d17084080244.png)
+![alt cover](images/10-40-books-i-read-in-2016.jpg)
 
 I challenged myself to read 10 books this year and I ended up reading 40 of them. Phew.
 What a great year, 2016! I really picked up this new-found habbit of reading.
@@ -19,7 +19,6 @@ to see which book I'm currently reading. Let's read more! Here's my top 5 picks 
 3. The 4-hour Work Week (#29)
 4. The Martian (#14)
 5. Ready Player One (#15)
-
 
 ### 1. The Lean Startup
 ![alt the-lean-startup](https://images.gr-assets.com/books/1333576876m/10127019.jpg)
