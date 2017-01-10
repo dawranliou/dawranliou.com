@@ -4,7 +4,7 @@ Category: Python
 Tags: python, beginner
 Slug: generator-the-basics
 Authors: Daw-Ran Liou
-Summary: These are the basic things you need to know about generators and how to use it to crack algorithm problem
+Summary: These are the basic things you need to know about generators and how to use it to crack some algorithm problems
 Cover:
 
 _I've been wanting to write articles about generators for quite some time.
@@ -157,7 +157,7 @@ def perfect_24_7_drive_thru():
 'doubledouble and animal fries'
 >>> next(meal)
 'doubledouble and animal fries'
->>> # forever and ever
+>>> # forever and ever satisfaction
 ```
 
 Recall what I said, generators are iterables. Thus, be confident to iterate through
@@ -180,10 +180,11 @@ Counter({'bun': 2, 'patty': 2, 'cheese': 2, 'veggies': 1, 'sause': 1, 'onion': 1
 
 # 4. Generator in action
 
-To demonstrate some examples using generators, I'm also going to show you
-how to solve the problem without them.
+To demonstrate some examples using generators, I'm going to show you
+how to solve the problems without them, and then with them, so we could
+compare different flavors.
 
-## Let's crack an algorithm questions using generators!
+### Fibonacci number series
 
 Assuming we have a function to calculate the incredible series of data - the first n
 fibonacci numbers. This is the recursive solution most of us learned (with caching to
@@ -226,9 +227,51 @@ def fibonacci_generator(nth):
 [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 ```
 
+I love recurrsion. I think they are elegent and beautiful. However, I do find
+the generator version of the solution is much easy for my brain. If you only
+compare the `fibonacci` function and the `fibonacci_generator` function, the
+difference may not be significant, and the coding style really depends on
+personal preferences. Let's look at other examples.
 
-Foot notes
-1. For instance, you can mix in the return statement,
-but to keep it simple, (unless there's a good reason to do so,) let's not
-mix them together. 
+### Sliding window
+
+Given a sequence and the window size, an example of sliding window function's
+input-output pair is:
+> ```'ABCDEF', size=2 -> 'AB', 'BC', 'CD', 'DE', 'EF'```
+
+A naive iterative solution is:
+
+```python
+def sliding_window(sequence, size):
+    result = []
+    for i in range(len(sequence)-size+1):
+        result.append(sequence[i:i+size])
+    return result
+
+>>> sliding_window('ABCDEF', 2)
+['AB', 'BC', 'CD', 'DE', 'EF']
+```
+
+A generator approach is:
+
+```python
+def sliding_window(sequence, size):
+    for i in range(len(sequence)-size+1):
+        yield sequence[i:i+size]
+
+>>> list(sliding_window('ABCDEF', 2))
+['AB', 'BC', 'CD', 'DE', 'EF']
+```
+
+This example I think the generator approach is significantly better
+than the naive iterative solution. First off, the code is much cleaner.
+Second, the purpose of the sliding window function does not have so many
+duplicates hanging around in memory.
+
+Say, you have a large data set for a machine learning model.
+The sliding window is used to segment the data for training and
+cross validation. In this case, you really don't need all the
+other data while working on the current data.
+
+### 
 
