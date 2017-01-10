@@ -4,7 +4,7 @@ Category: Python
 Tags: python, beginner
 Slug: generator-the-basics
 Authors: Daw-Ran Liou
-Summary: The basic things you need to know about generators and how to use it to crack algorithm problem
+Summary: These are the basic things you need to know about generators and how to use it to crack algorithm problem
 Cover:
 
 _I've been wanting to write articles about generators for quite some time.
@@ -109,7 +109,7 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 StopIteration
 ```
-No only do generators are iterators, they are also iterables!
+Not only do generators are iterators, they are also iterables!
 (You can know more about the distinction between iterables and iterators from 
 []().) The builtin `iter` function call simply returns the generator itself,
 which is a iterator:
@@ -121,14 +121,72 @@ True
 
 Thus, all the builtin functions and external APIs that takes iterables
 as input, works for generators! _(This is one of the most exciting realization
-I had learning Python.)_ Keep in mind that generators are iterables. We're
+I had learning Python.)_ Keep this in mind. We're
 counting on it for the next section.
 
 # 3. How do I use generators?
 
-Recall that I said generators are good to generate a series of data. Assuming
-we have a function to calculate the incredible series of data - the first n
-fibonacci numbers. The recursive solution most of us learned (with caching to
+Recall that I said generators are good to generate a series of data. Thus,
+using generators with loops is a good idea:
+
+```python
+def best_burger_generator():
+    yield 'bun'
+    yield 'veggies'
+    for i in range(2):
+        yield 'patty'
+        yield 'cheese'
+    yield 'sause'
+    yield 'onion'
+    yield 'bun'
+
+>>> doubledouble_recipe = best_burger_generator()
+>>> list(doubledouble_recipe)
+['bun', 'veggies', 'patty', 'cheese', 'patty', 'cheese', 'sause', 'onion', 'bun']
+```
+
+Or to generate an infinite series of data:
+
+```python
+def perfect_24_7_drive_thru():
+    while True:
+        yield 'doubledouble and animal fries'
+
+>>> meal = perfect_24_7_drive_thru()
+>>> next(meal)
+'doubledouble and animal fries'
+>>> next(meal)
+'doubledouble and animal fries'
+>>> # forever and ever
+```
+
+Recall what I said, generators are iterables. Thus, be confident to iterate through
+them or plug them into functions that takes iterables:
+
+```python
+>>> for ingredient in best_burger_generator():
+...     print(ingredient)
+...
+bun
+veggies
+patty
+# rests
+
+>>> from collections import Counter
+>>> ingredients = Counter(best_burger_generator())
+>>> ingredients
+Counter({'bun': 2, 'patty': 2, 'cheese': 2, 'veggies': 1, 'sause': 1, 'onion': 1})
+```
+
+# 4. Generator in action
+
+To demonstrate some examples using generators, I'm also going to show you
+how to solve the problem without them.
+
+## Let's crack an algorithm questions using generators!
+
+Assuming we have a function to calculate the incredible series of data - the first n
+fibonacci numbers. This is the recursive solution most of us learned (with caching to
 boost performance):
 
 ```python
@@ -168,9 +226,6 @@ def fibonacci_generator(nth):
 [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 ```
 
-
-# 4. Generator in action
-## Let's crack an algorithm questions using generators!
 
 Foot notes
 1. For instance, you can mix in the return statement,
