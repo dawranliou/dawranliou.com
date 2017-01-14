@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet/less" type="text/css" href="http://localhost:8000/theme/stylesheet/style.less">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js" type="text/javascript"></script>
+
+  <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/pygments/monokai.min.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/font-awesome/css/font-awesome.min.css">
+
+
+    <link href="http://localhost:8000/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Daw-Ran Liou's Blog Atom">
+
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="Daw-Ran Liou" />
+<meta name="description" content="These are the basic things you need to know about generators and how to use it to crack some algorithm problems" />
+<meta name="keywords" content="python, beginner">
+<meta property="og:site_name" content="Daw-Ran Liou's Blog"/>
+<meta property="og:title" content="Generator - The Basics"/>
+<meta property="og:description" content="These are the basic things you need to know about generators and how to use it to crack some algorithm problems"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="http://localhost:8000/generator-the-basics.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-01-07 00:00:00-08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="http://localhost:8000/author/daw-ran-liou.html">
+<meta property="article:section" content="Python"/>
+<meta property="article:tag" content="python"/>
+<meta property="article:tag" content="beginner"/>
+<meta property="og:image" content="http://localhost:8000/">
+
+  <title>Daw-Ran Liou's Blog &ndash; Generator - The Basics</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="http://localhost:8000">
+        <img src="//en.gravatar.com/userimage/99964636/f9367cffe912e77fa93af6784d93b99e.jpg?size=120" alt="Daw-Ran Liou" title="Daw-Ran Liou">
+      </a>
+      <h1><a href="http://localhost:8000">Daw-Ran Liou</a></h1>
+
+<p>Software Developer - Maker</p>
+
+      <ul class="social">
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/randyliou" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/dawranliou" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/dawran6" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-medium" href="https://medium.com/@dawran6" target="_blank"><i class="fa fa-medium"></i></a></li>
+        <li><a class="sc-rss" href="//dawranliou.com/feeds/all.atom.xml" target="_blank"><i class="fa fa-rss"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="http://localhost:8000">    Home
+</a>
+
+      <a href="/archives.html">Archives</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
+
+      <a href="http://localhost:8000/feeds/all.atom.xml">    Atom
+</a>
+
+    </nav>
+
+<article class="single">
+  <header>
+    <h1 id="generator-the-basics">Generator - The Basics</h1>
+    <p>
+          Posted on Sat 07 January 2017 in <a href="http://localhost:8000/category/python.html">Python</a>
+
+
+        &#8226; 7 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><em>I've been wanting to write articles about generators for quite some time.
+Generator is definitely one of my favorate features in Python. Ever since I stopped treating
+Python like other programming languages, e.g. Java or C++,
+I start having so much fun writing codes.
+Unlike other very powerful features (decorators, 
+context managers, or classes) that I sometimes abused a lot, Generators don't
+ever seemed to be too much in my code. They have strong purpose in the code, and are very
+beautiful in the codes. In this article, I'll explain the basics things about generators.
+At the end, I'll show you how to use it to solve some problems.</em></p>
+<h1>1. Why do I need to know generators?</h1>
+<p>There're two categories of use cases:</p>
+<ol>
+<li>To generate a series of data</li>
+<li>To pause code execution</li>
+</ol>
+<p>For category #1, you might think <em>"why we need another tool while we already
+know how to write lists to store a series of data?"</em> There are three reasons:
+1) list can't solve all problems, 2) performance, and 3) code style. </p>
+<ol>
+<li>List can't solve all problems. In the cases that we have a infinite 
+series of data (e.g. generating prime numbers,) or the series of data 
+that we can't tell when it'll stop (e.g. parsing log files that still are adding more
+entries,) there's no easy way to extract this part of code into
+a function that returns a list. On the other hand, generators are perfectly fine 
+for these jobs.</li>
+<li>Performance. Space-wise, if the data series consumer just need one data point
+at a time, why waste the memory to hold the entire copy of the data series? Time-wise,
+if the data consumer does not require all the data to be present to do the next
+thing, why waste time to wait till all data are at hand while you can pass on the
+data to do work at the same time? Generators are good for both cases.</li>
+<li>Code style. This is a bit opinionative. I feel coding with generators is usually cleaner and
+easier to understand then functions without them. Also opinionative, usually a generator code is
+a hint of outputing a series of data. Therefore, I have some idea of what the
+code is doing even without looking at the code line-by-line.</li>
+</ol>
+<p>For category #2, this is something very powerful. Normal functions, or
+called subroutines, execute line by line till they <code>return</code> control to
+the caller. Generators, or a coroutine, execute till they <code>yield</code> a value
+to the caller and pause the current state untill their caller invoke them
+again to resume the execution. My favorite examples for this case is the
+<code>@contextlib.contextmanager</code> decorator in <a href="https://www.oreilly.com/learning/20-python-libraries-you-arent-using-but-should#contextlib-ZKsPtpTX">20 Python libraries you aren't using (but should)</a>
+and also David Beazley's incredible live demo in PyCon 2015 -<a href="https://www.youtube.com/watch?v=MCs5OvhV9S4">Python Concurrency From the Ground Up: LIVE!</a>.</p>
+<h1>2. What are generators?</h1>
+<p>Python's generator is a special case of <a href="https://en.wikipedia.org/wiki/Coroutine">coroutine</a>.
+If looking at the proper definition gives you an headache, my way of understanding
+it is - <em>generators are functions that don't return</em>. I admit there are many
+flaws in my definition, but this definition helps me to understand some key
+concepts. Ask yourself a question, <em>what does <code>return</code> mean?</em></p>
+<p><code>return</code> means to return control to the caller. Python virtual machine is a
+stack machine. When a function is called, a frame object is PUSH onto the
+execution stack. This frame object is a mini enviroment for the function.
+Having this enclosing mini environment, the function could have its own
+variables without worring about variable names colliding with the outter
+environment. When the funtion returns, the frame object is POPPED from the
+stack. All the variables sitting inside the mini environment are gone. The
+caller regains full control and continues.</p>
+<p>Generators, however, do not return full control to the caller. Instead, they
+pause (or yield.) Thus, the mini enviroment of the generators, are still
+sitting somewhere in the memory, waiting to be invoked.</p>
+<p>Before I bored you to death with all the discriptions, let's see some code
+example.</p>
+<p>Just like functions are objects in Python, generators are also objects.
+They are special objects that looks very similar to regular function 
+definitions but behaves very differently:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">a_function</span><span class="p">():</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+<span class="k">def</span> <span class="nf">a_generator</span><span class="p">():</span>
+    <span class="k">yield</span> <span class="bp">True</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_function</span><span class="p">()</span>
+<span class="bp">True</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_generator</span><span class="p">()</span>
+<span class="o">&lt;</span><span class="n">generator</span> <span class="nb">object</span> <span class="n">a_generator</span> <span class="n">at</span> <span class="mi">0</span><span class="n">x</span><span class="o">...&gt;</span>
+</pre></div>
+
+
+<p>When generator objects are created, they don't start executing immediately.
+Generator objects, like <code>a_generator()</code>, follow the Iterator Protocal. So
+to invoke them, you can use the builtin function <code>next()</code></p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">g</span> <span class="o">=</span> <span class="n">a_generator</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">StopIteration</span>
+</pre></div>
+
+
+<p>Not only do generators are iterators, they are also iterables!
+(You can know more about the distinction between iterables and iterators from 
+<a href="https://www.youtube.com/watch?v=EnSu9hHGq5o">Ned Batchelder - Loop like a native: while, for, iterators, generators</a>.)
+The builtin <code>iter</code> function call simply returns the generator itself,
+which is a iterator:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">iter</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="ow">is</span> <span class="n">g</span>
+<span class="bp">True</span>
+</pre></div>
+
+
+<p>Thus, all the builtin functions and external APIs that takes iterables
+as input, works for generators! <em>(This is one of the most exciting realization
+I had while learning Python.)</em> Keep this in mind. We're
+counting on it for the next section.</p>
+<h1>3. How do I use generators?</h1>
+<p>Recall that I said generators are good to generate a series of data. Thus,
+using generators with loops is a good idea:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">best_burger_generator</span><span class="p">():</span>
+    <span class="k">yield</span> <span class="s1">&#39;bun&#39;</span>
+    <span class="k">yield</span> <span class="s1">&#39;veggies&#39;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="s1">&#39;patty&#39;</span>
+        <span class="k">yield</span> <span class="s1">&#39;cheese&#39;</span>
+    <span class="k">yield</span> <span class="s1">&#39;sause&#39;</span>
+    <span class="k">yield</span> <span class="s1">&#39;onion&#39;</span>
+    <span class="k">yield</span> <span class="s1">&#39;bun&#39;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">doubledouble_recipe</span> <span class="o">=</span> <span class="n">best_burger_generator</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="n">doubledouble_recipe</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;bun&#39;</span><span class="p">,</span> <span class="s1">&#39;veggies&#39;</span><span class="p">,</span> <span class="s1">&#39;patty&#39;</span><span class="p">,</span> <span class="s1">&#39;cheese&#39;</span><span class="p">,</span> <span class="s1">&#39;patty&#39;</span><span class="p">,</span> <span class="s1">&#39;cheese&#39;</span><span class="p">,</span> <span class="s1">&#39;sause&#39;</span><span class="p">,</span> <span class="s1">&#39;onion&#39;</span><span class="p">,</span> <span class="s1">&#39;bun&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Or to generate an infinite series of data:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">perfect_24_7_drive_thru</span><span class="p">():</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="s1">&#39;doubledouble and animal fries&#39;</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">drive_thru</span> <span class="o">=</span> <span class="n">perfect_24_7_drive_thru</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">drive_thru</span><span class="p">)</span>
+<span class="s1">&#39;doubledouble and animal fries&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">drive_thru</span><span class="p">)</span>
+<span class="s1">&#39;doubledouble and animal fries&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># forever and ever satisfaction</span>
+</pre></div>
+
+
+<p>Recall what I said, generators are iterables. Thus, be confident to iterate through
+them or plug them into functions that takes iterables:</p>
+<div class="highlight"><pre><span></span><span class="c1"># loop through the generator with a for-loop</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">ingredient</span> <span class="ow">in</span> <span class="n">best_burger_generator</span><span class="p">():</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="n">ingredient</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="n">bun</span>
+<span class="n">veggies</span>
+<span class="n">patty</span>
+<span class="c1"># rests</span>
+
+<span class="c1"># use API that take an iterable</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ingredients</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">best_burger_generator</span><span class="p">())</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ingredients</span>
+<span class="n">Counter</span><span class="p">({</span><span class="s1">&#39;bun&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;patty&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;cheese&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;veggies&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;sause&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;onion&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+</pre></div>
+
+
+<h1>4. Generator in action</h1>
+<p>To demonstrate some examples using generators, I'm going to show you
+how to solve problems without them, and then with them, so we could
+compare the different flavors.</p>
+<h3>Fibonacci number series</h3>
+<p>Assuming we have a function to calculate the incredible series of data - the first n
+fibonacci numbers. This is the recursive solution most of us learned (with caching to
+get some performance):</p>
+<div class="highlight"><pre><span></span><span class="c1"># Recursive solution to get the first 10 fibonacci numbers</span>
+<span class="kn">import</span> <span class="nn">functools</span>
+
+<span class="nd">@functools.lru_cache</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">nth</span><span class="p">):</span>
+    <span class="s2">&quot;Calculate the nth fibonacci number.&quot;</span>
+    <span class="k">if</span> <span class="n">nth</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">nth</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">nth</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">fibonacci_series</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">fibonacci_series</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">55</span><span class="p">]</span>
+</pre></div>
+
+
+<p>And here's an iterative solution with generator:</p>
+<div class="highlight"><pre><span></span><span class="c1"># Iterative solution to get the first 10 fibonacci numbers using generator</span>
+<span class="k">def</span> <span class="nf">fibonacci_generator</span><span class="p">(</span><span class="n">nth</span><span class="p">):</span>
+    <span class="s2">&quot;Yield the first nth fibonacci number.&quot;</span>
+    <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nth</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">m</span>
+        <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="n">m</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">fibonacci_generator</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">55</span><span class="p">]</span>
+</pre></div>
+
+
+<p>I love recurrsion. I think they are elegent and beautiful. However, I do find
+the generator version of the solution much easier for my brain. If you only
+compare the <code>fibonacci</code> function and the <code>fibonacci_generator</code> function, the
+difference may not be significant, and the coding style really depends on
+personal preferences. So I say it's a draw. Let's look at other examples.</p>
+<h3>Sliding window</h3>
+<p>Given a sequence and the window size, an example of sliding window function's
+input-output pair is:</p>
+<blockquote>
+<p><code>'ABCDEF', size=2 -&gt; 'AB', 'BC', 'CD', 'DE', 'EF'</code></p>
+</blockquote>
+<p>A naive iterative solution is:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sliding_window</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span><span class="o">-</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sequence</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">size</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sliding_window</span><span class="p">(</span><span class="s1">&#39;ABCDEF&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span> <span class="s1">&#39;BC&#39;</span><span class="p">,</span> <span class="s1">&#39;CD&#39;</span><span class="p">,</span> <span class="s1">&#39;DE&#39;</span><span class="p">,</span> <span class="s1">&#39;EF&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>A generator approach is:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sliding_window</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span><span class="o">-</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">sequence</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">size</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="n">sliding_window</span><span class="p">(</span><span class="s1">&#39;ABCDEF&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="p">[</span><span class="s1">&#39;AB&#39;</span><span class="p">,</span> <span class="s1">&#39;BC&#39;</span><span class="p">,</span> <span class="s1">&#39;CD&#39;</span><span class="p">,</span> <span class="s1">&#39;DE&#39;</span><span class="p">,</span> <span class="s1">&#39;EF&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>This example I think the generator approach is significantly better
+than the other. First off, the code is much cleaner.
+Second, the purpose of the sliding window function is to be consumed
+by another function, one-at-a-time. Why keep duplicates hanging around in memory?</p>
+<p>Say, you have a large data set for a machine learning model.
+The sliding window is used to segment the data for training and
+cross validation. Data <code>A</code> for training while <code>B</code> for cross validation; then,
+<code>B</code> for training, <code>C</code> for cross validation. In this case, you really don't need all the
+other data while working on the current one.</p>
+<h1>5. Conclusion</h1>
+<p>Being fluent in using generators is one of the things that took
+my Python to the next level. They are expressive, cleaner, and for
+most of the time, more efficient.</p>
+<h1>6. Action</h1>
+<p>Next time when you're writing some Python code, if there's a function
+that need to return a sequence of data, think if it make sense to refactor
+it as a generator function.</p>
+<p>And for your own study, take a look at the Python official document page
+<a href="https://docs.python.org/3/library/itertools.html">10.1 itertools</a>. There
+are lots of examples of using the <code>yield</code> expression.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="http://localhost:8000/tag/python.html">python</a>
+      <a href="http://localhost:8000/tag/beginner.html">beginner</a>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>
+  &copy; Daw-Ran Liou 2016 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+         src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Daw-Ran Liou's Blog ",
+  "url" : "http://localhost:8000",
+  "image": "//en.gravatar.com/userimage/99964636/f9367cffe912e77fa93af6784d93b99e.jpg?size=120",
+  "description": "Daw-Ran Liou's Thoughts and Writings"
+}
+</script>
+</body>
+</html>
