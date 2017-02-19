@@ -1,5 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Daw-Ran Liou's Blog - Python</title><link href="http://localhost:8000/" rel="alternate"></link><link href="http://localhost:8000/feeds/python.atom.xml" rel="self"></link><id>http://localhost:8000/</id><updated>2017-01-07T00:00:00-08:00</updated><entry><title>Generator - The Basics</title><link href="http://localhost:8000/generator-the-basics.html" rel="alternate"></link><published>2017-01-07T00:00:00-08:00</published><updated>2017-01-07T00:00:00-08:00</updated><author><name>Daw-Ran Liou</name></author><id>tag:localhost,2017-01-07:/generator-the-basics.html</id><summary type="html">&lt;p&gt;These are the basic things you need to know about generators and how to use it to crack some algorithm problems&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;I've been wanting to write articles about generators for quite some time.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Daw-Ran Liou's Blog - Python</title><link href="http://localhost:8000/" rel="alternate"></link><link href="http://localhost:8000/feeds/python.atom.xml" rel="self"></link><id>http://localhost:8000/</id><updated>2017-02-18T00:00:00-08:00</updated><entry><title>Closures bind late</title><link href="http://localhost:8000/closures-bind-late.html" rel="alternate"></link><published>2017-02-18T00:00:00-08:00</published><updated>2017-02-18T00:00:00-08:00</updated><author><name>Daw-Ran Liou</name></author><id>tag:localhost,2017-02-18:/closures-bind-late.html</id><summary type="html">&lt;p&gt;The behavior of closure might trick you&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="alt turtle" src="images/turtle.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;"Closure is a turtle carrying its shell," my favorite explaination to
+closures, quote by &lt;a href="https://twitter.com/raymondh"&gt;Raymond Hettinger&lt;/a&gt;. 
+With closures, lots of great features are possible
+in Python like higher order functions and decorators. &lt;/p&gt;
+&lt;p&gt;I came across this StackOverflow post - 
+&lt;a href="http://stackoverflow.com/questions/42003351/how-can-i-return-a-function-that-uses-the-value-of-a-variable"&gt;How can I return a function that uses the value of a variable?&lt;/a&gt;
+, which helped me bridging the gap in my knowledge,
+the gap that I sort-of understood it but couldn't explain it very well. 
+The bridge is just a simple sentence, "closures bind late."&lt;/p&gt;
+&lt;p&gt;What does "closures bind late" mean exactly?
+Consider a function generator that generates a series of multiplication
+functions starting from 0 to &lt;code&gt;max&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;mult_function_generator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;
+
+&lt;span class="n"&gt;mult_functions&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mult_function_generator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;func&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;mult_functions&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="c1"&gt;# Oh crap, it&amp;#39;s [6, 6, 6], not [0, 3, 6]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Seems like all the &lt;code&gt;i&lt;/code&gt;s in the generated functions are assigned to 2,
+which is the last value of &lt;code&gt;i&lt;/code&gt; after all functions were being generated.
+Let's take a closer look at what's behind the scene. First of all, how does
+a closure represent in Python, or, how the turtle shell looks like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;mult_functions&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mult_function_generator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;mult_zero&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;next&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mult_functions&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;mult_zero&lt;/span&gt;
+&lt;span class="c1"&gt;# &amp;lt;function ...&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To look at the closure, there's a special attribute in each function called
+&lt;code&gt;__closure__&lt;/code&gt; (quite obvious, huh?)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;mult_zero&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__closure__&lt;/span&gt;
+&lt;span class="c1"&gt;# (&amp;lt;cell at 0x..., int object at 0x...&amp;gt;,)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Okay, we are getting closer. The &lt;code&gt;__closure__&lt;/code&gt; attribute is a tuple of &lt;code&gt;cell&lt;/code&gt;
+objects. Let's see what's inside the cell, which has an attribute
+&lt;code&gt;cell_contents&lt;/code&gt; to help us:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;cell_zero&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mult_zero&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__closure__&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;cell_zero&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cell_contents&lt;/span&gt;
+&lt;span class="c1"&gt;# 0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Bingo! This is the int object &lt;code&gt;i&lt;/code&gt; that trapped inside the function's closure.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;(I haven't figured out how Python find the reference of &lt;code&gt;i&lt;/code&gt; so I
+won't go any further. For more discussion please refer to the Appendix
+section.)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The interesting thing is, the same cell object is used across our multiplication
+functions. Thus, when we get the second function:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;mult_one&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;next&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mult_functions&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;cell_one&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mult_one&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__closure__&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;cell_one&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cell_contents&lt;/span&gt;
+&lt;span class="c1"&gt;# 1&lt;/span&gt;
+&lt;span class="c1"&gt;# So far so good. But...&lt;/span&gt;
+&lt;span class="n"&gt;cell_zero&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cell_contents&lt;/span&gt;
+&lt;span class="c1"&gt;# 1&lt;/span&gt;
+&lt;span class="c1"&gt;# Crap!&lt;/span&gt;
+&lt;span class="n"&gt;cell_zero&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;cell_one&lt;/span&gt;
+&lt;span class="c1"&gt;# True&lt;/span&gt;
+&lt;span class="c1"&gt;# Okay fine&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The same cell object means the same reference to &lt;code&gt;i&lt;/code&gt;. This explains what happened
+in this example. Or, if you like, you could explain all this by saying, "closures
+bind late." They are both correct but just with different mental models.&lt;/p&gt;
+&lt;p&gt;Now we understand the problem that introduced by late binding. Let's see how to
+bind the variable during function declaration. The idea is to have &lt;code&gt;i&lt;/code&gt; also
+be a argument passed into the lambda function and then we assign the value
+immediately:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;mult_function_generator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Or if you like partial functions:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;mult_function_generator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="n"&gt;functools&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;partial&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Or my favorite one:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;mult_function_generator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The last one works because default arguments is assigned when the 
+function is defined.&lt;/p&gt;
+&lt;h3&gt;Bonus&lt;/h3&gt;
+&lt;p&gt;My favorite example for taking advantage of the late binding closure
+is from &lt;a href="https://www.oreilly.com/learning/20-python-libraries-you-arent-using-but-should"&gt;20 Python libraries you aren't using (but should)&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;time&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;perf_counter&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;array&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;array&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;contextlib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;contextmanager&lt;/span&gt;
+
+&lt;span class="nd"&gt;@contextmanager&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;timing&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;t0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;perf_counter&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;t1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;t0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;t1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;perf_counter&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;timing&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Array tests&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;total&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;timing&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Array creation innermul&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;inner&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;d&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;1000000&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;timing&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Array creation outermul&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;outer&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;d&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;1000000&lt;/span&gt;
+
+
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Total [&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s1"&gt;]: &lt;/span&gt;&lt;span class="si"&gt;%.6f&lt;/span&gt;&lt;span class="s1"&gt; s&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;total&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;    Timing [&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s1"&gt;]: &lt;/span&gt;&lt;span class="si"&gt;%.6f&lt;/span&gt;&lt;span class="s1"&gt; s&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;inner&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;    Timing [&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s1"&gt;]: &lt;/span&gt;&lt;span class="si"&gt;%.6f&lt;/span&gt;&lt;span class="s1"&gt; s&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;outer&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Total [Array tests]: 0.064896 s&lt;/span&gt;
+&lt;span class="c1"&gt;#    Timing [Array creation innermul]: 0.064195 s&lt;/span&gt;
+&lt;span class="c1"&gt;#    Timing [Array creation outermul]: 0.000659 s&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Appendix - discussion on loading a dereferenced variable&lt;/h3&gt;
+&lt;p&gt;Take the &lt;code&gt;mult_zero&lt;/code&gt; function for example. The disambled code looks:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &lt;span class="mi"&gt;3&lt;/span&gt;           &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;LOAD_FAST&lt;/span&gt;                &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+              &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;LOAD_DEREF&lt;/span&gt;               &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+              &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="n"&gt;BINARY_MULTIPLY&lt;/span&gt;
+              &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="n"&gt;RETURN_VALUE&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The second line calls the &lt;code&gt;LOAD_DEREF&lt;/code&gt; op code in Python. My guess
+is that the name &lt;code&gt;i&lt;/code&gt; was never dereferenced because the cell object
+still holds a reference on it. However, &lt;code&gt;i&lt;/code&gt; must be treated specially
+since &lt;code&gt;i&lt;/code&gt; isn't visible to the scope outside the closure functions.
+My next move will be looking into the CPython code to see how this
+op code works exactly.&lt;/p&gt;</content><category term="python"></category></entry><entry><title>Generator - The Basics</title><link href="http://localhost:8000/generator-the-basics.html" rel="alternate"></link><published>2017-01-07T00:00:00-08:00</published><updated>2017-01-07T00:00:00-08:00</updated><author><name>Daw-Ran Liou</name></author><id>tag:localhost,2017-01-07:/generator-the-basics.html</id><summary type="html">&lt;p&gt;These are the basic things you need to know about generators and how to use it to crack some algorithm problems&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;I've been wanting to write articles about generators for quite some time.
 Generator is definitely one of my favorate features in Python. Ever since I stopped treating
 Python like other programming languages, e.g. Java or C++,
 I start having so much fun writing codes.

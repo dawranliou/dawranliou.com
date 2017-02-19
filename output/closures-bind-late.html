@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet/less" type="text/css" href="http://localhost:8000/theme/stylesheet/style.less">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js" type="text/javascript"></script>
+
+  <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/pygments/monokai.min.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/font-awesome/css/font-awesome.min.css">
+
+
+    <link href="http://localhost:8000/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Daw-Ran Liou's Blog Atom">
+
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="Daw-Ran Liou" />
+<meta name="description" content="The behavior of closure might trick you" />
+<meta name="keywords" content="python">
+<meta property="og:site_name" content="Daw-Ran Liou's Blog"/>
+<meta property="og:title" content="Closures bind late"/>
+<meta property="og:description" content="The behavior of closure might trick you"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="http://localhost:8000/closures-bind-late.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-02-18 00:00:00-08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="http://localhost:8000/author/daw-ran-liou.html">
+<meta property="article:section" content="Python"/>
+<meta property="article:tag" content="python"/>
+<meta property="og:image" content="http://localhost:8000/images/turtle.jpg">
+
+  <title>Daw-Ran Liou's Blog &ndash; Closures bind late</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="http://localhost:8000">
+        <img src="//en.gravatar.com/userimage/99964636/f9367cffe912e77fa93af6784d93b99e.jpg?size=120" alt="Daw-Ran Liou" title="Daw-Ran Liou">
+      </a>
+      <h1><a href="http://localhost:8000">Daw-Ran Liou</a></h1>
+
+<p>Software Developer - Maker</p>
+
+      <ul class="social">
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/randyliou" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/dawranliou" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/dawran6" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-medium" href="https://medium.com/@dawran6" target="_blank"><i class="fa fa-medium"></i></a></li>
+        <li><a class="sc-rss" href="//dawranliou.com/feeds/all.atom.xml" target="_blank"><i class="fa fa-rss"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="http://localhost:8000">    Home
+</a>
+
+      <a href="/archives.html">Archives</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
+
+      <a href="http://localhost:8000/feeds/all.atom.xml">    Atom
+</a>
+
+    </nav>
+
+<article class="single">
+  <header>
+    <h1 id="closures-bind-late">Closures bind late</h1>
+    <p>
+          Posted on Sat 18 February 2017 in <a href="http://localhost:8000/category/python.html">Python</a>
+
+
+        &#8226; 3 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="alt turtle" src="images/turtle.jpg"></p>
+<p>"Closure is a turtle carrying its shell," my favorite explaination to
+closures, quote by <a href="https://twitter.com/raymondh">Raymond Hettinger</a>. 
+With closures, lots of great features are possible
+in Python like higher order functions and decorators. </p>
+<p>I came across this StackOverflow post - 
+<a href="http://stackoverflow.com/questions/42003351/how-can-i-return-a-function-that-uses-the-value-of-a-variable">How can I return a function that uses the value of a variable?</a>
+, which helped me bridging the gap in my knowledge,
+the gap that I sort-of understood it but couldn't explain it very well. 
+The bridge is just a simple sentence, "closures bind late."</p>
+<p>What does "closures bind late" mean exactly?
+Consider a function generator that generates a series of multiplication
+functions starting from 0 to <code>max</code>:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mult_function_generator</span><span class="p">(</span><span class="nb">max</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">i</span>
+
+<span class="n">mult_functions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">mult_function_generator</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="k">print</span><span class="p">([</span><span class="n">func</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">mult_functions</span><span class="p">])</span>
+<span class="c1"># Oh crap, it&#39;s [6, 6, 6], not [0, 3, 6]</span>
+</pre></div>
+
+
+<p>Seems like all the <code>i</code>s in the generated functions are assigned to 2,
+which is the last value of <code>i</code> after all functions were being generated.
+Let's take a closer look at what's behind the scene. First of all, how does
+a closure represent in Python, or, how the turtle shell looks like:</p>
+<div class="highlight"><pre><span></span><span class="n">mult_functions</span> <span class="o">=</span> <span class="n">mult_function_generator</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">mult_zero</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">mult_functions</span><span class="p">)</span>
+<span class="n">mult_zero</span>
+<span class="c1"># &lt;function ...&gt;</span>
+</pre></div>
+
+
+<p>To look at the closure, there's a special attribute in each function called
+<code>__closure__</code> (quite obvious, huh?)</p>
+<div class="highlight"><pre><span></span><span class="n">mult_zero</span><span class="o">.</span><span class="n">__closure__</span>
+<span class="c1"># (&lt;cell at 0x..., int object at 0x...&gt;,)</span>
+</pre></div>
+
+
+<p>Okay, we are getting closer. The <code>__closure__</code> attribute is a tuple of <code>cell</code>
+objects. Let's see what's inside the cell, which has an attribute
+<code>cell_contents</code> to help us:</p>
+<div class="highlight"><pre><span></span><span class="n">cell_zero</span> <span class="o">=</span> <span class="n">mult_zero</span><span class="o">.</span><span class="n">__closure__</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">cell_zero</span><span class="o">.</span><span class="n">cell_contents</span>
+<span class="c1"># 0</span>
+</pre></div>
+
+
+<p>Bingo! This is the int object <code>i</code> that trapped inside the function's closure.</p>
+<p><em>(I haven't figured out how Python find the reference of <code>i</code> so I
+won't go any further. For more discussion please refer to the Appendix
+section.)</em></p>
+<p>The interesting thing is, the same cell object is used across our multiplication
+functions. Thus, when we get the second function:</p>
+<div class="highlight"><pre><span></span><span class="n">mult_one</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">mult_functions</span><span class="p">)</span>
+<span class="n">cell_one</span> <span class="o">=</span> <span class="n">mult_one</span><span class="o">.</span><span class="n">__closure__</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">cell_one</span><span class="o">.</span><span class="n">cell_contents</span>
+<span class="c1"># 1</span>
+<span class="c1"># So far so good. But...</span>
+<span class="n">cell_zero</span><span class="o">.</span><span class="n">cell_contents</span>
+<span class="c1"># 1</span>
+<span class="c1"># Crap!</span>
+<span class="n">cell_zero</span> <span class="ow">is</span> <span class="n">cell_one</span>
+<span class="c1"># True</span>
+<span class="c1"># Okay fine</span>
+</pre></div>
+
+
+<p>The same cell object means the same reference to <code>i</code>. This explains what happened
+in this example. Or, if you like, you could explain all this by saying, "closures
+bind late." They are both correct but just with different mental models.</p>
+<p>Now we understand the problem that introduced by late binding. Let's see how to
+bind the variable during function declaration. The idea is to have <code>i</code> also
+be a argument passed into the lambda function and then we assign the value
+immediately:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mult_function_generator</span><span class="p">(</span><span class="nb">max</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">i</span><span class="p">)(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Or if you like partial functions:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mult_function_generator</span><span class="p">(</span><span class="nb">max</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Or my favorite one:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mult_function_generator</span><span class="p">(</span><span class="nb">max</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">i</span>
+</pre></div>
+
+
+<p>The last one works because default arguments is assigned when the 
+function is defined.</p>
+<h3>Bonus</h3>
+<p>My favorite example for taking advantage of the late binding closure
+is from <a href="https://www.oreilly.com/learning/20-python-libraries-you-arent-using-but-should">20 Python libraries you aren't using (but should)</a>:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">perf_counter</span>
+<span class="kn">from</span> <span class="nn">array</span> <span class="kn">import</span> <span class="n">array</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+
+<span class="nd">@contextmanager</span>
+<span class="k">def</span> <span class="nf">timing</span><span class="p">(</span><span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+    <span class="k">yield</span> <span class="k">lambda</span><span class="p">:</span> <span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">perf_counter</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="n">timing</span><span class="p">(</span><span class="s1">&#39;Array tests&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">total</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">timing</span><span class="p">(</span><span class="s1">&#39;Array creation innermul&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">inner</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">1000000</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">timing</span><span class="p">(</span><span class="s1">&#39;Array creation outermul&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outer</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="mi">1000000</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Total [</span><span class="si">%s</span><span class="s1">]: </span><span class="si">%.6f</span><span class="s1"> s&#39;</span> <span class="o">%</span> <span class="n">total</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;    Timing [</span><span class="si">%s</span><span class="s1">]: </span><span class="si">%.6f</span><span class="s1"> s&#39;</span> <span class="o">%</span> <span class="n">inner</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;    Timing [</span><span class="si">%s</span><span class="s1">]: </span><span class="si">%.6f</span><span class="s1"> s&#39;</span> <span class="o">%</span> <span class="n">outer</span><span class="p">())</span>
+
+<span class="c1"># Total [Array tests]: 0.064896 s</span>
+<span class="c1">#    Timing [Array creation innermul]: 0.064195 s</span>
+<span class="c1">#    Timing [Array creation outermul]: 0.000659 s</span>
+</pre></div>
+
+
+<h3>Appendix - discussion on loading a dereferenced variable</h3>
+<p>Take the <code>mult_zero</code> function for example. The disambled code looks:</p>
+<div class="highlight"><pre><span></span>  <span class="mi">3</span>           <span class="mi">0</span> <span class="n">LOAD_FAST</span>                <span class="mi">0</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
+              <span class="mi">2</span> <span class="n">LOAD_DEREF</span>               <span class="mi">0</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span>
+              <span class="mi">4</span> <span class="n">BINARY_MULTIPLY</span>
+              <span class="mi">6</span> <span class="n">RETURN_VALUE</span>
+</pre></div>
+
+
+<p>The second line calls the <code>LOAD_DEREF</code> op code in Python. My guess
+is that the name <code>i</code> was never dereferenced because the cell object
+still holds a reference on it. However, <code>i</code> must be treated specially
+since <code>i</code> isn't visible to the scope outside the closure functions.
+My next move will be looking into the CPython code to see how this
+op code works exactly.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="http://localhost:8000/tag/python.html">python</a>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>
+  &copy; Daw-Ran Liou 2016 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+         src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Daw-Ran Liou's Blog ",
+  "url" : "http://localhost:8000",
+  "image": "//en.gravatar.com/userimage/99964636/f9367cffe912e77fa93af6784d93b99e.jpg?size=120",
+  "description": "Daw-Ran Liou's Thoughts and Writings"
+}
+</script>
+</body>
+</html>
