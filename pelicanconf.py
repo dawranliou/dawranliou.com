@@ -10,7 +10,7 @@ SITESUBTITLE = 'Software Developer - Maker'
 SITEDESCRIPTION = '%s\'s Thoughts and Writings' % AUTHOR
 SITELOGO = '//en.gravatar.com/userimage/99964636/f9367cffe912e77fa93af6784d93b99e.jpg?size=120'
 FAVICON = '/images/favicon.ico'
-PYGMENTS_STYLE = 'monokai'
+PYGMENTS_STYLE = 'github'
 
 PATH = 'content'
 

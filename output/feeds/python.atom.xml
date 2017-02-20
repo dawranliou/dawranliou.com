@@ -1,5 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Daw-Ran Liou's Blog - Python</title><link href="http://localhost:8000/" rel="alternate"></link><link href="http://localhost:8000/feeds/python.atom.xml" rel="self"></link><id>http://localhost:8000/</id><updated>2017-02-18T00:00:00-08:00</updated><entry><title>Closures bind late</title><link href="http://localhost:8000/closures-bind-late.html" rel="alternate"></link><published>2017-02-18T00:00:00-08:00</published><updated>2017-02-18T00:00:00-08:00</updated><author><name>Daw-Ran Liou</name></author><id>tag:localhost,2017-02-18:/closures-bind-late.html</id><summary type="html">&lt;p&gt;The behavior of closure might trick you&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="alt turtle" src="images/turtle.jpg"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Daw-Ran Liou's Blog - Python</title><link href="http://localhost:8000/" rel="alternate"></link><link href="http://localhost:8000/feeds/python.atom.xml" rel="self"></link><id>http://localhost:8000/</id><updated>2017-02-20T00:00:00-08:00</updated><entry><title>Getting Start with Python Internals</title><link href="http://localhost:8000/getting-start-python-internals.html" rel="alternate"></link><published>2017-02-20T00:00:00-08:00</published><updated>2017-02-20T00:00:00-08:00</updated><author><name>Daw-Ran Liou</name></author><id>tag:localhost,2017-02-20:/getting-start-python-internals.html</id><summary type="html">&lt;p&gt;How to start exploring Python internals&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;This article is a summary of what I learned from Philip Guo's 
+&lt;a href="http://pgbovine.net/cpython-internals.htm"&gt;CPython internals: A ten-hour codewalk through the Python interpreter source code&lt;/a&gt;.
+In this article, you'll know the very basic things to the Python internals,
+and, hopefully, be able to explore the Python internals on your own.&lt;/em&gt;&lt;/p&gt;
+&lt;h1&gt;Interpreter and Source Code Overview&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;source code   |                (C)Python                   |       output
+              |                                            |
+  test.py     ---&amp;gt;  compiler -&amp;gt; [bytecode] -&amp;gt; interpreter  ---&amp;gt; &amp;#39;Hello World!&amp;#39;
+                                    ^                                ^
+                                    |                                |
+                                    |                                |
+                                    ----------------------------------
+                                        This is more interesting
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Python sourcecode tree&lt;/h2&gt;
+&lt;p&gt;Main subdirectories:
+1. &lt;code&gt;Include/&lt;/code&gt; - all the .h files
+1. &lt;code&gt;Objects/&lt;/code&gt; - all the .c files representing python objects
+1. &lt;code&gt;Python/&lt;/code&gt; - the main runtime&lt;/p&gt;
+&lt;p&gt;Other subdirectories:
+1. &lt;code&gt;Modules/&lt;/code&gt; - built-in modules implemented in C
+1. &lt;code&gt;Libs/&lt;/code&gt; - standard libraries implemented in Python&lt;/p&gt;
+&lt;h1&gt;Lecture 2 - Opcodes and main interpreter loop&lt;/h1&gt;
+&lt;p&gt;Focusing on two files:
+1. /include/opcode.h
+1. /Python/ceval.c&lt;/p&gt;
+&lt;h2&gt;Opcodes&lt;/h2&gt;
+&lt;p&gt;Our testing module:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# test.py&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Built-in function: &lt;code&gt;compile&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;test.py&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;test.py&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;exec&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# &amp;lt;code object &amp;lt;module&amp;gt; at 0x..., file &amp;quot;test.py&amp;quot;, line 1&amp;gt;&lt;/span&gt;
+
+&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;co_code&lt;/span&gt;
+&lt;span class="c1"&gt;# &amp;#39;e\x00\x00j\x01\x00\x01d\x00\x00S&amp;#39;&lt;/span&gt;
+
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;byte&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;byte&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;co_code&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="c1"&gt;# [&amp;#39;e&amp;#39;, &amp;#39;\x00&amp;#39;, &amp;#39;\x00&amp;#39;, &amp;#39;j&amp;#39;, &amp;#39;\x01&amp;#39;, &amp;#39;\x00&amp;#39;, &amp;#39;\x01&amp;#39;, &amp;#39;d&amp;#39;, &amp;#39;\x00&amp;#39;, &amp;#39;\x00&amp;#39;, &amp;#39;S&amp;#39;]&lt;/span&gt;
+
+&lt;span class="c1"&gt;# ascii code for each byte&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;ord&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;byte&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;byte&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;co_code&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="c1"&gt;# [101, 0, 0, 106, 1, 0, 1, 100, 0, 0, 83]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Disassemble python code: &lt;code&gt;$ python -m dis test.py&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  1           0 LOAD_CONST               0 (1)
+              3 STORE_NAME               0 (x)
+
+  2           6 LOAD_CONST               1 (2)
+              9 STORE_NAME               1 (y)
+
+  3          12 LOAD_NAME                0 (x)
+             15 LOAD_NAME                1 (y)
+             18 BINARY_ADD
+             19 STORE_NAME               2 (z)
+
+  4          22 LOAD_NAME                2 (z)
+             25 PRINT_ITEM
+             26 PRINT_NEWLINE
+             27 LOAD_CONST               2 (None)
+             30 RETURN_VALUE
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;The standard library module &lt;code&gt;dis&lt;/code&gt; can be found at &lt;code&gt;/Python-2.7.8/Lib/dis.py&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The byte code is mapped to the disassembled code, somehow, with some
+optimization. The disassembler knows how to read the byte code.&lt;/p&gt;
+&lt;p&gt;The format for the disassmbled code is:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;LINE_NUMBER -&amp;gt; BYTE_OFFSET OP_CODE -&amp;gt; INTERNAL_BOOK_KEEPING_STUFF ARGUMENT
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Let's look at &lt;code&gt;opcode.h&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#define LOAD_CONST  100 &lt;/span&gt;&lt;span class="cm"&gt;/* Index in const list */&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;Any opcode above 90 takes an argument&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;define&lt;/span&gt; &lt;span class="n"&gt;HAVE_ARGUMENT&lt;/span&gt; &lt;span class="mi"&gt;90&lt;/span&gt;  &lt;span class="cm"&gt;/* Opcodes from here have an argument: */&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;x&lt;/code&gt; is stored in to the 0th variable name in &lt;code&gt;3 STORE_NAME 0 (x)&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;byteplay&lt;/code&gt; is a module which lets you easily play with Python bytecode.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Python virtual machine is a "Stack Machine." When a const is loaded by 
+calling &lt;code&gt;LOAD_CONST&lt;/code&gt;, the
+value is pushed onto the "Value Stack." When the &lt;code&gt;STORE_NAME&lt;/code&gt; is called,
+the last value on the Value Stack is popped and saved in the memory
+associated with the variable name, &lt;code&gt;x&lt;/code&gt; for example.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;LOAD_NAME&lt;/code&gt; pushes whatever value the variable name is associated with
+on top of the Value Stack. (Only the reference of the value is pushed.
+So now the value has the Reference Counting of 2. One from the variable
+name, another from the Value Stack.)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;BINARY_ADD&lt;/code&gt; pops the two values from the Value Stack and pushs the
+result on top of the Value Stack again. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;PRINT_ITEM&lt;/code&gt; is a primitive operation in legacy Python (Python 2)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;For completeness, the module returns a &lt;code&gt;None&lt;/code&gt; value.&lt;/p&gt;
+&lt;h2&gt;Main Interpreter Loop&lt;/h2&gt;
+&lt;p&gt;From &lt;code&gt;ceval.c&lt;/code&gt; line 693 to line 3021, this is the main interpreter loop:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;PyObject&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="nf"&gt;PyEval_EvalFrameEx&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PyFrameObject&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;throwflag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="p"&gt;...&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="c1"&gt;// line 3021&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Everything in Python is an object, an &lt;code&gt;PyObject&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;A &lt;code&gt;PyFrameObject&lt;/code&gt; is a piece of code.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Inside the main interpreter loop:
+* &lt;code&gt;PyObject **stack_pointer&lt;/code&gt; is a list of pointers to the Value Stack.
+It points to the Next free slot in value stack.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;#define&lt;/code&gt; is Macro in C. For example &lt;code&gt;#define LOAD_CONST 100&lt;/code&gt;. This macro
+means to replace every occurrence of &lt;code&gt;LOAD_CONST&lt;/code&gt; with &lt;code&gt;100&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Line 964, Infinite loop to go through the byte code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(;;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="p"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Line 1078, extract opcode:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        &lt;span class="cm"&gt;/* Extract opcode and argument */&lt;/span&gt;
+
+        &lt;span class="n"&gt;opcode&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;NEXTOP&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="n"&gt;oparg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;   &lt;span class="cm"&gt;/* allows oparg to be stored in a register because&lt;/span&gt;
+&lt;span class="cm"&gt;            it doesn&amp;#39;t have to be remembered across a full loop */&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Line 1112, GIANT switch case:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        &lt;span class="k"&gt;switch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;opcode&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="p"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Line 2959, breaking out of the main loop:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;why&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="n"&gt;WHY_NOT&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;READ_TIMESTAMP&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loop1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+    &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="cm"&gt;/* main loop */&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Line 3020, return retval&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;retval&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="python"></category><category term="internals"></category></entry><entry><title>Closures bind late</title><link href="http://localhost:8000/closures-bind-late.html" rel="alternate"></link><published>2017-02-18T00:00:00-08:00</published><updated>2017-02-18T00:00:00-08:00</updated><author><name>Daw-Ran Liou</name></author><id>tag:localhost,2017-02-18:/closures-bind-late.html</id><summary type="html">&lt;p&gt;The behavior of closure might trick you&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="alt turtle" src="images/turtle.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;"Closure is a turtle carrying its shell," my favorite explaination to
 closures, quote by &lt;a href="https://twitter.com/raymondh"&gt;Raymond Hettinger&lt;/a&gt;. 
 With closures, lots of great features are possible
