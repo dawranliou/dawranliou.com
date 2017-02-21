@@ -271,4 +271,4 @@ Let's recap some key points in this article:
 1. Python is a stack machine.
 1. `/Include/opcode.h` has all the opcodes defined.
 1. CPython runtime's main interpreter loop locates in `/Python/ceval.c`.
-1. The main interpreter loop is a giant swith case in an infinite loop.
+1. The main interpreter loop is a giant switch case in an infinite loop.
