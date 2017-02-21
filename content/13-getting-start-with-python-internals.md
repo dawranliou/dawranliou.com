@@ -5,11 +5,17 @@ Tags: python, internals
 Slug: getting-start-python-internals
 Authors: Daw-Ran Liou
 Summary: How to start exploring Python internals
-Cover:
+Cover: images/python-logo.png
 
 _This article is a summary of what I learned from Philip Guo's 
 [CPython internals: A ten-hour codewalk through the Python interpreter source code](http://pgbovine.net/cpython-internals.htm).
-In this article, you'll know the very basic things to the Python internals,
+I highly recommend you to go through his course. He go through great materials
+in his videos. You can think of this article as a companion text version
+of his course, so you can come back for your own references.
+The only major difference between Philip Guo's course and this article is
+the Python version. In his course he was using 2.7.8. This article I'm
+using the 3.6.0 code.
+In this article, you'll know the very basic things about Python internals,
 and, hopefully, be able to explore the Python internals on your own._
 
 # What does (C)Python do to my code?
@@ -83,7 +89,7 @@ However, looking at those numbers do not really help unless you are a
 Python guru. Fortunately, in Python's standard library there's a module
 called `dis`, which would translate those byte codes for us.
 
-To disassemble the Python module, run `$ python -m dis test.py`:
+To disassemble the Python module, run `$ python3 -m dis test.py`:
 
 ```
   1           0 LOAD_CONST               0 (1)
@@ -125,11 +131,11 @@ section._
 Before we jump into the disassembled code above, you need to know - Python
 virtual machine is a "Stack Machine." Python internally keeps track of a
 "Value Stack," which stores all the values for the upcoming operations to
-use them. If you still don't have any idea what I meant, imaging Python
-is a guy who always picks the top-most T-shirt from his drawer. When
+use. If you still don't have any idea what a value stack is about, imaging Python
+is a lazy guy who always grabs the top-most T-shirt from his drawer. When
 he has more clean T-shirts, he simply stacks them on top of the other
-T-shirts. This guy sometimes may get a extra T-shirt to go to the gym,
-sometimes may take several T-shirt for donation, or he may do any operation
+T-shirts. This guy sometimes may grab an extra T-shirt to go to the gym,
+sometimes may take several T-shirt for donation, or he may do any action
 with his T-shirts, but he is very discipline about picking the top-most
 T-shirt first. This guy is a Stack Machine.
 
@@ -163,72 +169,106 @@ _TODO add diagrams to help explaining each step_
 
 # Python opcode
 
-Let's look at `opcode.h`
+We sort of guess our way through the disassembled code. Let's see how they
+are formally defined in CPython.
+
+First look at `/Include/opcode.h`. This file defines all the Python opcodes,
+which Python could act upon. For example, line 78:
 
 ```c
-#define LOAD_CONST	100	/* Index in const list */
+#define LOAD_CONST              100
 ```
 
-Any opcode above 90 takes an argument
+This defines the opcode for `LOAD_CONST`.
 
-```c
-#define HAVE_ARGUMENT	90	/* Opcodes from here have an argument: */
-```
+> `#define` is the definition of a macro in C language. For example
+  `#define LOAD_CONST 100`. This macro means to replace every
+  occurrence of `LOAD_CONST` with `100`.
+
+One interesting opcode to notice is in line 68, `HAVE_ARGUMENT`.
+This opcode is just a placeholder. Any opcode include and above 90
+takes argument(s).
 
 ## Main Interpreter Loop
 
-From `ceval.c` line 693 to line 3021, this is the main interpreter loop:
+Now let's see file `/Python/ceval.c`. Line 721 is the start of the gigantic
+interpreter main function, which ends at line 3692:
 
 ```c
 PyObject *
-PyEval_EvalFrameEx(PyFrameObject *f, int throwflag)
+_PyEval_EvalFrameDefault(PyFrameObject *f, int throwflag)
 {
 ...
-} // line 3021
+} // line 3692
 ```
 
-* Everything in Python is an object, an `PyObject`.
-* A `PyFrameObject` is a piece of code.
+To understand this function:
 
-Inside the main interpreter loop:
-* `PyObject **stack_pointer` is a list of pointers to the Value Stack.
-It points to the Next free slot in value stack.
+* Return type - Everything in Python is an object, an `PyObject`
+  object in CPython code.
+* Input argument - A `PyFrameObject` is a piece of Python code.
 
-> `#define` is Macro in C. For example `#define LOAD_CONST 100`. This macro
-means to replace every occurrence of `LOAD_CONST` with `100`.
+One object worth noticing in this function is `PyObject **stack_pointer`
+in line 727. This object is a list of pointers pointing to the Value Stack,
+which we mentioned previously.
 
-Line 964, Infinite loop to go through the byte code:
+This is it, line 1108, the start of the main interpreter loop!
+This is the start of the infinite loop to go through the bytecode.
+This main interpreter loop ends at line 3614:
 ```c
     for (;;) {
         ...
+    } /* main loop */  // Line 3614
 ```
 
-Line 1078, extract opcode:
-```c
-        /* Extract opcode and argument */
-
-        opcode = NEXTOP();
-        oparg = 0;   /* allows oparg to be stored in a register because
-            it doesn't have to be remembered across a full loop */
-```
-
-Line 1112, GIANT switch case:
+Now see line 1220, a GIANT switch case that tells you what C code to operate
+for each opcode case:
 ```c
         switch (opcode) {
             ...
 ```
 
-Line 2959, breaking out of the main loop:
+Line 3528, breaking out of the main interpreter loop:
 ```c
-        if (why != WHY_NOT)
-            break;
-        READ_TIMESTAMP(loop1);
-
-    } /* main loop */
+fast_block_end:
+        assert(why != WHY_NOT);
+        ...
 ```
 
-Line 3020, return retval
+Line 3691, return of the main function:
 ```c
-    return retval;
+    return _Py_CheckFunctionResult(NULL, retval, "PyEval_EvalFrameEx");
 }
 ```
+
+And that is the structure of your CPython runtime! Now you know how
+to look at the CPython code to figure out what's happening internally
+when your code is executing. For example, you can locate the switch
+case for `LOAD_CONST` in line 1244 to see what's happening when this
+opcode is used:
+
+```c
+        TARGET(LOAD_CONST) {
+            PyObject *value = GETITEM(consts, oparg);
+            Py_INCREF(value);
+            PUSH(value);
+            FAST_DISPATCH();
+        }
+```
+
+What it does in high level is:
+
+1. Gets the value
+1. Increase the reference count of the value by 1
+1. Push the value on top of the Value Stack
+
+# Recap
+
+Let's recap some key points in this article:
+
+1. Python does compile your sourcecode.
+1. Use `$ python3 -m dis <YOUR_PYTHON_FILE>` to disassemble your code.
+1. Python is a stack machine.
+1. `/Include/opcode.h` has all the opcodes defined.
+1. CPython runtime's main interpreter loop locates in `/Python/ceval.c`.
+1. The main interpreter loop is a giant swith case in an infinite loop.
