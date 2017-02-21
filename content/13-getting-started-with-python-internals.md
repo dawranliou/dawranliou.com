@@ -1,8 +1,8 @@
-Title: Getting Start with Python Internals
+Title: Getting Started with Python Internals
 Date: 2017-02-20
 Category: Python
 Tags: python, internals
-Slug: getting-start-python-internals
+Slug: getting-started-python-internals
 Authors: Daw-Ran Liou
 Summary: How to start exploring Python internals
 Cover: images/python-logo.png
