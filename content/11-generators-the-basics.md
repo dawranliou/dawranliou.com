@@ -8,10 +8,10 @@ Summary: These are the basic things you need to know about generators and how to
 Cover:
 
 _I've been wanting to write articles about generators for quite some time.
-Generator is definitely one of my favorate features in Python. Ever since I stopped treating
+Generator is definitely one of my favorite features in Python. Ever since I stopped treating
 Python like other programming languages, e.g. Java or C++,
 I start having so much fun writing codes.
-Unlike other very powerful features (decorators, 
+Unlike other very powerful features (decorators,
 context managers, or classes) that I sometimes abused a lot, Generators don't
 ever seemed to be too much in my code. They have strong purpose in the code, and are very
 beautiful in the codes. In this article, I'll explain the basics things about generators.
@@ -26,13 +26,13 @@ There're two categories of use cases:
 
 For category #1, you might think _"why we need another tool while we already
 know how to write lists to store a series of data?"_ There are three reasons:
-1) list can't solve all problems, 2) performance, and 3) code style. 
+1) list can't solve all problems, 2) performance, and 3) code style.
 
-1. List can't solve all problems. In the cases that we have a infinite 
-series of data (e.g. generating prime numbers,) or the series of data 
+1. List can't solve all problems. In the cases that we have a infinite
+series of data (e.g. generating prime numbers,) or the series of data
 that we can't tell when it'll stop (e.g. parsing log files that still are adding more
 entries,) there's no easy way to extract this part of code into
-a function that returns a list. On the other hand, generators are perfectly fine 
+a function that returns a list. On the other hand, generators are perfectly fine
 for these jobs.
 1. Performance. Space-wise, if the data series consumer just need one data point
 at a time, why waste the memory to hold the entire copy of the data series? Time-wise,
@@ -41,13 +41,13 @@ thing, why waste time to wait till all data are at hand while you can pass on th
 data to do work at the same time? Generators are good for both cases.
 1. Code style. This is a bit opinionative. I feel coding with generators is usually cleaner and
 easier to understand then functions without them. Also opinionative, usually a generator code is
-a hint of outputing a series of data. Therefore, I have some idea of what the
+a hint of outputting a series of data. Therefore, I have some idea of what the
 code is doing even without looking at the code line-by-line.
 
 For category #2, this is something very powerful. Normal functions, or
 called subroutines, execute line by line till they `return` control to
 the caller. Generators, or a coroutine, execute till they `yield` a value
-to the caller and pause the current state untill their caller invoke them
+to the caller and pause the current state until their caller invoke them
 again to resume the execution. My favorite examples for this case is the
 `@contextlib.contextmanager` decorator in [20 Python libraries you aren't using (but should)](https://www.oreilly.com/learning/20-python-libraries-you-arent-using-but-should#contextlib-ZKsPtpTX)
 and also David Beazley's incredible live demo in PyCon 2015 -[Python Concurrency From the Ground Up: LIVE!](https://www.youtube.com/watch?v=MCs5OvhV9S4).
@@ -62,22 +62,22 @@ concepts. Ask yourself a question, _what does `return` mean?_
 
 `return` means to return control to the caller. Python virtual machine is a
 stack machine. When a function is called, a frame object is PUSH onto the
-execution stack. This frame object is a mini enviroment for the function.
+execution stack. This frame object is a mini environment for the function.
 Having this enclosing mini environment, the function could have its own
-variables without worring about variable names colliding with the outter
-environment. When the funtion returns, the frame object is POPPED from the
+variables without worrying about variable names colliding with the outer
+environment. When the function returns, the frame object is POPPED from the
 stack. All the variables sitting inside the mini environment are gone. The
 caller regains full control and continues.
 
 Generators, however, do not return full control to the caller. Instead, they
-pause (or yield.) Thus, the mini enviroment of the generators, are still
+pause (or yield.) Thus, the mini environment of the generators, are still
 sitting somewhere in the memory, waiting to be invoked.
 
-Before I bored you to death with all the discriptions, let's see some code
+Before I bored you to death with all the descriptions, let's see some code
 example.
 
 Just like functions are objects in Python, generators are also objects.
-They are special objects that looks very similar to regular function 
+They are special objects that looks very similar to regular function
 definitions but behaves very differently:
 
 ```python
@@ -95,7 +95,7 @@ True
 ```
 
 When generator objects are created, they don't start executing immediately.
-Generator objects, like `a_generator()`, follow the Iterator Protocal. So
+Generator objects, like `a_generator()`, follow the Iterator Protocol. So
 to invoke them, you can use the builtin function `next()`
 
 ```python
@@ -109,7 +109,7 @@ StopIteration
 ```
 
 Not only do generators are iterators, they are also iterables!
-(You can know more about the distinction between iterables and iterators from 
+(You can know more about the distinction between iterables and iterators from
 [Ned Batchelder - Loop like a native: while, for, iterators, generators](https://www.youtube.com/watch?v=EnSu9hHGq5o).)
 The builtin `iter` function call simply returns the generator itself,
 which is a iterator:
@@ -229,7 +229,7 @@ def fibonacci_generator(nth):
 [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 ```
 
-I love recurrsion. I think they are elegent and beautiful. However, I do find
+I love recursion. I think they are elegant and beautiful. However, I do find
 the generator version of the solution much easier for my brain. If you only
 compare the `fibonacci` function and the `fibonacci_generator` function, the
 difference may not be significant, and the coding style really depends on

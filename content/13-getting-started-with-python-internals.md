@@ -7,7 +7,7 @@ Authors: Daw-Ran Liou
 Summary: How to start exploring Python internals
 Cover: images/python-logo.png
 
-_This article is a summary of what I learned from [Philip Guo](https://twitter.com/pgbovine)'s 
+_This article is a summary of what I learned from [Philip Guo](https://twitter.com/pgbovine)'s
 [CPython internals: A ten-hour codewalk through the Python interpreter source code](http://pgbovine.net/cpython-internals.htm).
 I highly recommend you to go through his course. He go through great materials
 in his videos. You can think of this article as a companion text version
@@ -20,7 +20,7 @@ and, hopefully, be able to explore the Python internals on your own._
 
 # What does (C)Python do to my code?
 
-You might have heard people tell you Python is a interepretive language.
+You might have heard people tell you Python is a interpreted language.
 You give the Python interpreter your sourcecode, and boom, the interpreter
 spits out the output.
 
@@ -69,7 +69,7 @@ z = x + y
 print(z)
 ```
 
-In Python's interactive interpreter, we can involk the built-in function:
+In Python's interactive interpreter, we can invoke the built-in function:
 [`compile`](https://docs.python.org/3/library/functions.html#compile), and
 get the code object of this module.
 
@@ -111,7 +111,7 @@ To disassemble the Python module, run `$ python3 -m dis test.py`:
              26 RETURN_VALUE
 ```
 
-The format for the disassmbled code is:
+The format for the disassembled code is:
 ```
 line_number_in_sourcecode -> byte_offset OP_CODE -> internal_book_keeping_stuff (argument_name)
 ```
@@ -119,7 +119,7 @@ line_number_in_sourcecode -> byte_offset OP_CODE -> internal_book_keeping_stuff 
 The byte code is mapped to this disassembled code, somehow, with some
 optimization. Thus, it's not very obvious to me how to decode each byte code
 to which line of the disassembler output. So for now, we'll be sticking
-with the more readable disassmbler output.
+with the more readable disassembler output.
 
 _If you are interested in how the disassembler works, module `dis` is located at `/Lib/dis.py`._
 
@@ -156,7 +156,7 @@ on top of the Value Stack. (Only the reference of the value is pushed.
 So now the value has the Reference Counting of 2. One from the variable
 name, another from the Value Stack.)
 
-* `BINARY_ADD` pops the two values from the Value Stack and pushs the
+* `BINARY_ADD` pops the two values from the Value Stack and pushes the
 result on top of the Value Stack again.
 
 * `CALL_FUNCTION` calls the `print` function and use `z` as its argument.

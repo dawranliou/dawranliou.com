@@ -9,15 +9,15 @@ Cover: images/turtle.jpg
 
 ![alt turtle](images/turtle.jpg)
 
-"Closure is a turtle carrying its shell," my favorite explaination to
-closures, quote by [Raymond Hettinger](https://twitter.com/raymondh). 
+"Closure is a turtle carrying its shell," my favorite explanation to
+closures, quote by [Raymond Hettinger](https://twitter.com/raymondh).
 With closures, lots of great features are possible
-in Python like higher order functions and decorators. 
+in Python like higher order functions and decorators.
 
-I came across this StackOverflow post - 
+I came across this StackOverflow post -
 [How can I return a function that uses the value of a variable?](http://stackoverflow.com/questions/42003351/how-can-i-return-a-function-that-uses-the-value-of-a-variable)
 , which helped me bridging the gap in my knowledge,
-the gap that I sort-of understood it but couldn't explain it very well. 
+the gap that I sort-of understood it but couldn't explain it very well.
 The bridge is just a simple sentence, "closures bind late."
 
 What does "closures bind late" mean exactly?
@@ -119,7 +119,7 @@ def mult_function_generator(max):
         yield lambda x, i=i: x * i
 ```
 
-The last one works because default arguments is assigned when the 
+The last one works because default arguments is assigned when the
 function is defined.
 
 
@@ -158,7 +158,7 @@ print('    Timing [%s]: %.6f s' % outer())
 
 ### Appendix - discussion on loading a dereferenced variable
 
-Take the `mult_zero` function for example. The disambled code looks:
+Take the `mult_zero` function for example. The dissembled code looks:
 
 ```python
   3           0 LOAD_FAST                0 (x)

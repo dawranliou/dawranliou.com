@@ -10,7 +10,7 @@ Cover: images/10-40-books-i-read-in-2016.jpg
 ![alt cover](images/10-40-books-i-read-in-2016.jpg)
 
 I challenged myself to read 10 books this year and I ended up reading 40 of them. Phew.
-What a great year, 2016! I really picked up this new-found habbit of reading.
+What a great year, 2016! I really picked up this new-found hobbit of reading.
 Feel free to add me friends on [Goodread](https://www.goodreads.com/user/show/62701324-daw-ran-liou)
 to see which book I'm currently reading. Let's read more! Here's my top 5 picks in 2016:
 
@@ -23,7 +23,7 @@ to see which book I'm currently reading. Let's read more! Here's my top 5 picks 
 ### 1. The Lean Startup
 ![alt the-lean-startup](https://images.gr-assets.com/books/1333576876m/10127019.jpg)
 
-I think I've been exposed to the "lean" concept a lot from day to day. When I 
+I think I've been exposed to the "lean" concept a lot from day to day. When I
 read the book, it wasn't a big surprise to me.
 
 ### 2. Soft Skills - The Software Developer's Life Manual
@@ -35,7 +35,7 @@ software development.
 ### 3. Flask Web Development
 ![alt flask-web-dev](https://images.gr-assets.com/books/1390432971m/18774655.jpg)
 
-This book really gives me a great foundation of developing Flask app. Before I 
+This book really gives me a great foundation of developing Flask app. Before I
 read this book, I was jumping around the online tutorials but they didn't work out for me.
 
 ### 4. How to Win Friends & Influence People
@@ -44,24 +44,24 @@ read this book, I was jumping around the online tutorials but they didn't work o
 This is yet another very influential book. This classic book helps me to improve
 my social life and my friendships.
 
-### 5. The Millionaire Real Estate Investor 
+### 5. The Millionaire Real Estate Investor
 ![alt millionaire-real-estate](https://images.gr-assets.com/books/1417407442m/136205.jpg)
 
-This is a great investment book. Not only did it change the way I thought about 
-investing in real estate, but also give you a concrete plan for investing. 
+This is a great investment book. Not only did it change the way I thought about
+investing in real estate, but also give you a concrete plan for investing.
 However, the concrete plan part of the book is kind of hard to digest for me.
 
 ### 6. The War of Art
 ![alt war-of-art](https://images.gr-assets.com/books/1388176109m/1319.jpg)
 
-This classic book helps me to understand one of my worst enemy - 
-procrastination. However, reading the book was like being lectured, which I 
+This classic book helps me to understand one of my worst enemy -
+procrastination. However, reading the book was like being lectured, which I
 don't typically enjoy.
 
 ### 7. The Autobiography of Benjamin Franklin
 ![alt ben-franklin](https://images.gr-assets.com/books/1428170518m/52309.jpg)
 
-Benjamin Franklin is such a fascinating person that I need to read his 
+Benjamin Franklin is such a fascinating person that I need to read his
 autobiography to know him.
 
 ### 8. Rich Dad Poor Dad
@@ -72,14 +72,14 @@ Another very influential book that changed the way I think about money.
 ### 9. The Power of Habit
 ![alt power-of-habit](https://images.gr-assets.com/books/1366758683m/12609433.jpg)
 
-Habit is one of the most important that dominates our daily lives without being 
-notice. To understand it and be able to change it is so powerful that benefits 
+Habit is one of the most important that dominates our daily lives without being
+notice. To understand it and be able to change it is so powerful that benefits
 all aspects of our lives.
 
 ### 10. Think and Grow Rich
 ![alt think-grow-rich](https://images.gr-assets.com/books/1463241782m/30186948.jpg)
 
-A classic book. It's amazing how often I heard about this book from various 
+A classic book. It's amazing how often I heard about this book from various
 people. The book's content is too hard for me to digest. Need to read it again.
 
 ### 11. You are a Badass
@@ -90,8 +90,8 @@ This is a very motivating and fun book. Love yourself and others!
 ### 12. The End of Jobs
 ![alt end-of-jobs](https://images.gr-assets.com/books/1438463792m/25827122.jpg)
 
-I highly recommend this book! It changed a lot how I think about career. Its 
-target audience it not specific to software engineers (unlike Soft Skills, my 
+I highly recommend this book! It changed a lot how I think about career. Its
+target audience it not specific to software engineers (unlike Soft Skills, my
 bible) so go read it everyone!
 
 ### 13. Year of Yes
@@ -102,24 +102,24 @@ Shonda Rhimes told about the amazing story of her Year of Yes.
 ### 14. The Martian (2nd time!)
 ![alt martian](https://images.gr-assets.com/books/1413706054m/18007564.jpg)
 
-This is the FIRST EVER book that I read twice in such a short period of time. 
+This is the FIRST EVER book that I read twice in such a short period of time.
 This book is witty, is fun, and is full of science! If you like the movie you'll
-definitely enjoy the book, I promise! Some of the best parts are in the book 
+definitely enjoy the book, I promise! Some of the best parts are in the book
 only. This is definitely one of my all-time favorites.
 
 ### 15. Ready Player One (2nd time!)
 ![alt ready-player-one](https://images.gr-assets.com/books/1406383612m/9969571.jpg)
 
-This is the SECOND EVER book that I read twice in such short period of time. 
+This is the SECOND EVER book that I read twice in such short period of time.
 It's full of imaginations and excitements! I enjoyed every moment reading it. Of
 course it's one of my all-time favorites too!
 
 ### 16. Pitch Anything
 ![alt pitch-anything](https://images.gr-assets.com/books/1347796457m/10321016.jpg)
 
-I have the audio book version of it. It's always enjoyable listening to the 
-author reading his/her own book. A lot of parts in the book is sort of 
-irrelevant to me, but some of the pitches he made were just so crazily 
+I have the audio book version of it. It's always enjoyable listening to the
+author reading his/her own book. A lot of parts in the book is sort of
+irrelevant to me, but some of the pitches he made were just so crazily
 enchanting.
 
 ### 17. The Hitchhiker's Guide to the Galaxy
@@ -131,58 +131,58 @@ Classic sci-fi book. I don't always get its jokes but it's a fun read.
 ![alt so-good-they-cant-ignore-you](https://images.gr-assets.com/books/1360564614m/13525945.jpg)
 
 I highly recommend this book even though I haven't finished it. This book breaks
-the wide-spread "follow your passion" mindset about our dream jobs. Instead, it 
+the wide-spread "follow your passion" mindset about our dream jobs. Instead, it
 focused on the craftsmanship mindset.
 
 ### 19. The 7 Habits of Highly Effective People
 ![alt 7-habits](https://images.gr-assets.com/books/1421842784m/36072.jpg)
 
-This is one of the best self development books I’ve read and the lessons I 
-learned from it really apply to everyone. In stead of thinking in efficiency, 
-this book focuses on the ‘effectiveness’ of the work you do. It’s a subtle mind 
-shift, but it definitely helped making the decisions for where should you put 
-the energies in. Even after fist published 25 years ago, the advices are still 
-so relevant these days. No wonder this is a classic book of its genre. I love 
+This is one of the best self development books I’ve read and the lessons I
+learned from it really apply to everyone. In stead of thinking in efficiency,
+this book focuses on the ‘effectiveness’ of the work you do. It’s a subtle mind
+shift, but it definitely helped making the decisions for where should you put
+the energies in. Even after fist published 25 years ago, the advices are still
+so relevant these days. No wonder this is a classic book of its genre. I love
 this book and bought a hard copy with me for reference.
 
 ### 20. How to Talk to Anyone
 ![alt how-to-talk-to-anyone](https://images.gr-assets.com/books/1388184197m/35210.jpg)
 
-It’s a fun read but not so much I could grabbed on after reading it. The book’s 
+It’s a fun read but not so much I could grabbed on after reading it. The book’s
 goal is to bridge the gap where Dale Carnegie’s How to Win Friends and Influence
-People, which published 80 years ago, didn’t tell the people living in the 21st 
+People, which published 80 years ago, didn’t tell the people living in the 21st
 century what to do. I love hearing about all the fun stories in the book.
 
 ### 21. The Like Switch
 ![alt like-switch](https://images.gr-assets.com/books/1421037599m/21412226.jpg)
 
-I enjoyed this book better than How to Talk to Anyone, even though the feelings 
-I had to this book is somewhat similar to the other. It might be because the 
+I enjoyed this book better than How to Talk to Anyone, even though the feelings
+I had to this book is somewhat similar to the other. It might be because the
 author was a former FBI agent and the stories was much more intrigue to me.
 
 ### 22. Quiet - The Power of Introverts in a World That Can't Stop Talking
 ![alt quiet](https://images.gr-assets.com/books/1328562861m/8520610.jpg)
 
-I’ve never felt so much connection to a book. This is yet another phenomenal 
-book I’ve read. I learned so much about myself after reading it. I feel so much 
-appreciation for Susan Cain, the author, for putting up the effort researching 
+I’ve never felt so much connection to a book. This is yet another phenomenal
+book I’ve read. I learned so much about myself after reading it. I feel so much
+appreciation for Susan Cain, the author, for putting up the effort researching
 about the topic that’s so relevant to half of the population in this world. This
 book has saved me from being doubt about a big part of myself.
 
 ### 23. Lean in
 ![alt lean-in](https://images.gr-assets.com/books/1364250803m/16071764.jpg)
 
-This is a great book that I think everyone should read. To me the book is about 
-understanding, and supporting each other. Not only it’s applicable for female, 
-but also the minority groups. Learning from Sheryl Sandburg’s marriage, I am 
+This is a great book that I think everyone should read. To me the book is about
+understanding, and supporting each other. Not only it’s applicable for female,
+but also the minority groups. Learning from Sheryl Sandburg’s marriage, I am
 more certain than ever that parents could both be successful in their career and
 also have a great family.
 
 ### 24. Hackers: Heroes of the Computer Revolution
 ![alt hackers](https://images.gr-assets.com/books/1435697935m/56829.jpg)
 
-Reading the history of generations of hackers is like THE history of computer. 
-It was the hackers that drove the entire computer revolutions. (*Respects*) I’d 
+Reading the history of generations of hackers is like THE history of computer.
+It was the hackers that drove the entire computer revolutions. (*Respects*) I’d
 like to recommend this book to anyone who’s in the software/computer industry.
 
 ### 25. The Personal MBA
@@ -256,14 +256,14 @@ No doubt this is the my favorite novel of the year! OMG I've never enjoyed a nov
 much, and yet this is my very first book in the high-fantasy genre. I'll definitely read
 more fantasy books in the future.
 
-This book completely blew my mind away! That was the most satisfying reading experience one could get. 
+This book completely blew my mind away! That was the most satisfying reading experience one could get.
 Brandon Sanderson is a genius. The fantasy world he created was simply amazing - its well-thought
-magic system was the reason I first start reading the book but it was the characters and the twisted 
-plots that stopped me from putting it down! It's full of tensions and OMG-that-did-not-just-happened 
-throughout the book. I literary cried at a very emotional moment. I never cried over a book before. 
-That how great it is. 
+magic system was the reason I first start reading the book but it was the characters and the twisted
+plots that stopped me from putting it down! It's full of tensions and OMG-that-did-not-just-happened
+throughout the book. I literary cried at a very emotional moment. I never cried over a book before.
+That how great it is.
 
-It's the longest book I read in ages but I totally enjoyed every minute of 30 hours. 
+It's the longest book I read in ages but I totally enjoyed every minute of 30 hours.
 I just can't wait to reading the rest of two books of the trilogy.
 
 ### 34. A Brief History of Time
@@ -297,12 +297,12 @@ Set your goal to incredibly high and take massive action towards it.
 ### 38. A Monster Calls
 ![alt a-monster-calls](https://images.gr-assets.com/books/1474081871m/28588061.jpg)
 
-A very beautiful story about facing death. 
+A very beautiful story about facing death.
 
 ### 39. Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People
 ![alt grokking-algorithms](https://images.gr-assets.com/books/1458747997m/22847284.jpg)
 
-I love this algorithm book! Especially the part explaining dynamic programming. 
+I love this algorithm book! Especially the part explaining dynamic programming.
 All the illustrations are beautiful and feels very friendly, which makes an algorithm
 book much more intriguing.
 
@@ -320,4 +320,3 @@ book much more intriguing.
 ![alt code-name-verity](https://images.gr-assets.com/books/1373223199m/16250900.jpg)
 
 A beautiful story about friendships. Still reading.
-
