@@ -74,14 +74,14 @@ In Python's interactive interpreter, we can invoke the built-in function:
 get the code object of this module.
 
 ```python
-c = compile('test.py', 'test.py', 'exec')
+c = compile(open('test.py').read(), 'test.py', 'exec')
 # <code object <module> at 0x..., file "test.py", line 1>
 
 c.co_code
-# b'e\x00j\x01\x01\x00d\x00S\x00'
+# b'd\x00Z\x00d\x01Z\x01e\x00e\x01\x17\x00Z\x02e\x03e\x02\x83\x01\x01\x00d\x02S\x00'
 
 [byte for byte in c.co_code]
-# [101, 0, 106, 1, 1, 0, 100, 0, 83, 0]
+# [100, 0, 90, 0, 100, 1, 90, 1, 101, 0, 101, 1, 23, 0, 90, 2, 101, 3, 101, 2, 131, 1, 1, 0, 100, 2, 83, 0]
 ```
 
 The above code is the bytecode representation of our original sourcecode.
