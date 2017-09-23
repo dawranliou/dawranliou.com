@@ -1,5 +1,8 @@
 # Writing descriptors in Python 3.6+
 
+_Special thanks to [Luciano Ramalho](https://twitter.com/ramalhoorg).
+I learned most of the contents in this post from his workshop in PyBay 2017_
+
 Have you seen this code or maybe have written code like this:
 
 ```python
@@ -81,7 +84,7 @@ class Order:
     def __init__(self, name, price, quantity):
         self._name = name
         self.price = price
-        self._quantity = quantity
+        self._quantity = quantity  # (1)
 
     @property
     def quantity(self):
@@ -91,7 +94,7 @@ class Order:
     def quantity(self, value):
         if value < 0:
             raise ValueError('Cannot be negative.')
-        self._quantity = value
+        self._quantity = value  # (2)
     ...
 
 apple_order.quantity = -10
@@ -99,7 +102,8 @@ apple_order.quantity = -10
 ```
 
 We transformed `quantity` from a simple attribute to a non-negative
-property. Notice the external APIs are the same. Are we done? No, we
+property. Notice line `(1)` that the attribute are renamed to `_quantity`
+to avoid line `(2)` getting a `RecursionError`. Are we done? No, we
 forgot about the `price` attribute cannot be negative neither. It might
 be attempting to just create another property for `price`, but remember
 the DRY principle: when you find yourself doing the same thing twice,
@@ -114,7 +118,7 @@ With the descriptors in place, our new class definition would become:
 
 ```python
 class Order:
-    price = NonNegative('price')
+    price = NonNegative('price')  # (3)
     quantity = NonNegative('quantity')
 
     def __init__(self, name, price, quantity):
@@ -142,15 +146,108 @@ class and implement the descriptor protocals. Here's how:
 ```python
 class NonNegative:
     def __init__(self, name):
+        self.name = name  # (4)
+    def __get__(self, instance, owner):
+        return instance.__dict__[self.name]  # (5)
+    def __set__(self, instance, value):
+        if value < 0:
+            raise ValueError('Cannot be negative.')
+        instance.__dict__[self.name] = value  # (6)
+```
+
+Line `(4)`: the `name` attribute is needed because when the `NonNegative`
+object is created on line `(3)`, the assignment to attribute named `price`
+hasn't happen yet. Thus, we need to explicitly pass the name `price` to the
+initializer of the object to use as the key for the instance's `__dict__`.
+
+Later, we'll see how using Python 3.6+ we can avoid this.
+
+> The redundency could be avoid in earlier Ptyhon by using more techniques
+on the data model, but I think this would take too much effort to explain
+and is not the purpose of this post.
+
+Line `(5)` and `(6)`: instead of using builtin function `getattr` and
+`setattr`, we need to reach into the `__dict__` object directly, because
+the builtins would be intercepted by the descriptor protocals too and
+cause the `RecursionError`.
+
+## Welcome to Python 3.6+
+
+We are still repeating ourself in line `(3)`. How do I get a cleaner API
+to use such as:
+
+```python
+class Order:
+    price = NonNegative()
+    quantity = NonNegative()
+
+    def __init__(self, name, price, quantity):
+        ...
+```
+
+Let's look at the [new descriptor protocal](https://docs.python.org/3/reference/datamodel.html#object.__set_name__)
+in Python 3.6:
+
+* `object.__set_name__(self, owner, name)`
+  * Called at the time the owning class owner is created. The descriptor
+  has been assigned to name.
+
+With this protocal, we could remove the `__init__` and bind the attribute
+name to the descriptor:
+
+```python
+class NonNegative:
+    ...
+    def __set_name__(self, owner, name):
         self.name = name
+```
+
+To put all the codes together:
+
+```python
+class NonNegative:
     def __get__(self, instance, owner):
         return instance.__dict__[self.name]
     def __set__(self, instance, value):
         if value < 0:
             raise ValueError('Cannot be negative.')
         instance.__dict__[self.name] = value
+    def __set_name__(self, owner, name):
+        self.name = name
+
+class Order:
+    price = NonNegative()
+    quantity = NonNegative()
+
+    def __init__(self, name, price, quantity):
+        self._name = name
+        self.price = price
+        self.quantity = quantity
+
+    def total(self):
+        return self.price * self.quantity
+
+apple_order = Order('apple', 1, 10)
+apple_order.total()
+# 10
+apple_order.price = -10
+# ValueError: Cannot be negative
+apple_order.quantity = -10
+# ValueError: Cannot be negative
 ```
 
-## The better way in Python 3.6
-
 ## Conclusion
+
+Python is a general purpose programming language. I love that it
+not only havs very powerful features that are highly flexible and could possibly
+bend the language tremendously, e.g. Meta Classes, but also has high-level
+APIs/protocols to serve 99% of the need, e.g. Descriptors. I believe there's
+the right tool for the job. Descriptors are clearly the right tool
+for binding behaviors to attributes. Although Meta Classes could potentially
+do the same thing, Descriptor could solve the problem the problem more
+gracefully. It's also great to see how Python evolves to serve people's need.
+
+Here's my conclusion:
+
+1. Python 3.6 is by far the greatest Python.
+1. Descriptors are used to bind behaviors to accessing attributes.
