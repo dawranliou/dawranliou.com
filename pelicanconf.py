@@ -8,7 +8,7 @@ SITENAME = '%s\'s Blog' % AUTHOR
 SITETITLE = AUTHOR
 SITESUBTITLE = 'Software Developer - Maker'
 SITEDESCRIPTION = '%s\'s Thoughts and Writings' % AUTHOR
-SITELOGO = '//en.gravatar.com/userimage/99964636/f9367cffe912e77fa93af6784d93b99e.jpg?size=120'
+SITELOGO = '//en.gravatar.com/userimage/99964636/be9acf0f4e25c6ccdb50a2465b85aa27.jpeg?size=120'
 FAVICON = '/images/favicon.ico'
 PYGMENTS_STYLE = 'github'
 
