@@ -7,6 +7,9 @@ Authors: Daw-Ran Liou
 Summary: How to write descriptors in Python 3.6 and beyond.
 Cover: images/14-intercept.jpg
 
+![alt intercep](images/14-intercept.jpg)
+_American football players "blocking" the kick, not "intercepting."_
+
 _Special thanks to [Luciano Ramalho](https://twitter.com/ramalhoorg).
 I learned most of the knowledge about descriptors from his workshop in PyBay 2017_
 
@@ -52,8 +55,8 @@ attribute on the object `obj`:
 1. To change its value, `obj.a = 'new value'`, or
 1. To delete it, `del obj.a`
 
-Python is dynamic and flexible to allow users bind behaviors while any
-of the above expression/statement is invoked.
+Python is dynamic and flexible to allow users intercept the above
+expression/statement and bind behaviors to them.
 
 # Why you want to use descriptors
 
