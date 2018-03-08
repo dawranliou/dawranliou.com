@@ -1,6 +1,0 @@
-[submodule "themes/Flex"]
-	path = themes/Flex
-	url = git@github.com:alexandrevicenzi/Flex.git
-[submodule "pelican-plugins"]
-	path = pelican-plugins
-	url = git@github.com:getpelican/pelican-plugins.git
