@@ -111,6 +111,6 @@ EXTRA_PATH_METADATA = {
 }
 
 # THEME setting
-THEME = 'hyde'
+THEME = 'theme'
 
 USE_LESS = True
