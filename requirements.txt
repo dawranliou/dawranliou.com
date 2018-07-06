@@ -1,1 +1,13 @@
-pelican
+-i https://pypi.org/simple
+blinker==1.4
+docutils==0.14
+feedgenerator==1.9
+jinja2==2.10
+markdown==2.6.11
+markupsafe==1.0
+pelican==3.7.1
+pygments==2.2.0
+python-dateutil==2.7.3
+pytz==2018.5
+six==1.11.0
+unidecode==1.0.22
