@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 pelican = "*"
+markdown = "*"
 
 [dev-packages]
 
