@@ -7,6 +7,8 @@ Authors: Daw-Ran Liou
 Summary: Lessons from learning on the job without much experience
 Cover: images/16-just-write-code.jpg
 
+![alt cover](images/16-just-write-code.jpg)
+
 Imaging you are given a brand new web project, some vague requirements,
 and a ton of freedom to choose the technical stacks, will you take it?
 My answer while a couple of months back was… “Hell yeah!”
