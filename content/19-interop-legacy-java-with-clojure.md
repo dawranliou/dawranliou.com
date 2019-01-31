@@ -245,9 +245,10 @@ as a Jar into the Clojure project like:
   :profiles {:uberjar {:aot :all}
              :dev     {:aot            [airsupply.java-api]  ;; (4)
                        :resource-paths ["lib/legacy-999.0.0.jar"]}}) ;; (5)
+```
 
-  ```
 _(4) Use the :dev profile for isolation. Also note that the :aot is moved here._
+
 _(5) Put the legacy java project jar under the lib directory._ 
 
 This way the you can develop the Clojure project that depends on some of the
@@ -255,5 +256,72 @@ existing Java project.
 
 ## Strategy 3 - Clojure REPL integration with legacy Java app
 
+Recipe:
 
+1. Drop-in the uberjar containing Clojure, nrepl, and all other dependencies
+1. Start the nrepl server in the Java app
+1. Connect the nrepl
+1. Access everything in the legacy Java's JVM
 
+This one is really amazing. REPL has been the most important part for me
+to do development in Clojure. With REPL-driven development, you can get immediate
+feed back about the code change and, best, not loosing the application state
+in the process.
+
+_I took the inspiration from Gert-Jan van de Streek's [How to inspect a legacy Java application with the Clojure REPL](https://www.avisi.nl/blog/2015/05/18/how-to-inspect-a-legacy-java-application-with-the-clojure-repl).
+I also use the code example in the post._
+
+We need to make some change to the `project.clj` to include the [`nrepl`](https://github.com/clojure/tools.nrepl)
+first:
+
+```clojure
+;; project.clj
+(defproject airsupply "0.1.0-SNAPSHOT"
+  :description "FIXME: write description"
+  :url "http://example.com/FIXME"
+  :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
+            :url "https://www.eclipse.org/legal/epl-2.0/"}
+  :dependencies [[org.clojure/clojure "1.10.0"]
+                 [org.clojure/tools.nrepl "0.2.13"]]]  ;; (6)
+  :aot [airsupply.java-api]
+  :source-paths ["src/clojure"]
+  :java-source-paths ["src/java"]
+  :target-path "target/%s"
+  :profiles {:uberjar {:aot :all}
+             :dev     {:aot            [airsupply.java-api]
+                       :resource-paths ["lib/legacy-999.0.0.jar"]}})
+```
+
+_(6) Add `org.clojure/tools.nrepl`_
+
+Then we need to sprinkle some Java in the legacy project to make magic happen:
+
+```java
+// legacy java project's main class
+package legacy.code;
+
+import clojure.java.api.Clojure;
+import clojure.lang.IFn;
+
+public class App {
+
+    public static void main(String[] args) {
+      IFn require = Clojure.var("clojure.core", "require");
+      require.invoke(Clojure.read("clojure.tools.nrepl.server"));
+      
+      IFn server = Clojure.var("clojure.tools.nrepl.server", "start-server");
+      server.invoke(Clojure.read(":port"), Clojure.read("8888"));  // (7)
+      
+      // the rest of the main
+    }
+}
+```
+
+_(7) I like to set a determinstic nrepl port but you can also skip this like Gert-Jan van de Streek's article_
+
+With the code snippet, we effectively launched a Clojure nrepl inside the
+legacy app's JVM, at runtime. Start the application. Now you can connect
+to the nrepl from the Clojure project to access the application runtime
+by `lein repl :connect 8888` (or from any IDE integration tool.)
+
+## Conclusion
