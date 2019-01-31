@@ -346,4 +346,4 @@ issues faster then I did! The strategies are:
 If you have a Java codebase why not give this article a try and start integrating
 Clojure?
 
-[Share this article if you like it!](https://twitter.com/home?status=%22Interop%20legacy%20Java%20project%20with%20Clojure%22%20by%20%40dawranliou.%20dawranliou.com/interop-legacy-java-with-clojure.html)
+[Share this article if you like it!](https://twitter.com/home?status=%22Interop%20legacy%20Java%20project%20with%20Clojure%22%20by%20%40dawranliou.%20https://dawranliou.com/interop-legacy-java-with-clojure.html)
