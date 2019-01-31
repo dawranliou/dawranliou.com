@@ -29,8 +29,9 @@ project and potentially for other future features.
 
 And here we go.
 
-## Strategy 1 - Air Supplying Clojure Uberjar
+## Strategy 1 - Air-Supplying Clojure Uberjar
 
+Recipe:
 1. Create a new Clojure project
 1. Generate classes/interfaces by instrumenting Clojure
 1. Create a uberjar
@@ -127,16 +128,101 @@ on this, my opinion is to define an common interface first
 Then Airsupply can simply implement the interface instead of
 defining the custom methods all by itself.
 
-At this point, my recommendation is to turn this into a polyglot project -
-Java interface and Clojure implementation. You'll need to do:
+My recommendation is to turn this into a polyglot project -
+Java interface and Clojure implementation. Leiningen has this use
+case support pretty well. I took the [official recommendation](https://github.com/technomancy/leiningen/blob/master/doc/MIXED_PROJECTS.md#source-layout)
+and here's the result. (Note that the layout has changed.):
+
+```java
+// src/java/airsupply/Supply.java
+package airsupply;
+
+public interface Supply {
+    public String drop();
+    public Supply spawn();
+}
+
+```
 
 ```clojure
 ;; project.clj
-
-;; src/java/airsupply/supplier.java
+(defproject airsupply "0.1.0-SNAPSHOT"
+  :description "FIXME: write description"
+  :url "http://example.com/FIXME"
+  :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
+            :url "https://www.eclipse.org/legal/epl-2.0/"}
+  :dependencies [[org.clojure/clojure "1.10.0"]]
+  :aot [airsupply.java-api]
+  :source-paths ["src/clojure"]  ;; (2)
+  :java-source-paths ["src/java"]  ;; (3)
+  :target-path "target/%s"
+  :profiles {:uberjar {:aot :all}})
 
 ;; src/clojure/airsupply/java_api.clj
+(ns airsupply.java-api
+  (:gen-class
+   :name airsupply.Airsupply
+   :implements [airsupply.Supply]
+   :state state
+   :init init
+   :constructors {[] []
+                  [String] []}
+   :main false))
+
+(defn -init
+  ([] (-init "supply"))
+  ([name] [[] {:name name}]))
+
+(defn -drop
+  [this]
+  (-> this .state :name))
+
+(defn -spawn
+  [this]
+  (airsupply.Airsupply. (-> this .state :name)))
 ```
 
-## Strategy 2 - 
+After restarting the repl, Leiningen would know to compile the Java
+source first and then the Clojure ns that's in the :aot directive.
+This default behavior is exactly what we need in the use case. There
+are other ways to interleaving compilation steps but we're good so far.
+Here's what you can try in the repl after restarting.
+
+```clojure
+user> (def food (airsupply.Airsupply. "food"))
+#'user/food
+user> (.drop food)
+"food"
+user> (def food-2 (.spawn food))
+#'user/food-2
+user> (.drop food-2)
+"food"
+```
+
+If you don't see the class instance working as expected, try a
+`lein clean` to clean up the class files. I don't exactly know why
+this has to be done but it helps.
+
+Once you do a `lein uberjar` and drop this into the classpath of your
+legacy Java project, you can simply import the class/interface and
+create the object like you normally do, for example:
+
+```java
+// import airsupply.Supply;
+// import airsupply.Airsupply;
+
+Supply foodSupply = new Airsupply("food");
+System.out.println(foodSupply.drop());
+Supply anotherFoodSupply = foodSupply.spawn();
+
+```
+
+## Strategy 2 - Air-Supply Your Legacy Java App
+
+Recipe
+1. Compile the legacy Java App (preferrably to a Jar)
+1. Add the Jar to project.clj's resource
+1. Use the Jar in Clojure
+
+## Strategy 3 - 
 
