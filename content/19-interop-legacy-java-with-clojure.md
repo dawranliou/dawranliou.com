@@ -39,21 +39,103 @@ And here we go.
 
 I call this one "air supplying" because, interestingly, our legacy Java project doesn't
 use any modern build system like Maven or Gradle. (We use Ant instead.) So I simply copy
-the uberjar to the project's classpath to make my compiled code available. Here's how I
-do it with some code:
+the uberjar to the project's classpath to make my compiled code available.
 
-Start the project with `lein new app airsupply`. The project.clj would look like this:
+Here, the goal is to generate the class files that a Java project can use. We start the
+project with `lein new app airsupply`. The project.clj would look like this:
 
 ```clojure
+;; project.clj
 (defproject airsupply "0.1.0-SNAPSHOT"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.10.0"]]
-  :main ^:skip-aot airsupply.core
+  :main ^:skip-aot airsupply.core   ;; (1)
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
+```
+
+_(1) We don't really use the `airsupply.core` ns and we don't need a main since this isn't
+going to be an app but a library. We can just remove the `:main` line.__
+
+Naively, we'll create a namespace called airsupply.java-api and use the `:gen-class` directive
+in the `ns` declaration to instrument Clojure to compile it. I recommend reading [@kotarak](https://twitter.com/kotarak)'s
+[gen-class – how it works and how to use it](https://kotka.de/blog/2010/02/gen-class_how_it_works_and_how_to_use_it.html)
+to know more about `gen-class`. If you are still following, we ended up with:
+
+```clojure
+;; project.clj
+(defproject airsupply "0.1.0-SNAPSHOT"
+  :description "FIXME: write description"
+  :url "http://example.com/FIXME"
+  :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
+            :url "https://www.eclipse.org/legal/epl-2.0/"}
+  :dependencies [[org.clojure/clojure "1.10.0"]]
+  :aot [airsupply.java-api]
+  :target-path "target/%s"
+  :profiles {:uberjar {:aot :all}})
+  
+;; src/airsupply/java_api.clj
+(ns airsupply.java-api
+  (:gen-class
+   :name airsupply.Airsupply
+   :state state
+   :init init
+   :constructors {[] []
+                  [String] []}
+   :main false
+   :methods [[drop [] String]]))
+
+(defn -init
+  ([] (-init "supply"))
+  ([name] [[] {:name name}]))
+
+(defn -drop
+  [this]
+  (def -this this)
+  (-> this .state :name))
+```
+
+Now you can launch the repl and do:
+
+```clojure
+user> (def a (airsupply.Airsupply.))
+#'user/a
+user> (.drop a)
+"supply"
+user> (def a (airsupply.Airsupply. "food"))
+#'user/a
+user> (.drop a)
+"food"
+```
+
+Packaging everything up is one command away: `lein uberjar`.
+You should find the `target/uberjar/airsupply-0.1.0-SNAPSHOT` contain
+everything including Clojure itself. Simply adding this jar to your
+Java project and you can import `airsupply.Airsupply` normally.
+
+However, here's the catch: it's quite difficult to use `:gen-class`
+when the custom methods get more creative, e.g. returning an instance
+of the class itself like `clone` does. The compiler wouldn't be able
+to understand `airsupply.Airsupply` before compiling it.
+
+Although the [StackOverflow has an answer](https://stackoverflow.com/a/29375133/5050657)
+on this, my opinion is to define an common interface first
+(either using `gen-interface` or just write a Java interface.)
+Then Airsupply can simply implement the interface instead of
+defining the custom methods all by itself.
+
+At this point, my recommendation is to turn this into a polyglot project -
+Java interface and Clojure implementation. You'll need to do:
+
+```clojure
+;; project.clj
+
+;; src/java/airsupply/supplier.java
+
+;; src/clojure/airsupply/java_api.clj
 ```
 
 ## Strategy 2 - 
