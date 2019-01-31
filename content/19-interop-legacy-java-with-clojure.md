@@ -29,7 +29,7 @@ project and potentially for other future features.
 
 And here we go.
 
-## Strategy 1 - Air-Supplying Clojure Uberjar
+## Strategy 1 - Drop-in Clojure Uberjar
 
 Recipe:
 1. Create a new Clojure project
@@ -59,7 +59,7 @@ project with `lein new app airsupply`. The project.clj would look like this:
 ```
 
 _(1) We don't really use the `airsupply.core` ns and we don't need a main since this isn't
-going to be an app but a library. We can just remove the `:main` line.__
+going to be an app but a library. We can just remove the `:main` line._
 
 Naively, we'll create a namespace called airsupply.java-api and use the `:gen-class` directive
 in the `ns` declaration to instrument Clojure to compile it. I recommend reading [@kotarak](https://twitter.com/kotarak)'s
@@ -181,6 +181,7 @@ public interface Supply {
   [this]
   (airsupply.Airsupply. (-> this .state :name)))
 ```
+_(2) (3) are added for our polyglot project._
 
 After restarting the repl, Leiningen would know to compile the Java
 source first and then the Clojure ns that's in the :aot directive.
@@ -217,12 +218,42 @@ Supply anotherFoodSupply = foodSupply.spawn();
 
 ```
 
-## Strategy 2 - Air-Supply Your Legacy Java App
+## Strategy 2 - Drop-in Legacy Java App
 
 Recipe
 1. Compile the legacy Java App (preferrably to a Jar)
 1. Add the Jar to project.clj's resource
 1. Use the Jar in Clojure
+1. Create a uberjar if we need to use the Clojure library back in the java app
 
-## Strategy 3 - 
+In this strategy, we want to pull in some dependencies from the Legacy
+Java app. I found it the easiest just drop in the entire legacy project
+as a Jar into the Clojure project like:
+
+```clojure
+;; project.clj
+(defproject airsupply "0.1.0-SNAPSHOT"
+  :description "FIXME: write description"
+  :url "http://example.com/FIXME"
+  :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
+            :url "https://www.eclipse.org/legal/epl-2.0/"}
+  :dependencies [[org.clojure/clojure "1.10.0"]]
+  :aot [airsupply.java-api]
+  :source-paths ["src/clojure"]
+  :java-source-paths ["src/java"]
+  :target-path "target/%s"
+  :profiles {:uberjar {:aot :all}
+             :dev     {:aot            [airsupply.java-api]  ;; (4)
+                       :resource-paths ["lib/legacy-999.0.0.jar"]}}) ;; (5)
+
+  ```
+_(4) Use the :dev profile for isolation. Also note that the :aot is moved here._
+_(5) Put the legacy java project jar under the lib directory._ 
+
+This way the you can develop the Clojure project that depends on some of the
+existing Java project.
+
+## Strategy 3 - Clojure REPL integration with legacy Java app
+
+
 
