@@ -1,5 +1,5 @@
 Title: Interop legacy Java project with Clojure
-Date: 2019-01-30
+Date: 2019-01-31
 Category: Clojure
 Tags: clojure, java
 Slug: interop-legacy-java-with-clojure
@@ -218,7 +218,7 @@ Supply anotherFoodSupply = foodSupply.spawn();
 
 ```
 
-## Strategy 2 - Drop-in Legacy Java App
+## Strategy 2 - Use Legacy Java Jar as resource
 
 Recipe
 1. Compile the legacy Java App (preferrably to a Jar)
@@ -254,7 +254,7 @@ _(5) Put the legacy java project jar under the lib directory._
 This way the you can develop the Clojure project that depends on some of the
 existing Java project.
 
-## Strategy 3 - Clojure REPL integration with legacy Java app
+## Strategy 3 - Connect Clojure repl with Java JVM
 
 Recipe:
 
@@ -325,3 +325,25 @@ to the nrepl from the Clojure project to access the application runtime
 by `lein repl :connect 8888` (or from any IDE integration tool.)
 
 ## Conclusion
+
+I really like the way how Clojure is "symbiotic" with JVM. Injecting some
+new blood into a legacy project usually isn't easy, but I'm glad to take the
+initiative to set on this journey. I must say I actually felt quite confident
+when I worked on the technical issues along the way, even though I was still
+learning Clojure. It's amazing to see things just work like I want it to in
+the end.
+
+This post hows you 3 strategies that I came across to help you integrate
+Clojure into your Java project. Hope it helps you to overcome some technical
+issues faster then I did! The strategies are:
+
+1. Drop-in Clojure Uberjar
+1. Use Legacy Java Jar as resource
+1. Connect Clojure repl with Java JVM
+
+## Action
+
+If you have a Java codebase why not give this article a try and start integrating
+Clojure?
+
+[Share this article if you like it!](https://twitter.com/home?status=%22Interop%20legacy%20Java%20project%20with%20Clojure%22%20by%20%40dawranliou.%20dawranliou.com/interop-legacy-java-with-clojure.html)
