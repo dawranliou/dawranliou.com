@@ -1,3 +1,11 @@
+html {
+    font-size: 20px;
+}
+
+article > p {
+    line-height: 1.5;
+}
+
 a {
     text-decoration:none;
     transition:color .15s ease-in;
