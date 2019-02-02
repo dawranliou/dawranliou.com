@@ -1,11 +1,12 @@
-Title: Flask for New Web Developer
-Date: 2016-02-18 10:20
-Category: Python
-Tags: python, flask, web
+---
+title: Flask for New Web Developer
+date: 2016-02-18 10:20
+tags: python, web
 Slug: flask-for-new-dev
 Authors: Daw-Ran Liou
 Summary: Thoughts after finishing my blog app using Python Flask
 Cover: /images/flask-logo.png
+---
 
 ![alt flask](/images/flask-logo.png)
 _"Flask logo" by Flask is licensed under [Flask Artwork License](http://flask.pocoo.org/docs/0.11/license/#flask-artwork-license)_
