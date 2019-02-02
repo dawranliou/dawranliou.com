@@ -1,5 +1,5 @@
 <aside class="ph7 pb4">
-    <h2 class="bt b--black-90 pt5">Recent Articles</h2>
+    <h2 class="bt b--black-90 pt5 mt0">Recent Articles</h2>
     <ol>
     <% blog.articles[0...10].each do |article| %>
         <li><%= link_to article.title, article %> <span><%= article.date.strftime('%b %e') %></span></li>

@@ -1,6 +1,7 @@
 <% wrap_layout :layout do %>
-    <article class="ph7">
-        <h1 class="f1"><%= link_to current_article.title%></h1>
+    <article class="ph7 pv5 white bg-black-90">
+        <h1 class="f2 sans-serif mt0 pt5"><%= current_article.title%></h1>
+        <p class="gray serif pb3"><%= current_article.date.strftime('%Y %B %e') %></p>
         <%= yield %>
     </article>
 <% end %>

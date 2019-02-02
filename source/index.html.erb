@@ -12,7 +12,7 @@ per_page: 10
 
 <% page_articles.each_with_index do |article, i| %>
     <article class="ph7 pb4">
-        <h2 class="f2 mb0"><%= link_to article.title, article %></h2>
+        <h2 class="f2 mb0 sans-serif"><%= link_to article.title, article, :class => "black-90" %></h2>
         <p class="black-60 serif"><%= article.date.strftime('%Y %B %e') %></p>
         <div class="consolas">
             <%= article.summary(500)%>
