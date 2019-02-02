@@ -1,11 +1,12 @@
-Title: What is it like to start a study group at work
-Date: 2018-04-24
-Category: Python
-Tags: python
+---
+title: What is it like to start a study group at work
+date: 2018-04-24
+tags: python
 Slug: study-group-at-work
 Authors: Daw-Ran Liou
 Summary: My story of finding a way to share the thing I love
 Cover: /images/17-study-group.jpg
+---
 
 ![alt cover](images/17-study-group.jpg)
 
