@@ -1,10 +1,12 @@
-Title: Decode your phone number with Clojure
-Date: 2018-04-30
+---
+title: Decode your phone number with Clojure
+date: 2018-04-30
 Category: Clojure
-Tags: clojure
+tags: clojure
 Slug: decode-phone-number
 Authors: Daw-Ran Liou
 Summary: A Clojure program to reverse translate numbers to phonewords.
+---
 
 _The original article was shared on my [Medium](https://medium.com/@dawran6/decode-your-phone-number-with-clojure-373ccbd11bb9)_
 
