@@ -1,10 +1,11 @@
-Title: Composing namedtuple from namedtuples
-Date: 2017-11-02
-Category: Python
-Tags: python
+---
+title: Composing namedtuple from namedtuples
+date: 2017-11-02
+tags: python
 Slug: composing-namedtuple
 Authors: Daw-Ran Liou
 Summary: Sharing the recipe of composing namedtuple from namedtuples.
+---
 
 The problem:
 
