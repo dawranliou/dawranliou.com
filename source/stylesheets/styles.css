@@ -1,9 +1,17 @@
 html {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 article > p {
-    line-height: 1.5;
+    line-height: 1.4;
+}
+
+.consolas {
+    font-family: Consolas, monaco, monospace;
+}
+
+code {
+    overflow-y:hidden;
 }
 
 a {
