@@ -1,11 +1,12 @@
-Title: Completed my first hackathon!
-Date: 2016-03-10 10:20
-Category: Life
-Tags: python
+---
+title: Completed my first hackathon!
+date: 2016-03-10 10:20
+tags: hack
 Slug: first-hackathon
 Authors: Daw-Ran Liou
 Summary: It was such a blast!
 Cover: /images/hackathon.jpg
+---
 
 ![alt hackathon](/images/hackathon.jpg)
 
