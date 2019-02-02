@@ -3,30 +3,36 @@ pageable: true
 per_page: 10
 ---
 
-<div class="pv4">
-    <h1 class="f1 serif">Daw-Ran Liou</h1>
-    <h2 class="f2 serif">Blog</h1>
+<div class="ph7 vh-100 w-100 bg-black-90 dt content-center">
+    <div class="dtc v-mid">
+        <h1 class="f1 serif mv0 white courier normal">Daw-Ran Liou</h1>
+        <p class="f5 serif mt0 white courier fw1">Software Developer, Clojurist, Pythonista @ SF</p>
+    </div>
 </div>
 
 <% page_articles.each_with_index do |article, i| %>
-    <article class="pb4">
+    <article class="ph7 pb4">
         <h2 class="f2 mb0"><%= link_to article.title, article %></h2>
         <p class="black-60 serif"><%= article.date.strftime('%Y %B %e') %></p>
-        <%= article.summary(500)%>
+        <div class="consolas">
+            <%= article.summary(500)%>
+        </div>
         <%= link_to 'Read more…', article %>
     </article>
 <% end %>
 
-<% if paginate && num_pages > 1 %>
-    <p>Page <%= page_number %> of <%= num_pages %></p>
-
-    <% if prev_page %>
-        <p><%= link_to 'Previous page', prev_page %></p>
-    <% end %>
-<% end %>
-
 <% if paginate %>
-  <% if next_page %>
-    <p class="pb5 f3"><%= link_to 'Next page >>', next_page %></p>
-  <% end %>
+    <div class="ph7">
+    <% if num_pages > 1 %>
+            <p>Page <%= page_number %> of <%= num_pages %></p>
+
+            <% if prev_page %>
+                <p><%= link_to 'Previous page', prev_page %></p>
+            <% end %>
+    <% end %>
+    <% if next_page %>
+        <p class="pb5 f3"><%= link_to 'Next page >>', next_page %></p>
+    <% end %>
+    </div>
 <% end %>
+
