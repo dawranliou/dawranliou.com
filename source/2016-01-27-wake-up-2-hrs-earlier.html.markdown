@@ -5,7 +5,6 @@ tags: life
 Slug: morning-routine
 Authors: Daw-Ran Liou
 Summary: My morning routines
-layout: post
 Cover: https://tombasson.files.wordpress.com/2015/01/morning-routine.jpg
 ---
 
