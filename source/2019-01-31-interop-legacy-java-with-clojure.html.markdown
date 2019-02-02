@@ -1,10 +1,12 @@
-Title: Interop legacy Java project with Clojure
-Date: 2019-01-31
+---
+title: Interop legacy Java project with Clojure
+date: 2019-01-31
 Category: Clojure
-Tags: clojure, java
+tags: clojure, java
 Slug: interop-legacy-java-with-clojure
 Authors: Daw-Ran Liou
 Summary: Three strategies to inject Clojure new blood in your existing Java project
+---
 
 Recently I got the chance to work on a new feature for our existing Java project.
 The feature itself is a project that set out to be a general-purpose asynchronous 
