@@ -1,11 +1,14 @@
-Title: Never Write For-Loops Again
-Date: 2016-11-17
-Category: Python
-Tags: python, best-practice, tip
+---
+title: "You probably don't need for loops"
+date: 2016-11-17
+tags: python
 Slug: never-write-for-loops
 Authors: Daw-Ran Liou
 Summary: Challenge yourself to use awesome language features instead of for-loops
 Cover: http://critical-thinkers.com/wp-content/uploads/2015/01/shutterstock_208347706.jpg
+---
+
+_Originally titled "Never Write For-loops again"_
 
 This is a challenge. I challenge you to avoid writing for-loops in every scenario.
 Also, I challenge you to find the scenarios that are so freaking hard to write
