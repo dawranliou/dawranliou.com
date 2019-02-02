@@ -1,11 +1,13 @@
-Title: Generator - The Basics
-Date: 2017-01-07
+---
+title: Generator - The Basics
+date: 2017-01-07
 Category: Python
-Tags: python, beginner
+tags: python
 Slug: generator-the-basics
 Authors: Daw-Ran Liou
 Summary: These are the basic things you need to know about generators and how to use it to crack some algorithm problems
 Cover:
+---
 
 _I've been wanting to write articles about generators for quite some time.
 Generator is definitely one of my favorite features in Python. Ever since I stopped treating
