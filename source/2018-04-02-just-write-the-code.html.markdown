@@ -1,11 +1,13 @@
-Title: Don’t think. Just write the code!
-Date: 2018-04-02
+---
+title: Don’t think. Just write the code!
+date: 2018-04-02
 Category: Python
-Tags: python
+tags: python, dev
 Slug: just-write-the-code
 Authors: Daw-Ran Liou
 Summary: Lessons from learning on the job without much experience
 Cover: images/16-just-write-code.jpg
+---
 
 ![alt cover](images/16-just-write-code.jpg)
 
