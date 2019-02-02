@@ -7,18 +7,12 @@ Authors: Daw-Ran Liou
 Summary: Twitter scrapper tutorial
 ---
 
-Inspired by Bruce, my friend’s take-home interview question, I started this 
-bite-size project to play around with some of the most popular PyPI packages: 
-Requests, BeautifulSoup, and Selenium. In this tutorial, I’ll show you the 
-step-by-step process of how I build a Twitter Search web scraper without using 
-their REST API.
-
----
-
 This is the part 2 of my Twitter scraper tutorial. If you haven’t checkout part 
 1, the link is right here. In the last part, I left the tutorial with an unsolved
 problem — how to scrape the web page that uses infinite scrolling design? Two 
 solutions came into my mind: one more sophisticated, the other more naive:
+
+READMORE
 
 # The more sophisticated approach
 

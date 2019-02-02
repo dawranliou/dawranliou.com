@@ -8,8 +8,6 @@ Summary: It was such a blast!
 Cover: /images/hackathon.jpg
 ---
 
-![alt hackathon](/images/hackathon.jpg)
-
 It was such a amazing experience. There’s no such thing that make you,
 and your teammate pull a all-nighter and still gives you one of the
 best times of your life, except hackathon. (Hackathon rocks!) I want to
@@ -22,6 +20,8 @@ for presentations and demonstrations. The basic idea of hackathon:
 it is a project competition that’s done during days of marathon-like 
 intensive working/hacking. Participating teams get unlimited supplies 
 of coffee and red bulls. Indeed this sounds very terrifying.
+
+READMORE
 
 When I use the word “hack” it is not exactly the same thing we pictured 
 of what computer hackers do. For here it is more generic. Hacking is 

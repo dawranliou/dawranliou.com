@@ -15,6 +15,8 @@ This raise the question in me: [is there any practical example of using the and-
 which also takes the advantage of the generic truth value testing](http://stackoverflow.com/questions/35657101/practical-examples-of-python-and-operator)?
 Here’s what I found.
 
+READMORE
+
 # The Definitions
 
 Let’s include [the definitions](https://docs.python.org/3.5/reference/expressions.html#boolean-operations)

@@ -8,9 +8,6 @@ Summary: Thoughts after finishing my blog app using Python Flask
 Cover: /images/flask-logo.png
 ---
 
-![alt flask](/images/flask-logo.png)
-_"Flask logo" by Flask is licensed under [Flask Artwork License](http://flask.pocoo.org/docs/0.11/license/#flask-artwork-license)_
-
 Last long weekend after my geek marathon I finally
 finished reading [Flask Web Development: Developing Web Applications with Python](http://www.amazon.com/Flask-Web-Development-Developing-Applications/dp/1449372627)
 and deployed my blog app on Heroku.
@@ -21,6 +18,8 @@ In this article I want to share some thoughts mostly about
 Flask — the Python framework for web developing — ,
 and covers a little about what I’d recommend a beginner to
 start building web apps, and a little bit about the book.
+
+READMORE
 
 BTW, here’s the link to my blog: https://blog.dawran6.com
 

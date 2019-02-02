@@ -15,6 +15,8 @@ I was very into Clojure these days. Learning Clojure has this side effect of
 mutating your brain to view programming difference. At the meanwhile changing your
 taste of choosing a programming language. (Please be Clojure!)
 
+READMORE
+
 I want to do this project in Clojure because, first of all, it's Clojure. And I can't
 get more excited about this idea along. Then I did a couple of evaluation:
 

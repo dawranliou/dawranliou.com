@@ -20,6 +20,8 @@ Color = namedtuple('Color', 'r g b')
 ColoredSquare = namedtupe('ColoredSquare', 'x0 y0 x1 y1 r g b')
 ```
 
+READMORE
+
 I don’t like this solution, because there are clearly something to reuse in Square and Color , and also, it isn’t fun to call ColoredSquare ‘s __init__ function that has 7 arguments. The alternative might be writing a custom class that takes Square and Color as arguments of the __init__ function, but then we lost all the benefits from using namedtuples. (TODO add a link of something to support this statement.)
 
 So, here’s the recipe:

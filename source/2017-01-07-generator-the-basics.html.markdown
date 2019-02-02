@@ -19,6 +19,8 @@ ever seemed to be too much in my code. They have strong purpose in the code, and
 beautiful in the codes. In this article, I'll explain the basics things about generators.
 At the end, I'll show you how to use it to solve some problems._
 
+READMORE
+
 # 1. Why do I need to know generators?
 
 There're two categories of use cases:

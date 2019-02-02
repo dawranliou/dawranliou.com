@@ -9,9 +9,6 @@ Summary: How to write descriptors in Python 3.6 and beyond.
 Cover: images/14-intercept.jpg
 ---
 
-![alt intercep](images/14-intercept.jpg)
-_American football players "blocking" the kick, not "intercepting."_
-
 _Special thanks to [Luciano Ramalho](https://twitter.com/ramalhoorg).
 I learned most of the knowledge about descriptors from his workshop in PyBay 2017_
 
@@ -30,6 +27,8 @@ If you ever wonder why the attributes `id` and `name` aren't passed
 into the `__init__` method and bind to the instance like
 [regular class does](https://docs.python.org/3/tutorial/classes.html#class-objects).
 , this post is for you.
+
+READMORE
 
 This post starts with explaining descriptors, why to use them, how to write
 them in previous Python versions (<= 3.5,) and finally writing

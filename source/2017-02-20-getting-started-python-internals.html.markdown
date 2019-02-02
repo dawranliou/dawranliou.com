@@ -20,6 +20,8 @@ using the 3.6.0 code.
 In this article, you'll know the very basic things about Python internals,
 and, hopefully, be able to explore the Python internals on your own._
 
+READMORE
+
 # What does (C)Python do to my code?
 
 You might have heard people tell you Python is a interpreted language.

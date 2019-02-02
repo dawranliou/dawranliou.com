@@ -22,6 +22,8 @@ language. And things are just getting more fun! Not only the code become shorter
 and cleaner, but also code looks more structured and disciplined. I’ll get into
 those benefits more in this article.
 
+READMORE
+
 But first, let’s take a step back and see what’s the intuition behind writing a
 for-loop:
 
