@@ -1,12 +1,13 @@
-Title: How I wake up 2 hours earlier every day and become happier
-Date: 2016-01-27 10:20
-Category: Life
-Tags: life-style
+---
+title: How I wake up 2 hours earlier every day and become happier
+date: 2016-01-27 10:20
+tags: life
 Slug: morning-routine
 Authors: Daw-Ran Liou
 Summary: My morning routines
 layout: post
 Cover: https://tombasson.files.wordpress.com/2015/01/morning-routine.jpg
+---
 
 ![alt morning-routine](https://tombasson.files.wordpress.com/2015/01/morning-routine.jpg)
 
