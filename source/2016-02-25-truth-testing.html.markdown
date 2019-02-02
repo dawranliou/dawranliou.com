@@ -16,6 +16,8 @@ order to work with it. Lot’s of reading, isn’t it? This is why I think Pytho
 modern programming language. Let’s talk about one of the features Python provides —
 the [truth value testing](https://docs.python.org/3.5/library/stdtypes.html#truth-value-testing).
 
+READMORE
+
 (Go ahead and read the docs in Python’s official documentation.
 You cannot avoid reading documentations while developing software.)
 

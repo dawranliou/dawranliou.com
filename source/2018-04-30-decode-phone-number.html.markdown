@@ -14,6 +14,8 @@ __The inspiration of this article came from the Cousera course, Functional Progr
 
 You might have seen ads with interesting phone numbers like: 1–800-FLOWER, 1–800-FREE-411, or 1–800-GOT-JUNK. Those are called phonewords, or mnemonic phone numbers. It’d be awesome to have a memorable phone number like 1–RANDY-DA-MAN. However, maybe your phone number already has a meaning. How cool is it to figure it out, well, using Clojure?
 
+READMORE
+
 Let’s clarify the problem. What we want is to: find all the combination of words where the concatenation of words could be encoded to the given numbers. For example, given 5299626, we want to find “jazz man,” “lazy man,” or all other words.
 
 This problem is quite daunting at first glance. Mostly because of the recursive nature of it. For example, given the numbers 23456789, we want to know by splitting the first digit and the rest, we not only want to ask if 2 and 3456789 are both words, but also want to ask the ??

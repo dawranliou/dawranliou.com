@@ -11,6 +11,8 @@ After reading Brandon Sanderson's [State of the Sanderson 2018](https://brandons
 and Fogus's [The best things and stuff of 2018](http://blog.fogus.me/2019/01/02/the-best-things-and-stuff-of-2018/),
 I feel like to write up a quick summary my year of 2018, a part for myself, and a part for the reason I'll explain later in the post.
 
+READMORE
+
 # Some Numbers in 2018
 
 1. __280__ Open Source Software [contributions](https://github.com/dawran6/)

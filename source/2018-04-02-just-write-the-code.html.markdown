@@ -9,8 +9,6 @@ Summary: Lessons from learning on the job without much experience
 Cover: images/16-just-write-code.jpg
 ---
 
-![alt cover](images/16-just-write-code.jpg)
-
 Imaging you are given a brand new web project, some vague requirements,
 and a ton of freedom to choose the technical stacks, will you take it?
 My answer while a couple of months back was… “Hell yeah!”
@@ -21,6 +19,8 @@ It had been a wonderful journey, with struggles, of course. I would love
 to share what I learned. Hope it sheds some lights on your coding journey
 too. To set the expectation right, let me give you some idea of my
 experience level before I started the project.
+
+READMORE
 
 # Before I started
 

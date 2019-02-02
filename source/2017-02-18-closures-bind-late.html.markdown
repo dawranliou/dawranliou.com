@@ -9,8 +9,6 @@ Summary: The behavior of closure might trick you
 Cover: images/turtle.jpg
 ---
 
-![alt turtle](images/turtle.jpg)
-
 "Closure is a turtle carrying its shell," my favorite explanation to
 closures, quote by [Raymond Hettinger](https://twitter.com/raymondh).
 With closures, lots of great features are possible
@@ -21,6 +19,8 @@ I came across this StackOverflow post -
 , which helped me bridging the gap in my knowledge,
 the gap that I sort-of understood it but couldn't explain it very well.
 The bridge is just a simple sentence, "closures bind late."
+
+READMORE
 
 What does "closures bind late" mean exactly?
 Consider a function generator that generates a series of multiplication

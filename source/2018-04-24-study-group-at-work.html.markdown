@@ -8,11 +8,11 @@ Summary: My story of finding a way to share the thing I love
 Cover: /images/17-study-group.jpg
 ---
 
-![alt cover](images/17-study-group.jpg)
-
 Have you ever had the feeling that you got so passionate about something that you have to share it to everyone around you? You gotta force people to be passionate about it, am I right? I was so thrilled about Python two years ago, on the day I finally understood what list comprehension is. I had never knew programming could be so… enjoyable. Gradually from chit-chatting with colleagues, to going to a local meetup group and writing blog posts, I wish to find yet another way to share this amazing technology and to help people. So I thought about starting a Python study group in my workplace..
 
 ..And I started a Python study group in my workplace 30 minutes later. This is what happened in the 30 minutes:
+
+READMORE
 
 > Minute 1 — *Chatting with my buddy in the office*
 > “Hey I am thinking about starting a Python study group at work. Do you want to help me?” “Yeah, I’ll help you.” “Cool, I’ll write an email and send it to a bunch of people.”

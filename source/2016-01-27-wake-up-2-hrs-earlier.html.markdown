@@ -8,8 +8,6 @@ Summary: My morning routines
 Cover: https://tombasson.files.wordpress.com/2015/01/morning-routine.jpg
 ---
 
-![alt morning-routine](https://tombasson.files.wordpress.com/2015/01/morning-routine.jpg)
-
 ## Here’s how I kick off my workdays
 
 _6:00 AM:
@@ -43,6 +41,8 @@ I shall be in the office by 9:50.
 I was nothing like the person described above at all three months ago.
 What I’d like to tell you is the story of __the routine I used to do
 three months ago__ and __what happens after adopting my new routine.__
+
+READMORE
 
 ## Background
 
