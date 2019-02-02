@@ -1,11 +1,12 @@
-Title: 40 Books I Read in 2016
-Date: 2017-01-04
-Category: Life
-Tags: book
+---
+title: 40 Books I Read in 2016
+date: 2017-01-04
+tags: book, life
 Slug: 40-books-in-2016
 Authors: Daw-Ran Liou
 Summary: Summarizing the books I read in 2016
 Cover: images/10-40-books-i-read-in-2016.jpg
+---
 
 ![alt cover](images/10-40-books-i-read-in-2016.jpg)
 
