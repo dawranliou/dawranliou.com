@@ -1,10 +1,11 @@
-Title: Recap 2018
-Date: 2019-01-02
-Category: Life
-Tags: book, life
+---
+title: Recap 2018
+date: 2019-01-02
+tags: book, life
 Slug: recap-2018
 Authors: Daw-Ran Liou
 Summary: Summarizing some highlights and lowlights of my 2018
+---
 
 After reading Brandon Sanderson's [State of the Sanderson 2018](https://brandonsanderson.com/state-of-the-sanderson-2018/)
 and Fogus's [The best things and stuff of 2018](http://blog.fogus.me/2019/01/02/the-best-things-and-stuff-of-2018/),
