@@ -40,9 +40,9 @@ activate :blog do |blog|
   blog.calendar_template = "calendar.html"
 
   # Enable pagination
-  # blog.paginate = true
-  # blog.per_page = 10
-  # blog.page_link = "page/{num}"
+  blog.paginate = true
+  blog.per_page = 10
+  blog.page_link = "page/{num}"
 end
 
 page "/feed.xml", layout: false
@@ -66,3 +66,7 @@ configure :build do
   # Minify Javascript on build
   # activate :minify_javascript
 end
+
+activate :syntax
+set :markdown_engine, :redcarpet
+set :markdown, :fenced_code_blocks => true, :smartypants => true

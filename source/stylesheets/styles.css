@@ -1,0 +1,5 @@
+a {
+    text-decoration:none;
+    transition:color .15s ease-in;
+    color: #333333;
+}
