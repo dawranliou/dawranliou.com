@@ -9,9 +9,10 @@
     <%= stylesheet_link_tag "tachyons.min" %>
     <%= stylesheet_link_tag "syntax" %>
     <%= stylesheet_link_tag "styles" %>
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet"> 
     <%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
   </head>
-  <body class="sans-serif">
+  <body>
 
     <div id="main" role="main">
       <%= yield %>

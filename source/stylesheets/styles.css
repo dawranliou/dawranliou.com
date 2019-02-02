@@ -2,20 +2,37 @@ html {
     font-size: 18px;
 }
 
+body {
+    font-family: 'Inconsolata', monospace;
+}
+
 article > p {
     line-height: 1.4;
 }
 
 .consolas {
-    font-family: Consolas, monaco, monospace;
+}
+
+pre {
+    padding: 2rem 1rem;
+    overflow: auto;
+    word-wrap: normal;
+    white-space: pre;
+    font-family: Menlo, Monaco, "Courier New", monospace;
+    background-color: #f9f9f9;
 }
 
 code {
     overflow-y:hidden;
+    padding: .1em .2em;
+    font-size: 85%;
+    color: #bf616a;
+    background-color: #f9f9f9;
+    border-radius: 3px;
 }
 
 a {
     text-decoration:none;
     transition:color .15s ease-in;
-    color: #333333;
+    color: #357edd;
 }
