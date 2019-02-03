@@ -1,5 +1,6 @@
 html {
     font-size: 18px;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -34,3 +35,4 @@ a {
     transition:color .15s ease-in;
     color: #357edd;
 }
+

@@ -4,6 +4,9 @@ per_page: 10
 ---
 
 <div class="bg-black-90 light-gray">
+  <div class="center absolute bottom-0 w-100 tc bounce">
+    <a href="#nav" class="f3 link dim dark-gray"><svg width="20px" height="20px" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-circle-down" class="svg-inline--fa fa-chevron-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z"></path></svg></a>
+  </div>
 <div class="ph3 ph5-m ph7-l vh-100 w-100 dt content-center">
     <div class="dtc v-mid">
         <h1 class="f3 f1-ns serif mv0 courier normal">Daw-Ran Liou</h1>
@@ -11,7 +14,7 @@ per_page: 10
     </div>
 </div>
 
-<div class="bg-white black-80">
+<div class="bg-white black-80 mt3 pt3">
     <%= partial "nav"%>
     <% page_articles.each_with_index do |article, i| %>
         <article class="ph3 ph5-m ph7-l pv4 bg-white black-80">
