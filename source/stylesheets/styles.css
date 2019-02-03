@@ -19,7 +19,7 @@ pre {
     word-wrap: normal;
     white-space: pre;
     font-family: Menlo, Monaco, "Courier New", monospace;
-    background-color: #f9f9f9;
+    background-color: #ccc;
 }
 
 code {
@@ -27,7 +27,7 @@ code {
     padding: .1em .2em;
     font-size: 85%;
     color: #bf616a;
-    background-color: #f9f9f9;
+    background-color: #ccc;
     border-radius: 3px;
 }
 
