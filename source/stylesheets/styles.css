@@ -19,15 +19,13 @@ pre {
     word-wrap: normal;
     white-space: pre;
     font-family: Menlo, Monaco, "Courier New", monospace;
-    background-color: #ccc;
 }
 
 code {
     overflow-y:hidden;
     padding: .1em .2em;
     font-size: 85%;
-    color: #bf616a;
-    background-color: #ccc;
+    color: #96ccff;
     border-radius: 3px;
 }
 
