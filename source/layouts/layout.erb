@@ -15,13 +15,21 @@
     <meta name="twitter:description" content="Daw-Ran Liou's website">
     <meta name="twitter:site" content="@dawranliou">
     <meta name="twitter:creator" content="@dawranliou">
-
     <title>Daw-Ran Liou<%= ' - ' + current_article.title unless current_article.nil? %></title>
     <%= stylesheet_link_tag "tachyons.min" %>
     <%= stylesheet_link_tag "monokai" %>
     <%= stylesheet_link_tag "styles" %>
     <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet"> 
     <%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96109475-1"></script>
+    <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+
+     gtag('config', 'UA-96109475-1');
+    </script>
   </head>
   <body>
 
