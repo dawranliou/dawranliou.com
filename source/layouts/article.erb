@@ -1,7 +1,11 @@
 <% wrap_layout :layout do %>
-    <article class="ph3 ph5-m ph7-l pv5">
-        <h1 class="f3 f2-ns sans-serif mt0 pt5"><%= current_article.title%></h1>
-        <p class="gray serif pb3"><%= current_article.date.strftime('%Y %B %e') %></p>
+    <div class="bg-black-90 light-gray">
+    <%= partial "nav"%>
+    <article class="ph3 ph5-m ph7-l pb3">
+        <h1 class="f3 f2-ns sans-serif mv0"><%= current_article.title%></h1>
+        <p class="gray pb3 mt0"><%= current_article.date.strftime('%Y %B %e') %></p>
         <%= yield %>
     </article>
+    </div>
+    <%= partial "footer"%>
 <% end %>
