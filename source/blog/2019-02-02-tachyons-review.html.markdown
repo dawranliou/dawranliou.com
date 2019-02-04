@@ -49,29 +49,70 @@ if you'd like to learn his point of view[2].
 ## Composability matters
 
 Coming into CSS with functional programming background, it really troubles me
-that all the CSS classes are effectively global-mutable object. Without a good methodology
+that all the CSS classes are effectively global-mutable-stateful objects. Without a good methodology
 adopted by the developer, like [BEM](http://getbem.com/), all CSS classes have
 side-effect on the whole document. (See example 1.) This makes containing
-any CSS class a goal (See example 2.)
+any CSS class a goal to solve the problem. Otherwise, changing the class might
+have an effect on other elements. However, this also elimiates the
+reusability of the classes. (See example 2.)
 
-(Example 1)
+```css
+// Example 1
+// Globally, any tag with class "link" will have the same style.
+// What if some of the link elements want to have a different color, red?
+.link {
+  color: black;
+  text-decoration: none;
+}
 
-(Example 2)
+// Example 2
+// To contain the style within the context, one might create
+// many duplicate modifier class like below:
+.resulttable--link-hide {
+	display: none;
+}
+.header--item-hide {
+  display: none;
+}
+.article--timestamp-unimportant {
+  display: none;
+}
+```
 
-The two problems aren't problems for a seasoned CSS developer / team who are rigorous
-about their methodology. However, I consider those incidental complexities and are
-the major reason that shied me away from CSS.
-
-Tachyons (and other functional css) addresses the two composibility problems above.
-_(Though not entirely, but I'm very happy that very little of the time I have to worry
-about them anymore. I'll explain more about what could still fail in the next section.)_
+Tachyons (and other functional css libraries) addresses the composibility problems by
+introducing small, single-purpose classes.
 Consider the examples above with the functional CSS aproach:
 
-(Example 3)
+```css
+// Functional CSS aproach for Example 1
+// Now the black link is just a composition of .black and .text-decoration-none;
+// red link is just .red and .text-decoration-none.
+.black {
+  color: black;
+}
+.red {
+  color: red;
+}
+.text-decoration-none {
+  text-decoration: none;
+}
 
-(Example 4)
+// Functional CSS aproach for Example 2
+// Only one utility class for the modifier.
+.display-none {
+  display: none;
+}
+```
 
-What we got is the freedom of
+"This almost feels like writing inline-css!" and I kind of agree with you.
+It seems like an common knowledge that inline-css is consider bad
+(see [StackOverflow](https://stackoverflow.com/questions/2612483/whats-so-bad-about-in-line-css).)
+But this seems to be the only obvious way for me to comprehend CSS.
+I don't really understand how to effectively take advantage of the
+cascading aspect of CSS, and functional CSS frees me from worrying
+about it anymore. With functional CSS like Tachyons, the classes are
+very composable and give me very few surprises. That is a powerful thing.
+I'm able to focus more on the design and less about CSS.
 
 ## Readability and Maintainability
 
