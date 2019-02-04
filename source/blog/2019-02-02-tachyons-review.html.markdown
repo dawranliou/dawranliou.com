@@ -49,28 +49,29 @@ if you'd like to learn his point of view[2].
 ## Composability matters
 
 Coming into CSS with functional programming background, it really troubles me
-that all the CSS classes are effectively global. Without a good methodology
+that all the CSS classes are effectively global-mutable object. Without a good methodology
 adopted by the developer, like [BEM](http://getbem.com/), all CSS classes have
-side-effect on the whole document. (See example 1.) The position of the classes on the html
-element is also a complexity that developers have to deal with. (See example 2.)
+side-effect on the whole document. (See example 1.) This makes containing
+any CSS class a goal (See example 2.)
 
 (Example 1)
 
 (Example 2)
 
 The two problems aren't problems for a seasoned CSS developer / team who are rigorous
-about whichever methodology they implemented. However, I consider those
-incidental complexities are the major reason that shied me away from writing
-any CSS.
+about their methodology. However, I consider those incidental complexities and are
+the major reason that shied me away from CSS.
 
-Tachyons (and other functional css) addresses the two composibility problems above. _(Though not
-entirely, but I'm very happy that very little of the time I have to worry
+Tachyons (and other functional css) addresses the two composibility problems above.
+_(Though not entirely, but I'm very happy that very little of the time I have to worry
 about them anymore. I'll explain more about what could still fail in the next section.)_
-Consider the examples above with functional CSS:
+Consider the examples above with the functional CSS aproach:
 
 (Example 3)
 
 (Example 4)
+
+What we got is the freedom of
 
 ## Readability and Maintainability
 
