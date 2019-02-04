@@ -27,14 +27,14 @@ So what's functional css? Here I quote the explaination from the article
 [In defense of Functional CSS](https://www.mikecr.it/ramblings/functional-css/)
 by [Mike Crittenden](https://twitter.com/mcrittenden):
 
-> _Functional CSS basically means that you have a ton of __tiny__,
-> __single purpose__ classes that are named based on their __visual__ function._
+> _Functional CSS basically means that you have a ton of tiny,
+> single purpose classes that are named based on their visual function._
 
 Here's the definition from [John Polacek](https://twitter.com/johnpolacek)'s
 [Let’s Define Exactly What Atomic CSS is](https://css-tricks.com/lets-define-exactly-atomic-css/):
 
-> _Atomic CSS is the approach to CSS architecture that favors __small__,
-> __single-purpose__ classes with names based on __visual__ function._
+> _Atomic CSS is the approach to CSS architecture that favors small,
+> single-purpose classes with names based on visual function._
 
 There seems to be a theme around "small," "single-purpose," and "visual" here.
 But why are small and single-purpose important for CSS classes? It's because it makes
@@ -47,6 +47,20 @@ You can also find Tachyons' creator, Adam Morse, talk about his creation
 if you'd like to learn his point of view[2].
 
 ## Composability matters
+
+Coming into CSS with functional programming background, it really troubles me
+that all the CSS classes are effectively global. Without a good methodology
+adopted by the developer, like [BEM](http://getbem.com/), all CSS classes have
+side-effect on the whole document. (See example 1.) The position of the classes on the html
+element is also a complexity that developers have to deal with. (See example 2.)
+
+(Example 1)
+
+(Example 2)
+
+Tachyons (and other functional css) addresses the two composibility problems. (Though not
+entirely, but I'm very happy that very little of the time I have to worry
+about them anymore.)
 
 ## Readability and Maintainability
 
