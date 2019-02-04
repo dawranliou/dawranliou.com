@@ -30,7 +30,7 @@ by [Mike Crittenden](https://twitter.com/mcrittenden):
 > _Functional CSS basically means that you have a ton of __tiny__,
 > __single purpose__ classes that are named based on their __visual__ function._
 
-Here's the definition from [John Polacek](http://johnpolacek.com/)'s
+Here's the definition from [John Polacek](https://twitter.com/johnpolacek)'s
 [Let’s Define Exactly What Atomic CSS is](https://css-tricks.com/lets-define-exactly-atomic-css/):
 
 > _Atomic CSS is the approach to CSS architecture that favors __small__,
@@ -54,4 +54,4 @@ if you'd like to learn his point of view[2].
 
 [1] Cljdoc is a website building & hosting documentation for Clojure/Script libraries.
 
-[2] [![Adam Morse: Tachyons CSS Toolkit -- Devshop London June 2016](http://img.youtube.com/vi/r56fRaWth58/0.jpg)](http://www.youtube.com/watch?v=r56fRaWth58)
+[2] [![Adam Morse: Tachyons CSS Toolkit -- Devshop London June 2016](https://img.youtube.com/vi/r56fRaWth58/0.jpg)](https://www.youtube.com/watch?v=r56fRaWth58)
