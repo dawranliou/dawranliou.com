@@ -122,7 +122,7 @@ about it anymore. With functional CSS like Tachyons, the classes are
 very composable and give me very few surprises. That is a powerful thing.
 I'm able to focus more on the design and less about CSS.
 
-## Readability Leads to Maintainability
+## Readability leads to maintainability
 
 In the above examples is really not that far away from the actual Tachyons usage.
 The only difference is the nomenclature or naming scheme. In Tachyons,
@@ -187,10 +187,9 @@ s/he thinks.
 
 ## Action
 
-If you ever struggled with CSS, Tachyons is a great tool for you;
-if not, learning Tachyons may give you a fresh point of view.
-
+* If you ever struggled with CSS, Tachyons is a great tool for you;
+* If not, learning Tachyons may give you a fresh point of view.
 
 # Links
 * [1] Cljdoc is a website building & hosting documentation for Clojure/Script libraries.
-* [2] [![Adam Morse: Tachyons CSS Toolkit -- Devshop London June 2016](https://img.youtube.com/vi/r56fRaWth58/0.jpg)](https://www.youtube.com/watch?v=r56fRaWth58)
+* [2] Adam Morse: Tachyons CSS Toolkit -- Devshop London June 2016 [![Adam Morse: Tachyons CSS Toolkit -- Devshop London June 2016](https://img.youtube.com/vi/r56fRaWth58/0.jpg)](https://www.youtube.com/watch?v=r56fRaWth58)
