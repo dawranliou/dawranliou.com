@@ -57,17 +57,21 @@ have an effect on other elements. However, this also elimiates the
 reusability of the classes. (See Case 2.)
 
 ```css
-// Case 1
-// Globally, any tag with class "link" will have the same style.
-// What if some of the link elements want to have a different color, red?
+/*
+  Case 1
+  Globally, any tag with class "link" will have the same style.
+  What if some of the link elements want to have a different color, red?
+*/
 .link {
   color: black;
   text-decoration: none;
 }
 
-// Case 2
-// To contain the style within the context, one might create
-// many duplicate modifier class like below:
+/*
+  Case 2
+  To contain the style within the context, one might create
+  many duplicate modifier class like below:
+*/
 .resulttable--link-hide {
 	display: none;
 }
@@ -84,9 +88,11 @@ introducing small, single-purpose classes.
 Consider the examples above with the functional CSS aproach:
 
 ```css
-// Functional CSS aproach for Case 1
-// Now the black link is just a composition of .black and .text-decoration-none;
-// red link is just .red and .text-decoration-none.
+/*
+  Functional CSS aproach for Case 1
+  Now the black link is just a composition of .black and .text-decoration-none;
+  red link is just .red and .text-decoration-none.
+*/
 .black {
   color: black;
 }
@@ -97,8 +103,10 @@ Consider the examples above with the functional CSS aproach:
   text-decoration: none;
 }
 
-// Functional CSS aproach for Case 2
-// Only one universal utility class for all the modifiers.
+/*
+  Functional CSS aproach for Case 2
+  Only one universal utility class for all the modifiers.
+*/
 .display-none {
   display: none;
 }
@@ -121,6 +129,7 @@ The only difference is the nomenclature or naming scheme. In Tachyons,
 the class names are concise. For example, in the Case 2 above, `.display-none` is
 just `.dn`. Padding starts with `p`; margin with `m`. `a` `v` `h` `t` `r` `b` `l` stands
 for all, vertical, horizontal, top, right, bottom, left separately. Numbers indicate size.
+(This almost feels like the vim keybindings!)
 Thus, when I look at a div:
 
 ```html
@@ -147,6 +156,41 @@ won't conflict with my `.mb2` nor `.pa3`), or I can change to `.mv2` like:
 
 ## Workflow
 
-[1] Cljdoc is a website building & hosting documentation for Clojure/Script libraries.
+I used to think the styling development workflow is:
 
-[2] [![Adam Morse: Tachyons CSS Toolkit -- Devshop London June 2016](https://img.youtube.com/vi/r56fRaWth58/0.jpg)](https://www.youtube.com/watch?v=r56fRaWth58)
+```
+(Feedback)   (Comprehend structure)                                (Comprehend style)                 (Change)
+  See UI -> Find element in the HTML -> Figure out the CSS classes in HTML -> Read style in CSS -> Modify CSS
+     ^                                                                                                  |
+     |__________________________________________________________________________________________________|
+```
+
+Now, with Tachyons, the workflow is:
+
+```
+(Feedback)  (Comprehend structure)      (Comprehend style)      (Change)
+  See UI -> Find element in the HTML -> Read style on HTML -> Modify HTML
+     ^                                                             |
+     |_____________________________________________________________|
+```
+
+In the high-level, there's no difference between the two workflow.
+However, the difference is in the "comprehend style" step.
+There used to be a gap between the CSS class name and the implementation.
+With Tachyons, you sort of have the entire CSS library memorized because
+they have very predictable behaviors and names. The result is faster
+iterations of development.
+
+Lastly, I feel the workflow fits very well with the mindset of REPL-driven development
+in Clojure. The tight feedback loop enables developer to try things as fast as
+s/he thinks.
+
+## Action
+
+If you ever struggled with CSS, Tachyons is a great tool for you;
+if not, learning Tachyons may give you a fresh point of view.
+
+
+# Links
+* [1] Cljdoc is a website building & hosting documentation for Clojure/Script libraries.
+* [2] [![Adam Morse: Tachyons CSS Toolkit -- Devshop London June 2016](https://img.youtube.com/vi/r56fRaWth58/0.jpg)](https://www.youtube.com/watch?v=r56fRaWth58)
