@@ -6,7 +6,7 @@ tags: css
 I've tried to learn many CSS frameworks (Bootstrap, Foundation, and Bulmar)
 over the years. They never really clicked and styling felt just as painful
 as ever. But this has changed since I learned about [Tachyons](https://tachyons.io/).
-First introduced by [Martin Klepsch](https://twitter.com/martinklepsch),
+First introduced by [Martin Klepsch](https://twitter.com/martinklepsch) (thanks Martin!),
 I learned and started to use Tachyons since late 2018 for the [Cljdoc.org](https://cljdoc.org/)
 project [1]. This is the only CSS framework / library that fit my brain and my workflow.
 If you are struggling with learning any CSS framework, I hope I could shed some lights
@@ -52,8 +52,7 @@ Coming into CSS with functional programming background, it really troubles me
 that all the CSS classes are effectively global-mutable-stateful objects. Without a good methodology
 adopted by the developer, like BEM, all CSS classes have
 side-effect on the whole document. (See Case 1.) This makes containing
-any CSS class a goal to solve the problem. Otherwise, changing the class might
-have an effect on other elements. However, this also elimiates the
+and localizing CSS classes a plausible to solve the problem. However, this also elimiates the
 reusability of the classes. (See Case 2.)
 
 ```css
@@ -70,7 +69,7 @@ reusability of the classes. (See Case 2.)
 /*
   Case 2
   To contain the style within the context, one might create
-  many duplicate modifier class like below:
+  many duplicate modifier classes like below:
 */
 .resulttable--link-hide {
 	display: none;
@@ -90,8 +89,8 @@ Consider the examples above with the functional CSS aproach:
 ```css
 /*
   Functional CSS aproach for Case 1
-  Now the black link is just a composition of .black and .text-decoration-none;
-  red link is just .red and .text-decoration-none.
+  Now a black link is just a composition of .black and .text-decoration-none;
+  a red link is just .red and .text-decoration-none.
 */
 .black {
   color: black;
@@ -119,17 +118,16 @@ But this seems to be the only obvious way for me to comprehend CSS.
 I don't really understand how to effectively take advantage of the
 cascading aspect of CSS, and functional CSS frees me from worrying
 about it anymore. With functional CSS like Tachyons, the classes are
-very composable and give me very few surprises. That is a powerful thing.
+very composable and give me very little surprises. That is a powerful thing.
 I'm able to focus more on the design and less about CSS.
 
 ## Readability leads to maintainability
 
 In the above examples is really not that far away from the actual Tachyons usage.
-The only difference is the nomenclature or naming scheme. In Tachyons,
+The only difference is the nomenclature (or naming schemes.) In Tachyons,
 the class names are concise. For example, in the Case 2 above, `.display-none` is
 just `.dn`. Padding starts with `p`; margin with `m`. `a` `v` `h` `t` `r` `b` `l` stands
 for all, vertical, horizontal, top, right, bottom, left separately. Numbers indicate size.
-(This almost feels like the vim keybindings!)
 Thus, when I look at a div:
 
 ```html
@@ -138,12 +136,12 @@ Thus, when I look at a div:
 
 I can tell immediately without looking at the CSS code (nor do I need to consult the documentation)
 that this div is: "padding all with 3, margin at the bottom with 2."
+(This almost feels like the vim keybindings!)
 This is such a breeze for me because when I look at the HTML code,
 the styles are just right there with it, and very readable.
 I like the conciseness of Tachyons' class names and its consistency.
 It takes a bit of practice to get familiar with them,
-but the pay-off is that comprehending the styles has become so easy,
-and hence improve the time to spot the classes that affect the results.
+but the pay-off is that - comprehending the styles has become so easy!
 
 Take the above div for example. When I look at the rendered result
 on the browser and I want equal margin on the top and the bottom,
@@ -176,12 +174,12 @@ Now, with Tachyons, the workflow is:
 
 In the high-level, there's no difference between the two workflow.
 However, the difference is in the "comprehend style" step.
-There used to be a gap between the CSS class name and the implementation.
+There used to be a gap / disconnection between the CSS class name and the implementation.
 With Tachyons, you sort of have the entire CSS library memorized because
 they have very predictable behaviors and names. The result is faster
-iterations of development.
+development iterations.
 
-Lastly, I feel the workflow fits very well with the mindset of REPL-driven development
+Lastly, I feel this workflow matches very well with the mindset of REPL-driven development
 in Clojure. The tight feedback loop enables developer to try things as fast as
 s/he thinks.
 
