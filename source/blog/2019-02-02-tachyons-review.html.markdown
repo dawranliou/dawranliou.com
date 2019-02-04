@@ -190,6 +190,6 @@ s/he thinks.
 * If you ever struggled with CSS, Tachyons is a great tool for you;
 * If not, learning Tachyons may give you a fresh point of view.
 
-# Links
+## Appendix
 * [1] Cljdoc is a website building & hosting documentation for Clojure/Script libraries.
 * [2] Adam Morse: Tachyons CSS Toolkit -- Devshop London June 2016 [![Adam Morse: Tachyons CSS Toolkit -- Devshop London June 2016](https://img.youtube.com/vi/r56fRaWth58/0.jpg)](https://www.youtube.com/watch?v=r56fRaWth58)
