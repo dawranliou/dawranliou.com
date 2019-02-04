@@ -51,13 +51,13 @@ if you'd like to learn his point of view[2].
 Coming into CSS with functional programming background, it really troubles me
 that all the CSS classes are effectively global-mutable-stateful objects. Without a good methodology
 adopted by the developer, like [BEM](http://getbem.com/), all CSS classes have
-side-effect on the whole document. (See example 1.) This makes containing
+side-effect on the whole document. (See Case 1.) This makes containing
 any CSS class a goal to solve the problem. Otherwise, changing the class might
 have an effect on other elements. However, this also elimiates the
-reusability of the classes. (See example 2.)
+reusability of the classes. (See Case 2.)
 
 ```css
-// Example 1
+// Case 1
 // Globally, any tag with class "link" will have the same style.
 // What if some of the link elements want to have a different color, red?
 .link {
@@ -65,7 +65,7 @@ reusability of the classes. (See example 2.)
   text-decoration: none;
 }
 
-// Example 2
+// Case 2
 // To contain the style within the context, one might create
 // many duplicate modifier class like below:
 .resulttable--link-hide {
@@ -84,7 +84,7 @@ introducing small, single-purpose classes.
 Consider the examples above with the functional CSS aproach:
 
 ```css
-// Functional CSS aproach for Example 1
+// Functional CSS aproach for Case 1
 // Now the black link is just a composition of .black and .text-decoration-none;
 // red link is just .red and .text-decoration-none.
 .black {
@@ -97,8 +97,8 @@ Consider the examples above with the functional CSS aproach:
   text-decoration: none;
 }
 
-// Functional CSS aproach for Example 2
-// Only one utility class for the modifier.
+// Functional CSS aproach for Case 2
+// Only one universal utility class for all the modifiers.
 .display-none {
   display: none;
 }
@@ -114,9 +114,36 @@ about it anymore. With functional CSS like Tachyons, the classes are
 very composable and give me very few surprises. That is a powerful thing.
 I'm able to focus more on the design and less about CSS.
 
-## Readability and Maintainability
+## Readability Leads to Maintainability
 
+In the above examples is really not that far away from the actual Tachyons usage.
+The only difference is the nomenclature or naming scheme. In Tachyons,
+the class names are concise. For example, in the Case 2 above, `.display-none` is
+just `.dn`. Padding starts with `p`; margin with `m`. `a` `v` `h` `t` `r` `b` `l` stands
+for all, vertical, horizontal, top, right, bottom, left separately. Numbers indicate size.
+Thus, when I look at a div:
 
+```html
+<div class="pa3 mb2">
+```
+
+I can tell immediately without looking at the CSS code (nor do I need to consult the documentation)
+that this div is: "padding all with 3, margin at the bottom with 2."
+This is such a breeze for me because when I look at the HTML code,
+the styles are just right there with it, and very readable.
+I like the conciseness of Tachyons' class names and its consistency.
+It takes a bit of practice to get familiar with them,
+but the pay-off is that comprehending the styles has become so easy,
+and hence improve the time to spot the classes that affect the results.
+
+Take the above div for example. When I look at the rendered result
+on the browser and I want equal margin on the top and the bottom,
+I can simply just add `.mt2` (because of the composability so this
+won't conflict with my `.mb2` nor `.pa3`), or I can change to `.mv2` like:
+
+```html
+<div class="pa3 mv2">
+```
 
 ## Workflow
 
