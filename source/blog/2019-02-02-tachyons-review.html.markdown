@@ -50,7 +50,7 @@ if you'd like to learn his point of view[2].
 
 Coming into CSS with functional programming background, it really troubles me
 that all the CSS classes are effectively global-mutable-stateful objects. Without a good methodology
-adopted by the developer, like BEM (http://getbem.com/), all CSS classes have
+adopted by the developer, like BEM, all CSS classes have
 side-effect on the whole document. (See Case 1.) This makes containing
 any CSS class a goal to solve the problem. Otherwise, changing the class might
 have an effect on other elements. However, this also elimiates the
