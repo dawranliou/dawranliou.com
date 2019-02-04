@@ -58,11 +58,23 @@ element is also a complexity that developers have to deal with. (See example 2.)
 
 (Example 2)
 
-Tachyons (and other functional css) addresses the two composibility problems. (Though not
+The two problems aren't problems for a seasoned CSS developer / team who are rigorous
+about whichever methodology they implemented. However, I consider those
+incidental complexities are the major reason that shied me away from writing
+any CSS.
+
+Tachyons (and other functional css) addresses the two composibility problems above. _(Though not
 entirely, but I'm very happy that very little of the time I have to worry
-about them anymore.)
+about them anymore. I'll explain more about what could still fail in the next section.)_
+Consider the examples above with functional CSS:
+
+(Example 3)
+
+(Example 4)
 
 ## Readability and Maintainability
+
+
 
 ## Workflow
 
