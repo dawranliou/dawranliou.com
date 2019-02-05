@@ -17,9 +17,9 @@ per_page: 10
 <div class="bg-white black-80 mt3 pt3">
     <%= partial "nav"%>
     <% page_articles.each_with_index do |article, i| %>
-        <article class="ph3 ph5-m ph7-l pv4 bg-white black-80">
+        <article class="ph3 ph5-m ph7-l pb4 bg-white black-80">
             <h2 class="f3 f2-ns mv0 sans-serif"><%= link_to article.title, article, :class => "black-90" %></h2>
-            <p class="black-60 serif"><%= article.date.strftime('%Y %B %e') %></p>
+            <p class="gray pb3 mt0"><%= article.date.strftime('%Y %B %e') %></p>
             <div class="consolas">
                 <%= article.summary(500)%>
             </div>
