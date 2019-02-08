@@ -5,3 +5,7 @@
 [[redirects]]
   from = "/recap-2018"
   to = "/blog/2019/01/02/recap-2018.html"
+  
+[[redirects]]
+  from = "never-write-for-loops.html"
+  to = "/blog/2016/11/17/you-probably-dont-need-for-loops.html"
