@@ -105,6 +105,10 @@ Now you can connect to the REPL and do:
 
 ```clojure
 (-> (inspector.MyClass.)
+    java/from-java)
+;; {:a {:name "InnerClassA"}, :name "MyClass"}
+
+(-> (inspector.MyClass.)
     java/from-java
     insp/inspect-tree)
 ```
