@@ -9,7 +9,7 @@ authors: Daw-Ran Liou
 The more I work with Clojure, the more frustration I found to work with
 Java objects. Mostly, it feels an unnecessary process to go through
 the class definition to find the getter methods to access the data I want,
-especially when the data is buried multiple layers of classes deep.
+especially when the data is buried under multiple layers of classes deep.
 
 In this article, I'll explain a recipe to create a graphical
 inspector UI to explore Java objects, frustration free!
@@ -18,6 +18,8 @@ The key is to use the `clojure.inspector` for the visualization and
 data structure.
 
 READMORE
+
+## Tools - `clojure.inspector` and `clojure.java.data`
 
 On the official website,
 [`clojure.inspector`](https://clojure.github.io/clojure/clojure.inspector-api.html) is:
@@ -29,7 +31,7 @@ To differentiate them, the first thing to notice is that `inspect` and
 `inspect-tree` doesn't have any assumption on the shape of the input data,
 while `inspect-table` assumes the data is sequential and its elements
 all have the same length. Secondly, `inspect-tree` creates a expendable
-tree for us to explore the data if the data is hierarchical. Here are some
+tree to explore data if the data is hierarchical. Here are some
 examples below. We'll be focusing more on `inspect-tree` in the rest of
 the article.
 
@@ -45,7 +47,7 @@ the article.
 
 The built-in `clojure.inspctor` namespace is very useful for
 exploring data and the interactive development for Clojure.
-Instead of printing everything down in the repl, a graphical
+Instead of printing everything down in the repl, using a graphical
 tool like this is a much superior experience, in my opinion.
 
 Next question is, when we do interop with Java, Java objects
@@ -53,7 +55,7 @@ doesn't automatically become Clojure data types like
 `clojure.lang.IPersistentMap`. The built-in function
 [`bean`](https://clojuredocs.org/clojure.core/bean) is helpful.
 However, the time that I really need to inspect a Java object
-is usually when the object has too many layers nested. In
+is usually when the object has too many layers of classes nested. In
 this case, I found the `clojure.org/java.data` library is the
 right tool.
 
@@ -61,6 +63,8 @@ right tool.
 is:
 
 > Functions for recursively converting Java beans to Clojure and vice versa. Future home of Java beans and properties support from the old clojure-contrib
+
+## Demo
 
 To demonstrate, let's setup a Java & Clojure polyglot project
 with Leiningen like this:
@@ -151,4 +155,4 @@ Using the simple recipe explained in the article, I found it
 more and more pleasant to do interop with Java in the Clojure
 world.
 
-If you find this article helpful, please help me to share it. :)
+If you find this article helpful, please help me to share it!
