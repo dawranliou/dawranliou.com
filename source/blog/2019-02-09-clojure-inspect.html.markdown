@@ -19,6 +19,12 @@ data structure.
 
 READMORE
 
+_Note: Thanks to reddit user @vvvvalvalval to point out
+[Programming at the REPL: Data Visualization](https://clojure.org/guides/repl/data_visualization_at_the_repl#_dealing_with_mysterious_values_advanced)
+is also a great place to learn more about inspecting values in the REPL.
+I was inspired by it to write this article. If you are just starting to learn Clojure
+REPL, definitely check out the link first!_
+
 ## Tools - `clojure.inspector` and `clojure.java.data`
 
 On the official website,
