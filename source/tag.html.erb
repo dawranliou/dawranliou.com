@@ -2,7 +2,7 @@
 pageable: true
 per_page: 12
 ---
-<div class="ph3 ph5-m ph7-l pv5">
+<div class="ph3 ph5-m ph7-l pv5 bg-black-90 light-gray">
     <h1>Articles tagged '<%= tagname %>'</h1>
 
 <% if paginate && num_pages > 1 %>
@@ -25,3 +25,4 @@ per_page: 12
   <% end %>
 <% end %>
 </div>
+<%= partial "footer"%>
