@@ -1,5 +1,5 @@
 ---
-title: How I build Bex
+title: How I built Bex
 date: 2019-08-08
 category: Clojure
 tags: clojure, deployment
