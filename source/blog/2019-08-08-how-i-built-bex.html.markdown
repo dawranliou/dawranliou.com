@@ -96,7 +96,7 @@ I use `Reagent` to create and render the React components; `Re-frame` to manage 
 Since most tutorials on the web show you how to build applications with any language and any stack, I won't
 get into too many details now for how I develop the App.
 For people getting into developing ClojureScript applications, I highly
-recommend [@JacekSchae](https://twitter.com/JacekSchae)'s [Learn re-frame course](https://www.learnreframe.com/).
+recommend [@JacekSchae](https://twitter.com/JacekSchae)'s [Learn re-frame course](https://www.jacekschae.com/learn-re-frame-pro/s8mby).
 
 ## The Backend - Authentication and Database
 
