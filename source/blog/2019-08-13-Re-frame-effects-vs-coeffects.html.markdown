@@ -83,5 +83,5 @@ coeffect handler.
 ## Summary
 
 1. Effects push,
-1. Coeffect pull,
+1. Coeffects pull,
 1. (Please let me know if you have a better way to handle javascript promises.)
