@@ -77,3 +77,11 @@ dispatch [:fetch-data] -> do-fx [:promise-fetch-data] -> dispatch [:data-fetched
 ```
 
 This ends up with two event handlers, one effect handler, and no coeffect handler.
+I doubt this is the best way because I wish I can just have one `:fetch-data`
+coeffect handler.
+
+## Summary
+
+1. Effects push,
+1. Coeffect pull,
+1. (Please let me know if you have a better way to handle javascript promises.)
