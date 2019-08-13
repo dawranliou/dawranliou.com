@@ -1,0 +1,38 @@
+---
+title: Re-frame's fx and cofx explained
+date: 2019-08-12
+category: Clojure
+tags: clojure, java, tip
+authors: Daw-Ran Liou
+---
+
+When I first started using re-frame, I was a bit confused about what
+effects and co-effects are, or, what `fx`'s and `cofx`'s are.
+The explaination on the official documentation is certainly good,
+and you certainly want to start there. However, if you find yourself
+need a concrete example to help you understand them, please read on.
+
+## The example - Firebase authentication
+
+```clojure
+(reg-event)
+```
+
+## Event
+
+> Events are normally triggered by and external agent: the user
+> clicks a button, or a server-pushed message arrives on a websocket.
+
+## Effects
+
+> About 10% of the time,event handlers need to ause side effects.
+
+## Coeffects
+
+> Event handlers compute how the world should change in response to
+an event and, to do that, they need to first know the current state
+of the world.
+
+`coeffects` is the current state of the world, as data, as presented
+to an event handler.
+
