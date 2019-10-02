@@ -19,3 +19,5 @@ gem "builder", "~> 3.0"
 
 gem "nokogiri", ">= 1.10.4"
 gem "middleman-syntax"
+
+gem "bundler", ">= 2.0.2"
