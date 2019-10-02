@@ -17,5 +17,5 @@ gem 'redcarpet', '~> 3.3', '>= 3.3.3'
 # For feed.xml.builder
 gem "builder", "~> 3.0"
 
-gem "nokogiri"
+gem "nokogiri", ">= 1.10.4"
 gem "middleman-syntax"
