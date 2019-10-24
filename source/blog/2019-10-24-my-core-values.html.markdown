@@ -24,6 +24,7 @@ of it damages our skins.
 
 This is also my opinion on many subjects, e.g., politics, finance, technologies,
 social media, etc.
+Generally, anything that generates too much hypes are dangerous.
 
 I also believe striving for balance is a key to peace and happiness.
 
@@ -40,12 +41,13 @@ Don't beat yourself up every time you make a mistake.
 ## Autonomy
 
 Autonomy is not about being independent. Instead, it's about being dependable and
-become interdependent as a community. Also, to me, autonomy relates to taking initiatives,
-responsibilities, and prioritization. For example, don't stop thinking about personal
-finance because your employer pays you a lot. Don't make impulsive purchases because
-they are easy. Don't subscribe to services because everyone else is doing so.
+become interdependent as a community. Autonomy is to taking initiatives,
+taking responsibilities, and willing to adapt.
+For example, don't start eating out everyday because your employer pays you a lot.
+Don't invest in those highest grossing stocks or whatever coin people are hyping about.
+Don't let everyone's opinion become your opinion by default.
 
-Autonomy is the key to freedom.
+Autonomy is the key to freedom - freedom of finance, freedom of mind.
 
 ## Curiosity
 
@@ -55,6 +57,7 @@ about it once we feel comfortable.
 > _"Only the paranoid survives." - Andrew Grove_
 
 Always challenge yourself to do difficult things. Do not be satisfied with your current status quo.
+Always take the road not taken.
 
 > _"The limits of my language mean the limits of my world." - Ludwig Wittgenstein_
 
