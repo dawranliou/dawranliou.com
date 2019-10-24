@@ -2,7 +2,7 @@
 title: My Core Values
 date: 2019-10-24
 category: Life
-tags: value
+tags: philosophy
 authors: Daw-Ran Liou
 ---
 
