@@ -19,7 +19,13 @@
     <meta property="og:image:alt" content="snapshot">
     <meta name="twitter:image" content="{{ get_url(path="images/profile_2020.jpg") }}">
     <meta name="twitter:title" content="{{ section_or_page.title }}">
-    <meta name="twitter:description" content="Daw-Ran Liou's website">
+    <meta name="twitter:description"
+          {% if section_or_page.description %}
+          content="{{ section_or_page.description }}"
+          {% else %}
+          content="Daw-Ran Liou's website"
+          {% endif %}
+    >
     <meta name="twitter:site" content="@dawranliou">
     <meta name="twitter:creator" content="@dawranliou">
     <title>{% block htmltitle %}{{ config.title }}{% endblock htmltitle %}</title>
