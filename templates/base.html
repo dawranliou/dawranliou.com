@@ -1,4 +1,5 @@
 <!doctype html>
+{% set section_or_page = section | default(value = page) -%}
 <html>
   <head>
     <meta charset="utf-8" />
@@ -8,10 +9,10 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://dawranliou.com">
     <meta property="og:description" content="Daw-Ran Liou's website">
-    <meta property="og:title" content="Daw-Ran Liou<%= ' - ' + current_article.title unless current_article.nil? %>">
+    <meta property="og:title" content="{{ section_or_page.title }}">
     <meta property="og:image:alt" content="snapshot">
     <meta name="twitter:image" content="https://dawranliou.com/images/profile.jpg">
-    <meta name="twitter:title" content="Daw-Ran Liou<%= ' - ' + current_article.title unless current_article.nil? %>">
+    <meta name="twitter:title" content="{{ section_or_page.title }}">
     <meta name="twitter:description" content="Daw-Ran Liou's website">
     <meta name="twitter:site" content="@dawranliou">
     <meta name="twitter:creator" content="@dawranliou">
