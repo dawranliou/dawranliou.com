@@ -7,8 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:image" content="https://dawranliou.com/images/profile.jpg">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dawranliou.com">
-    <meta property="og:description" content="Daw-Ran Liou's website">
+    <meta property="og:url" content="{{ section_or_page.permalink }}">
+    <meta property="og:description"
+          {% if section_or_page.description %}
+          content="section_or_page.description"
+          {% else %}
+          content="Daw-Ran Liou's website"
+          {% endif %}
+    >
     <meta property="og:title" content="{{ section_or_page.title }}">
     <meta property="og:image:alt" content="snapshot">
     <meta name="twitter:image" content="https://dawranliou.com/images/profile.jpg">
