@@ -1,47 +1,21 @@
 {% extends "base.html" %}
 
-{% import "macros.html" as macros %}
-
 {% block body %}
-<div class="bg-black-90 light-gray">
-  <div class="center absolute bottom-0 w-100 tc bounce">
-    <a href="#nav" class="f3 link dim dark-gray"><svg width="20px" height="20px" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-circle-down" class="svg-inline--fa fa-chevron-circle-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z"></path></svg></a>
-  </div>
-  <div class="ph3 ph5-m ph7-l vh-100 w-100 dt content-center">
-    <div class="dtc v-mid">
-      <h1 class="f3 f1-ns serif mv0 courier normal">Daw-Ran Liou</h1>
-      <p class="f6 f5 serif mt0 courier fw1">Web Developer, Clojurist, Minimalist.</p>
-    </div>
-  </div>
-  
-  <div class="bg-white black-80 mt3 pt3">
-    {{ macros::nav() }}
-    {% for page in paginator.pages %}
-    <article class="ph3 ph5-m ph7-l pb4 bg-white black-80">
-      <h2 class="f3 f2-ns mv0 sans-serif">
-        <a class="black-90" href="{{ page.permalink }}">{{ page.title }}</a>
-      </h2>
-      <p class="gray pb3 mt0">{{ page.date | date(format="%Y %B %e")}}</p>
-      <div class="consolas">
-        {% if page.summary %}
-        {{ page.summary | safe }}
-        {% endif %}
-      </div>
-      <a href="{{ page.permalink }}">Read more...</a>
-    </article>
-    {% endfor %}
-    <div class="ph3 ph5-m ph7-l bg-white black-80">
-      <p class="mv0 pt3">
-      {% if paginator.previous %}
-      <a href="{{ paginator.previous }}">&laquo; Previous</a>
-      {% endif %}
-      <span>Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
-      {% if paginator.next %}
-      <a href="{{ paginator.next }}">Next &raquo;</a>
-      {% endif %}
-      </p>
-    </div>
-  </div>
+<div class="black-80 mt3 pt3 measure mh3 mh5-m mh7-l w-100 mv4">
+  <p class="mv0">
+    Hi there, I'm a programmer currently based in the San Francisco Bay Area.
+    Besides my passion for programming, I also love playing tennis, lifting,
+    brewing/roasting coffee, surfing, cooking, and reading Sci-Fi and Fantasy novels.
+    (Lately, I've been a bit into home fermentation. We'll see how it goes.)
+  </p>
+  <p>
+    Clojure is currently my favorite programming language, surpassing Python.
+    That's why you see a lot more Clojure blog posts these days.
+    I enjoy a lot to share my passions with others. 
+  </p>
+  <p>
+    Feel free to reach out to me on Twitter <a href="https://twitter.com/dawranliou">@dawranliou</a>.
+  </p>
 </div>
 
 {% endblock body %}
