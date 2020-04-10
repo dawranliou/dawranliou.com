@@ -1,10 +1,7 @@
----
-title: My Core Values
-date: 2019-10-24
-category: Life
-tags: philosophy
-authors: Daw-Ran Liou
----
++++
+title = "My Core Values"
+tags = ["philosophy"]
++++
 
 I've never tried to verbalize my core values before,
 though it feels right to do so for the first time in 30 years of my life.

@@ -1,11 +1,9 @@
----
-title: "Twitter scraper tutorial with Python: Requests, BeautifulSoup, and Selenium — Part 2"
-date: 2016-04-09 10:20
-tags: python
-Slug: twitter-scraper-2
-Authors: Daw-Ran Liou
-Summary: Twitter scrapper tutorial
----
++++
+title = "Twitter scraper tutorial with Python: Requests, BeautifulSoup, and Selenium — Part 2"
+tags = ["python"]
+slug = "twitter-scraper-2"
+description = "Twitter scrapper tutorial"
++++
 
 This is the part 2 of my Twitter scraper tutorial. If you haven’t checkout part 
 1, the link is right here. In the last part, I left the tutorial with an unsolved

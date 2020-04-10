@@ -1,13 +1,10 @@
----
-title: Getting Started with Python Internals
-date: 2017-02-20
-Category: Python
-tags: python, internals
-Slug: getting-started-python-internals
-Authors: Daw-Ran Liou
-Summary: How to start exploring Python internals
-Cover: images/python-logo.png
----
++++
+title = "Getting Started with Python Internals"
+tags = ["python", "internals"]
+slug = "getting-started-python-internals"
+description = "How to start exploring Python internals"
+cover = "images/python-logo.png"
++++
 
 _This article is a summary of what I learned from [Philip Guo](https://twitter.com/pgbovine)'s
 [CPython internals: A ten-hour codewalk through the Python interpreter source code](http://pgbovine.net/cpython-internals.htm).

@@ -1,12 +1,10 @@
----
-title: Completed my first hackathon!
-date: 2016-03-10 10:20
-tags: hack
-Slug: first-hackathon
-Authors: Daw-Ran Liou
-Summary: It was such a blast!
-Cover: /images/hackathon.jpg
----
++++
+title = "Completed my first hackathon!"
+tags = ["hack"]
+slug = "first-hackathon"
+descirption = "It was such a blast!"
+cover = "/images/hackathon.jpg"
++++
 
 It was such a amazing experience. There’s no such thing that make you,
 and your teammate pull a all-nighter and still gives you one of the

@@ -1,8 +1,7 @@
----
-title: First Game Programming Experience with Python and Pyglet under 30 Minutes
-date: 2016-01-27 10:20
-tags: python, game
----
++++
+title = "First Game Programming Experience with Python and Pyglet under 30 Minutes"
+tags = ["python", "game"]
++++
 
 This is my first experience with game programming,
 and also my first time working with the

@@ -1,10 +1,7 @@
----
-title: Domain Exploring with Clojure Spec
-date: 2019-10-17
-category: Clojure
-tags: clojure
-authors: Daw-Ran Liou
----
++++
+title = "Domain Exploring with Clojure Spec"
+tags = ["clojure"]
++++
 
 I read a great article "[Domain modelling with clojure.spec](https://adambard.com/blog/domain-modeling-with-clojure-spec/)"
 by [Adam Bard](https://twitter.com/adambard) and started to use more

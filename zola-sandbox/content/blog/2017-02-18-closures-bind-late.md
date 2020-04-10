@@ -1,13 +1,10 @@
----
-title: Closures bind late
-date: 2017-02-18
-Category: Python
-tags: python
-Slug: closures-bind-late
-Authors: Daw-Ran Liou
-Summary: The behavior of closure might trick you
-Cover: images/turtle.jpg
----
++++
+title = "Closures bind late"
+tags = ["python"]
+slug = "closures-bind-late"
+description = "The behavior of closure might trick you"
+cover = "images/turtle.jpg"
++++
 
 "Closure is a turtle carrying its shell," my favorite explanation to
 closures, quote by [Raymond Hettinger](https://twitter.com/raymondh).

@@ -1,13 +1,10 @@
----
-title: Don’t think. Just write the code!
-date: 2018-04-02
-Category: Python
-tags: python, dev
-Slug: just-write-the-code
-Authors: Daw-Ran Liou
-Summary: Lessons from learning on the job without much experience
-Cover: images/16-just-write-code.jpg
----
++++
+title = "Don’t think. Just write the code!"
+tags = ["python", "dev"]
+slug = "just-write-the-code"
+description = "Lessons from learning on the job without much experience"
+cover = "images/16-just-write-code.jpg"
++++
 
 Imaging you are given a brand new web project, some vague requirements,
 and a ton of freedom to choose the technical stacks, will you take it?
