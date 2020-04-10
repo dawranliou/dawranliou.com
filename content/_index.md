@@ -1,14 +1,17 @@
 +++
+description = "Hi there! My name is Daw-Ran. I'm a professional software developer currently based in the PDT (UTC-7) timezone. Clojure/Script is currently my favorite tech stack."
 +++
 
-Hi there, I'm a programmer currently based in the San Francisco Bay Area.
-Besides my passion for programming, I also love playing tennis, lifting,
-brewing/roasting coffee, surfing, cooking, and reading Sci-Fi and Fantasy novels.
-(Lately, I've been a bit into home fermentation. We'll see how it goes.)
+Hi there! My name is Daw-Ran.
+I'm a professional software developer currently based
+in the PDT (UTC-7) timezone.
+Clojure/Script is currently my favorite tech stack.
+That's why you'll find me posting quite a lot of blog posts
+about Clojure lately.
+I have also done works in Python, Java, and JavaScript in the past.
 
-Clojure is currently my favorite programming language, surpassing Python.
-That's why you see a lot more Clojure blog posts these days.
-I enjoy a lot to share my passions with others.
+When I'm not at work, I love playing tennis, bouldering,
+tasting coffee, and reading epic fantasy novels.
 
 Feel free to reach out to me on Twitter
 [@dawranliou](https://twitter.com/dawranliou).

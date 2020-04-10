@@ -10,7 +10,7 @@
     <meta property="og:url" content="{{ section_or_page.permalink }}">
     <meta property="og:description"
           {% if section_or_page.description %}
-          content="section_or_page.description"
+          content="{{ section_or_page.description }}"
           {% else %}
           content="Daw-Ran Liou's website"
           {% endif %}

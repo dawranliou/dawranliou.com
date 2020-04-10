@@ -1,5 +1,6 @@
 +++
 title = "Contact"
+description = "Here's my contact information."
 +++
 
 __Email__
