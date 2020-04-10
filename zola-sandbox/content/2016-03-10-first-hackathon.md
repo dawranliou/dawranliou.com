@@ -2,7 +2,6 @@
 title = "Completed my first hackathon!"
 tags = ["hack"]
 slug = "first-hackathon"
-descirption = "It was such a blast!"
 cover = "/images/hackathon.jpg"
 +++
 
@@ -19,7 +18,7 @@ it is a project competition that’s done during days of marathon-like
 intensive working/hacking. Participating teams get unlimited supplies 
 of coffee and red bulls. Indeed this sounds very terrifying.
 
-READMORE
+<!-- more -->
 
 When I use the word “hack” it is not exactly the same thing we pictured 
 of what computer hackers do. For here it is more generic. Hacking is 

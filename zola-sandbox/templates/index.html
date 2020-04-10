@@ -24,7 +24,7 @@
       <p class="gray pb3 mt0">{{ page.date | date(format="%Y %B %e")}}</p>
       <div class="consolas">
         {% if page.summary %}
-        {{ page.summary }}
+        {{ page.summary | safe }}
         {% endif %}
       </div>
       <a href="{{ page.permalink }}">Read more...</a>

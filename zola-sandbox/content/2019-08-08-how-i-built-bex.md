@@ -7,6 +7,8 @@ In this article, I'd like to share with you the technologies and services that I
 to create [Bex](https://bexdesign.io). If you are, and I assume you are, a programmer,
 Bex is simply a personal online markdown text editor.
 
+<!-- more -->
+
 ## TL;DR
 
 1. Site: [Hugo](https://gohugo.io/) + vanilla JS, deployed to [Netlify](https://www.netlify.com/)

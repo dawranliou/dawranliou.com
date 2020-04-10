@@ -2,7 +2,6 @@
 title = "Flask for New Web Developer"
 tags = ["python", "web"]
 slug = "flask-for-new-dev"
-description = "Thoughts after finishing my blog app using Python Flask"
 cover = "/images/flask-logo.png"
 +++
 
@@ -17,7 +16,7 @@ Flask — the Python framework for web developing — ,
 and covers a little about what I’d recommend a beginner to
 start building web apps, and a little bit about the book.
 
-READMORE
+<!-- more -->
 
 BTW, here’s the link to my blog: https://blog.dawran6.com
 

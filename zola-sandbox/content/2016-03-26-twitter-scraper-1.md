@@ -2,7 +2,6 @@
 title = "Twitter scraper tutorial with Python: Requests, BeautifulSoup, and Selenium — Part 1"
 tags = ["python"]
 slug = "twitter-scraper-1"
-description = "Twitter scrapper tutorial"
 +++
 
 
@@ -12,7 +11,7 @@ Requests, BeautifulSoup, and Selenium. In this tutorial, I’ll show you the
 step-by-step process of how I build a Twitter Search web scraper without using 
 their REST API.
 
-READMORE
+<!-- more -->
 
 ---
 

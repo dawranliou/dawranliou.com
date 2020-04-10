@@ -2,11 +2,10 @@
 title = "Getting Started with Python Internals"
 tags = ["python", "internals"]
 slug = "getting-started-python-internals"
-description = "How to start exploring Python internals"
 cover = "images/python-logo.png"
 +++
 
-_This article is a summary of what I learned from [Philip Guo](https://twitter.com/pgbovine)'s
+This article is a summary of what I learned from [Philip Guo](https://twitter.com/pgbovine)'s
 [CPython internals: A ten-hour codewalk through the Python interpreter source code](http://pgbovine.net/cpython-internals.htm).
 I highly recommend you to go through his course. He go through great materials
 in his videos. You can think of this article as a companion text version
@@ -15,9 +14,9 @@ The only major difference between Philip Guo's course and this article is
 the Python version. In his course he was using 2.7.8. This article I'm
 using the 3.6.0 code.
 In this article, you'll know the very basic things about Python internals,
-and, hopefully, be able to explore the Python internals on your own._
+and, hopefully, be able to explore the Python internals on your own.
 
-READMORE
+<!-- more -->
 
 # What does (C)Python do to my code?
 

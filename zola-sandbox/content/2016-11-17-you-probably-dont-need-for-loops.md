@@ -2,7 +2,6 @@
 title = "You probably don't need for loops"
 tags = ["python"]
 slug = "never-write-for-loops"
-description = "Challenge yourself to use awesome language features instead of for-loops"
 cover = "http://critical-thinkers.com/wp-content/uploads/2015/01/shutterstock_208347706.jpg"
 +++
 
@@ -20,7 +19,7 @@ language. And things are just getting more fun! Not only the code become shorter
 and cleaner, but also code looks more structured and disciplined. I’ll get into
 those benefits more in this article.
 
-READMORE
+<!-- more -->
 
 But first, let’s take a step back and see what’s the intuition behind writing a
 for-loop:

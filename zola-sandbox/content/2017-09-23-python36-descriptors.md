@@ -2,7 +2,6 @@
 title = "Writing descriptors in Python 3.6+"
 tags = ["python"]
 slug = "python36-descriptors"
-description = "How to write descriptors in Python 3.6 and beyond."
 cover = "images/14-intercept.jpg"
 +++
 
@@ -25,7 +24,7 @@ into the `__init__` method and bind to the instance like
 [regular class does](https://docs.python.org/3/tutorial/classes.html#class-objects).
 , this post is for you.
 
-READMORE
+<!-- more -->
 
 This post starts with explaining descriptors, why to use them, how to write
 them in previous Python versions (<= 3.5,) and finally writing

@@ -12,7 +12,7 @@ project [1]. This is the only CSS framework / library that fit my brain and my w
 If you are struggling with learning any CSS framework, I hope I could shed some lights
 by introducing you Tachyons.
 
-READMORE
+<!-- more -->
 
 ## Tachyons
 

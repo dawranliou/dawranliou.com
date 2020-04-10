@@ -16,6 +16,8 @@ writing this article on my Emacs with all the keybinding craziness.
 I must confess, I enjoy Emacs quite a lot. However, the transition
 wasn't easy for me. Here's my journey so far.
 
+<!-- more -->
+
 ## The start of the cycle
 
 <img src="//imgs.xkcd.com/comics/lisp_cycles.png" title="I've just received word that the Emperor has dissolved the MIT computer science program permanently." alt="Lisp Cycles">

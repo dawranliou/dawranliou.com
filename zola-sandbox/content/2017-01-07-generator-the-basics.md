@@ -2,7 +2,6 @@
 title = "Generator - The Basics"
 tags = ["python"]
 slug = "generator-the-basics"
-description = "These are the basic things you need to know about generators and how to use it to crack some algorithm problems"
 +++
 
 _I've been wanting to write articles about generators for quite some time.
@@ -15,7 +14,7 @@ ever seemed to be too much in my code. They have strong purpose in the code, and
 beautiful in the codes. In this article, I'll explain the basics things about generators.
 At the end, I'll show you how to use it to solve some problems._
 
-READMORE
+<!-- more -->
 
 # 1. Why do I need to know generators?
 
