@@ -1,35 +1,8 @@
 {% extends "base.html" %}
 
-{% import "macros.html" as macros %}
-
-{% block htmltitle %}
-{{ page.title }} | Daw-Ran Liou
-{% endblock htmltitle %}
+{% if page.title %}{{ page.title }} | {% endif %}Daw-Ran Liou
 
 {% block body %}
-<div class="bg-black-90 light-gray">
-  <article class="ph3 ph5-m ph7-l pb3">
-    <h1 class="f3 f2-ns sans-serif mv0">{{ page.title }}</h1>
-    <p class="gray pb3 mt0">{{ page.date | date(format="%Y %B %e")}}</p>
-    {{ page.content | safe}}
-    <div id="disqus_thread" class="mt5"></div>
-    <script>
-     
-     /**
-      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-     var disqus_config = function () {
-       this.page.url = "https://dawranliou.com<%= current_page.url %>";  // Replace PAGE_URL with your page's canonical URL variable
-       this.page.identifier = "<%= current_page.path %>"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-     };
-     (function() { // DON'T EDIT BELOW THIS LINE
-       var d = document, s = d.createElement('script');
-       s.src = 'https://dawranliou-com.disqus.com/embed.js';
-       s.setAttribute('data-timestamp', +new Date());
-       (d.head || d.body).appendChild(s);
-     })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </article>
-</div>
+{{ page.content | safe }}
 {% endblock body %}
+

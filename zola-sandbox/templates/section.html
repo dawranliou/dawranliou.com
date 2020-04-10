@@ -5,32 +5,24 @@
 {% endblock htmltitle %}
 
 {% block body %}
-<div class="bg-white black-80 mt3 pt3">
-  {% for page in paginator.pages %}
-  <article class="ph3 ph5-m ph7-l pb4 bg-white black-80">
-    <h2 class="f3 f2-ns mv0 sans-serif">
-      <a class="black-90" href="{{ page.permalink }}">{{ page.title }}</a>
-    </h2>
-    <p class="gray pb3 mt0">{{ page.date | date(format="%Y %B %e")}}</p>
-    <div>
-      {% if page.summary %}
-      {{ page.summary | safe }}
-      {% endif %}
-    </div>
-    <a href="{{ page.permalink }}">Read more...</a>
-  </article>
-  {% endfor %}
-  <div class="ph3 ph5-m ph7-l bg-white black-80">
-    <p class="mv0 pt3">
-      {% if paginator.previous %}
-      <a href="{{ paginator.previous }}">&laquo; Previous</a>
-      {% endif %}
-      <span>Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
-      {% if paginator.next %}
-      <a href="{{ paginator.next }}">Next &raquo;</a>
-      {% endif %}
-    </p>
-  </div>
+{% for page in paginator.pages %}
+<article class="mb4">
+  <h2 class="mv0 sans-serif">
+    <a class="black-90" href="{{ page.permalink }}">{{ page.title }}</a>
+  </h2>
+  <p class="gray mt0">{{ page.date | date(format="%Y %B %e")}}</p>
+</article>
+{% endfor %}
+<div class="">
+  <p class="mv0 pt3">
+    {% if paginator.previous %}
+    <a class="mr3" href="{{ paginator.previous }}">&laquo; Previous</a>
+    {% endif %}
+    <span>Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
+    {% if paginator.next %}
+    <a class="ml3" href="{{ paginator.next }}">Next &raquo;</a>
+    {% endif %}
+  </p>
 </div>
 
 {% endblock body %}

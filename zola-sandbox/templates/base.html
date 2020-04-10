@@ -40,8 +40,10 @@
         <a class="link dim gray f6 f5-ns dib ml3" href="{{ get_url(path="blog") }}" title="Blog">Blog</a>
         <a class="link dim gray f6 f5-ns dib ml3" href="{{ get_url(path="contact") }}" title="Contact">Contact</a>
       </nav>
-      {% block body %}
-      {% endblock body %}
+      <div class="black-80 measure mh3 mh5-m mh7-l w-100 mv4">
+        {% block body %}
+        {% endblock body %}
+      </div>
     </div>
     <footer class="pt5 pb4 ph3 ph5-m ph7-l">
       <a class="link near-black hover-silver dib h1 w1 mr3" href="https://github.com/dawran6" title="GitHub">
