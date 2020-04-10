@@ -1,0 +1,43 @@
+{% import "macros.html" as macros %}
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="https://dawranliou.com/images/profile.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dawranliou.com">
+    <meta property="og:description" content="Daw-Ran Liou's website">
+    <meta property="og:title" content="Daw-Ran Liou<%= ' - ' + current_article.title unless current_article.nil? %>">
+    <meta property="og:image:alt" content="snapshot">
+    <meta name="twitter:image" content="https://dawranliou.com/images/profile.jpg">
+    <meta name="twitter:title" content="Daw-Ran Liou<%= ' - ' + current_article.title unless current_article.nil? %>">
+    <meta name="twitter:description" content="Daw-Ran Liou's website">
+    <meta name="twitter:site" content="@dawranliou">
+    <meta name="twitter:creator" content="@dawranliou">
+    <title>{% block htmltitle %}{{ config.title }}{% endblock htmltitle %}</title>
+    <link rel="stylesheet" href="{{ get_url(path="tachyons.min.css" )}}">
+    <link rel="stylesheet" href="{{ get_url(path="monokai.css" )}}">
+    <link rel="stylesheet" href="{{ get_url(path="styles.css" )}}">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet"> 
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml") }}">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96109475-1"></script>
+    <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+     
+     gtag('config', 'UA-96109475-1');
+    </script>
+  </head>
+  <body>
+    <div id="main" role="main">
+      {% block body %}
+      {% endblock body %}
+    </div>
+    {{ macros::footer() }}
+  </body>
+</html>
