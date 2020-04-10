@@ -9,6 +9,8 @@ by [Adam Bard](https://twitter.com/adambard) and started to use more
 I called "Domain Exploring." It really is just a combination of REPL-driven
 development with domain modeling in it's essence.
 
+<!-- more -->
+
 ## Domain Modeling vs Exploring
 
 From [Wikipedia - Domain Model](https://en.wikipedia.org/wiki/Domain_model):

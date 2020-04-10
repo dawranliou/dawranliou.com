@@ -8,6 +8,8 @@ effects and coeffects are, or, what `fx`s and `cofx`s are.
 They both seemed to relate to the “Side Effects” (or “Effects”) functional
 programmers dislike. It was hard for me to distinguish them.
 
+<!-- more -->
+
 Before you read on, if you've never came across re-frame's
 [official documentation](https://github.com/Day8/re-frame/blob/master/docs/README.md)
 or the [cljdoc page](https://cljdoc.org/d/re-frame/re-frame/0.10.8/doc/introduction),

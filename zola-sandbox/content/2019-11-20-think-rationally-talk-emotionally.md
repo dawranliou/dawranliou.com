@@ -5,9 +5,6 @@ tags = "philosophy"
 authors = "Daw-Ran Liou"
 +++
 
-
----
-
 _The current state of my mind was greatly influenced by John Locke (洛克)
 and Empiricism (經驗主義).
 In contrast to René Descartes's (笛卡爾) Rationalism (理性主義)
@@ -16,6 +13,8 @@ John Locke believes that knowledge is instead
 "determined only by experience derived from sense perception."
 This is also known as Empiricism.
 The ideas we learned in the early days would have significant effects on our thoughts._
+
+<!-- more -->
 
 ---
 

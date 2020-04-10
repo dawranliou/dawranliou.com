@@ -2,7 +2,6 @@
 title = "Don’t think. Just write the code!"
 tags = ["python", "dev"]
 slug = "just-write-the-code"
-description = "Lessons from learning on the job without much experience"
 cover = "images/16-just-write-code.jpg"
 +++
 
@@ -17,7 +16,7 @@ to share what I learned. Hope it sheds some lights on your coding journey
 too. To set the expectation right, let me give you some idea of my
 experience level before I started the project.
 
-READMORE
+<!-- more -->
 
 # Before I started
 

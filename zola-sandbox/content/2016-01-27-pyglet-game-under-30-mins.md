@@ -10,6 +10,8 @@ I got to say I feel so much accomplishment even though it’s just a dumb,
 simple, ghetto game that could be done within 100 lines of codes.
 It really amazes me how things could get done so easily these days.
 
+<!-- more -->
+
 I was in the [San Francisco Python Meetup Group](http://www.meetup.com/sfpython/)
 and joined
 [Simeon’s Pyglet tutorial session](http://simeonfranklin.com/talk/pyglet/slides.html),

@@ -2,7 +2,6 @@
 title = "Closures bind late"
 tags = ["python"]
 slug = "closures-bind-late"
-description = "The behavior of closure might trick you"
 cover = "images/turtle.jpg"
 +++
 
@@ -17,7 +16,7 @@ I came across this StackOverflow post -
 the gap that I sort-of understood it but couldn't explain it very well.
 The bridge is just a simple sentence, "closures bind late."
 
-READMORE
+<!-- more -->
 
 What does "closures bind late" mean exactly?
 Consider a function generator that generates a series of multiplication

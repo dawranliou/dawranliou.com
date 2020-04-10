@@ -2,7 +2,6 @@
 title = "Practical Uses of Python AND and OR Boolean Operators"
 tags = ["python"]
 slug = "practicle-boolean-operators"
-description = "Why I love Python - 2"
 +++
 
 In my previous post — Python Truth Value Testing is Awesome, 
@@ -13,7 +12,7 @@ This raise the question in me: [is there any practical example of using the and-
 which also takes the advantage of the generic truth value testing](http://stackoverflow.com/questions/35657101/practical-examples-of-python-and-operator)?
 Here’s what I found.
 
-READMORE
+<!-- more -->
 
 # The Definitions
 

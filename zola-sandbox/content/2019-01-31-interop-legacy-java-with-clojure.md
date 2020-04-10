@@ -2,7 +2,6 @@
 title = "Interop legacy Java project with Clojure"
 tags = ["clojure", "java"]
 slug = "interop-legacy-java-with-clojure"
-description = "Three strategies to inject Clojure new blood in your existing Java project"
 +++
 
 Recently I got the chance to work on a new feature for our existing Java project.
@@ -12,7 +11,7 @@ I was very into Clojure these days. Learning Clojure has this side effect of
 mutating your brain to view programming difference. At the meanwhile changing your
 taste of choosing a programming language. (Please be Clojure!)
 
-READMORE
+<!-- more -->
 
 I want to do this project in Clojure because, first of all, it's Clojure. And I can't
 get more excited about this idea along. Then I did a couple of evaluation:

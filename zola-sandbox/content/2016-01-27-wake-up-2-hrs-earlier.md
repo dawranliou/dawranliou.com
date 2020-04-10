@@ -1,12 +1,13 @@
 +++
 title = "How I wake up 2 hours earlier every day and become happier"
-tags = "life"
+tags = ["life"]
 slug = "morning-routine"
-summary = "My morning routines"
 cover = "https://tombasson.files.wordpress.com/2015/01/morning-routine.jpg"
 +++
 
-## Here’s how I kick off my workdays
+Here’s how I kick off my workdays.
+
+<!-- more -->
 
 _6:00 AM:
 the alarm went off.

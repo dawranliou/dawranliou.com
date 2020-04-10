@@ -14,7 +14,7 @@ The key is to use the `clojure.inspector` for the visualization and
 `clojure.org/java.data` for recursively converting Java beans to Clojure
 data structure.
 
-READMORE
+<!-- more -->
 
 _Note: Thanks to reddit user @vvvvalvalval to point out
 [Programming at the REPL: Data Visualization](https://clojure.org/guides/repl/data_visualization_at_the_repl#_dealing_with_mysterious_values_advanced)

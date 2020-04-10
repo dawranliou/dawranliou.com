@@ -2,7 +2,6 @@
 title = "What is it like to start a study group at work"
 tags = ["python"]
 slug = "study-group-at-work"
-description = "My story of finding a way to share the thing I love"
 cover = "/images/17-study-group.jpg"
 +++
 
@@ -10,7 +9,7 @@ Have you ever had the feeling that you got so passionate about something that yo
 
 ..And I started a Python study group in my workplace 30 minutes later. This is what happened in the 30 minutes:
 
-READMORE
+<!-- more -->
 
 > Minute 1 — *Chatting with my buddy in the office*
 > “Hey I am thinking about starting a Python study group at work. Do you want to help me?” “Yeah, I’ll help you.” “Cool, I’ll write an email and send it to a bunch of people.”

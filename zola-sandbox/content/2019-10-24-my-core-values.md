@@ -10,6 +10,8 @@ This post is an open letter to my future self.
 
 You might find many ancient Chinese wisdom influences below, which says a lot about my origin.
 
+<!-- more -->
+
 ## Balance
 
 The Chinese idiom, "物極必反," means "Things will develop in the opposite

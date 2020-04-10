@@ -2,7 +2,6 @@
 title = "Python Truth Value Testing is Awesome"
 tags = ["python"]
 slug = "truth-value-testing"
-description = "What I love about python — 1"
 +++
 
 I’m constantly amazed by the simplicity and readability Python provides.
@@ -14,7 +13,7 @@ order to work with it. Lot’s of reading, isn’t it? This is why I think Pytho
 modern programming language. Let’s talk about one of the features Python provides —
 the [truth value testing](https://docs.python.org/3.5/library/stdtypes.html#truth-value-testing).
 
-READMORE
+<!-- more -->
 
 (Go ahead and read the docs in Python’s official documentation.
 You cannot avoid reading documentations while developing software.)

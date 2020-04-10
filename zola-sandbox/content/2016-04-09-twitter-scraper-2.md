@@ -2,7 +2,6 @@
 title = "Twitter scraper tutorial with Python: Requests, BeautifulSoup, and Selenium — Part 2"
 tags = ["python"]
 slug = "twitter-scraper-2"
-description = "Twitter scrapper tutorial"
 +++
 
 This is the part 2 of my Twitter scraper tutorial. If you haven’t checkout part 
@@ -10,7 +9,7 @@ This is the part 2 of my Twitter scraper tutorial. If you haven’t checkout par
 problem — how to scrape the web page that uses infinite scrolling design? Two 
 solutions came into my mind: one more sophisticated, the other more naive:
 
-READMORE
+<!-- more -->
 
 # The more sophisticated approach
 
