@@ -1,10 +1,10 @@
----
-title: Think rationally, talk emotionally
-date: 2019-11-20
-category: Opinions
-tags: philosophy
-authors: Daw-Ran Liou
----
++++
+title = "Think rationally, talk emotionally"
+category = "Opinions"
+tags = "philosophy"
+authors = "Daw-Ran Liou"
++++
+
 
 ---
 
