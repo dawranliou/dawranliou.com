@@ -1,11 +1,9 @@
----
-title: Python Truth Value Testing is Awesome
-date: 2016-02-25 10:20
-tags: python
-Slug: truth-value-testing
-Authors: Daw-Ran Liou
-Summary: What I love about python — 1
----
++++
+title = "Python Truth Value Testing is Awesome"
+tags = ["python"]
+slug = "truth-value-testing"
+description = "What I love about python — 1"
++++
 
 I’m constantly amazed by the simplicity and readability Python provides.
 (See The [Zen of Python](https://www.python.org/dev/peps/pep-0020/).)

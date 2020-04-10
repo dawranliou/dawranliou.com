@@ -1,11 +1,9 @@
----
-title: Composing namedtuple from namedtuples
-date: 2017-11-02
-tags: python
-Slug: composing-namedtuple
-Authors: Daw-Ran Liou
-Summary: Sharing the recipe of composing namedtuple from namedtuples.
----
++++
+title = "Composing namedtuple from namedtuples"
+tags = ["python"]
+slug = "composing-namedtuple"
+description = "Sharing the recipe of composing namedtuple from namedtuples."
++++
 
 The problem:
 

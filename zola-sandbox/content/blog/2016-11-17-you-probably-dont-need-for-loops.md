@@ -1,12 +1,10 @@
----
-title: "You probably don't need for loops"
-date: 2016-11-17
-tags: python
-Slug: never-write-for-loops
-Authors: Daw-Ran Liou
-Summary: Challenge yourself to use awesome language features instead of for-loops
-Cover: http://critical-thinkers.com/wp-content/uploads/2015/01/shutterstock_208347706.jpg
----
++++
+title = "You probably don't need for loops"
+tags = ["python"]
+slug = "never-write-for-loops"
+description = "Challenge yourself to use awesome language features instead of for-loops"
+cover = "http://critical-thinkers.com/wp-content/uploads/2015/01/shutterstock_208347706.jpg"
++++
 
 _Originally titled "Never Write For-loops again"_
 

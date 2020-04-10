@@ -1,13 +1,10 @@
----
-title: Writing descriptors in Python 3.6+
-date: 2017-09-23
-Category: Python
-tags: python
-Slug: python36-descriptors
-Authors: Daw-Ran Liou
-Summary: How to write descriptors in Python 3.6 and beyond.
-Cover: images/14-intercept.jpg
----
++++
+title = "Writing descriptors in Python 3.6+"
+tags = ["python"]
+slug = "python36-descriptors"
+description = "How to write descriptors in Python 3.6 and beyond."
+cover = "images/14-intercept.jpg"
++++
 
 _Special thanks to [Luciano Ramalho](https://twitter.com/ramalhoorg).
 I learned most of the knowledge about descriptors from his workshop in PyBay 2017_

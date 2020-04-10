@@ -1,11 +1,9 @@
----
-title: Practical Uses of Python AND and OR Boolean Operators
-date: 2016-03-02 10:20
-tags: python
-Slug: practicle-boolean-operators
-Authors: Daw-Ran Liou
-Summary: Why I love Python - 2
----
++++
+title = "Practical Uses of Python AND and OR Boolean Operators"
+tags = ["python"]
+slug = "practicle-boolean-operators"
+description = "Why I love Python - 2"
++++
 
 In my previous post — Python Truth Value Testing is Awesome, 
 I mentioned about the sweet combo of the truth value testing and the boolean operators,

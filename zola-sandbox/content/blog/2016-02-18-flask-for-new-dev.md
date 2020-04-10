@@ -1,12 +1,10 @@
----
-title: Flask for New Web Developer
-date: 2016-02-18 10:20
-tags: python, web
-Slug: flask-for-new-dev
-Authors: Daw-Ran Liou
-Summary: Thoughts after finishing my blog app using Python Flask
-Cover: /images/flask-logo.png
----
++++
+title = "Flask for New Web Developer"
+tags = ["python", "web"]
+slug = "flask-for-new-dev"
+description = "Thoughts after finishing my blog app using Python Flask"
+cover = "/images/flask-logo.png"
++++
 
 Last long weekend after my geek marathon I finally
 finished reading [Flask Web Development: Developing Web Applications with Python](http://www.amazon.com/Flask-Web-Development-Developing-Applications/dp/1449372627)
