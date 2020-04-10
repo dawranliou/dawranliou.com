@@ -6,8 +6,8 @@
 
 {% block body %}
 {% for page in paginator.pages %}
-<article class="mb4">
-  <h2 class="mv0 sans-serif">
+<article class="mb4 serif">
+  <h2 class="mv0">
     <a class="black-90" href="{{ page.permalink }}">{{ page.title }}</a>
   </h2>
   <p class="gray mt0">{{ page.date | date(format="%Y %B %e")}}</p>
