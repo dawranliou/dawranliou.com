@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
+{% block htmltitle %}
 {% if page.title %}{{ page.title }} | {% endif %}Daw-Ran Liou
+{% endblock htmltitle %}
 
 {% block body %}
 {{ page.content | safe }}
