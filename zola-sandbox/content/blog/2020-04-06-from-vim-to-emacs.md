@@ -1,10 +1,9 @@
----
-title: From Vim to Emacs
-date: 2020-04-06
-category: Journal
-tags: emacs, clojure
-authors: Daw-Ran Liou
----
++++
+title = "From Vim to Emacs"
+category = "Journal"
+tags = ["emacs", "clojure"]
+authors = "Daw-Ran Liou"
++++
 
 I was a Vim user a couple years back.
 I totally loved (and still love) the philosophy of Vim
