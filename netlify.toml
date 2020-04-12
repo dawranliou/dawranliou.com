@@ -154,3 +154,9 @@ command = "zola build --base-url $DEPLOY_PRIME_URL"
 [[redirects]]
   from = "/blog/2020/04/06/from-vim-to-emacs"
   to = "/blog/from-vim-to-emacs"
+
+# Other redirects
+
+[[redirects]]
+  from = "/about"
+  to = "/"
