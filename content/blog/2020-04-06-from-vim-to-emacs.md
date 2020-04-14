@@ -45,7 +45,7 @@ I was introduced to Spacemacs.
 
 [Spacemacs](https://www.spacemacs.org/), on the website:
 
-> _Spacemacs is a new way to experience Emacs -- a sophisticated and polished set-up focused on ergonomics, mnemonics and consistency._
+> Spacemacs is a new way to experience Emacs -- a sophisticated and polished set-up focused on ergonomics, mnemonics and consistency.
 
 To me, the main selling point was the exceptional out-of-box configuration.
 The layer system makes adding packages almost no-brainers.
@@ -82,7 +82,7 @@ Aaron Bieber has a great talk on ["Evil Mode: Or, How I Learned
 to Stop Worrying and Love Emacs"](https://youtu.be/JWD1Fpdd4Pc).
 He helped me to set the right mindset from the start.
 I don't really want to ditch all the keybindings, just yet.
-I also watched a lot of 
+I also watched a lot of
 [Mike Zamansky's Emacs tutorials](https://cestlaz.github.io/stories/emacs/).
 It felt like an achievable goal to recreate the Spacemacs experiences myself.
 
@@ -98,7 +98,7 @@ my goal of making my own mini Spacemacs was an achievable project.
 I really learned a lot in this stage. One of the most important
 lessons I learned is:
 
-> _Emacs is a self-documenting editor_
+> Emacs is a self-documenting editor
 
 Instead of needing to go to Google to search for answers, Emacs
 has all those things built-in for you. Just like Clojure, I was
