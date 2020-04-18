@@ -1,0 +1,11 @@
+{% extends "page.html" %}
+
+{% block body %}
+<article class="cf">
+  {% for image in page.extra.gallery %}
+  <div class="fl w-100 w-50-ns">
+    <img src="{{ image[2] }}" alt="{{ image[1] }}">
+  </div>
+  {% endfor %}
+</article>
+{% endblock body %}
