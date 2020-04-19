@@ -2,7 +2,7 @@
 
 {% block body %}
 <article class="cf">
-  {% for image in page.extra.gallery %}
+  {% for image in page.extra.gallery | reverse %}
   <div class="fl w-100 w-third-ns">
     <img src="{{ image[2] }}" alt="{{ image[1] }} ({{ image[0] }})">
   </div>

@@ -10,5 +10,6 @@ gallery = [
     ["2020-04-17", "Macbook", "/images/2020-4-17-macbook.gif"],
     ["2020-04-18", "Desk", "/images/2020-4-18-desk_dream.gif"],
     ["2020-04-18", "Desk (with 4 different color palettes)", "/images/2020-4-18-desk_combined.png"],
+    ["2020-04-19", "Isabella v1", "/images/2020-4-19-isabella-v1.png"],
 ]
 +++
