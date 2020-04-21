@@ -13,5 +13,6 @@ gallery = [
     ["2020-04-19", "Isabella v1", "/images/2020-4-19-isabella-v1.png"],
     ["2020-04-19", "Daw-Ran Liou v2", "/images/2020-4-19-dawran-v2.png"],
     ["2020-04-19", "Tatung cooker", "/images/2020-4-19-tatung-cooker.png"],
+    ["2020-04-20", "Vin", "/images/2020-4-20-figure.gif"],
 ]
 +++
