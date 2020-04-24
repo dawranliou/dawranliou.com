@@ -15,5 +15,6 @@ gallery = [
     ["2020-04-19", "Tatung cooker", "/images/2020-4-19-tatung-cooker.png"],
     ["2020-04-20", "Vin", "/images/2020-4-20-figure.gif"],
     ["2020-04-21", "Sumikko Gurashi", "/images/2020-4-21-sumikko-gurashi.png"],
+    ["2020-04-23", "Church", "/images/2020-4-23-church.png"],
 ]
 +++
