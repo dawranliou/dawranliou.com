@@ -48,6 +48,7 @@
   <body>
     <nav id="nav" class="mh3 mh5-m mh7-l pv4 measure">
       <a class="link dim black-60 dib {% if current_path == "/" %}b{% endif %}" href="{{ config.base_url }}" title="Home">Home</a>
+      <a class="link dim black-60 dib ml3 {% if current_path is starting_with("now/") %}b{% endif %}" href="{{ get_url(path="now") }}" title="Now">Now</a>
       <a class="link dim black-60 dib ml3 {% if current_path is starting_with("blog/") %}b{% endif %}" href="{{ get_url(path="blog") }}" title="Blog">Blog</a>
       <a class="link dim black-60 dib ml3 {% if current_path is starting_with("projects/") %}b{% endif %}" href="{{ get_url(path="projects") }}" title="Projects">Projects</a>
       <a class="link dim black-60 dib ml3 {% if current_path is starting_with("gallery/") %}b{% endif %}" href="{{ get_url(path="gallery") }}" title="Gallery">Gallery</a>
