@@ -19,5 +19,6 @@ gallery = [
     ["2020-04-26", "Dawran Bella 24px", "/images/2020-4-26-dawran-bella-24px.png"],
     ["2020-05-10", "Tennis", "/images/2020-5-10-tennis.png"],
     ["2020-05-17", "Presentation", "/images/2020-5-17-presentation.png"],
+    ["2020-05-25", "Coding 16x14", "/images/2020-5-25-coding.gif"],
 ]
 +++
