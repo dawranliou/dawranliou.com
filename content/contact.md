@@ -5,7 +5,7 @@ description = "Here's my contact information."
 
 ## Email
 
-[hi@dawranliou.com](mailto:hi@dawranliou.com)
+hi[at]dawranliou[dot]com
 
 ## Resume
 
