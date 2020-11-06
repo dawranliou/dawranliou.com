@@ -3,6 +3,8 @@ title = "Rethink Syntax Highlighting"
 authors = "Daw-Ran Liou"
 +++
 
+_TODO add a screenshot of my current color theme here_
+
 I'm a minimalist when it comes to how I like to highlighting my code - my code
 editor is usually almost monochromatic, just black, white, three shades of gray,
 and an accent color like orange. If those colors sounds a lot to you, I have to
