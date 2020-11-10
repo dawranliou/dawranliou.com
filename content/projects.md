@@ -17,4 +17,4 @@ description = "Here's a list of projects that I am working or I worked on."
 
 ## Libraries
 
-[emoji](https://github.com/dawran6/emoji) - Emoji for Clojure
+[emoji](https://github.com/dawranliou/emoji) - Emoji for Clojure

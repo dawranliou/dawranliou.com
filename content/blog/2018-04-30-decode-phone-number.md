@@ -4,7 +4,7 @@ tags = ["clojure"]
 slug = "decode-phone-number"
 +++
 
-_The original article was shared on my [Medium](https://medium.com/@dawran6/decode-your-phone-number-with-clojure-373ccbd11bb9)_
+_The original article was shared on my [Medium](https://medium.com/@dawranliou/decode-your-phone-number-with-clojure-373ccbd11bb9)_
 
 __The inspiration of this article came from the Cousera course, Functional Programming in Scala. I basically translate the Scala program in section 6 into the Clojure version you’re about to see. Kudos to Martin Odersky.__
 
@@ -84,7 +84,7 @@ We use list comprehension to bind the symbols from multiple collections. The spl
 
 All together, the entire program is 30 lines of code:
 
-<script src="https://gist.github.com/dawran6/b08e6d3059253471050e98c80875ae8b.js"></script>
+<script src="https://gist.github.com/dawranliou/b08e6d3059253471050e98c80875ae8b.js"></script>
 
 Thoughts
 

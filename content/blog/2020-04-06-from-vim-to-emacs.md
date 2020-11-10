@@ -107,7 +107,7 @@ and I was very well-suited to troubleshoot my editor. This is
 very powerful.
 
 So far I've got most of the things I want working. You can check out the code
-[here](https://github.com/dawran6/emacs.d/blob/master/init.el).
+[here](https://github.com/dawranliou/emacs.d/blob/master/init.el).
 Currently it's about 500 LOC and I wrote every line of the code.
 I feel very good about it. If something isn't working right, I know
 where to fix it (most of the time.)

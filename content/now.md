@@ -9,7 +9,7 @@ description = "What I'm doing now"
 * Hosting [Third Stream Podcast](https://thirdstream.life/) with
   [@isabellachen24](https://twitter.com/isabellachen24)
 * Writing bullet journals, this blog, and my [Emacs
-  config](https://github.com/dawran6/emacs.d)
+  config](https://github.com/dawranliou/emacs.d)
 * Practicing pixel art
 
 ## Current favorites

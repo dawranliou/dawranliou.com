@@ -54,7 +54,7 @@ good enough for my little game. This is what I did in order:
 9. Add the score label and the score logic
 10. Done!
 
-My git repo is here: https://github.com/dawran6/pyglet-tutorial/blob/master/megaman.py.
+My git repo is here: https://github.com/dawranliou/pyglet-tutorial/blob/master/megaman.py.
 The code is less than 100 lines so it shouldn’t be hard to
 follow even though I didn’t put too much thought on the structure.
 Like the famous quote says: “___if your first product does not embarrass you,

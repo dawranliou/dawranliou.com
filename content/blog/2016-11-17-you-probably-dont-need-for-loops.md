@@ -234,4 +234,4 @@ by intuition. Think again and see if it make sense to re-write it without using
 for-loop.
 1. Share your cases that are hard to code without using for-loops
 
-_This [article](https://medium.com/@dawran6/never-write-for-loops-again-91a5a4c84baf) was originally posted in my [Medium blog](https://medium.com/@dawran6)_
+_This [article](https://medium.com/@dawranliou/never-write-for-loops-again-91a5a4c84baf) was originally posted in my [Medium blog](https://medium.com/@dawranliou)_

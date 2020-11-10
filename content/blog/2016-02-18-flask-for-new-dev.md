@@ -18,7 +18,7 @@ start building web apps, and a little bit about the book.
 
 <!-- more -->
 
-BTW, here’s the link to my blog: https://blog.dawran6.com
+BTW, here’s the link to my blog: https://dawranliou.com/blog
 
 # Flask
 

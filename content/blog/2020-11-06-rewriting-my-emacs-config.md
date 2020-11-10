@@ -41,7 +41,7 @@ Crafters](https://www.youtube.com/channel/UCAiiOTio8Yu69c3XnR7nQBQ) YouTube
 serious [Emacs From
 Scratch](https://www.youtube.com/playlist?list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ). It
 really was a godsend to me to help me start writing my Emacs config again. [My
-current Emacs Config](https://github.com/dawran6/emacs.d) drew a lot of
+current Emacs Config](https://github.com/dawranliou/emacs.d) drew a lot of
 inspirations from it and from the author's, David Wilson's, [own
 config](https://github.com/daviwil/dotfiles/blob/master/Emacs.org).
 
@@ -52,6 +52,6 @@ Links:
 - [Doom Emacs](https://github.com/hlissner/doom-emacs)
 - [Emacs From
 Scratch](https://www.youtube.com/playlist?list=PLEoMzSkcN8oPH1au7H6B7bBJ4ZO7BXjSZ)
-- [My current Emacs Config](https://github.com/dawran6/emacs.d)
+- [My current Emacs Config](https://github.com/dawranliou/emacs.d)
 - [My current Emacs
-  theme](https://github.com/dawran6/emacs.d/blob/master/themes/sketch-white-theme.el)
+  theme](https://github.com/dawranliou/emacs.d/blob/master/themes/sketch-white-theme.el)
