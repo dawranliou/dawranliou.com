@@ -32,7 +32,7 @@ another comparable tool.
 I bind `magit-status` to `command+g` (also `<SPC> g g` because of old habit using
 Doom Emacs.)
 
-# Cider - advanced Clojure editing
+# Cider - advanced Clojure integrated environment
 
 I use [Cider](https://cider.mx/) to manage the nrepl sessions and to evaluate
 code. I used to rely on Cider for more things like looking up code definition
