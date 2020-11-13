@@ -4,8 +4,9 @@ authors = "Daw-Ran Liou"
 +++
 
 ![Classical learning curves for some common
-editors](http://ergoemacs.org/emacs/i/emacs_learning_curves.png) _Classical
-learning curves for some common editors_
+editors](/images/emacs_learning_curves.png)
+
+_Classical learning curves for some common editors_
 
 I once came across a Tweet telling people how to use Emacs like this: step 1,
 download Emacs; step 2, spend the next 10 years configuring it. At first, this
