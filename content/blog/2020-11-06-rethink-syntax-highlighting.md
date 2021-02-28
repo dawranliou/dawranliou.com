@@ -3,8 +3,11 @@ title = "Rethink Syntax Highlighting"
 authors = "Daw-Ran Liou"
 +++
 
-![My theme screenshot](/images/2020-11-06-syntax-highlighting-screenshot.png)
-_A screenshot of my current code editor_
+_Update 2021-02-28: My color themes are now
+[released](https://github.com/dawranliou/sketch-themes)! Check it out!_
+
+![My light editor theme](/images/sketch-theme-white.png)
+_A screenshot of my current editor theme - sketch-white_
 
 I'm a minimalist when it comes to how I like to highlight my code - my code
 editor is usually almost monochromatic, just black, white, three shades of gray,
@@ -12,6 +15,9 @@ and an accent color like orange. If those colors sounds a lot to you, I have to
 assume you either are an extreme minimalist in code highlighting or you've never
 give code highlighting a second thought and just use whatever the theme creators
 throws at you. If you are the latter, this post is for you.
+
+![My dark editor theme](/images/sketch-theme-black.png)
+_A screenshot of my alternative editor theme - sketch-black_
 
 We live in a world of distractions. Everything is constantly trying to grab your
 attentions, your text messages, phone notifications, emails, social medias, ads,
