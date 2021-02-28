@@ -3,7 +3,7 @@ title = "Now"
 description = "What I'm doing now"
 +++
 
-# What I'm doing now
+## What I'm doing now
 
 * Software Developer at [Kira Systems](https://kirasystems.com/)
 * Hosting [Third Stream Podcast](https://thirdstream.life/) with

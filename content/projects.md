@@ -21,9 +21,11 @@ description = "Here's a list of projects that I am working or I worked on."
 
 ## Themes
 
-[Sketch White Theme for Emacs](https://github.com/dawranliou/emacs.d/blob/master/themes/sketch-white-theme.el)
+[Sketch Themes for Emacs](https://github.com/dawranliou/sketch-themes)
 
-![Screenshot of Sketch White theme for Emacs](/images/2020-11-06-syntax-highlighting-screenshot.png)
+![Screenshot of Sketch White theme for Emacs](/images/sketch-theme-white.png)
+
+![Screenshot of Sketch Black theme for Emacs](/images/sketch-theme-black.png)
 
 [Minimal Theme for VS Code](https://github.com/dawranliou/minimal-theme-vscode/)
 
