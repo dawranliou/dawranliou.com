@@ -87,6 +87,10 @@ this:
 (->> xs
      (map transform-1)  ; yield a list containing some nils
      (map transform-2)) ; throws NPE on (transform-2 nil)
+
+(some->> xs
+         (map transform-1)  ; yield a list containing some nils
+         (map transform-2)) ; throws NPE on (transform-2 nil)
 ```
 
 In this case, we'll need to bust those `nil`s from the seq.
