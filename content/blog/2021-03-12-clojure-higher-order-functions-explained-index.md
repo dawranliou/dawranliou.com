@@ -18,14 +18,14 @@ in the planning.
 
 _Updated 2021-03-12_
 
-- `fnil` (Coming soon!)
+- [fnil](@/blog/2021-03-19-clojure-higher-order-functions-explained-fnil.md)
 
 ## The Backlog
 
-- `comp`
-- `partial`
-- `juxt`
-- `complement`
-- `constantly`
-- `every-pred`
-- `some-fn`
+- comp
+- partial
+- juxt
+- complement
+- constantly
+- every-pred
+- some-fn
