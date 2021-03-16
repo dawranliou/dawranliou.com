@@ -14,7 +14,7 @@ To remove all `nil`s from a seq:
 To transform a seq and remove `nil`s from its result:
 
 ```
-(keep a-transforma xs)
+(keep a-transform xs)
 ```
 
 To replace all `nil`s with a fallback value from a seq:
