@@ -11,6 +11,12 @@ To remove all `nil`s from a seq:
 (remove nil? xs)
 ```
 
+To transform a seq and remove `nil`s from its result:
+
+```
+(keep a-transforma xs)
+```
+
 To replace all `nil`s with a fallback value from a seq:
 
 ```
@@ -97,16 +103,26 @@ In this case, we'll need to bust those `nil`s from the seq.
 
 ## Remove `nil`s
 
-When there's no need to preserve those `nil`s, simply remove them from the seq.
+When there's no need to preserve those `nil`s, simply `remove` them from the seq.
 
 ```
 (remove nil? [:a nil :b nil :c])
 ;; => (:a :b :c)
+```
 
+Furthermore, `map` + `remove` is equivalent to `keep` when we want to remove the
+`nil`s from a series of transformations:
+
+```
 (->> xs
      (map transform-1)
      (remove nil?)
-     (map transform-2))
+     (map transform-2)
+     (remove nil?))
+
+(->> xs
+     (keep transform-1)
+     (keep transform-2))
 ```
 
 ## Replace `nil`s
@@ -116,13 +132,16 @@ correct count of the seq, or the `nil`s are something meaningful later down the
 pipe.)
 
 My first thought was using the `or` form to replace each `nil` with a fallback
-value. However, creating a partial function doesn't work because of the order of
-the arguments doesn't work out, i.e. `(partial or a-fallback)` is not what we
-want. We need to place the arguments like: `#(or % a-fallback)`. However,
+value. However, creating a partial function doesn't work because:
+
+1. `partial` cannot take macros like `or` as arguments, and
+2. the order of the arguments doesn't work out for us, i.e. `(partial or
+   a-fallback)` is not what we want.
+
+To make `or` work, we need to create a function: `#(or % a-fallback)`. However,
 creating an anonymous function seems an overkill to me. I prefer function
 compositions whenever possible, especially for a conceptually simple functions
-like this. A function that either returns the argument itself, or the fallback
-value if argument is `nil`. Here's solution I came up with using `fnil`:
+like this. Here's solution I came up with using `fnil`:
 
 ```
 (->> xs
