@@ -12,9 +12,9 @@ _Checkout the [index] for the full series._
 - [Usages](#usages)
 - [Examples](#examples)
 - [My use cases](#my-use-cases)
-    - [Python's `defaultdict` in Clojure](#pythons-defaultdict-in-clojure)
+    - [Python defaultdict in Clojure](#python-defaultdict-in-clojure)
     - [Identity fallback](#identity-fallback)
-    - [Retrofitting `clojure.string` functions](#retrofitting-clojurestring-functions)
+    - [Retrofitting clojure string functions](#retrofitting-clojure-string-functions)
 
 <!-- markdown-toc end -->
 
@@ -70,11 +70,11 @@ There are a couple of great examples by the Clojure community on
 This is my growing list of use cases where I stumble upon and found `fnil`
 useful ;)
 
-### Python's `defaultdict` in Clojure
+### Python defaultdict in Clojure
 
 Being a more Object-oriented language than functional, the way Python deal with
 inserting default value in a hash-table (or `dict`) through the object,
-`[defaultdict]`. Example:
+[defaultdict]. Example:
 
 ```
 >>> import collections
@@ -91,6 +91,10 @@ function that knows what to do with `nil`:
 ```
 (def conj* (fnil conj []))
 (update {} :yellow conj* 1)
+;; => {:yellow [1]}
+
+;; Or, inline the function
+(update {} :yellow (fnil conj []) 1)
 ;; => {:yellow [1]}
 ```
 
@@ -109,7 +113,7 @@ Again from my previous [article about nil busting here]:
      (clojure.string/join ", "))
 ```
 
-### Retrofitting `clojure.string` functions
+### Retrofitting clojure string functions
 
 Most of the `clojure.string` functions don't like `nil`s and will throw NPE at
 you. `fnil` to the rescue!
