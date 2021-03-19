@@ -7,6 +7,12 @@ body {
   font-family: 'Inconsolata', monospace;
 }
 
+#nav {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 article > p {
   line-height: 1.4;
 }
