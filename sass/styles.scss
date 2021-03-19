@@ -10,7 +10,10 @@ body {
 #nav {
   display: inline-flex;
   flex-wrap: wrap;
-  gap: 1rem;
+}
+
+#nav > a.link {
+  margin-right: 1em;
 }
 
 article > p {
