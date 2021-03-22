@@ -40,8 +40,8 @@ class Hello extends React.Component {
 ```
 
 As oppose to React components, Reagent components in the most simplified form
-(also called as Form-1 component) are just Clojure functions that returns Clojure data in
-[Hiccup] style.
+(also called as Form-1 component) are just Clojure functions that returns
+Clojure data in [Hiccup] style.
 
 ```
 (defn welcome [props]
@@ -88,26 +88,37 @@ Most of the time, you don't have to think about this because all components are
 Reagent components. Thus it's easy to overlook the Reagent's part in compiling
 the Clojure functions into React Components. _(This might be a reason why some
 other libraries prefer explicit macros to define a Component like rum's `defc`
-or fulcro's `defsc` - to make the compilation explicit to the user.)_  However,
+or fulcro's `defsc` - to make the compilation explicit to the user.)_ However,
 when it comes to interop with React component libraries, we need to start
 thinking more clearly about which components are React and which are Reagent.
 
 ## Interop with React
 
 The official website has an excellent article about [Interop with React]. Check
-it out if you aren't so familiar with it. Read on for yet another example.
+it out if you aren't so familiar with it. For my brief React interop history, I
+was almost exclusively using the `:>` tag to render React component from the
+Reagent. However, things could get more tricky like the [Example: "Decorator"
+Higher-Order Components]
+
+## Gotcha
+
+Contrary to my instinct, `r/adapt-react-class` isn't the reverse of
+`r/reactify-component`. That is, a React component won't make it a round trip
+back to itself after threading through `r/adapt-react-class` and
+`r/reactify-component`. The `r/adapt-react-class` takes a **React component**
+and returns a `reagent.impl.template.NativeWrapper`, whereas
+`r/reactify-component` takes a **Clojure callable** and coerce it into a React
+component. So be aware.
 
 ## Example: Stylized Material UI Component
 
-Below is the example I worked out for the [StackOverflow question]. The props
-value for `:ValueLabelComponent` needs to be a React component because `slider`
-is an adapted react class just as the `mui-value-labe` in the example, hence the
-function call to `r/reactify-component`.
-
-The real tricky part is that `reagent-material-ui.styles/with-styles` returns a
-`reagent.impl.template.NativeWrapper` and `r/reactify-component` cannot handle
-it. Therefore, I needed to wrapped it inside another function call to make it
-work.
+Below is the example I worked out for the [StackOverflow question]. Pay
+attention to the the calls to `r/adapt-react-class` and
+`r/reactify-component`. Since the MuiValueLabel component is a React component
+from the external library, we need to use `r/adapt-react-class` so we can use it
+with the other Reagent library. The props value for `:ValueLabelComponent` needs
+to be a React component because `slider` is an adapted react class (just as the
+`mui-value-labe`), hence the function call to `r/reactify-component`.
 
 ```
 (ns example.core
@@ -120,16 +131,22 @@ work.
    ["@material-ui/core/Slider/ValueLabel" :as MuiValueLabel]))
 
 (def mui-value-label
+  "The NativeWrapper of Material UI's ValueLabel class."
   (r/adapt-react-class (.-default MuiValueLabel)))
 
 (def with-offsets
+  "The higher-order component that provides 50px down and right offsets."
   (styles/with-styles {:offset {:top 50 :left 50}}))
 
 (defn value-label-with-offsets
+  "A Reagent component that renders the MUI ValueLabel with offsets of 50px down
+  and right."
   [props]
   [(with-offsets mui-value-label) props])
 
-(defn main []
+(defn main
+  "The top level Reagent component."
+  []
   [slider
    {:defaultValue        [31 37]
     :valueLabelDisplay   "on"
@@ -148,6 +165,31 @@ work.
 (defn ^:export init []
   (mount))
 ```
+
+This is mentioned in the [Gotcha](#gotcha). The real tricky part is that
+`reagent-material-ui.styles/with-styles` returns a
+`reagent.impl.template.NativeWrapper` and `r/reactify-component` cannot handle
+it like it handles Reagent components. (See the snippet below.) Therefore, I
+needed to wrapped it inside another function call to make it work.
+
+```
+(r/reactify-component
+  ;; A reagent.impl.template.NativeWrapper
+  (r/adapt-react-class
+    (.-default MuiValueLabel)))
+;; => nil
+
+(r/reactify-component
+  ;; A inline Reagent component
+  (fn [props]
+    [(r/adapt-react-class
+       (.-default MuiValueLabel))
+     props]))
+;; => reagent<N>
+```
+
+In this case, it was extremely helpful to have a running REPL to help me
+figuring out the types of the components.
 
 ## Epilogue
 
@@ -180,3 +222,5 @@ just want to share a few interesting functions I saw:
 [Hiccup]: https://github.com/weavejester/hiccup
 
 [Creating Reagent Components]: https://cljdoc.org/d/reagent/reagent/1.0.0/doc/tutorials/creating-reagent-components
+
+[Example: "Decorator" Higher-Order Components]: https://cljdoc.org/d/reagent/reagent/1.0.0/doc/tutorials/interop-with-react#example-decorator-higher-order-components
