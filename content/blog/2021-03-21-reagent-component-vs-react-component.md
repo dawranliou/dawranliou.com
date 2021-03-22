@@ -58,7 +58,7 @@ functions in Clojure, and it'll return a Hiccup markup without any surprise:
 
 ```
 (welcome {:name "Steve"})
-;; => [:hi {} "Steve"]
+;; => [:h1 {} "Steve"]
 ```
 
 The returned markup data is plain Clojure data, no rendering, no reactivity, no
