@@ -19,7 +19,7 @@ easy-to-overlook information for the Reagent users.
 [React components] are classes that extends the `React.Component`
 class. Example:
 
-```javascript
+```
 // JSX style
 class Welcome extends React.Component {
   render() {
@@ -43,7 +43,7 @@ As oppose to React components, Reagent components in the most simplified form
 (also called as Form-1 component) are just Clojure functions that returns Clojure data in
 [Hiccup] style.
 
-```clojure
+```
 (defn welcome [props]
   [:h1 {} (:name props)])
 ```
@@ -56,7 +56,7 @@ Although this may seem counter-intuitive, since I'm already calling it
 **there is no more hidden magic behind it**. You can "invoke" it like any other
 functions in Clojure, and it'll return a Hiccup markup without any surprise:
 
-```clojure
+```
 (welcome {:name "Steve"})
 ;; => [:hi {} "Steve"]
 ```
