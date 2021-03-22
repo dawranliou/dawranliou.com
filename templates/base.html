@@ -46,7 +46,7 @@
       <a class="link dim black-60 dib {% if current_path is starting_with("gallery/") %}b{% endif %}" href="{{ get_url(path="gallery") }}" title="Gallery">Gallery</a>
       <a class="link dim black-60 dib {% if current_path is starting_with("contact/") %}b{% endif %}" href="{{ get_url(path="contact") }}" title="Contact">Contact</a>
     </nav>
-    <div class="black-80 measure mh3 mh5-m mh7-l mv4">
+    <div class="black-80 measure-wide mh3 mh5-m mh7-l mv4">
       {% block body %}
       {% endblock body %}
     </div>
