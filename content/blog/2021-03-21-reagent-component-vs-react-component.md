@@ -3,9 +3,6 @@ title = "The distinction between Reagent component and React component"
 authors = "Daw-Ran Liou"
 +++
 
-_Reagent component isn't an official terminology but it just feels right calling
-it that way. I'll explain what I meant later in this article._
-
 At work, I rarely have to think about the distinction between a Reagent
 component and a React component since Reagent does such a good job providing a
 coherent and simple API to use. (Plus, we don't use any extern JS component
@@ -42,13 +39,17 @@ class Hello extends React.Component {
 }
 ```
 
-As oppose to React components, Reagent components are just Clojure functions
-that returns Clojure data in [Hiccup] style. Example:
+As oppose to React components, Reagent components in the most simplified form
+(also called as Form-1 component) are just Clojure functions that returns Clojure data in
+[Hiccup] style.
 
 ```clojure
 (defn welcome [props]
   [:h1 {} (:name props)])
 ```
+
+> There are other ways to define a Reagent component as described in the
+> official documentation on [Creating Reagent Components].
 
 Although this may seem counter-intuitive, since I'm already calling it
 "component", the Reagent component above is just a pure Clojure function and
@@ -173,3 +174,5 @@ just want to share a few interesting functions I saw:
 [React Components]: https://reactjs.org/docs/react-component.html
 
 [Hiccup]: https://github.com/weavejester/hiccup
+
+[Creating Reagent Components]: https://cljdoc.org/d/reagent/reagent/1.0.0/doc/tutorials/creating-reagent-components
