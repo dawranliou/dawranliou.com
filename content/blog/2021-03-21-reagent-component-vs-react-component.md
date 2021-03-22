@@ -118,7 +118,7 @@ attention to the the calls to `r/adapt-react-class` and
 from the external library, we need to use `r/adapt-react-class` so we can use it
 with the other Reagent library. The props value for `:ValueLabelComponent` needs
 to be a React component because `slider` is an adapted react class (just as the
-`mui-value-labe`), hence the function call to `r/reactify-component`.
+`mui-value-label`), hence the function call to `r/reactify-component`.
 
 ```
 (ns example.core
