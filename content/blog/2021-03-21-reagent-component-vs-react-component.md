@@ -161,6 +161,10 @@ just want to share a few interesting functions I saw:
 - `valid-tag?`: return true if a tag is a symbol, keyword, string, function, or
   NativeWrapper.
 
+`reagent.impl.component` NS:
+- `create-class`: Creates JS class (that extends React.Component) based on
+  provided Clojure map.
+
 `reagent.impl.util` NS:
 - `dash-to-prop-name`: turn kebab-case prop names into camelCase.
 
