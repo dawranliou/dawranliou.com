@@ -12,7 +12,7 @@ body {
   flex-wrap: wrap;
 }
 
-#nav > a.link {
+#nav > a {
   margin-right: 1em;
 }
 
@@ -39,7 +39,6 @@ code {
 }
 
 a {
-  text-decoration:none;
   transition:color .15s ease-in;
   color: #357edd;
 }
