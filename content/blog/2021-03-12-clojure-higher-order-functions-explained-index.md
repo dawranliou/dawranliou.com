@@ -16,16 +16,16 @@ in the planning.
 
 ## The Index
 
-_Updated 2021-03-12_
+_Updated 2021-03-23_
 
 - [fnil](@/blog/2021-03-19-clojure-higher-order-functions-explained-fnil.md)
+- [complement](@/blog/2021-03-23-clojure-higher-order-functions-explained-complement.md)
 
 ## The Backlog
 
 - comp
 - partial
 - juxt
-- complement
 - constantly
 - every-pred
 - some-fn
