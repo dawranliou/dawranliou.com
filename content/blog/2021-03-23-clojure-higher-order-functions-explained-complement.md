@@ -65,9 +65,13 @@ the inverse of the original function f:
 (keep #{:a :b} [:1 :2 :a :b])
 ;; => (:a :b)
 
-;; doesn't remove the fallse
+;; doesn't remove the false
 (keep (complement #{:a :b}) [:1 :2 :a :b])
 ;; => (true true false false)
+
+;; better to use remove instead
+(remove #{:a :b} [:1 :2 :a :b])
+;; => (:1 :2)
 ```
 
 `filter` on the other hand is the most consistent (the least surprising) one
@@ -91,7 +95,7 @@ There are a couple of great examples by the Clojure community on
 This is my growing list of use cases where I stumble upon and found `complement`
 useful ;)
 
-### Not contain?
+### Not contains?
 
 Already mentioned above, not-contain can be written as:
 
