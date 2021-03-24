@@ -12,7 +12,7 @@ _Checkout the [index] for the full series._
 - [Usages](#usages)
 - [Examples](#examples)
 - [My use cases](#my-use-cases)
-    - [Not contain?](#not-contain)
+    - [Not contains?](#not-contains)
     - [Not :key](#not-key)
 - [Links](#links)
 
