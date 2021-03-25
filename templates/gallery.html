@@ -1,11 +1,9 @@
 {% extends "page.html" %}
 
 {% block body %}
-<article class="cf">
+<main id="gallery">
   {% for image in page.extra.gallery | reverse %}
-  <div class="fl w-100 w-third-ns">
-    <img src="{{ image[2] }}" alt="{{ image[1] }} ({{ image[0] }})">
-  </div>
+  <img src="{{ image[2] }}" alt="{{ image[1] }} ({{ image[0] }})">
   {% endfor %}
-</article>
+</main>
 {% endblock body %}
