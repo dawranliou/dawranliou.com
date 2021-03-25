@@ -1,73 +1,122 @@
 html {
-  font-size: 18px;
-  scroll-behavior: smooth;
+    font-size: 18px;
+    scroll-behavior: smooth;
+    max-width: 80ch;
+    margin: auto;
+    padding-top: 2em;
+    line-height: 1.4;
+    color: rgba(0,0,0,.8);
 }
 
-body {
-  font-family: 'Inconsolata', monospace;
+header#nav {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
 }
 
-#nav {
-  display: inline-flex;
-  flex-wrap: wrap;
+header#nav > a {
+    margin-right: 1em;
 }
 
-#nav > a {
-  margin-right: 1em;
+header#title > h1 {
+    text-transform: capitalize;
 }
 
 a.anchor {
-  margin: 0 4px;
-}
-
-article > p {
-  line-height: 1.4;
-}
-
-.consolas {
+    margin: 0 4px;
 }
 
 pre {
-  padding: 2rem 1rem;
-  overflow: auto;
-  word-wrap: normal;
-  white-space: pre;
-  font-family: Menlo, Monaco, "Courier New", monospace;
-  background-color: #FAFAFA !important;
+    padding: 1em 1em;
+    overflow: auto;
+    word-wrap: normal;
+    white-space: pre;
+    background-color: #FAFAFA !important;
 }
 
 code {
-  overflow-y:hidden;
-  font-size: 85%;
-  border-radius: 3px;
+    overflow-y:hidden;
+    font-size: 85%;
+    border-radius: 3px;
 }
 
 a {
-  transition:color .15s ease-in;
-  color: #357edd;
+    transition:color .15s ease-in;
+    color: rgba(0,0,0,.8);
+
+    &:hover, &:focus {
+        opacity: .5;
+        transition:opacity .15s ease-in;
+    }
 }
 
-p {
-  line-height:1.25;
+img {
+    max-width: 100%;
 }
 
 blockquote {
-  background: #f9f9f9;
-  border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
+    background: #fafafa;
+    margin: 1em 0;
+    padding: 1em 1em;
 }
 
-blockquote:before {
-  color: #ccc;
-  content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
+.icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
 }
 
-blockquote p {
-  display: inline;
+.tab {
+    &.current {
+        font-weight: bold;
+        text-decoration:underline;
+    }
+}
+
+.cc {
+    margin: 2em 0;
+}
+
+hr {
+    margin: 2em 0;
+}
+
+nav#pagination {
+    margin: 2em 0;
+}
+
+footer {
+    margin-top: 2em;
+}
+
+#gallery {
+    display: flex;
+    flex-wrap: wrap;
+
+    img {
+        width: 33.33%
+    }
+}
+
+/* mobile version */
+@media only screen and (max-width: 768px) {
+    html {
+        font-size: unset;
+    }
+    #gallery img {
+        width: 100%;
+    }
+}
+
+/* printable version */
+@media print {
+    html {
+        background: unset;
+        margin: initial;
+        max-width: unset;
+        line-height: unset;
+    }
+    header#nav {
+        display: none;
+    }
 }

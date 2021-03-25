@@ -5,12 +5,14 @@
 {% endblock htmltitle %}
 
 {% block body %}
-<article class="serif">
-  <h1 class="mv0 ttc">{{ page.title }}</h1>
-  <p class="gray pb3 mt0">{{ page.date | date(format="%Y %B %e")}}</p>
+<header id="title">
+  <h1>{{ page.title }}</h1>
+  <p>{{ page.date | date(format="%Y %B %e")}}</p>
+</header>
+<main>
   {{ page.content | safe}}
-</article>
-<div class="mv4">
+</main>
+<div class="cc">
   <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
     <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
   </a>
