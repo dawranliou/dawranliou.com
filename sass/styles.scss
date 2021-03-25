@@ -23,21 +23,17 @@ header#title > h1 {
 }
 
 a.anchor {
-    margin: 0 4px;
+    margin: 0 0.5em;
 }
 
 pre {
-    padding: 1em 1em;
+    padding: 1em;
     overflow: auto;
-    word-wrap: normal;
-    white-space: pre;
     background-color: #FAFAFA !important;
 }
 
 code {
-    overflow-y:hidden;
     font-size: 85%;
-    border-radius: 3px;
 }
 
 a {
@@ -59,7 +55,7 @@ img {
 blockquote {
     background: #fafafa;
     margin: 1em 0;
-    padding: 1em 1em;
+    padding: 1em;
 }
 
 .icon {
@@ -103,7 +99,7 @@ footer {
 /* mobile version */
 @media only screen and (max-width: 768px) {
     html {
-        font-size: unset;
+        font-size: initial;
     }
     #gallery img {
         width: 100%;
@@ -113,10 +109,11 @@ footer {
 /* printable version */
 @media print {
     html {
-        background: unset;
+        background: initial;
         margin: initial;
-        max-width: unset;
-        line-height: unset;
+        max-width: initial;
+        line-height: initial;
+        font-size: initial;
     }
     header#nav {
         display: none;
