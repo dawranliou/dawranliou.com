@@ -20,7 +20,7 @@ _Checkout the [index] for the full series._
 
 ## Source code
 
-Here's the [source of complement in clojure 1.10.1]:
+Here's the [source of complement in clojure 1.10.1][1]:
 
 ```
 (defn complement
@@ -88,7 +88,7 @@ with `complement`:
 ## Examples
 
 There are a couple of great examples by the Clojure community on
-[clojuredocs.org's complement page][1]. Please go check it out for the examples!
+[clojuredocs.org's complement page][2]. Please go check it out for the examples!
 
 ## My use cases
 
