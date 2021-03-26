@@ -5,22 +5,17 @@
 {% endblock htmltitle %}
 
 {% block body %}
-{% for page in paginator.pages %}
-<article>
-  <h2>
-    <a href="{{ page.permalink }}">{{ page.title }}</a>
-  </h2>
-  <p>{{ page.date | date(format="%Y %B %e")}}</p>
-</article>
+{% for year, posts in section.pages | group_by(attribute="year") %}
+<h2>{{ year }}</h2>
+
+<ul>
+  {% for post in posts %}
+  <li>
+    {{ post.date }} -
+    <a href="{{ post.permalink }}">{{ post.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
 {% endfor %}
-<nav id="pagination">
-  {% if paginator.previous %}
-  <a href="{{ paginator.previous }}">&laquo; Previous</a>
-  {% endif %}
-  <span>Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
-  {% if paginator.next %}
-  <a href="{{ paginator.next }}">Next &raquo;</a>
-  {% endif %}
-</nav>
 
 {% endblock body %}
