@@ -5,19 +5,6 @@ authors = "Daw-Ran Liou"
 
 _Checkout the [index] for the full series._
 
-<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
-**Table of Contents**
-
-- [Source code](#source-code)
-- [Usages](#usages)
-- [Examples](#examples)
-- [My use cases](#my-use-cases)
-    - [Not contains?](#not-contains)
-    - [Not :key](#not-key)
-- [Links](#links)
-
-<!-- markdown-toc end -->
-
 ## Source code
 
 Here's the [source of complement in clojure 1.10.1][1]:

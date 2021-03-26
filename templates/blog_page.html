@@ -8,6 +8,25 @@
 <header id="title">
   <h1>{{ page.title }}</h1>
   <p>{{ page.date | date(format="%Y %B %e")}}</p>
+  {% if page.toc %}
+  <b>Table of Contents</b>
+  <ul>
+    {% for h1 in page.toc %}
+    <li>
+      <a href="{{h1.permalink | safe}}">{{ h1.title }}</a>
+      {% if h1.children %}
+      <ul>
+        {% for h2 in h1.children %}
+        <li>
+          <a href="{{h2.permalink | safe}}">{{ h2.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
 </header>
 <main>
   {{ page.content | safe}}

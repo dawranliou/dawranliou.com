@@ -5,19 +5,6 @@ authors = "Daw-Ran Liou"
 
 _Checkout the [index] for the full series._
 
-<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
-**Table of Contents**
-
-- [Source code](#source-code)
-- [Usages](#usages)
-- [Examples](#examples)
-- [My use cases](#my-use-cases)
-    - [Python defaultdict in Clojure](#python-defaultdict-in-clojure)
-    - [Identity fallback](#identity-fallback)
-    - [Retrofitting clojure string functions](#retrofitting-clojure-string-functions)
-
-<!-- markdown-toc end -->
-
 ## Source code
 
 It's better to read the source code first because source code don't lie. Here's
