@@ -19,7 +19,7 @@ easy-to-overlook information for the Reagent users.
 [React components] are classes that extends the `React.Component`
 class. Example:
 
-```
+```js
 // JSX style
 class Welcome extends React.Component {
   render() {
@@ -43,7 +43,7 @@ As oppose to React components, Reagent components in the most simplified form
 (also called as Form-1 component) are just Clojure functions that returns
 Clojure data in [Hiccup] style.
 
-```
+```clj
 (defn welcome [props]
   [:h1 {} (:name props)])
 ```
@@ -56,7 +56,7 @@ Although this may seem counter-intuitive, since I'm already calling it
 **there is no more hidden magic behind it**. You can "invoke" it like any other
 functions in Clojure, and it'll return a Hiccup markup without any surprise:
 
-```
+```clj
 (welcome {:name "Steve"})
 ;; => [:h1 {} "Steve"]
 ```
@@ -120,7 +120,7 @@ with the other Reagent library. The props value for `:ValueLabelComponent` needs
 to be a React component because `slider` is an adapted react class (just as the
 `mui-value-label`), hence the function call to `r/reactify-component`.
 
-```
+```clj
 (ns example.core
   (:require
    [reagent-material-ui.core.slider :refer [slider]]
@@ -172,7 +172,7 @@ This is mentioned in the [Gotcha](#gotcha). The real tricky part is that
 it like it handles Reagent components. (See the snippet below.) Therefore, I
 needed to wrapped it inside another function call to make it work.
 
-```
+```clj
 (r/reactify-component
   ;; A reagent.impl.template.NativeWrapper
   (r/adapt-react-class

@@ -26,7 +26,7 @@ We could break down the problem in the following steps:
 
 Let’s start from the beginning. To get a list of English words, thanks to Cousera course, Functional Programming in Scala, we’ll get it from the Internet:
 
-```clojure
+```clj
 (def words
   (clojure.string/split-lines
     (slurp "https://lamp.epfl.ch/files/content/sites/lamp/files/teaching/progfun/linuxwords.txt")))
@@ -34,7 +34,7 @@ Let’s start from the beginning. To get a list of English words, thanks to Cous
 
 We then defined the map from character to number. We get this by reversing the map mnem:
 
-```clojure
+```clj
 (def mnem
   {\2 "ABC"
    \3 "DEF"
@@ -53,7 +53,7 @@ We then defined the map from character to number. We get this by reversing the m
 
 Let’s write a function to encode a English word to numbers. This can be done by mapping all the letters to the corresponding number:
 
-```clojure
+```clj
 (defn word-code
   [word]
   (apply str (map char-code (.toUpperCase word))))
@@ -61,14 +61,14 @@ Let’s write a function to encode a English word to numbers. This can be done b
 
 The next step is to group all English words by their code. This is a one-liner to use the high level function group-by in Clojure:
 
-```clojure
+```clj
 (def words-for-num
   (group-by word-code words))
 ```
 
 Now this is the hardest part. We want to define a function to decode the number. The recursive part is in bold. This function looks like:
 
-```clojure
+```clj
 (defn decode
   [number]
   (if (empty? number)                                      ;; #1
@@ -84,7 +84,41 @@ We use list comprehension to bind the symbols from multiple collections. The spl
 
 All together, the entire program is 30 lines of code:
 
-<script src="https://gist.github.com/dawranliou/b08e6d3059253471050e98c80875ae8b.js"></script>
+```clj
+(def words
+  (clojure.string/split-lines (slurp "https://lamp.epfl.ch/files/content/sites/lamp/files/teaching/progfun/linuxwords.txt")))
+
+(def mnem
+  {\2 "ABC" \3 "DEF" \4 "GHI" \5 "JKL" \6 "MNO" \7 "PQRS" \8 "TUV" \9 "WXYZ"})
+
+(def char-code
+  (into {} (for [[k vs] mnem
+                 v vs]
+             [v k])))
+
+(defn word-code
+  [word]
+  (apply str (map char-code (.toUpperCase word))))
+
+(def words-for-num
+  (group-by word-code words))
+
+(defn decode
+  [number]
+  (if (empty? number)
+    #{()}
+    (into #{} (for [split (range 1 (inc (.length number)))
+                    word (get words-for-num (subs number 0 split))
+                    rest (decode (subs number split))]
+                (cons word rest)))))
+
+(defn translate
+  [number]
+  (map (partial clojure.string/join " ") (decode number)))
+
+(translate "5299626")
+;; ("lazy Nan" "jazz man" "lazy Mao" "jazz Nan" "lazy man" "jazz Mao")
+```
 
 Thoughts
 

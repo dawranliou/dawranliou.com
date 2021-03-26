@@ -9,7 +9,7 @@ _Checkout the [index] for the full series._
 
 Here's the [source of complement in clojure 1.10.1][1]:
 
-```
+```clj
 (defn complement
   "Takes a fn f and returns a fn that takes the same arguments as f,
   has the same effects, if any, and returns the opposite truth value."
@@ -39,7 +39,7 @@ of the data type from the original function f. This makes it a bit slightly
 inconvenient to use with `keep` or `some` if you expect the return value to be
 the inverse of the original function f:
 
-```
+```clj
 ;; some returns the first logical truthy value
 (some #{:a :b} [:1 :2 :a :b])
 ;; => :a
@@ -64,7 +64,7 @@ the inverse of the original function f:
 `filter` on the other hand is the most consistent (the least surprising) one
 with `complement`:
 
-```
+```clj
 (filter #{:a :b} [:1 :2 :a :b])
 ;; => (:a :b)
 
@@ -86,7 +86,7 @@ useful ;)
 
 Already mentioned above, not-contain can be written as:
 
-```
+```clj
 (filter #(not (contains? #{:a :b} %)) [:1 :2 :a :b])
 (filter #(not (#{:a :b} %)) [:1 :2 :a :b])
 (filter (complement #{:a :b}) [:1 :2 :a :b])
@@ -94,7 +94,7 @@ Already mentioned above, not-contain can be written as:
 
 ### Not :key
 
-```
+```clj
 (filter :disabled [{:v 1} {:v 2} {:v 3 :disabled true} {:v 4}])
 ;; => ({:v 3, :disabled true})
 (filter (complement :disabled) [{:v 1} {:v 2} {:v 3 :disabled true} {:v 4}])

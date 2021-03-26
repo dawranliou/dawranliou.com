@@ -10,7 +10,7 @@ _Checkout the [index] for the full series._
 It's better to read the source code first because source code don't lie. Here's
 the [source of fnil in clojure 1.10.1]:
 
-```
+```clj
 (defn fnil
   "Takes a function f, and returns a function that calls f, replacing
   a nil first argument to f with the supplied value x. Higher arity
@@ -63,7 +63,7 @@ Being a more Object-oriented language than functional, the way Python deal with
 inserting default value in a hash-table (or `dict`) through the object,
 [defaultdict]. Example:
 
-```
+```python
 >>> import collections
 >>> d = collections.defaultdict(list)
 >>> d['yellow'].append(1)
@@ -75,7 +75,7 @@ The more functional approach to the problem can be done using `fnil` in
 Clojure. Instead of defining the new behavior of an object, just create a
 function that knows what to do with `nil`:
 
-```
+```clj
 (def conj* (fnil conj []))
 (update {} :yellow conj* 1)
 ;; => {:yellow [1]}
@@ -92,7 +92,7 @@ inspiration._
 
 Again from my previous [article about nil busting here]:
 
-```
+```clj
 (defn self-or [other] (fnil identity other))
 
 (->> [nil nil nil nil nil nil nil nil nil nil nil nil nil "Batman!"]
@@ -105,7 +105,7 @@ Again from my previous [article about nil busting here]:
 Most of the `clojure.string` functions don't like `nil`s and will throw NPE at
 you. `fnil` to the rescue!
 
-```
+```clj
 (require '[clojure.string :as str])
 (sort-by (fnil str/lower-case "") ["hi" nil "ho"])
 ;; => (nil "hi" "ho")

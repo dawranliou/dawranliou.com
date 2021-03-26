@@ -29,20 +29,20 @@ for blog.
 
 First, create a ns:
 
-```clojure
+```clj
 (ns dawranliou.blog
   (:require [clojure.spec.alpha :as s]))
 ```
 
 The blog domain model start with just a map:
 
-```clojure
+```clj
 (s/def ::blog map?)
 ```
 
 And in the comment, try to generate a few samples of the `::blog`:
 
-```clojure
+```clj
 (require '[clojure.spec.gen.alpha :as gen])
 (gen/sample (s/gen ::blog))
 
@@ -67,7 +67,7 @@ It's obvious that this isn't the data we're expecting. What we need
 is called an [Entity Map](https://clojure.org/guides/spec#_entity_maps).
 Update the `::blog` spec to:
 
-```clojure
+```clj
 (s/def ::blog (s/keys))
 (gen/sample (s/gen ::blog))
 ;; => ({} {} {} {} {} {} {} {} {} {})
@@ -76,7 +76,7 @@ Update the `::blog` spec to:
 We got empty map because we didn't define the entities in the map.
 Let's start by adding the `title` string:
 
-```clojure
+```clj
 (s/def ::title string?)
 (s/def ::blog (s/keys :req [::title]))
 
@@ -92,7 +92,7 @@ A good thing is that the keywords in the maps are namespace qualified.
 When this blog map is merged with another map, we can be pretty confident
 that the data won't be overwritten.
 
-```clojure
+```clj
 (s/def ::body string?)
 (s/def ::author string?)
 (s/def ::date-publish int?)
@@ -110,7 +110,7 @@ that the data won't be overwritten.
 One thing to notice is that the timestamps are sometimes negative.
 We can use `pos-int?` here instead of `int?`.
 
-```clojure
+```clj
 (s/def ::date-publish pos-int?)
 
 (gen/sample (s/gen ::blog))
@@ -125,7 +125,7 @@ We can use `pos-int?` here instead of `int?`.
 To define a behavior under the blog domain, simply write a function
 under the same namespace:
 
-```clojure
+```clj
 (defn blog [title body author]
   {::title title ::body body ::author author ::date-publish nil})
 
@@ -146,7 +146,7 @@ To do it, we need to instrument the test to do so. However, instrumentation
 isn't suitable for production due to performance.
 It should only be used in development and testing.
 
-```clojure
+```clj
 (require '[clojure.spec.test.alpha :as stest])
 (stest/instrument)
 
@@ -157,7 +157,7 @@ It should only be used in development and testing.
 
 At last, we can exercise the function to check if there are any mistake:
 
-```clojure
+```clj
 (s/exercise-fn `blog)
 ;; =>
 ([("" "" "")
@@ -172,7 +172,7 @@ At last, we can exercise the function to check if there are any mistake:
 
 The return value isn't validated so we need to do it ourselves:
 
-```clojure
+```clj
 (for [[args ret] (s/exercise-fn `blog)]
   (s/valid? ::blog ret))
 ;; => (false false ...)
@@ -184,7 +184,7 @@ The return value isn't validated so we need to do it ourselves:
 
 Turned out the `::date-publish` key cannot be `nil`. Thus,
 
-```clojure
+```clj
 (s/def ::date-publish (s/or :published pos-int?
                             :not-published nil?))
 
@@ -206,7 +206,7 @@ The Domain Exploring process is:
 
 Complete example
 
-```clojure
+```clj
 (ns dawranliou.blog
   (:require [clojure.spec.alpha :as s]))
 

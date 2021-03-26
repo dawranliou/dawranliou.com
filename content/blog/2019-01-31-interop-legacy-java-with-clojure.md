@@ -45,7 +45,7 @@ the uberjar to the project's classpath to make my compiled code available.
 Here, the goal is to generate the class files that a Java project can use. We start the
 project with `lein new app airsupply`. The project.clj would look like this:
 
-```clojure
+```clj
 ;; project.clj
 (defproject airsupply "0.1.0-SNAPSHOT"
   :description "FIXME: write description"
@@ -66,7 +66,7 @@ in the `ns` declaration to instrument Clojure to compile it. I recommend reading
 [gen-class – how it works and how to use it](https://kotka.de/blog/2010/02/gen-class_how_it_works_and_how_to_use_it.html)
 to know more about `gen-class`. If you are still following, we ended up with:
 
-```clojure
+```clj
 ;; project.clj
 (defproject airsupply "0.1.0-SNAPSHOT"
   :description "FIXME: write description"
@@ -101,7 +101,7 @@ to know more about `gen-class`. If you are still following, we ended up with:
 
 Now you can launch the repl and do:
 
-```clojure
+```clj
 user> (def a (airsupply.Airsupply.))
 #'user/a
 user> (.drop a)
@@ -144,7 +144,7 @@ public interface Supply {
 
 ```
 
-```clojure
+```clj
 ;; project.clj
 (defproject airsupply "0.1.0-SNAPSHOT"
   :description "FIXME: write description"
@@ -189,7 +189,7 @@ This default behavior is exactly what we need in the use case. There
 are other ways to interleaving compilation steps but we're good so far.
 Here's what you can try in the repl after restarting.
 
-```clojure
+```clj
 user> (def food (airsupply.Airsupply. "food"))
 #'user/food
 user> (.drop food)
@@ -230,7 +230,7 @@ In this strategy, we want to pull in some dependencies from the Legacy
 Java app. I found it the easiest just drop in the entire legacy project
 as a Jar into the Clojure project like:
 
-```clojure
+```clj
 ;; project.clj
 (defproject airsupply "0.1.0-SNAPSHOT"
   :description "FIXME: write description"
@@ -274,7 +274,7 @@ I also use the code example in the post._
 We need to make some change to the `project.clj` to include the [`nrepl`](https://github.com/clojure/tools.nrepl)
 first:
 
-```clojure
+```clj
 ;; project.clj
 (defproject airsupply "0.1.0-SNAPSHOT"
   :description "FIXME: write description"

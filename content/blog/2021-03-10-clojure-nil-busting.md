@@ -7,19 +7,19 @@ authors = "Daw-Ran Liou"
 
 To remove all `nil`s from a seq:
 
-```
+```clj
 (remove nil? xs)
 ```
 
 To transform a seq and remove `nil`s from its result:
 
-```
+```clj
 (keep a-transform xs)
 ```
 
 To replace all `nil`s with a fallback value from a seq:
 
-```
+```clj
 (map (fnil identity a-fallback) xs)
 ```
 
@@ -38,7 +38,7 @@ in a great position with all the tools in the `clojure.core` library.
 In most cases, we simply don't need to do anything since so many core functions
 work with `nil`s already:
 
-```
+```clj
 (:k nil) ;; => nil
 (:k {}) ;; => nil
 ({:k :v} nil) ;; => nil
@@ -55,7 +55,7 @@ work with `nil`s already:
 Because of this behavior, functions using the seq abstraction (`map`, `filter`,
 `reduce`, etc.) works out of the box even when the seq contains `nil`:
 
-```
+```clj
 (map #{:a :b} [:a nil :b nil :c])
 ;; => (:a nil :b nil nil)
 
@@ -71,7 +71,7 @@ When piping a value through a series of transformations, if one transformation
 turns the value into `nil`, the rest of the transformations might fail. For
 example:
 
-```
+```clj
 (-> x
     transform-1  ; yields nil
     transform-2) ; throws NPE
@@ -80,7 +80,7 @@ example:
 In this case we can simply swap the threading macros `->` and `->>` with their
 early-termination variants: `some->` and `some->>`.
 
-```
+```clj
 (some-> x
         transform-1  ; return nil
         transform-2) ; execution never reach this step
@@ -89,7 +89,7 @@ early-termination variants: `some->` and `some->>`.
 However, this only works if the step yields `nil`. What if we get something like
 this:
 
-```
+```clj
 (->> xs
      (map transform-1)  ; yield a list containing some nils
      (map transform-2)) ; throws NPE on (transform-2 nil)
@@ -105,7 +105,7 @@ In this case, we'll need to bust those `nil`s from the seq.
 
 When there's no need to preserve those `nil`s, simply `remove` them from the seq.
 
-```
+```clj
 (remove nil? [:a nil :b nil :c])
 ;; => (:a :b :c)
 ```
@@ -113,7 +113,7 @@ When there's no need to preserve those `nil`s, simply `remove` them from the seq
 Furthermore, `map` + `remove` is equivalent to `keep` when we want to remove the
 `nil`s from a series of transformations:
 
-```
+```clj
 (->> xs
      (map transform-1)
      (remove nil?)
@@ -143,7 +143,7 @@ creating an anonymous function seems an overkill to me. I prefer function
 compositions whenever possible, especially for a conceptually simple functions
 like this. Here's solution I came up with using `fnil`:
 
-```
+```clj
 (->> xs
      (map transform-1)
      ;; replaces nils with a-fallback

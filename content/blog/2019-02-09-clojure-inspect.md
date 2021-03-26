@@ -38,7 +38,7 @@ tree to explore data if the data is hierarchical. Here are some
 examples below. We'll be focusing more on `inspect-tree` in the rest of
 the article.
 
-```clojure
+```clj
 ;; try this in your repl
 
 (require '[clojure.inspector :as insp])
@@ -72,7 +72,7 @@ is:
 To demonstrate, let's setup a Java & Clojure polyglot project
 with Leiningen like this:
 
-```clojure
+```clj
 (defproject inspector "0.1.0-SNAPSHOT"
   ;; ...
   :dependencies [[org.clojure/clojure "1.10.0"]
@@ -113,7 +113,7 @@ public class MyClass implements java.io.Serializable {
 
 Now you can connect to the REPL and do:
 
-```clojure
+```clj
 ;; Transform java object to clojure map
 (-> (inspector.MyClass.)
     java/from-java)
