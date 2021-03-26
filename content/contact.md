@@ -5,8 +5,8 @@ description = "Here's my contact information."
 
 ## Email
 
-hi[at]dawranliou[dot]com
+* hi[at]dawranliou[dot]com
 
 ## Online handles
 
-@dawranliou
+* @dawranliou
