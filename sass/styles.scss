@@ -22,13 +22,13 @@ header#title > h1 {
     text-transform: capitalize;
 }
 
-a.zola-anchor {
+a.anchor {
     visibility: hidden;
-    padding-left: 0.2em;
+    margin-left: -22px;
 }
 
-h1:hover .zola-anchor, h2:hover .zola-anchor, h3:hover .zola-anchor,
-h4:hover .zola-anchor, h5:hover .zola-anchor, h6:hover .zola-anchor {
+h1:hover .anchor, h2:hover .anchor, h3:hover .anchor,
+h4:hover .anchor, h5:hover .anchor, h6:hover .anchor {
     text-decoration: none;
     visibility: visible;
     font-size: reset;
