@@ -22,16 +22,6 @@ header#title > h1 {
     text-transform: capitalize;
 }
 
-a.anchor {
-    visibility: hidden;
-    margin-left: -22px;
-}
-
-h1:hover .anchor, h2:hover .anchor, h3:hover .anchor,
-h4:hover .anchor, h5:hover .anchor, h6:hover .anchor {
-    visibility: visible;
-}
-
 pre {
     padding: 1em;
     overflow: auto;
@@ -50,6 +40,16 @@ a {
         opacity: .5;
         transition:opacity .15s ease-in;
     }
+}
+
+a.anchor {
+    visibility: hidden;
+    margin-left: -22px;
+}
+
+h1:hover .anchor, h2:hover .anchor, h3:hover .anchor,
+h4:hover .anchor, h5:hover .anchor, h6:hover .anchor {
+    visibility: visible;
 }
 
 img {
