@@ -1,6 +1,8 @@
 +++
 title = "Clojure higher-order functions explained: index"
 authors = "Daw-Ran Liou"
+[taxonomies]
+tags = ["clojure"]
 +++
 
 Besides all the other amazing things Clojure enables, I just want to take a

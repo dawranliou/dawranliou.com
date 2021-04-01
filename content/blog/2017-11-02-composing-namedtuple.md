@@ -1,7 +1,8 @@
 +++
 title = "Composing namedtuple from namedtuples"
-tags = ["python"]
 slug = "composing-namedtuple"
+[taxonomies]
+tags = ["python"]
 +++
 
 The problem:

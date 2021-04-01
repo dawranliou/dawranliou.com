@@ -1,6 +1,8 @@
 +++
 title = "Clojure higher-order functions explained: complement"
 authors = "Daw-Ran Liou"
+[taxonomies]
+tags = ["clojure"]
 +++
 
 _Checkout the [index] for the full series._

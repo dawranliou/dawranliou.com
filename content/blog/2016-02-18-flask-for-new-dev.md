@@ -1,8 +1,9 @@
 +++
 title = "Flask for New Web Developer"
-tags = ["python", "web"]
 slug = "flask-for-new-dev"
 cover = "/images/flask-logo.png"
+[taxonomies]
+tags = ["python"]
 +++
 
 Last long weekend after my geek marathon I finally

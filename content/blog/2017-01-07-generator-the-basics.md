@@ -1,7 +1,8 @@
 +++
 title = "Generator - The Basics"
-tags = ["python"]
 slug = "generator-the-basics"
+[taxonomies]
+tags = ["python"]
 +++
 
 _I've been wanting to write articles about generators for quite some time.

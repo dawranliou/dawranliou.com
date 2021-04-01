@@ -1,6 +1,8 @@
 +++
 title = "On Learning Emacs"
 authors = "Daw-Ran Liou"
+[taxonomies]
+tags = ["clojure"]
 +++
 
 ![Classical learning curves for some common

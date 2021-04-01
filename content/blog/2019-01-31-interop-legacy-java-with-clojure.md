@@ -1,7 +1,8 @@
 +++
 title = "Interop legacy Java project with Clojure"
-tags = ["clojure", "java"]
 slug = "interop-legacy-java-with-clojure"
+[taxonomies]
+tags = ["clojure", "java"]
 +++
 
 Recently I got the chance to work on a new feature for our existing Java project.

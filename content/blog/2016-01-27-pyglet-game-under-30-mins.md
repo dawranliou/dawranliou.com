@@ -1,6 +1,7 @@
 +++
 title = "First Game Programming Experience with Python and Pyglet under 30 Minutes"
-tags = ["python", "game"]
+[taxonomies]
+tags = ["python"]
 +++
 
 This is my first experience with game programming,

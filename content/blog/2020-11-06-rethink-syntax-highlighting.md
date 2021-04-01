@@ -1,6 +1,8 @@
 +++
 title = "Rethink Syntax Highlighting"
 authors = "Daw-Ran Liou"
+[taxonomies]
+tags = ["emacs"]
 +++
 
 _Update 2021-02-28: My color themes are now

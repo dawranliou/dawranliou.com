@@ -1,6 +1,7 @@
 +++
 title = "How I built Bex"
-tags = ["clojure", "deployment"]
+[taxonomies]
+tags = ["clojure"]
 +++
 
 In this article, I'd like to share with you the technologies and services that I use

@@ -1,8 +1,9 @@
 +++
 title = "Closures bind late"
-tags = ["python"]
 slug = "closures-bind-late"
 cover = "images/turtle.jpg"
+[taxonomies]
+tags = ["python"]
 +++
 
 "Closure is a turtle carrying its shell," my favorite explanation to

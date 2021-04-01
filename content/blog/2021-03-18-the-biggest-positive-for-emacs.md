@@ -1,6 +1,8 @@
 +++
 title = "The Biggest Positive for Emacs"
 authors = "Daw-Ran Liou"
+[taxonomies]
+tags = ["emacs"]
 +++
 
 I came across [the interview with Henrik Lissner], the creator of Doom Emacs,

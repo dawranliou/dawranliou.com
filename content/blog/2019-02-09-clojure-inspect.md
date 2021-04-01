@@ -1,6 +1,7 @@
 +++
 title = "Inspect Java Objects with Clojure"
-tags = ["clojure", "java", "tip"]
+[taxonomies]
+tags = ["clojure", "java"]
 +++
 
 The more I work with Clojure, the more frustration I found to work with

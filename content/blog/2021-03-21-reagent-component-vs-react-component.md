@@ -1,6 +1,8 @@
 +++
 title = "The distinction between Reagent component and React component"
 authors = "Daw-Ran Liou"
+[taxonomies]
+tags = ["clojure"]
 +++
 
 At work, I rarely have to think about the distinction between a Reagent

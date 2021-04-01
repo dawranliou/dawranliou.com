@@ -1,5 +1,6 @@
 +++
 title = "Domain Exploring with Clojure Spec"
+[taxonomies]
 tags = ["clojure"]
 +++
 

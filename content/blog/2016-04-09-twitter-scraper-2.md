@@ -1,7 +1,8 @@
 +++
 title = "Twitter scraper tutorial with Python: Requests, BeautifulSoup, and Selenium — Part 2"
-tags = ["python"]
 slug = "twitter-scraper-2"
+[taxonomies]
+tags = ["python"]
 +++
 
 This is the part 2 of my Twitter scraper tutorial. If you haven’t checkout part 

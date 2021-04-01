@@ -3,6 +3,7 @@ title = "Daw-Ran Liou"
 description = "Daw-Ran Liou's homepage"
 compile_sass = true
 generate_feed = true
+taxonomies = [{name = "tags", feed = true}]
 # build_search_index = true
 
 [markdown]

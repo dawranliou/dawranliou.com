@@ -1,8 +1,9 @@
 +++
 title = "From Vim to Emacs"
 category = "Journal"
-tags = ["emacs", "clojure"]
 authors = "Daw-Ran Liou"
+[taxonomies]
+tags = ["emacs", "clojure"]
 +++
 
 I was a Vim user a couple years back.

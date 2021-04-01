@@ -1,8 +1,9 @@
 +++
 title = "Getting Started with Python Internals"
-tags = ["python", "internals"]
 slug = "getting-started-python-internals"
 cover = "images/python-logo.png"
+[taxonomies]
+tags = ["python"]
 +++
 
 This article is a summary of what I learned from [Philip Guo](https://twitter.com/pgbovine)'s

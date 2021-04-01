@@ -1,8 +1,9 @@
 +++
 title = "Rewriting My Emacs Config"
 category = "Journal"
-tags = ["emacs"]
 authors = "Daw-Ran Liou"
+[taxonomies]
+tags = ["emacs"]
 +++
 
 Since the last post, I had switched over to [Doom

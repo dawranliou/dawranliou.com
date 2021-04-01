@@ -1,8 +1,9 @@
 +++
 title = "Writing descriptors in Python 3.6+"
-tags = ["python"]
 slug = "python36-descriptors"
 cover = "images/14-intercept.jpg"
+[taxonomies]
+tags = ["python"]
 +++
 
 _Special thanks to [Luciano Ramalho](https://twitter.com/ramalhoorg).

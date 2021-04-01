@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block htmltitle %}
+{{ taxonomy.name }} | Daw-Ran Liou
+{% endblock htmltitle %}
+
+{% block body %}
+<h1>#{{ term.name }}</h1>
+{% for year, pages in term.pages | group_by(attribute="year") %}
+<h2>{{ year }}</h2>
+<ul>
+  {% for page in pages %}
+  <li>
+    {{ page.date }} -
+    <a href="{{ page.permalink }}">{{ page.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endfor %}
+{% endblock body %}
