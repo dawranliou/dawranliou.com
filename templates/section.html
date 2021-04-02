@@ -16,4 +16,11 @@
   {% endfor %}
 </ul>
 {% endfor %}
+
+<h2>Tags</h2>
+<ul>
+  <li><a href="{{get_url(path='tags/clojure')}}">#clojure</a></li>
+  <li><a href="{{get_url(path='tags/emacs')}}">#emacs</a></li>
+  <li><a href="{{get_url(path='tags/')}}">more...</a></li>
+</ul>
 {% endblock body %}
