@@ -2,7 +2,7 @@
 title = "On Learning Emacs"
 authors = "Daw-Ran Liou"
 [taxonomies]
-tags = ["clojure"]
+tags = ["emacs"]
 +++
 
 ![Classical learning curves for some common
