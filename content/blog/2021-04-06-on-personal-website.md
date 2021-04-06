@@ -19,8 +19,8 @@ backend, styled with CSS-in-JS (I'm just throwing a lot of random buzz words
 here, please don't take me too seriously 😛). If you are a minimalist, you can
 build a static website with hand-crafted HTML and CSS. You can even use a site
 builder like Wix to learn the basics of styling and focus on personal branding
-only. You have a wide range of choices, and they don't usually affect the end
-product - a website that is visible to the whole internet. You can share it with
+only. You have a wide range of choices, and no matter your choice of technology,
+you get a website that is visible to the whole internet. You can share it with
 anyone, anywhere. The visibility makes it so rewarding.
 
 # Personal branding
