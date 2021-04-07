@@ -8,18 +8,21 @@
     <meta property="og:type" content="website" />
     <meta property="og:image:alt" content="snapshot" />
     {% if page %}
+    <meta name="description" content="{{ page.description | default(value=page.title) }}" />
     <meta property="og:url" content="{{ page.permalink }}" />
     <meta property="og:description" content="{{ page.description }}" />
     <meta property="og:title" content="{{ page.title }}" />
     <meta name="twitter:title" content="{{ page.title }}" />
     <meta name="twitter:description" content="{{ page.description }}" />
     {% elif section %}
+    <meta name="description" content="{{ section.description }}" />
     <meta property="og:url" content="{{ section.permalink }}" />
     <meta property="og:description" content="{{ section.description }}" />
     <meta property="og:title" content="{{ section.title }}" />
     <meta name="twitter:title" content="{{ section.title }}" />
     <meta name="twitter:description" content="{{ section.description }}" />
     {% else %}
+    <meta name="description" content="Daw-Ran Liou's website" />
     <meta property="og:description" content="Daw-Ran Liou's website" />
     <meta name="twitter:description" content="Daw-Ran Liou's website" />
     {% endif %}
