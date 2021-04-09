@@ -5,17 +5,5 @@ Daw-Ran Liou
 {% endblock htmltitle %}
 
 {% block body %}
-<h1>Hi, my name is Daw-Ran</h1>
-<p>
-  I'm a mid-level software developer currently based in the PDT (UTC-7)
-  timezone. <a href="{{ get_url(path="/tags/clojure/") }}">Clojure</a> is my
-  favorite programming language, and
-  <a href="{{get_url(path="/tags/emacs/")}}">Emacs</a> is my favorite
-  programming environment. I have also done works in Python, Java, and
-  JavaScript in the past.
-</p>
-<p>
-  When I'm away from my keyboard, I love playing tennis, brewing coffee, and
-  reading any novel written by Brandon Sanderson.
-</p>
+{{ section.content | safe }}
 {% endblock body %}
