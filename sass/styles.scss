@@ -1,3 +1,9 @@
+:root {
+    --text-color: #222;
+    --bg-color: #fafafa;
+    --accent-color: #2463bb;
+}
+
 html {
     font-size: 18px;
     scroll-behavior: smooth;
@@ -5,7 +11,7 @@ html {
     margin: auto;
     padding-top: 2em;
     line-height: 1.4;
-    color: rgba(0,0,0,.8);
+    color: var(--text-color);
 }
 
 header#nav {
@@ -25,20 +31,22 @@ header#title > h1 {
 pre {
     padding: 1em;
     overflow: auto;
-    background-color: #FAFAFA !important;
+    background-color: var(--bg-color) !important;
 }
 
 code {
     font-size: 85%;
-    background-color: #FAFAFA !important;
+    background-color: var(--bg-color) !important;
 }
 
 a {
-    color: rgba(0,0,0,.8);
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--accent-color);
+    text-decoration: none;
     transition: opacity .15s ease;
 
     &:hover, &:focus {
-        opacity: .5;
+        border-bottom: 0;
     }
 }
 
@@ -68,12 +76,20 @@ blockquote {
     width: 1em;
     height: 1em;
     display: inline-block;
+    color: var(--text-color);
+    border-bottom: 0;
 }
 
 .tab {
+    color: var(--text-color);
+    border-bottom: 0;
+
     &.current {
-        font-weight: bold;
-        text-decoration:underline;
+        border-bottom: 1px solid var(--text-color);
+    }
+
+    &:hover, &:focus {
+        border-bottom: 1px solid var(--text-color);
     }
 }
 
