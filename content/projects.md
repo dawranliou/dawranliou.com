@@ -8,8 +8,8 @@ description = "Here's a list of projects that I am working or I worked on."
 * [Clojure/Walk](https://clojurewalk.com) (currently down for maintenance)
 * [Third Stream Podcast](https://thirdstream.life)
 * [Cool Markdown Editor](https://coolmarkdowneditor.org/)
-* [Codez](https://codez.xyz)
-* [Bexio](https://bexio.io)
+* [Codez](https://codez.xyz) (No longer maintained)
+* [Bexio](https://bexio.io) (No longer maintained)
 
 ## Libraries
 
