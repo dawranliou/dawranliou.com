@@ -1,6 +1,6 @@
 +++
 title = "Daw-Ran Liou"
-description = "Hi there! I'm a professional software developer currently based in the PDT (UTC-7) timezone. Clojure/Script is currently my favorite tech stack."
+description = "Hi there, my name is Daw-Ran. This is my personal website, where I share my writings and other public information about myself."
 +++
 
 # Hi, my name is Daw-Ran
@@ -8,8 +8,8 @@ description = "Hi there! I'm a professional software developer currently based i
 I'm a mid-level software developer currently based in the PDT (UTC-7)
 timezone. [Clojure][1] is my favorite programming language, and [Emacs][2] my
 favorite development environment. My career focus at the moment is in front-end
-development with [ClojureScript][3] and [React][4]. I have also done works in Python,
-Java, and JavaScript in the past.
+development with [ClojureScript][3] and [React][4]. I have also done works in
+Python, Java, and JavaScript in the past.
 
 When I'm away from my keyboard, I love playing tennis, brewing coffee, and
 reading novels written by Brandon Sanderson.
