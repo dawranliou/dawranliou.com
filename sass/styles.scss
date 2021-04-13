@@ -30,7 +30,6 @@ header#title > h1 {
 
 pre {
     padding: 1em;
-    overflow: auto;
     background-color: var(--bg-color) !important;
 }
 
@@ -58,12 +57,6 @@ a.anchor {
 h1:hover .anchor, h2:hover .anchor, h3:hover .anchor,
 h4:hover .anchor, h5:hover .anchor, h6:hover .anchor {
     visibility: visible;
-}
-
-img {
-    display: block;
-    max-width: 100%;
-    height: auto;
 }
 
 blockquote {

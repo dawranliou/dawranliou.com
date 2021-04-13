@@ -32,6 +32,7 @@
     <title>{% block htmltitle %}{{ config.title }}{% endblock htmltitle %}</title>
     <link rel="icon" href="{{ get_url(path="favicon.png") }}" />
     <link rel="apple-touch-icon" href="{{ get_url(path="favicon.png") }}"/>
+    <link rel="stylesheet" href="{{ get_url(path="remedy.css" )}}" />
     <link rel="stylesheet" href="{{ get_url(path="styles.css" )}}" />
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path=config.feed_filename) }}" />
   </head>
