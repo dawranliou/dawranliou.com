@@ -1,7 +1,7 @@
 :root {
     --text-color: #222;
-    --bg-color: #fafafa;
-    --accent-color: #2463bb;
+    --highlight-color: #fafafa;
+    --anchor-color: #2463bb;
 }
 
 html {
@@ -30,17 +30,17 @@ header#title > h1 {
 
 pre {
     padding: 1em;
-    background-color: var(--bg-color) !important;
+    background-color: var(--highlight-color) !important;
 }
 
 code {
     font-size: 85%;
-    background-color: var(--bg-color) !important;
+    background-color: var(--highlight-color) !important;
 }
 
 a {
-    color: var(--accent-color);
-    border-bottom: 1px solid var(--accent-color);
+    color: var(--anchor-color);
+    border-bottom: 1px solid var(--anchor-color);
     text-decoration: none;
     transition: opacity .15s ease;
 
@@ -60,7 +60,7 @@ h4:hover .anchor, h5:hover .anchor, h6:hover .anchor {
 }
 
 blockquote {
-    background: #fafafa;
+    background: var(--highlight-color);
     margin: 1em 0;
     padding: 1em;
 }
