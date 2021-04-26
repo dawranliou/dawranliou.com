@@ -20,11 +20,11 @@ body {
 header#nav {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 2em;
+    margin-bottom: 2rem;
 }
 
 header#nav > a {
-    margin-right: 1em;
+    margin-right: 1rem;
 }
 
 header#title > h1 {
@@ -32,7 +32,7 @@ header#title > h1 {
 }
 
 pre {
-    padding: 1em;
+    padding: 1rem;
     background-color: var(--highlight-color) !important;
 }
 
@@ -64,13 +64,13 @@ h4:hover .anchor, h5:hover .anchor, h6:hover .anchor {
 
 blockquote {
     background: var(--highlight-color);
-    margin: 1em 0;
-    padding: 1em;
+    margin: 1rem 0;
+    padding: 1rem;
 }
 
 .icon {
-    width: 1em;
-    height: 1em;
+    width: 1rem;
+    height: 1rem;
     display: inline-block;
     color: var(--text-color);
     border-bottom: 0;
@@ -90,19 +90,19 @@ blockquote {
 }
 
 .cc {
-    margin: 2em 0;
+    margin: 2rem 0;
 }
 
 hr {
-    margin: 2em 0;
+    margin: 2rem 0;
 }
 
 nav#pagination {
-    margin: 2em 0;
+    margin: 2rem 0;
 }
 
 footer {
-    margin-top: 2em;
+    margin-top: 2rem;
 }
 
 #gallery {
