@@ -9,9 +9,12 @@ html {
     scroll-behavior: smooth;
     max-width: 80ch;
     margin: auto;
-    padding-top: 2em;
     line-height: 1.4;
     color: var(--text-color);
+}
+
+body {
+    padding: 1rem;
 }
 
 header#nav {
