@@ -16,22 +16,22 @@ reading novels written by Brandon Sanderson.
 
 ## What I'm doing now {#now}
 
-* Software Developer at [Kira Systems][5]
-* Hosting [Third Stream Podcast][6] with [@isabellachen24][7]
+* Software Developer at [Kira Systems][5] building Clojure/Script full-stack web
+  app
 * Publishing articles on this website
 * Tinkering my [Emacs configuration][8]
-* Learning typography
+* Learning [pixelart typography][10]
+* Reading [Project Hail Mary] by Andy Weir
 
 ## Current favorites {#favorites}
 
 * Programming language: Clojure/Script
 * Development environment: Emacs
 * Books: Stormlight Archives by Brandon Sanderson
-* Keyboard: Planck EZ (Cherry MX Brown switches)
-* Sports: tennis and bouldering
+* Sports: tennis
 * Coffee brewer: Hario V60
 
-_Last updated on April 8th, 2021. Inspired by [nownownow][9]._
+_Last updated on August 14Th, 2021. Inspired by [nownownow][9]._
 
 [1]: https://clojure.org/
 [2]: https://clojurescript.org/
@@ -42,3 +42,5 @@ _Last updated on April 8th, 2021. Inspired by [nownownow][9]._
 [7]: https://twitter.com/isabellachen24
 [8]: https://github.com/dawranliou/emacs.d
 [9]: https://nownownow.com/about
+[10]: https://www.goodreads.com/book/show/43785837-arcade-game-typography?ac=1&from_search=true&qid=6FMM6cygYa&rank=1
+[Project Hail Mary]: https://www.goodreads.com/book/show/54493401-project-hail-mary
