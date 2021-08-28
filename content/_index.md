@@ -7,9 +7,10 @@ description = "Hi there, my name is Daw-Ran. This is my personal website, where 
 
 I'm a mid-level software developer based in the UTC-7 timezone, and I love
 writing software! [Clojure] is my favorite programming language, and [Emacs] is
-my favorite development environment. I write about them a lot here on [my blog].
+my favorite development environment.  I write about them a lot here on [my
+blog].
 
-I have done works in Java, Python, and JavaScript in the past. However, I am no
+I have done works in Java, Python, and JavaScript in the past.  However, I am no
 longer interested in working with these languages full-time.
 
 When I'm away from my keyboard, I love playing tennis, brewing coffee, and
@@ -21,7 +22,7 @@ reading books.
   app
 * Publishing articles on this website
 * Tinkering my [Emacs configuration]
-* Learning [pixel art typography][10]
+* Exploring generative art. You can follow my progress [here][sketchbook].
 * Reading [Project Hail Mary] by Andy Weir
 
 ## Current favorites {#favorites}
@@ -43,8 +44,7 @@ _Last updated on August 14Th, 2021. Inspired by [nownownow]._
 [React]: https://reactjs.org/
 [my blog]: @/blog/_index.md
 [nownownow]: https://nownownow.com/about
-
-[10]: https://www.goodreads.com/book/show/43785837-arcade-game-typography?ac=1&from_search=true&qid=6FMM6cygYa&rank=1
+[sketchbook]: https://github.com/dawranliou/sketch
 
 <!--  LocalWords:  Stormlight Sanderson
  -->
