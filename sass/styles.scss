@@ -37,7 +37,8 @@ body {
     background-color: var(--color-background);
     color: var(--color-text);
     max-width: var(--width-container);
-    margin: var(--space-4) auto;
+    margin: var(--space-3) auto;
+    padding: var(--space-1);
 }
 
 a,
@@ -78,7 +79,7 @@ h2,
 h3,
 h4,
 h5 {
-    margin: var(--space-3) 0 0;
+    margin: var(--space-4) 0 0;
 }
 
 pre {
