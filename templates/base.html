@@ -40,7 +40,6 @@
     <header id="nav">
       <a class="tab {% if current_path == "/" %}current{% endif %}" href="{{ config.base_url }}" title="Home">Home</a>
       <a class="tab {% if current_path is starting_with("/blog") %}current{% endif %}" href="{{ get_url(path="blog") }}" title="Blog">Blog</a>
-      <a class="tab {% if current_path is starting_with("/projects") %}current{% endif %}" href="{{ get_url(path="projects") }}" title="Projects">Projects</a>
       <a class="tab {% if current_path is starting_with("/gallery") %}current{% endif %}" href="{{ get_url(path="gallery") }}" title="Gallery">Gallery</a>
       <a class="tab {% if current_path is starting_with("/contact") %}current{% endif %}" href="{{ get_url(path="contact") }}" title="Contact">Contact</a>
     </header>

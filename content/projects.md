@@ -1,6 +1,7 @@
 +++
 title = "Projects"
 description = "Here's a list of projects that I am working or I worked on."
+draft = true
 +++
 
 ## Sites
