@@ -2,8 +2,10 @@
 
 {% block body %}
 <main id="gallery">
-  {% for image in page.extra.gallery | reverse %}
-  <img src="{{ image[2] }}" alt="{{ image[1] }} ({{ image[0] }})">
-  {% endfor %}
+  <div class="gallery">
+    {% for image in page.extra.gallery | reverse %}
+    <img src="{{ image[2] }}" alt="{{ image[1] }} ({{ image[0] }})">
+    {% endfor %}
+  </div>
 </main>
 {% endblock body %}

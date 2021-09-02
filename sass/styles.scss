@@ -1,111 +1,120 @@
 :root {
-    --text-color: #222;
-    --highlight-color: #fafafa;
-    --anchor-color: #2463bb;
-}
+    --font-family-body: system-ui, sans-serif;
+    --font-family-quote: serif;
+    --color-text: #222;
+    --color-background: #fff;
+    --color-code: #222;
+    --color-code-background: #efefef;
+    --color-link: #2463bb;
+    --color-divider: #888;
 
-html {
-    font-size: 18px;
-    scroll-behavior: smooth;
-    max-width: 80ch;
-    margin: auto;
-    line-height: 1.4;
-    color: var(--text-color);
+    --width-container: 36em;
+
+    --space-0: 0;
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 32px;
+    --space-4: 64px;
+
+    --font-size-0: 16px;
+    --font-size-1: 18px;
+    --font-size-2: 20px;
+    --font-size-3: 24px;
+    --font-size-4: 32px;
+
+    --font-weight-heading: 600;
+    --font-weight-paragraph: 400;
+    --font-weight-link: 600;
+
+    --line-height-body: 1.4;
+    --line-height-heading: 1.1;
 }
 
 body {
-    padding: 1rem;
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-1);
+    line-height: var(--line-height-body);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    max-width: var(--width-container);
+    margin: var(--space-4) auto;
 }
 
-header#nav {
+a,
+a:visited {
+    color: var(--color-link);
+    border-bottom: thin solid var(--color-link);
+    text-decoration: none;
+    font-weight: var(--font-weight-link);
+}
+
+nav {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 2rem;
+    margin-bottom: var(--space-3);
 }
 
-header#nav > a {
-    margin-right: 1rem;
-}
-
-header#title > h1 {
-    text-transform: capitalize;
-}
-
-pre {
-    padding: 1rem;
-    background-color: var(--highlight-color) !important;
-}
-
-code {
-    font-size: 85%;
-    background-color: var(--highlight-color) !important;
-}
-
-a {
-    color: var(--anchor-color);
-    border-bottom: 1px solid var(--anchor-color);
-    text-decoration: none;
-    transition: opacity .15s ease;
-
-    &:hover, &:focus {
-        border-bottom: 0;
-    }
-}
-
-a.anchor {
-    visibility: hidden;
-    margin-left: -0.8em;
-}
-
-h1:hover .anchor, h2:hover .anchor, h3:hover .anchor,
-h4:hover .anchor, h5:hover .anchor, h6:hover .anchor {
-    visibility: visible;
-}
-
-blockquote {
-    background: var(--highlight-color);
-    margin: 1rem 0;
-    padding: 1rem;
-}
-
-.icon {
-    width: 1rem;
-    height: 1rem;
-    display: inline-block;
-    color: var(--text-color);
-    border-bottom: 0;
-}
-
-.tab {
-    color: var(--text-color);
+nav > a,
+nav > a:visited {
+    margin-right: var(--space-2);
+    color: var(--color-text);
     border-bottom: 0;
 
     &.current {
-        border-bottom: 1px solid var(--text-color);
+        border-bottom: thin solid var(--color-text);
     }
 
     &:hover, &:focus {
-        border-bottom: 1px solid var(--text-color);
+        border-bottom: thin solid var(--color-text);
     }
 }
 
+header > h1 {
+    text-transform: capitalize;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: var(--space-3) 0 0;
+}
+
+pre {
+    background-color: var(--color-code-background);
+    padding: var(--space-3);
+    overflow: auto;
+}
+
+code {
+    background-color: var(--color-code-background);
+    color: var(--color-code);
+    font-size: var(--font-size-0);
+}
+
+blockquote {
+    font-family: var(--font-family-quote);
+}
+
 .cc {
-    margin: 2rem 0;
+    margin: var(--space-4) 0;
 }
 
 hr {
-    margin: 2rem 0;
-}
-
-nav#pagination {
-    margin: 2rem 0;
+    margin: var(--space-4) 0;
+    border: thin solid var(--color-divider);
 }
 
 footer {
-    margin-top: 2rem;
+    margin-top: var(--space-4);
 }
 
-#gallery {
+img {
+    max-width: 100%;
+}
+
+.gallery {
     display: flex;
     flex-wrap: wrap;
 
@@ -119,7 +128,7 @@ footer {
     html {
         font-size: initial;
     }
-    #gallery img {
+    .gallery img {
         width: 100%;
     }
 }
@@ -134,14 +143,14 @@ footer {
 
 /* printable version */
 @media print {
-    html {
+    body {
         background: initial;
         margin: initial;
         max-width: initial;
         line-height: initial;
         font-size: initial;
     }
-    header#nav {
+    header > nav {
         display: none;
     }
 }

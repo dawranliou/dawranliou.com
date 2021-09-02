@@ -32,16 +32,17 @@
     <title>{% block htmltitle %}{{ config.title }}{% endblock htmltitle %}</title>
     <link rel="icon" href="{{ get_url(path="favicon.png") }}" />
     <link rel="apple-touch-icon" href="{{ get_url(path="favicon.png") }}"/>
-    <link rel="stylesheet" href="{{ get_url(path="remedy.css" )}}" />
     <link rel="stylesheet" href="{{ get_url(path="styles.css" )}}" />
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path=config.feed_filename) }}" />
   </head>
   <body>
     <header id="nav">
-      <a class="tab {% if current_path == "/" %}current{% endif %}" href="{{ config.base_url }}" title="Home">Home</a>
-      <a class="tab {% if current_path is starting_with("/blog") %}current{% endif %}" href="{{ get_url(path="blog") }}" title="Blog">Blog</a>
-      <a class="tab {% if current_path is starting_with("/gallery") %}current{% endif %}" href="{{ get_url(path="gallery") }}" title="Gallery">Gallery</a>
-      <a class="tab {% if current_path is starting_with("/contact") %}current{% endif %}" href="{{ get_url(path="contact") }}" title="Contact">Contact</a>
+      <nav>
+        <a class="{% if current_path == "/" %}current{% endif %}" href="{{ config.base_url }}" title="Home">Home</a>
+        <a class="{% if current_path is starting_with("/blog") %}current{% endif %}" href="{{ get_url(path="blog") }}" title="Blog">Blog</a>
+        <a class="{% if current_path is starting_with("/gallery") %}current{% endif %}" href="{{ get_url(path="gallery") }}" title="Gallery">Gallery</a>
+        <a class="{% if current_path is starting_with("/contact") %}current{% endif %}" href="{{ get_url(path="contact") }}" title="Contact">Contact</a>
+      </nav>
     </header>
     {% block body %}
     {% endblock body %}

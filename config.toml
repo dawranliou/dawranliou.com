@@ -7,8 +7,7 @@ taxonomies = [{name = "tags", feed = true}]
 # build_search_index = true
 
 [markdown]
-highlight_code = true
-highlight_theme = "ascetic-white"
+highlight_code = false
 
 [extra]
 # Put all your custom variables here
