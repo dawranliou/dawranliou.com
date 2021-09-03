@@ -14,13 +14,13 @@ The year 2021 is my 8th year of being a professional software developer.  I
 started my career as a Java programmer writing the system software for the
 optical-mechanical wafer inspection tools at [KLA], a well-known company in the
 Semi-conductor Industry for creating high-end Process Management equipment.  At
-KLA, I learned a lot about Object-Oriented Programming, Dependency Injection,
-the software development process, writing documentation, etc.  It was an
-excellent job for a college new grad as I grew a lot as a developer.  I also
-started getting quite involved in software communities outside of work.  First,
-it was Python and JavaScript.  When I began to prefer Functional Programming
-style more, it became apparent that neither languages are good enough for me.
-Then I found my current favorite language, Clojure.[^1]
+KLA, I learned a lot about Concurrency, Object-Oriented Programming, Dependency
+Injection, the software development process, writing documentation, etc.  It was
+an excellent job for a college new grad as I grew a lot as a junior developer
+during my time there.  I also started getting quite involved in software
+communities like Python and JavaScript outside of work.  When I began to prefer
+the Functional Programming style more, it became apparent that neither languages
+was good enough for me.  Then I found my current favorite language, Clojure.[^1]
 
 After five and a half years, I left KLA and joined [Kira Systems] to work on
 Clojure and [ClojureScript] full time.  (Finally, the dream came true!)  At
@@ -30,6 +30,12 @@ don't work on our home-grown, hand-crafted, fine-tuned, artisan ML engine, I
 enjoyed working with the ML researchers and learning the domain knowledge.  This
 is probably one of the best perks of being a software developer - we get the
 opportunities to learn different domains and industries.
+
+I'm pretty much a generalist when it comes to software development.  Ever since
+I started working for Kira, my focus has shifted from the backend to the
+front-end more.  Nowadays, I've become comfortable writing raw CSS without any
+framework, I pay attention to accessibility, and I understand the quirks of
+browser JavaScript and the ClojureScript compiler a lot more.
 
 Kira was acquired by [Litera] in September 2021. Litera is a much bigger company
 than Kira, with several products to offer to the legal world. It'll be
@@ -42,7 +48,7 @@ about what's coming next!
   app
 * Publishing articles on this website
 * Tinkering my [Emacs configuration]
-* Exploring generative art. You can follow my progress [here][sketchbook].
+* Exploring generative art. You can follow my progress [here][sketches].
 * Reading [Project Hail Mary] by Andy Weir
 
 _Last updated on September 2nd, 2021. Inspired by [nownownow]._
@@ -54,7 +60,7 @@ _Last updated on September 2nd, 2021. Inspired by [nownownow]._
     writing [AutoLISP] to generate CADs (Computer-Aided Design) for my
     Mechanical Design class.  Programming with AutoLISP wasn't like using a
     general-purpose programming language, but I still felt nostalgic when I
-    started learning [Clojure].
+    picked up [Clojure].
 
 
 [ClojureScript]: https://clojurescript.org/
@@ -66,7 +72,7 @@ _Last updated on September 2nd, 2021. Inspired by [nownownow]._
 [React]: https://reactjs.org/
 [my blog]: @/blog/_index.md
 [nownownow]: https://nownownow.com/about
-[sketchbook]: https://github.com/dawranliou/sketch
+[sketches]: https://github.com/dawranliou/sketch
 [AutoLISP]:https://en.wikipedia.org/wiki/AutoLISP
 [Litera]:https://www.litera.com/
 [LISP]:https://en.wikipedia.org/wiki/Lisp_(programming_language)
