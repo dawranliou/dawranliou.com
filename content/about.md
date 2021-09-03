@@ -5,7 +5,7 @@ description = "Hi there, my name is Daw-Ran. This is my personal website, where 
 
 # About
 
-I'm a software developer based in North America. I enjoy playing tennis, reading
+I'm a software developer based in California. I enjoy playing tennis, reading
 books, and writing software.  [Clojure] is my favorite programming language, and
 [Emacs] is my favorite development environment.  I write about them a lot here
 on [my blog].
