@@ -10,8 +10,8 @@ books, and writing software.  [Clojure] is my favorite programming language, and
 [Emacs] is my favorite development environment.  I write about them a lot here
 on [my blog].
 
-This is my 8th year of being a professional software developer.  I started my
-career as a Java programmer writing the system software for the
+The year 2021 is my 8th year of being a professional software developer.  I
+started my career as a Java programmer writing the system software for the
 optical-mechanical wafer inspection tools at [KLA], a well-known company in the
 Semi-conductor Industry for creating high-end Process Management equipment.  At
 KLA, I learned a lot about Object-Oriented Programming, Dependency Injection,
@@ -22,19 +22,19 @@ it was Python and JavaScript.  When I began to prefer Functional Programming
 style more, it became apparent that neither languages are good enough for me.
 Then I found my current favorite language, Clojure.[^1]
 
-I left KLA after five and a half years, and joined [Kira Systems] to work on
-Clojure and [ClojureScript] full time.  (Finally the dream came true!)  At Kira,
-we've built a successful B2B SaaS product to solve contract reviewing/analysis
-for the Legal Tech Industry using Machine Learning.  Though personally I don't
-work on our home-grown, hand-crafted, fine-tuned, artisan ML engine, I really
+After five and a half years, I left KLA and joined [Kira Systems] to work on
+Clojure and [ClojureScript] full time.  (Finally, the dream came true!)  At
+Kira, we've built a successful B2B SaaS product to solve contract
+reviewing/analysis using Machine Learning for the Legal Tech Industry.  Though I
+don't work on our home-grown, hand-crafted, fine-tuned, artisan ML engine, I
 enjoyed working with the ML researchers and learning the domain knowledge.  This
 is probably one of the best perks of being a software developer - we get the
-opportunities to learn different domains and different industries.
+opportunities to learn different domains and industries.
 
-Kira was acquired by [Litera] in September, 2021. Litera a much bigger company
+Kira was acquired by [Litera] in September 2021. Litera is a much bigger company
 than Kira, with several products to offer to the legal world. It'll be
-interesting to see how Clojure will thrive in this industry. And I'm excited for
-what's coming next!
+interesting to see how Clojure will thrive in this industry.  And I'm excited
+about what's coming next!
 
 ## What I'm doing now {#now}
 
@@ -50,10 +50,11 @@ _Last updated on September 2nd, 2021. Inspired by [nownownow]._
 ## Footnotes
 
 [^1]: There is an interesting backstory to my LISP experiences: Clojure wasn't
-my first LISP language.  Back in 2008 when I was a sophomore, I was already
-writing [AutoLISP] to generate CADs (Computer-Aided Design) for my Mechanical
-Design class.  AutoLISP wasn't quite like general-purpose programming, but I
-still felt nostalgic when I first started learning [Clojure].
+    my first LISP language.  Back in 2008, when I was a sophomore, I was already
+    writing [AutoLISP] to generate CADs (Computer-Aided Design) for my
+    Mechanical Design class.  Programming with AutoLISP wasn't like using a
+    general-purpose programming language, but I still felt nostalgic when I
+    started learning [Clojure].
 
 
 [ClojureScript]: https://clojurescript.org/
