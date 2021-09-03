@@ -3,6 +3,8 @@ title = "Contact"
 description = "Here's my contact information."
 +++
 
+# Contact
+
 ## Email
 
 * hi[at]dawranliou[dot]com
