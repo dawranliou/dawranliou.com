@@ -36,16 +36,14 @@
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path=config.feed_filename) }}" />
   </head>
   <body>
-    <header id="nav">
-      <nav>
-        <a class="{% if current_path == "/" %}current{% endif %}" href="{{ config.base_url }}" title="Home">Home</a>
-        <a class="{% if current_path is starting_with("/about") %}current{% endif %}" href="{{ get_url(path="about") }}" title="Blog">About</a>
-        <a class="{% if current_path is starting_with("/blog") %}current{% endif %}" href="{{ get_url(path="blog") }}" title="Blog">Blog</a>
-        <a class="{% if current_path is starting_with("/gallery") %}current{% endif %}" href="{{ get_url(path="gallery") }}" title="Gallery">Gallery</a>
-        <a class="{% if current_path is starting_with("/contact") %}current{% endif %}" href="{{ get_url(path="contact") }}" title="Contact">Contact</a>
-        <a href="atom.xml" title="Atom">Atom</a>
-      </nav>
-    </header>
+    <nav>
+      <a class="{% if current_path == "/" %}current{% endif %}" href="{{ config.base_url }}" title="Home">Home</a>
+      <a class="{% if current_path is starting_with("/about") %}current{% endif %}" href="{{ get_url(path="about") }}" title="Blog">About</a>
+      <a class="{% if current_path is starting_with("/blog") %}current{% endif %}" href="{{ get_url(path="blog") }}" title="Blog">Blog</a>
+      <a class="{% if current_path is starting_with("/gallery") %}current{% endif %}" href="{{ get_url(path="gallery") }}" title="Gallery">Gallery</a>
+      <a class="{% if current_path is starting_with("/contact") %}current{% endif %}" href="{{ get_url(path="contact") }}" title="Contact">Contact</a>
+      <a href="atom.xml" title="Atom">Atom</a>
+    </nav>
     {% block body %}
     {% endblock body %}
     <hr>
