@@ -10,7 +10,21 @@ You've found my personal website!  Thank you for visiting!
 I'm a software developer based in North America.  I enjoy playing tennis,
 reading books, and writing software.  [Clojure] is my favorite programming
 language, and [Emacs] is my favorite development environment.  I like to write
-about topics like the programming languages and tools I enjoy using.
+about technologies like the programming languages and tools I enjoy using.
+
+* [About](@/about.md)
+* [Blog](@/blog/_index.md)
+* [Blog - Emacs](tags/emacs)
+* [Blog - Clojure](tags/clojure)
+* [Gallery](@/gallery.md)
+* [Contact](@/contact.md)
+* [Atom Feed](/atom.xml)
+* [Atom Feed - Emacs](tags/emacs/atom.xml)
+* [Atom Feed - Clojure](tags/clojure/atom.xml)
+* [Github](https://github.com/dawranliou)
+* [LinkedIn](https://www.linkedin.com/in/dawranliou/)
+* [Twitter](https://twitter.com/dawranliou)
+
 
 [dawranliou]:https://twitter.com/dawranliou
 [ClojureScript]: https://clojurescript.org/
