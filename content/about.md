@@ -10,27 +10,31 @@ books, and writing software.  [Clojure] is my favorite programming language, and
 [Emacs] is my favorite development environment.  I write about them a lot here
 on [my blog].
 
-Entering my 8th year of being a professional software developer, I want to
-reflect a bit about my journey so far.  I started my career as a Java programmer
-writing the system software for the optical-mechanical wafer inspection stations
-at KLA.  It was an excellent job for a college new grad like myself at the time.
-At KLA, I learned a lot about Object-Oriented Programming, Dependency Injection,
-the software development process, and writing documentation.  I also started
-getting quite involved in other software communities outside of work as my
-creative outlets.  First, it was Python then JavaScript, but when I began to
-think more in the Functional-style Programming, it became apparent that Python
-isn't for me.  And then I found my favorite language, [Clojure].
+This is my 8th year of being a professional software developer.  I started my
+career as a Java programmer writing the system software for the
+optical-mechanical wafer inspection tools at [KLA], a well-known company in the
+Semi-conductor Industry for creating high-end Process Management equipment.  At
+KLA, I learned a lot about Object-Oriented Programming, Dependency Injection,
+the software development process, writing documentation, etc.  It was an
+excellent job for a college new grad as I grew a lot as a developer.  I also
+started getting quite involved in software communities outside of work.  First,
+it was Python and JavaScript.  When I began to prefer Functional Programming
+style more, it became apparent that neither languages are good enough for me.
+Then I found my current favorite language, Clojure.[^1]
 
-After five and a half years at KLA, I joined [Kira Systems] to work with
-[Clojure] and [ClojureScript] full time.  Interestingly, my first Lisp
-programming language was not [Clojure].  In 2008, I was already using [AutoLISP]
-to generate CADs (Computer-Aided Design) for my Mechanical Design class.  It
-wasn't quite like general-purpose programming, but I felt nostalgic for those
-parentheses when I started learning [Clojure].
+I left KLA after five and a half years, and joined [Kira Systems] to work on
+Clojure and [ClojureScript] full time.  (Finally the dream came true!)  At Kira,
+we've built a successful B2B SaaS product to solve contract reviewing/analysis
+for the Legal Tech Industry using Machine Learning.  Though personally I don't
+work on our home-grown, hand-crafted, fine-tuned, artisan ML engine, I really
+enjoyed working with the ML researchers and learning the domain knowledge.  This
+is probably one of the best perks of being a software developer - we get the
+opportunities to learn different domains and different industries.
 
-I've been a happy Clojurist for almost two years now, rocking my [Emacs] as my
-day-to-day programming environment.  I have no intention to go back to do
-full-time work using Java, JavaScript, or Python.
+Kira was acquired by [Litera] in September, 2021. Litera a much bigger company
+than Kira, with several products to offer to the legal world. It'll be
+interesting to see how Clojure will thrive in this industry. And I'm excited for
+what's coming next!
 
 ## What I'm doing now {#now}
 
@@ -43,6 +47,15 @@ full-time work using Java, JavaScript, or Python.
 
 _Last updated on September 2nd, 2021. Inspired by [nownownow]._
 
+## Footnotes
+
+[^1]: There is an interesting backstory to my LISP experiences: Clojure wasn't
+my first LISP language.  Back in 2008 when I was a sophomore, I was already
+writing [AutoLISP] to generate CADs (Computer-Aided Design) for my Mechanical
+Design class.  AutoLISP wasn't quite like general-purpose programming, but I
+still felt nostalgic when I first started learning [Clojure].
+
+
 [ClojureScript]: https://clojurescript.org/
 [Clojure]: https://clojure.org/
 [Emacs configuration]: https://github.com/dawranliou/emacs.d
@@ -54,3 +67,6 @@ _Last updated on September 2nd, 2021. Inspired by [nownownow]._
 [nownownow]: https://nownownow.com/about
 [sketchbook]: https://github.com/dawranliou/sketch
 [AutoLISP]:https://en.wikipedia.org/wiki/AutoLISP
+[Litera]:https://www.litera.com/
+[LISP]:https://en.wikipedia.org/wiki/Lisp_(programming_language)
+[KLA]:https://www.kla-tencor.com/
