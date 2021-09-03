@@ -134,14 +134,6 @@ img {
     }
 }
 
-/* touch screen version */
-@media (hover: none) {
-    a.anchor {
-        visibility: unset;
-        margin-left: 0;
-    }
-}
-
 /* printable version */
 @media print {
     body {
