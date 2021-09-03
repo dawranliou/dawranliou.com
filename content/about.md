@@ -18,9 +18,10 @@ KLA, I learned a lot about Concurrency, Object-Oriented Programming, Dependency
 Injection, the software development process, writing documentation, etc.  It was
 an excellent job for a college new grad as I grew a lot as a junior developer
 during my time there.  I also started getting quite involved in software
-communities like Python and JavaScript outside of work.  When I began to prefer
-the Functional Programming style more, it became apparent that neither languages
-was good enough for me.  Then I found my current favorite language, Clojure.[^1]
+communities like Python and JavaScript outside of work.  However, it became
+apparent that neither language was good enough for me when I began to prefer the
+Functional Programming style more.  Then I found my current favorite language,
+Clojure.[^1]
 
 After five and a half years, I left KLA and joined [Kira Systems] to work on
 Clojure and [ClojureScript] full time.  (Finally, the dream came true!)  At
@@ -31,11 +32,12 @@ enjoyed working with the ML researchers and learning the domain knowledge.  This
 is probably one of the best perks of being a software developer - we get the
 opportunities to learn different domains and industries.
 
-I'm pretty much a generalist when it comes to software development.  Ever since
-I started working for Kira, my focus has shifted from the backend to the
-front-end more.  Nowadays, I've become comfortable writing raw CSS without any
-framework, I pay attention to accessibility, and I understand the quirks of
-browser JavaScript and the ClojureScript compiler a lot more.
+Being generally curious about so many things, I'm more like a generalist than
+specialist in software development (although I do significantly more work in the
+backend earlier in my career.)  Ever since I started working for Kira, my focus
+has shifted to the front-end.  Nowadays, I've become comfortable writing raw CSS
+without any framework, I pay attention to accessibility, and I understand the
+quirks of browser JavaScript and the ClojureScript compiler a lot more.
 
 Kira was acquired by [Litera] in September 2021. Litera is a much bigger company
 than Kira, with several products to offer to the legal world. It'll be
