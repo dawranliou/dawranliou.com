@@ -10,8 +10,9 @@ books, and writing software.  [Clojure] is my favorite programming language, and
 [Emacs] is my favorite development environment.  I write about them a lot here
 on [my blog].
 
-The year 2021 is my 8th year of being a professional software developer.  I
-started my career as a Java programmer writing the system software for the
+The year 2021 marks my 8th year of being a professional software developer.
+After graduating with a Mechanical Engineering Master's degree, I started my
+career as a Java programmer writing the system software for the
 optical-mechanical wafer inspection tools at [KLA], a well-known company in the
 Semi-conductor Industry for creating high-end Process Management equipment.  At
 KLA, I learned a lot about Concurrency, Object-Oriented Programming, Dependency
