@@ -41,14 +41,6 @@ full-time work using Java, JavaScript, or Python.
 * Exploring generative art. You can follow my progress [here][sketchbook].
 * Reading [Project Hail Mary] by Andy Weir
 
-## Current favorites {#favorites}
-
-* Programming language: Clojure/Script
-* Development environment: Emacs
-* Books: Stormlight Archives by Brandon Sanderson
-* Sports: tennis
-* Coffee brewer: Hario V60
-
 _Last updated on September 2nd, 2021. Inspired by [nownownow]._
 
 [ClojureScript]: https://clojurescript.org/
