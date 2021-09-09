@@ -24,6 +24,7 @@ technologies like the programming languages and tools I enjoy using.
 * [Github](https://github.com/dawranliou)
 * [LinkedIn](https://www.linkedin.com/in/dawranliou/)
 * [Twitter](https://twitter.com/dawranliou)
+* [itch.io](https://dawranliou.itch.io/)
 
 
 [dawranliou]:https://twitter.com/dawranliou
