@@ -10,6 +10,8 @@ books, and writing software.  [Clojure] is my favorite programming language, and
 [Emacs] is my favorite development environment.  I write about them a lot here
 on [my blog].
 
+![An animated sprite I made for my game - Spirited](/images/sprite.gif "An animated sprite I made for my game - Spirited")
+
 The year 2021 marks my 8th year of being a professional software developer.
 After graduating with a Mechanical Engineering Master's degree, I started my
 career as a Java programmer writing the system software for the
