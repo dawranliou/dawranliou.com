@@ -66,13 +66,13 @@ operations require the point to be at the right spot.
 
 Example (point is `<!>`, mark is `<|>`):
 
-``` text
+```
 (+ (+ 1 2<!>) 3 4)
 ```
 
 After hitting `C-M-u`:
 
-``` text
+```
 (+ <!>(+ 1 2) 3 4)
 ```
 
@@ -89,13 +89,13 @@ Example:
 Hit `C-M-<SPC>` the first time will mark the first S-exp following the point,
 i.e. `(+ 1 2)`.
 
-``` text
+```
 (+ <!>(+ 1 2)<@> 3 4)
 ```
 
 Hit `C-M-<SPC>` the second time will mark the next two S-exps, i.e. `(+ 1 2) 3`.
 
-``` text
+```
 (+ <!>(+ 1 2) 3<@> 4)
 ```
 
@@ -110,13 +110,13 @@ opening paren than do `C-M-k`.  I found this method more precise than using
 
 Example:
 
-``` text
+```
 (+ <!>(+ 1 2) 3 4)
 ```
 
 After hitting `C-M-k`,
 
-``` text
+```
 (+ <!> 3 4)
 ```
 
@@ -131,13 +131,13 @@ downward.
 
 Example:
 
-``` text
+```
 (+ (+ 1 2)<!> 3 4)
 ```
 
 After hitting `C-M-t`:
 
-``` text
+```
 (+ 3 (+ 1 2)<!> 4)
 ```
 
@@ -147,13 +147,13 @@ does it too.
 
 Example:
 
-``` text
+```
 (+ 3 (+ 1 2)<!> 4)
 ```
 
 After hitting `C-M-- C-M-t`:
 
-``` text
+```
 (+ (+ 1 2)<!> 3 4)
 ```
 
@@ -166,19 +166,19 @@ wrap the S-exp.
 
 Example:
 
-``` text
+```
 (+ <!>(+ 1 2) 3 4)
 ```
 
 Mark the next two S-exp by hitting `C-M-<SPC>` twice
 
-``` text
+```
 (+ <!>(+ 1 2) 3<@> 4)
 ```
 
 Hit `"`:
 
-``` text
+```
 (+ "<!>(+ 1 2) 3" 4)
 ```
 
@@ -191,13 +191,13 @@ setup, I bind this to:
 
 Example:
 
-``` text
+```
 (+ <!>(+ 1 2) 3 4)
 ```
 
 After hitting `C-M-r`:
 
-``` text
+```
 (+ 1 2)
 ```
 
@@ -209,19 +209,19 @@ siblings and then hit `C-M-r` to raise all of them.
 
 Example:
 
-``` text
+```
 (+ <!>(+ 1 2) 3 4)
 ```
 
 Mark the next three S-exp with three `C-M-<SPC>`s.
 
-``` text
+```
 (+ <!>(+ 1 2) 3 4<@>)
 ```
 
 Hit `C-M-r`:
 
-``` text
+```
 <!>(+ 1 2) 3 4
 ```
 
@@ -233,25 +233,25 @@ forward one S-exp, and then insert the closing paren back:
 
 Example:
 
-``` text
+```
 (+ (+ 1 2)<!> 3 4)
 ```
 
 `DEL`:
 
-``` text
+```
 (+ (+ 1 2<!> 3 4)
 ```
 
 `C-M-f`:
 
-``` text
+```
 (+ (+ 1 2 3<!> 4)
 ```
 
 Insert `)`:
 
-``` text
+```
 (+ (+ 1 2 3)<!> 4)
 ```
 
