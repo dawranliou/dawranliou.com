@@ -225,7 +225,7 @@ Hit `C-M-r`:
 <!>(+ 1 2) 3 4
 ```
 
-## Slurp & barf
+### Slurp & barf
 
 There are no equivalent commands out-of-the-box.  However, I don't miss those
 commands much.  In the case of slurping, I can just remove the closing paren,
