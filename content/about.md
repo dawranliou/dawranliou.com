@@ -55,6 +55,7 @@ about what's coming next!
 * Tinkering my [Emacs configuration]
 * Exploring generative art. You can follow my progress [here][sketches].
 * Reading [Project Hail Mary] by Andy Weir
+* Learning [Common Lisp]
 
 _Last updated on September 2nd, 2021. Inspired by [nownownow]._
 
@@ -82,3 +83,4 @@ _Last updated on September 2nd, 2021. Inspired by [nownownow]._
 [Litera]:https://www.litera.com/
 [LISP]:https://en.wikipedia.org/wiki/Lisp_(programming_language)
 [KLA]:https://www.kla-tencor.com/
+[Common Lisp]:https://lisp-lang.org/
