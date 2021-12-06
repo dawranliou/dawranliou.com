@@ -1,7 +1,7 @@
-+++
-title = "Contact"
-description = "Here's my contact information."
-+++
+---
+title: Contact
+description: Here's my contact information.
+---
 
 # Contact
 

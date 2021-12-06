@@ -1,9 +1,8 @@
-+++
-title = "On Learning Emacs"
-authors = "Daw-Ran Liou"
-[taxonomies]
-tags = ["emacs"]
-+++
+---
+title: On Learning Emacs
+authors: Daw-Ran Liou
+tags: [emacs]
+---
 
 ![Classical learning curves for some common
 editors](/images/emacs_learning_curves.png)

@@ -1,9 +1,8 @@
-+++
-title = "Twitter scraper tutorial with Python: Requests, BeautifulSoup, and Selenium — Part 1"
-slug = "twitter-scraper-1"
-[taxonomies]
-tags = ["python"]
-+++
+---
+title: Twitter scraper tutorial with Python: Requests, BeautifulSoup, and Selenium - Part 1
+slug: twitter-scraper-1
+tags: [python]
+---
 
 
 Inspired by Bruce, my friend’s take-home interview question, I started this 

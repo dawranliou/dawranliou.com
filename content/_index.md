@@ -1,7 +1,7 @@
-+++
-title = "Daw-Ran Liou"
-description = "Hi there, my name is Daw-Ran. This is my personal website, where I share my writings and other public information about myself."
-+++
+---
+title: Daw-Ran Liou
+description: Hi there, my name is Daw-Ran. This is my personal website, where I share my writings and other public information about myself.
+---
 
 # Hi, my name is Daw-Ran Liou
 

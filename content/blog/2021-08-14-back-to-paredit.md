@@ -1,9 +1,8 @@
-+++
-title = "Back to paredit"
-authors = "Daw-Ran Liou"
-[taxonomies]
-tags = ["emacs"]
-+++
+---
+title: Back to paredit
+authors: Daw-Ran Liou
+tags: [emacs]
+---
 
 ## To simplify my s-exp workflow
 

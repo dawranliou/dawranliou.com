@@ -1,8 +1,7 @@
-+++
-title = "Re-frame Effects VS Coeffects"
-[taxonomies]
-tags = ["clojure"]
-+++
+---
+title: Re-frame Effects VS Coeffects
+tags: [clojure]
+---
 
 When I first started using `re-frame`, I was a bit confused about what
 effects and coeffects are, or, what `fx`s and `cofx`s are.

@@ -1,9 +1,9 @@
-+++
-title = "How I wake up 2 hours earlier every day and become happier"
-tags = ["life"]
-slug = "morning-routine"
-cover = "https://tombasson.files.wordpress.com/2015/01/morning-routine.jpg"
-+++
+---
+title: How I wake up 2 hours earlier every day and become happier
+tags: [life]
+slug: morning-routine
+cover: https://tombasson.files.wordpress.com/2015/01/morning-routine.jpg
+---
 
 Here’s how I kick off my workdays.
 

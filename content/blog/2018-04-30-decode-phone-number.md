@@ -1,8 +1,8 @@
-+++
-title = "Decode your phone number with Clojure"
-tags = ["clojure"]
-slug = "decode-phone-number"
-+++
+---
+title: Decode your phone number with Clojure
+tags: [clojure]
+slug: decode-phone-number
+---
 
 _The original article was shared on my [Medium](https://medium.com/@dawranliou/decode-your-phone-number-with-clojure-373ccbd11bb9)_
 

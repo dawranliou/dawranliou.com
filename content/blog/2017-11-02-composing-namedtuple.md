@@ -1,9 +1,8 @@
-+++
-title = "Composing namedtuple from namedtuples"
-slug = "composing-namedtuple"
-[taxonomies]
-tags = ["python"]
-+++
+---
+title: Composing namedtuple from namedtuples
+slug: composing-namedtuple
+tags: [python]
+---
 
 The problem:
 

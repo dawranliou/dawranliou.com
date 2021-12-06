@@ -1,9 +1,8 @@
-+++
-title = "Structural editing in vanilla Emacs"
-authors = "Daw-Ran Liou"
-[taxonomies]
-tags = ["emacs"]
-+++
+---
+title: Structural editing in vanilla Emacs
+authors: Daw-Ran Liou
+tags: [emacs]
+---
 
 ## Strict structural editing
 

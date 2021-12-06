@@ -1,7 +1,7 @@
-+++
-title = "My Core Values"
-tags = ["philosophy"]
-+++
+---
+title: My Core Values
+tags: [philosophy]
+---
 
 I've never tried to verbalize my core values before,
 though it feels right to do so for the first time in 30 years of my life.

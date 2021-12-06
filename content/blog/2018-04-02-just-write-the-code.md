@@ -1,9 +1,9 @@
-+++
-title = "Don’t think. Just write the code!"
-tags = ["python", "dev"]
-slug = "just-write-the-code"
-cover = "images/16-just-write-code.jpg"
-+++
+---
+title: Don’t think. Just write the code!
+tags: [python, dev]
+slug: just-write-the-code
+cover: images/16-just-write-code.jpg
+---
 
 Imaging you are given a brand new web project, some vague requirements,
 and a ton of freedom to choose the technical stacks, will you take it?

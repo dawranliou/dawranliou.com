@@ -1,9 +1,8 @@
-+++
-title = "Clojure nil busting one-liners"
-authors = "Daw-Ran Liou"
-[taxonomies]
-tags = ["clojure"]
-+++
+---
+title: Clojure nil busting one-liners
+authors: Daw-Ran Liou
+tags: [clojure]
+---
 
 ## TL;DR
 

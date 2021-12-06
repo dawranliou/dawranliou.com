@@ -1,9 +1,8 @@
-+++
-title = "Clojure higher-order functions explained: fnil"
-authors = "Daw-Ran Liou"
-[taxonomies]
-tags = ["clojure"]
-+++
+---
+title: Clojure higher-order functions explained: fnil
+authors: Daw-Ran Liou
+tags: [clojure]
+---
 
 _Checkout the [index] for the full series._
 

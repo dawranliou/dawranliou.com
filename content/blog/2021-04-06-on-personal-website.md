@@ -1,7 +1,7 @@
-+++
-title = "On Personal Websites"
-authors = "Daw-Ran Liou"
-+++
+---
+title: On Personal Websites
+authors: Daw-Ran Liou
+---
 
 Hi everyone! I want to share some of my thoughts and the benefits of building
 personal websites. This won't be a step-by-step guide to building your first

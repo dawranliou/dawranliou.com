@@ -1,9 +1,8 @@
-+++
-title = "Interop legacy Java project with Clojure"
-slug = "interop-legacy-java-with-clojure"
-[taxonomies]
-tags = ["clojure", "java"]
-+++
+---
+title: Interop legacy Java project with Clojure
+slug: interop-legacy-java-with-clojure
+tags: [clojure, java]
+---
 
 Recently I got the chance to work on a new feature for our existing Java project.
 The feature itself is a project that set out to be a general-purpose asynchronous 

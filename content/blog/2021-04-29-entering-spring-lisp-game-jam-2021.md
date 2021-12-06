@@ -1,9 +1,8 @@
-+++
-title = "Entering Spring Lisp Game Jam 2021"
-authors = "Daw-Ran Liou"
-[taxonomies]
-tags = ["game"]
-+++
+---
+title: Entering Spring Lisp Game Jam 2021
+authors: Daw-Ran Liou
+tags: [game]
+---
 
 From the [Spring Lisp Game Jam 2021][3] site:
 

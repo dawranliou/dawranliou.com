@@ -1,9 +1,8 @@
-+++
-title = "Practical Uses of Python AND and OR Boolean Operators"
-slug = "practicle-boolean-operators"
-[taxonomies]
-tags = ["python"]
-+++
+---
+title: Practical Uses of Python AND and OR Boolean Operators
+slug: practicle-boolean-operators
+tags: [python]
+---
 
 In my previous post — Python Truth Value Testing is Awesome, 
 I mentioned about the sweet combo of the truth value testing and the boolean operators,

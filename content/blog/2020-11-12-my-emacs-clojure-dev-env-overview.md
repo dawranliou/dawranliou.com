@@ -1,9 +1,8 @@
-+++
-title = "My Emacs Clojure Development Environment Overview"
-authors = "Daw-Ran Liou"
-[taxonomies]
-tags = ["clojure", "emacs"]
-+++
+---
+title: My Emacs Clojure Development Environment Overview
+authors: Daw-Ran Liou
+tags: [clojure, emacs]
+---
 
 # Preface
 

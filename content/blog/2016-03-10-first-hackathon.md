@@ -1,9 +1,9 @@
-+++
-title = "Completed my first hackathon!"
-tags = ["hack"]
-slug = "first-hackathon"
-cover = "/images/hackathon.jpg"
-+++
+---
+title: Completed my first hackathon!
+tags: [hack]
+slug: first-hackathon
+cover: /images/hackathon.jpg
+---
 
 It was such a amazing experience. There’s no such thing that make you,
 and your teammate pull a all-nighter and still gives you one of the

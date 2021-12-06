@@ -1,9 +1,9 @@
-+++
-title = "What is it like to start a study group at work"
-tags = ["python"]
-slug = "study-group-at-work"
-cover = "/images/17-study-group.jpg"
-+++
+---
+title: What is it like to start a study group at work
+tags: [python]
+slug: study-group-at-work
+cover: /images/17-study-group.jpg
+---
 
 Have you ever had the feeling that you got so passionate about something that you have to share it to everyone around you? You gotta force people to be passionate about it, am I right? I was so thrilled about Python two years ago, on the day I finally understood what list comprehension is. I had never knew programming could be so… enjoyable. Gradually from chit-chatting with colleagues, to going to a local meetup group and writing blog posts, I wish to find yet another way to share this amazing technology and to help people. So I thought about starting a Python study group in my workplace..
 

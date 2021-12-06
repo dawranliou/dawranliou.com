@@ -1,10 +1,9 @@
-+++
-title = "Flask for New Web Developer"
-slug = "flask-for-new-dev"
-cover = "/images/flask-logo.png"
-[taxonomies]
-tags = ["python"]
-+++
+---
+title: Flask for New Web Developer
+slug: flask-for-new-dev
+cover: /images/flask-logo.png
+tags: [python]
+---
 
 Last long weekend after my geek marathon I finally
 finished reading [Flask Web Development: Developing Web Applications with Python](http://www.amazon.com/Flask-Web-Development-Developing-Applications/dp/1449372627)

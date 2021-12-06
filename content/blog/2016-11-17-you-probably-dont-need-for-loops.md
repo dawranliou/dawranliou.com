@@ -1,10 +1,9 @@
-+++
-title = "You probably don't need for loops"
-slug = "never-write-for-loops"
-cover = "http://critical-thinkers.com/wp-content/uploads/2015/01/shutterstock_208347706.jpg"
-[taxonomies]
-tags = ["python"]
-+++
+---
+title: You probably don't need for loops
+slug: never-write-for-loops
+cover: http://critical-thinkers.com/wp-content/uploads/2015/01/shutterstock_208347706.jpg
+tags: [python]
+---
 
 _Originally titled "Never Write For-loops again"_
 

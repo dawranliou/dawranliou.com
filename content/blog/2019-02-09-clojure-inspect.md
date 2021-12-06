@@ -1,8 +1,7 @@
-+++
-title = "Inspect Java Objects with Clojure"
-[taxonomies]
-tags = ["clojure", "java"]
-+++
+---
+title: Inspect Java Objects with Clojure
+tags: [clojure, java]
+---
 
 The more I work with Clojure, the more frustration I found to work with
 Java objects. Mostly, it feels an unnecessary process to go through
