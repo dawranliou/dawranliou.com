@@ -1,5 +1,5 @@
 ---
-title: Clojure higher-order functions explained: complement
+title: "Clojure higher-order functions explained: complement"
 authors: Daw-Ran Liou
 tags: [clojure]
 ---

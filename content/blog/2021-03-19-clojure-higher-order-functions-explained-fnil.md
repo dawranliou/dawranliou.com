@@ -1,5 +1,5 @@
 ---
-title: Clojure higher-order functions explained: fnil
+title: "Clojure higher-order functions explained: fnil"
 authors: Daw-Ran Liou
 tags: [clojure]
 ---

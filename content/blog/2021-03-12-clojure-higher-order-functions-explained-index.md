@@ -1,5 +1,5 @@
 ---
-title: Clojure higher-order functions explained: index
+title: "Clojure higher-order functions explained: index"
 authors: Daw-Ran Liou
 tags: [clojure]
 ---

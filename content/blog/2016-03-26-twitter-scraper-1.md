@@ -1,5 +1,5 @@
 ---
-title: Twitter scraper tutorial with Python: Requests, BeautifulSoup, and Selenium - Part 1
+title: "Twitter scraper tutorial with Python: Requests, BeautifulSoup, and Selenium - Part 1"
 slug: twitter-scraper-1
 tags: [python]
 ---
