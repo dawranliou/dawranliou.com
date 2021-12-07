@@ -29,7 +29,7 @@
 (defn nav
   [{:keys [section] :as context}]
   [:nav
-   [:a {:class (when (= section :home) "current")
+   [:a {:class (when (= section :index) "current")
         :href "/"
         :title "Home"}
     "Home"]
