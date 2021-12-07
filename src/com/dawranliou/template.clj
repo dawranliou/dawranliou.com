@@ -68,6 +68,28 @@
     [:hr]
     (footer context)]])
 
+(def cc
+  [:p {:class "cc"}
+   "This work is licensed under a "
+   [:a {:rel "license noopener noreferrer"
+        :href "http://creativecommons.org/licenses/by/4.0/"}
+    "Creative Commons Attribution 4.0 International License"]
+   "."])
+
+(defn blog-page
+  [{:keys [html]
+    :page/keys [title]
+    :as context}]
+  [:html {:lang "en"}
+   (head context)
+   [:body
+    (nav context)
+    [:h1 title]
+    html
+    cc
+    [:hr]
+    (footer context)]])
+
 (defn list
   [{:keys [html items]
     :section/keys [render-list]
