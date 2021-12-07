@@ -111,7 +111,11 @@
                      ;; allow links with markup over multiple lines
                      (str/replace #"\[[^\]]+\n"
                                   (fn [match]
-                                    (str/replace match "\n" " "))))
+                                    (str/replace match "\n" " ")))
+                     ;; allow reference links without refernce id
+                     (str/replace #"\[(\w+)\][^:]"
+                                  (fn [[_match link]]
+                                    (format "[%s][%s]" link link))))
         metadata (fully-qualify-map
                   (:metadata markdown)
                   :page)
