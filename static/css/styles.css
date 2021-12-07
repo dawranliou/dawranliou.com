@@ -64,14 +64,16 @@ nav > a,
 nav > a:visited {
     margin-right: var(--space-2);
     border-bottom: unset;
+}
 
-    &.current {
-        border-bottom: thin solid var(--color-text);
-    }
+nav > a.current,
+nav > a:visited.current {
+    border-bottom: thin solid var(--color-text);
+}
 
-    &:hover, &:focus {
-        border-bottom: thin solid var(--color-link);
-    }
+nav > a:hover,
+nav > a:focus {
+    border-bottom: thin solid var(--color-link);
 }
 
 header > h1 {
