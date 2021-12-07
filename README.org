@@ -1,0 +1,6 @@
+* dawranliou.com site
+
+This hand-crafted [[https://babashka.org/][babashka]] static site generator is inspired by:
+
+- https://github.com/borkdude/blog
+- https://github.com/dominicfreeston/freeston-dot-me/
