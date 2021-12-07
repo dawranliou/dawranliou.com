@@ -5,4 +5,4 @@ sort_by: date
 page_template: blog_page.html
 ---
 
-None
+# Blog

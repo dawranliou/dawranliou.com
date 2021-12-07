@@ -19,4 +19,4 @@ gallery:
     - ["2021-03-19", "Note taking", "/images/profiles-all.png"]
 ---
 
-None
+# Gallery
