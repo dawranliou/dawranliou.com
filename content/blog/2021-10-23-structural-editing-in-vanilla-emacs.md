@@ -271,14 +271,11 @@ be productive at navigating and editing lispy code.[^4]
 
 [^1]: With the help of `M-x check-parens` and `show-paren-mode`.
 
-[^2]: I also came across the blog [Why is Paredit is so un-Emacsy?] after the
-switch.  It's a nice read!  It kinda reassured me of my decision.
+[^2]: I also came across the blog [Why is Paredit is so un-Emacsy?] after the switch.  It's a nice read!  It kinda reassured me of my decision.
 
-[^3]: I might be able to write a function to automate slurping and barfing in the
-future.  Stay tuned!
+[^3]: I might be able to write a function to automate slurping and barfing in the future.  Stay tuned!
 
-[^4]: I also ditched evil-mode and learned code editing the Emacs way.  That's a
-story for another time.
+[^4]: I also ditched evil-mode and learned code editing the Emacs way.  That's a story for another time.
 
 [paredit]:https://www.emacswiki.org/emacs/ParEdit
 [lispy]:https://github.com/abo-abo/lispy

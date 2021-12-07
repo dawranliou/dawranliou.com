@@ -64,8 +64,4 @@ copy it to the `/Applications` folder to use it.
 
 ## Footnotes
 
-[^1]: Probably the popular options are:
-[`emacs-mac`](https://bitbucket.org/mituharu/emacs-mac/src/master/),
-[`emacs-plus`](https://github.com/d12frosted/homebrew-emacs-plus), and
-[`emacs-head`](https://github.com/daviderestivo/homebrew-emacs-head).  I was
-mostly using `emacs-mac` in the past.
+[^1]: Probably the popular options are: [`emacs-mac`](https://bitbucket.org/mituharu/emacs-mac/src/master/), [`emacs-plus`](https://github.com/d12frosted/homebrew-emacs-plus), and [`emacs-head`](https://github.com/daviderestivo/homebrew-emacs-head).  I was mostly using `emacs-mac` in the past.

@@ -61,12 +61,7 @@ _Last updated on September 2nd, 2021. Inspired by [nownownow]._
 
 ## Footnotes
 
-[^1]: There is an interesting backstory to my LISP experiences: Clojure wasn't
-    my first LISP language.  Back in 2008, when I was a sophomore, I was already
-    writing [AutoLISP] to generate CADs (Computer-Aided Design) for my
-    Mechanical Design class.  Programming with AutoLISP wasn't like using a
-    general-purpose programming language, but I still felt nostalgic when I
-    picked up [Clojure].
+[^1]: There is an interesting backstory to my LISP experiences: Clojure wasn't my first LISP language.  Back in 2008, when I was a sophomore, I was already writing [AutoLISP] to generate CADs (Computer-Aided Design) for my Mechanical Design class.  Programming with AutoLISP wasn't like using a general-purpose programming language, but I still felt nostalgic when I picked up [Clojure].
 
 
 [ClojureScript]: https://clojurescript.org/
