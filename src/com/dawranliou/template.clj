@@ -22,7 +22,7 @@
    [:title title]
    [:link {:rel "icon" :href "/favicon.png"}]
    [:link {:rel "apple-touch-icon" :href "/favicon.png"}]
-   [:link {:rel "stylesheet" :href "/styles.css"}]
+   [:link {:rel "stylesheet" :href "/css/styles.css"}]
    [:link {:rel "alternate" :type "application/rss+xml" :title "RSS"
            :href "https://dawranliou.com/atom.xml"}]])
 
