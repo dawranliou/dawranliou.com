@@ -57,13 +57,11 @@
 
 (defn page
   [{:keys [html]
-    :page/keys [title]
     :as context}]
   [:html {:lang "en"}
    (head context)
    [:body
     (nav context)
-    [:h1 title]
     html
     [:hr]
     (footer context)]])
