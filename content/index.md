@@ -9,9 +9,9 @@ render-list: false
 You've found my personal website!  Thank you for visiting!
 
 I'm a software developer based in California.  I enjoy playing tennis, reading
-books, and writing software.  [Clojure] is my favorite programming language, and
-[Emacs] is my favorite development environment.  I like to write about
-technologies like the programming languages and tools I enjoy using.
+books, and writing software.  [Clojure][Clojure] is my favorite programming
+language, and [Emacs][Emacs] is my favorite development environment.  I like to
+write about technologies like the programming languages and tools I enjoy using.
 
 * [About](/about)
 * [Blog](/blog/)
