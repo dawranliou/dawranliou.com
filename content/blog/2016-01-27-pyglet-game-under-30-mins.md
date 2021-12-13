@@ -22,8 +22,6 @@ listening to keyboard or mouse event, and so on.
 After half an hour diving into the tutorial, suddenly he said,
 “_are you ready to make a game now?_”
 
-READMORE
-
 That was a shock. I don’t even know where to start!
 However, the goal was simple, to create a simple game with
 50 to 100 lines of code within the next hour.

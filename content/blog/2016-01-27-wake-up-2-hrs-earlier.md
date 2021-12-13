@@ -41,8 +41,6 @@ I was nothing like the person described above at all three months ago.
 What I’d like to tell you is the story of __the routine I used to do
 three months ago__ and __what happens after adopting my new routine.__
 
-READMORE
-
 ## Background
 
 A little bit story about myself.
