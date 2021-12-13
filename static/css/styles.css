@@ -124,10 +124,10 @@ img {
 .gallery {
     display: flex;
     flex-wrap: wrap;
+}
 
-    img {
-        width: 33.33%
-    }
+.gallery img {
+    width: 33.33%;
 }
 
 /* mobile version */
