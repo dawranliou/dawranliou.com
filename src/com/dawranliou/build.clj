@@ -20,62 +20,114 @@
    :site/twitter-id "@dawranliou"
    :site/twitter-image "https://dawranliou.com/dawranliou-profile.png"})
 
+(defn path->uri
+  [path]
+  (-> (re-matches #"^content(/.*).md$" path)
+      second
+      (str/replace #"index$" "")
+      (str/replace #"(?:\d{4}-\d{2}-\d{2}-)" "")))
+
+(comment
+  (path->uri "content/index.md")
+  (path->uri "content/blog/index.md")
+  (path->uri "content/blog/1999-09-09-hi.md")
+  (path->uri "content/about.md"))
+
+;;; Parsed markdown cache
+
+(def parsed-md-cache (atom {}))
+
+(defn retrofit-markdown
+  [markdown]
+  (-> markdown
+      ;; allow links with markup over multiple lines
+      (str/replace #"\[[^\]]+\n"
+                   (fn [match]
+                     (str/replace match "\n" " ")))))
+
+(defn parse-markdown
+  [path]
+  (let [uri (path->uri (str path))
+        markdown (-> path
+                     fs/file
+                     slurp
+                     retrofit-markdown
+                     (markdown/md-to-html-string-with-meta
+                      :heading-anchors true
+                      :reference-links? true
+                      :footnotes? true))
+        date (when-let [[_ date-str]
+                        (re-matches #"(\d{4}-\d{2}-\d{2})-.*\.md"
+                                    (fs/file-name path))]
+               (.parse LocalDate date-str))]
+    [(str path) (cond-> markdown
+                  true (assoc-in [:metadata :uri] uri)
+                  date (assoc-in [:metadata :date] date))]))
+
 ;;; Build steps and plan
 
 (def base-build-plan
-  [{:op :ensure-dir
-    :trace "Ensure build target folder exists"
-    :dir target-dir}
-   {:op :compile-sass
-    :trace "Compile sass"
-    :src "sass/styles.scss"
-    :dst (str target-dir "/styles.css")}
-   {:op :copy-dir
-    :trace "Copying static assets"
-    :src "static/"
-    :dst target-dir}])
+  [{:build/op :ensure-dir
+    :build/trace "Ensure build target folder exists"
+    :build/dir target-dir}
+   {:build/op :compile-sass
+    :build/trace "Compile sass"
+    :build/src "sass/styles.scss"
+    :build/dst (str target-dir "/styles.css")}
+   {:build/op :copy-dir
+    :build/trace "Copying static assets"
+    :build/src "static/"
+    :build/dst target-dir}
+   {:build/op :preprocess-markdown
+    :build/trace "Preprocessing markdown files"
+    :build/src content-source-dir
+    :build/cache parsed-md-cache
+    :build/load-once? true}])
 
-(defn content-path->uri
+(defn fully-qualify-map
+  [ns m]
+  (reduce-kv
+   (fn [m k v]
+     (assoc m (keyword (name ns) (name k)) v))
+   {}
+   m))
+
+(defn md-file-path->build-step
   [path]
-  (-> (re-matches #"^content/(.*).md$" (str path))
-      second
-      (str/replace #"(?:\d{4}-\d{2}-\d{2}-)" "")))
-
-(defn md-file->build-step
-  [file]
-  (let [src (str file)
-        file-name (fs/file-name file)
+  (let [file-name (fs/file-name path)
         section? (= "index.md" file-name)
-        uri (content-path->uri src)
-        section (-> (fs/path file)
-                    seq
+        uri (path->uri path)
+        section (-> (fs/path path)
                     second
                     fs/file-name
                     fs/strip-ext
                     keyword)]
-    {:op :page
-     :trace "Build page"
-     :template (if section? template/list template/page)
-     :src src
-     :uri uri
-     :type (if section? :section :page)
-     :section (if (= :content section)
-                :home
-                section)}))
+    {:build/op (if section? :section :page)
+     :build/trace (if section? "Build section" "Build page")
+     :build/src path
+     :build/uri uri
+     :build/section (if (= :content section)
+                      :home
+                      section)}))
+
+(comment
+  (md-file-path->build-step "content/index.md")
+  (md-file-path->build-step "content/blog/1999-01-01-hi.md")
+  )
 
 ;;; Build
 
-(defmulti build! :op)
+(defmulti build! :build/op)
 
 (defmethod build! :ensure-dir
-  [{:keys [dir trace]}]
+  [{:build/keys [dir trace]}]
   (println trace)
   (when-not (fs/exists? dir)
     (println (format "%s: %s" trace dir))
     (fs/create-dir dir)))
 
 (defmethod build! :compile-sass
-  [{:keys [src dst trace]}]
+  [{:build/keys [src dst trace]}]
   (println trace)
   (when (fs/exists? src)
     (println (format "%s: %s -> %s" trace src dst))
@@ -83,101 +135,114 @@
       (io/copy (fs/file "sass/styles.scss") file))))
 
 (defmethod build! :copy-dir
-  [{:keys [src dst trace]}]
+  [{:build/keys [src dst trace]}]
   (println trace)
   (doseq [src (fs/list-dir src)
           :let [dest (fs/path dst (fs/file-name src))]]
     (println (format "%s: %s -> %s" trace (str src) (str dest)))
     (fs/copy-tree src dest {:replace-existing true})))
 
+(defmethod build! :preprocess-markdown
+  [{:build/keys [src trace cache load-once?]}]
+  (if (and load-once? (seq @cache))
+    (println (format "%s: skipped" trace))
+    (do
+      (println trace)
+      (reset! cache
+              (into {}
+                    (map parse-markdown)
+                    (fs/glob src "**.md"))))))
+
 (defn page [h]
-  (hiccup/html {:mode :html}
-               "<!DOCTYPE html>"
-               h))
-
-(defn fully-qualify-map
-  [m ns]
-  (reduce-kv
-   (fn [m k v]
-     (assoc m (keyword (name ns) (name k)) v))
-   {}
-   m))
-
-(defn parse-markdown-page
-  [page-file]
-  (let [path (str page-file)
-        href (str "/" (content-path->uri path))
-        markdown (-> (slurp page-file)
-                     ;; allow links with markup over multiple lines
-                     (str/replace #"\[[^\]]+\n"
-                                  (fn [match]
-                                    (str/replace match "\n" " ")))
-                     ;; allow reference links without refernce id
-                     (str/replace #"\[(\w+)\][^:]"
-                                  (fn [[_match link]]
-                                    (format "[%s][%s]" link link))))
-        metadata (fully-qualify-map
-                  (:metadata markdown)
-                  :page)
-        date (when-let [[_ date-str]
-                        (re-matches #"(\d{4}-\d{2}-\d{2})-.*\.md"
-                                    (fs/file-name page-file))]
-               (.parse LocalDate date-str))]
-    (cond-> (assoc metadata
-                   :page/href href
-                   :html (:html markdown))
-      date (assoc :page/date date))))
-
-#_#_#_
-(def section-file "content/blog/index.md")
-(template/list
- (parse-section-list section-file)
- )
-
-(parse-markdown-page "content/about.md")
-
-(defn parse-section-list
-  [section-file]
-  (let [{:keys [html metadata]} (markdown/md-to-html-string-with-meta
-                                 (slurp section-file)
-                                 :heading-anchors true
-                                 :reference-links? true
-                                 :footnotes? true)
-        section-file-paths (fs/glob "." (str (fs/path (fs/parent section-file)
-                                                      "*.md")))
-        items (into []
-                    (comp (filter (comp (partial not= "index.md") fs/file-name))
-                          (map fs/file)
-                          (map parse-markdown-page))
-                    section-file-paths)]
-    (assoc (fully-qualify-map metadata :section)
-           :html html
-           :items items)))
+  (hiccup/html {:mode :html} "<!DOCTYPE html>" h))
 
 (defmethod build! :page
-  [{:keys [src type uri template trace]
+  [{:build/keys [src uri trace]
     :as context}]
-  (let [target-file (fs/file
-                     (case type
-                       :page (fs/path target-dir uri "index.html")
-                       :section (fs/path target-dir (str uri ".html"))))
-        html-data (case type
-                    :page (parse-markdown-page src)
-                    :section (parse-section-list src))]
+  (let [target-file (fs/file (fs/path target-dir
+                                      (str/replace uri #"^/" "")
+                                      "index.html"))
+        {page-metadata :metadata page-html :html} (@parsed-md-cache src)
+        section-metadata (-> (@parsed-md-cache (str (fs/path (fs/parent src)
+                                                             "index.md")))
+                             :metadata)
+        context' (merge context
+                        (fully-qualify-map :section section-metadata)
+                        (fully-qualify-map :page page-metadata)
+                        {:page/html page-html})
+        ;; template inheritance order
+        template-name (or (:page-template page-metadata)
+                          (:page-template section-metadata)
+                          "page")]
     (println (format "%s: %s -> %s" trace src (str target-file)))
     (io/make-parents target-file)
-    (->> (merge context html-data)
-         template
+    (->> (template/hiccup template-name context')
          page
          (spit target-file))))
 
-#_
-(-main)
+(comment
+  (build! {:build/op :page,
+           :build/trace "Build page",
+           :build/src "content/blog/2021-11-09-compiling-emacs-from-source.md",
+           :build/uri "/blog/compiling-emacs-from-source",
+           :build/section :blog})
+
+  (fs/glob content-source-dir
+           (str (fs/path (fs/parent "content/blog/index.md") "*.md")))
+  )
+
+(defmethod build! :section
+  [{:build/keys [src uri trace]
+    :as context}]
+  (let [target-file (fs/file (fs/path target-dir
+                                      (str/replace uri #"^/" "")
+                                      "index.html"))
+        {:keys [metadata html]} (@parsed-md-cache src)
+        section-file-paths (fs/glob "."
+                                    (str (fs/path (fs/parent src) "*.md")))
+        items (into []
+                    (comp (filter (comp (partial not= "index.md") fs/file-name))
+                          (map str)
+                          (map @parsed-md-cache)
+                          (map :metadata)
+                          (map (partial fully-qualify-map :page)))
+                    section-file-paths)
+        context' (merge context
+                        (fully-qualify-map :section metadata)
+                        {:section/items items
+                         :section/html html})
+        template-name (or (:section-template metadata)
+                          "list")]
+    (println (format "%s: %s -> %s" trace src (str target-file)))
+    (io/make-parents target-file)
+    (->> (template/hiccup template-name context')
+         page
+         (spit target-file))))
+
+(comment
+  (build! {:build/op :section,
+           :build/trace "Build section",
+           :build/template template/list,
+           :build/src "content/blog/index.md",
+           :build/uri "/blog/",
+           :build/section :blog})
+  (first @parsed-md-cache)
+  )
 
 (defn -main [& _args]
   (let [plan (into base-build-plan
-                   (comp (map fs/file)
-                         (map md-file->build-step))
+                   (comp (map str)
+                         (map md-file-path->build-step))
                    (fs/glob "content" "**.md"))]
     (doseq [step plan]
       (build! (merge step config)))))
+
+(comment
+  (build! {:build/op :preprocess-markdown
+           :build/trace "Preprocessing markdown files"
+           :build/src content-source-dir
+           :build/cache parsed-md-cache
+           :build/load-once? false})
+  (get @parsed-md-cache "content/index.md")
+  (-main)
+  )

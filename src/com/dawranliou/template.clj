@@ -1,33 +1,45 @@
 (ns com.dawranliou.template)
 
 (defn head
-  [{:site/keys [title description og-image base-url twitter-image twitter-id]
+  [{:site/keys [og-image base-url twitter-image twitter-id]
+    site-title :site/title
+    site-description :site/description
+    section-title :section/title
+    section-description :section/description
+    page-title :page/title
+    page-description :page/description
     :as context}]
-  [:head
-   [:meta {:charset "utf-8"}]
-   [:meta {:http-equiv "X-UA-Compatible" :content "IE=edge;chrome=1"}]
-   [:meta {:name "viewport" :content "width=device-width,initial-scale=1"}]
-   [:meta {:property "og:image" :content og-image}]
-   [:meta {:property "og:type" :content "website"}]
-   [:meta {:property "og:image:alt" :content "snapshot"}]
-   [:meta {:name "description" :content description}]
-   [:meta {:property "og:url" :content base-url}]
-   [:meta {:property "og:description" :content description}]
-   [:meta {:property "og:title" :content title}]
-   [:meta {:name "twitter:title" :content title}]
-   [:meta {:name "twitter:description" :content description}]
-   [:meta {:name "twitter:image" :content twitter-image}]
-   [:meta {:name "twitter:site" :content twitter-id}]
-   [:meta {:name "twitter:creator" :content twitter-id}]
-   [:title title]
-   [:link {:rel "icon" :href "/favicon.png"}]
-   [:link {:rel "apple-touch-icon" :href "/favicon.png"}]
-   [:link {:rel "stylesheet" :href "/css/styles.css"}]
-   [:link {:rel "alternate" :type "application/rss+xml" :title "RSS"
-           :href "https://dawranliou.com/atom.xml"}]])
+  (let [title (cond->> site-title
+                section-title (format "%s | %s" section-title)
+                page-title (format "%s | %s" page-title))
+        description (or page-description
+                        section-description
+                        site-description)]
+    [:head
+     [:meta {:charset "utf-8"}]
+     [:meta {:http-equiv "X-UA-Compatible" :content "IE=edge;chrome=1"}]
+     [:meta {:name "viewport" :content "width=device-width,initial-scale=1"}]
+     [:meta {:property "og:image" :content og-image}]
+     [:meta {:property "og:type" :content "website"}]
+     [:meta {:property "og:image:alt" :content "snapshot"}]
+     [:meta {:name "description" :content description}]
+     [:meta {:property "og:url" :content base-url}]
+     [:meta {:property "og:description" :content description}]
+     [:meta {:property "og:title" :content title}]
+     [:meta {:name "twitter:title" :content title}]
+     [:meta {:name "twitter:description" :content description}]
+     [:meta {:name "twitter:image" :content twitter-image}]
+     [:meta {:name "twitter:site" :content twitter-id}]
+     [:meta {:name "twitter:creator" :content twitter-id}]
+     [:title title]
+     [:link {:rel "icon" :href "/favicon.png"}]
+     [:link {:rel "apple-touch-icon" :href "/favicon.png"}]
+     [:link {:rel "stylesheet" :href "/css/styles.css"}]
+     [:link {:rel "alternate" :type "application/rss+xml" :title "RSS"
+             :href "/atom.xml"}]]))
 
 (defn nav
-  [{:keys [section] :as context}]
+  [{:build/keys [section] :as context}]
   [:nav
    [:a {:class (when (= section :index) "current")
         :href "/"
@@ -56,7 +68,7 @@
   [:footer [:p "© 2016 - 2021 Daw-Ran Liou"]])
 
 (defn page
-  [{:keys [html]
+  [{:page/keys [html]
     :as context}]
   [:html {:lang "en"}
    (head context)
@@ -75,8 +87,7 @@
    "."])
 
 (defn blog-page
-  [{:keys [html]
-    :page/keys [title]
+  [{:page/keys [title html]
     :as context}]
   [:html {:lang "en"}
    (head context)
@@ -88,9 +99,26 @@
     [:hr]
     (footer context)]])
 
+(defn gallery-page
+  [{:page/keys [title gallery]
+    :as context}]
+  (def -context context)
+  [:html {:lang "en"}
+   (head context)
+   [:body
+    (nav context)
+    [:ul]
+    [:h1 title]
+    [:main.gallery
+     (for [[date alt-text src] (reverse gallery)]
+       ;; <img src="{{ image[2] }}" alt="{{ image[1] }} ({{ image[0] }})">
+       [:img {:src src
+              :alt (format "%s (%s)" alt-text date)}])]
+    [:hr]
+    (footer context)]])
+
 (defn list
-  [{:keys [html items]
-    :section/keys [render-list]
+  [{:section/keys [html items render-list]
     :as context}]
   [:html {:lang "en"}
    (head context)
@@ -99,8 +127,18 @@
     html
     (when render-list
       [:ul
-       (for [{:page/keys [href title]}
+       (for [{:page/keys [uri title]}
              (sort-by :page/date #(compare %2 %1) items)]
-         [:li [:a {:href href} title]])])
+         [:li [:a {:href uri} title]])])
     [:hr]
     (footer context)]])
+
+(def name->template
+  {"page" #'page
+   "list" #'list
+   "blog-page" #'blog-page
+   "gallery-page" #'gallery-page})
+
+(defn hiccup
+  [template-name context]
+  ((name->template template-name) context))
