@@ -71,7 +71,7 @@ _Last updated on September 2nd, 2021. Inspired by [nownownow]._
 [Kira Systems]: https://kirasystems.com/
 [Project Hail Mary]: https://www.goodreads.com/book/show/54493401-project-hail-mary
 [React]: https://reactjs.org/
-[my blog]: @/blog/_index.md
+[my blog]: /blog/
 [nownownow]: https://nownownow.com/about
 [sketches]: https://github.com/dawranliou/sketch
 [AutoLISP]:https://en.wikipedia.org/wiki/AutoLISP

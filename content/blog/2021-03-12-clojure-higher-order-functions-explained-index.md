@@ -19,8 +19,8 @@ in the planning.
 
 _Updated 2021-03-23_
 
-- [fnil](@/blog/2021-03-19-clojure-higher-order-functions-explained-fnil.md)
-- [complement](@/blog/2021-03-23-clojure-higher-order-functions-explained-complement.md)
+- [fnil](/blog/clojure-higher-order-functions-explained-fnil)
+- [complement](/blog/clojure-higher-order-functions-explained-complement)
 
 ## The Backlog
 

@@ -281,6 +281,6 @@ be productive at navigating and editing lispy code.[^4]
 [lispy]:https://github.com/abo-abo/lispy
 [lispyville]:https://github.com/noctuid/lispyville
 
-[back-to-paredit]:@/blog/2021-08-14-back-to-paredit.md
+[back-to-paredit]:/blog/back-to-paredit
 [reddit thread]:https://www.reddit.com/r/emacs/comments/l7khmk/what_key_binding_scheme_do_you_use_to_handle/gl9fcqs?utm_source=share&utm_medium=web2x&context=3
 [Why is Paredit is so un-Emacsy?]:https://andreyorst.gitlab.io/posts/2021-09-30-why-is-paredit-is-so-un-emacsy/

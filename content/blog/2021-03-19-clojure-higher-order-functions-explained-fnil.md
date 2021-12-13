@@ -113,7 +113,7 @@ you. `fnil` to the rescue!
 ```
 
 
-[index]: @/blog/2021-03-12-clojure-higher-order-functions-explained-index.md
+[index]: /blog/clojure-higher-order-functions-explained-index
 
 [source of fnil in clojure 1.10.1]: https://github.com/clojure/clojure/blob/clojure-1.10.1/src/clj/clojure/core.clj#L6556
 
