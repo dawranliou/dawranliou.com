@@ -33,10 +33,6 @@
   (path->uri "content/blog/1999-09-09-hi.md")
   (path->uri "content/about.md"))
 
-;;; Parsed markdown cache
-
-(def parsed-md-cache (atom {}))
-
 (defn retrofit-markdown
   [markdown]
   (-> markdown
@@ -64,6 +60,11 @@
                   true (assoc-in [:metadata :uri] uri)
                   date (assoc-in [:metadata :date] date))]))
 
+(def md-data
+  (into {}
+        (map parse-markdown)
+        (fs/glob "content" "**.md")))
+
 ;;; Build steps and plan
 
 (def base-build-plan
@@ -77,12 +78,7 @@
    {:build/op :copy-dir
     :build/trace "Copying static assets"
     :build/src "static/"
-    :build/dst target-dir}
-   {:build/op :preprocess-markdown
-    :build/trace "Preprocessing markdown files"
-    :build/src content-source-dir
-    :build/cache parsed-md-cache
-    :build/load-once? true}])
+    :build/dst target-dir}])
 
 (defn fully-qualify-map
   [ns m]
@@ -142,16 +138,6 @@
     (println (format "%s: %s -> %s" trace (str src) (str dest)))
     (fs/copy-tree src dest {:replace-existing true})))
 
-(defmethod build! :preprocess-markdown
-  [{:build/keys [src trace cache load-once?]}]
-  (if (and load-once? (seq @cache))
-    (println (format "%s: skipped" trace))
-    (do
-      (println trace)
-      (reset! cache
-              (into {}
-                    (map parse-markdown)
-                    (fs/glob src "**.md"))))))
 
 (defn page [h]
   (hiccup/html {:mode :html} "<!DOCTYPE html>" h))
@@ -162,9 +148,9 @@
   (let [target-file (fs/file (fs/path target-dir
                                       (str/replace uri #"^/" "")
                                       "index.html"))
-        {page-metadata :metadata page-html :html} (@parsed-md-cache src)
-        section-metadata (-> (@parsed-md-cache (str (fs/path (fs/parent src)
-                                                             "index.md")))
+        {page-metadata :metadata page-html :html} (md-data src)
+        section-metadata (-> (md-data (str (fs/path (fs/parent src)
+                                                    "index.md")))
                              :metadata)
         context' (merge context
                         (fully-qualify-map :section section-metadata)
@@ -197,13 +183,13 @@
   (let [target-file (fs/file (fs/path target-dir
                                       (str/replace uri #"^/" "")
                                       "index.html"))
-        {:keys [metadata html]} (@parsed-md-cache src)
+        {:keys [metadata html]} (md-data src)
         section-file-paths (fs/glob "."
                                     (str (fs/path (fs/parent src) "*.md")))
         items (into []
                     (comp (filter (comp (partial not= "index.md") fs/file-name))
                           (map str)
-                          (map @parsed-md-cache)
+                          (map md-data)
                           (map :metadata)
                           (map (partial fully-qualify-map :page)))
                     section-file-paths)
@@ -226,7 +212,7 @@
            :build/src "content/blog/index.md",
            :build/uri "/blog/",
            :build/section :blog})
-  (first @parsed-md-cache)
+  (first md-data)
   )
 
 (defn -main [& _args]
@@ -238,11 +224,5 @@
       (build! (merge step config)))))
 
 (comment
-  (build! {:build/op :preprocess-markdown
-           :build/trace "Preprocessing markdown files"
-           :build/src content-source-dir
-           :build/cache parsed-md-cache
-           :build/load-once? false})
-  (get @parsed-md-cache "content/index.md")
   (-main)
   )
