@@ -1,5 +1,6 @@
 (ns com.dawranliou.build
   (:require [babashka.fs :as fs]
+            [clojure.data.xml :as xml]
             [clojure.java.io :as io]
             [clojure.string :as str]
             [com.dawranliou.template :as template]
@@ -78,7 +79,10 @@
    {:build/op :copy-dir
     :build/trace "Copying static assets"
     :build/src "static/"
-    :build/dst target-dir}])
+    :build/dst target-dir}
+   {:build/op :atom-feed
+    :build/trace "Generating atom feed xml"
+    :build/dst (str target-dir "/atom.xml")}])
 
 (defn fully-qualify-map
   [ns m]
@@ -138,6 +142,22 @@
     (println (format "%s: %s -> %s" trace (str src) (str dest)))
     (fs/copy-tree src dest {:replace-existing true})))
 
+(defmethod build! :atom-feed
+  [{:build/keys [dst trace]}]
+  (println trace)
+  (let [posts (for [[_ {{:keys [title date uri]} :metadata
+                        html :html}] md-data]
+                {:title title
+                 :updated date
+                 :published date
+                 :href uri
+                 :id uri
+                 :content html})]
+    (->> posts
+         template/feed
+         xml/sexp-as-element
+         xml/indent-str
+         (spit dst))))
 
 (defn page [h]
   (hiccup/html {:mode :html} "<!DOCTYPE html>" h))
