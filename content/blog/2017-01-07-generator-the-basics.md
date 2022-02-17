@@ -1,9 +1,3 @@
----
-title: Generator - The Basics
-slug: generator-the-basics
-tags: [python]
----
-
 _I've been wanting to write articles about generators for quite some time.
 Generator is definitely one of my favorite features in Python. Ever since I stopped treating
 Python like other programming languages, e.g. Java or C++,

@@ -1,9 +1,3 @@
----
-title: Back to paredit
-authors: Daw-Ran Liou
-tags: [emacs]
----
-
 ## To simplify my s-exp workflow
 
 I had been using [lispy] and [lispyville] for [general s-expression editing and

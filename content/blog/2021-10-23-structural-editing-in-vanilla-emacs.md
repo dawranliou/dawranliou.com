@@ -1,9 +1,3 @@
----
-title: Structural editing in vanilla Emacs
-authors: Daw-Ran Liou
-tags: [emacs]
----
-
 ## Strict structural editing
 
 [Last time][back-to-paredit] I switched from the [lispy]/[lispyville] combo for

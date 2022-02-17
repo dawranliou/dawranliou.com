@@ -1,9 +1,3 @@
----
-title: Daw-Ran Liou
-description: Hi there, my name is Daw-Ran. This is my personal website, where I share my writings and other public information about myself.
-render-list: false
----
-
 # Hi, my name is Daw-Ran Liou
 
 You've found my personal website!  Thank you for visiting!

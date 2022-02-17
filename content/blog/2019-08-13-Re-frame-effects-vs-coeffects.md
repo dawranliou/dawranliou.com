@@ -1,8 +1,3 @@
----
-title: Re-frame Effects VS Coeffects
-tags: [clojure]
----
-
 When I first started using `re-frame`, I was a bit confused about what
 effects and coeffects are, or, what `fx`s and `cofx`s are.
 They both seemed to relate to the “Side Effects” (or “Effects”) functional

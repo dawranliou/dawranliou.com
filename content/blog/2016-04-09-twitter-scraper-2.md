@@ -1,9 +1,3 @@
----
-title: "Twitter scraper tutorial with Python: Requests, BeautifulSoup, and Selenium - Part 2"
-slug: twitter-scraper-2
-tags: [python]
----
-
 This is the part 2 of my Twitter scraper tutorial. If you haven’t checkout part 
 1, the link is right here. In the last part, I left the tutorial with an unsolved
 problem — how to scrape the web page that uses infinite scrolling design? Two 

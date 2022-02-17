@@ -68,22 +68,6 @@
 
 ;;; Build steps and plan
 
-(def base-build-plan
-  [{:build/op :ensure-dir
-    :build/trace "Ensure build target folder exists"
-    :build/dir target-dir}
-   {:build/op :compile-sass
-    :build/trace "Compile sass"
-    :build/src "sass/styles.scss"
-    :build/dst (str target-dir "/styles.css")}
-   {:build/op :copy-dir
-    :build/trace "Copying static assets"
-    :build/src "static/"
-    :build/dst target-dir}
-   {:build/op :atom-feed
-    :build/trace "Generating atom feed xml"
-    :build/dst (str target-dir "/atom.xml")}])
-
 (defn fully-qualify-map
   [ns m]
   (reduce-kv
@@ -236,7 +220,7 @@
   )
 
 (defn -main [& _args]
-  (let [plan (into base-build-plan
+  (let [plan (into []
                    (comp (map str)
                          (map md-file-path->build-step))
                    (fs/glob "content" "**.md"))]

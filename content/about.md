@@ -1,8 +1,3 @@
----
-title: "About"
-description: "Hi there, my name is Daw-Ran. This is my personal website, where I share my writings and other public information about myself."
----
-
 # About
 
 I'm a software developer based in California. I enjoy playing tennis, reading

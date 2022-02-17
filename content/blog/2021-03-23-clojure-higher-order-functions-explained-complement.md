@@ -1,9 +1,3 @@
----
-title: "Clojure higher-order functions explained: complement"
-authors: Daw-Ran Liou
-tags: [clojure]
----
-
 _Checkout the [index] for the full series._
 
 ## Source code

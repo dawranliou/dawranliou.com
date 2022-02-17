@@ -1,9 +1,3 @@
----
-title: Implementing an Event-Driven ClojureScript mini-framework with core.async
-authors: Daw-Ran Liou
-tags: [clojure]
----
-
 This was my experiment of re-implementing a lighter version of the popular
 ClojureScript front-end framework, [`re-frame`][2], for the purpose of
 studying.[^1] A demo project of the result can be found here -

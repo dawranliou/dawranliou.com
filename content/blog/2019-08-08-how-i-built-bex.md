@@ -1,8 +1,3 @@
----
-title: How I built Bex
-tags: [clojure]
----
-
 In this article, I'd like to share with you the technologies and services that I use
 to create [Bex](https://bexdesign.io). If you are, and I assume you are, a programmer,
 Bex is simply a personal online markdown text editor.

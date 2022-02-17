@@ -1,9 +1,3 @@
----
-title: The distinction between Reagent component and React component
-authors: Daw-Ran Liou
-tags: [clojure]
----
-
 At work, I rarely have to think about the distinction between a Reagent
 component and a React component since Reagent does such a good job providing a
 coherent and simple API to use. (Plus, we don't use any extern JS component

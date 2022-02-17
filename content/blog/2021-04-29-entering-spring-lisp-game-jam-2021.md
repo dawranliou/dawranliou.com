@@ -1,9 +1,3 @@
----
-title: Entering Spring Lisp Game Jam 2021
-authors: Daw-Ran Liou
-tags: [game]
----
-
 From the [Spring Lisp Game Jam 2021][3] site:
 
 > Lisp Game Jam is a bi-annual game jam taking place for a full 10 days. After

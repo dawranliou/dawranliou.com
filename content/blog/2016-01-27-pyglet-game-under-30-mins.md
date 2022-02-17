@@ -1,8 +1,3 @@
----
-title: First Game Programming Experience with Python and Pyglet under 30 Minutes
-tags: [python]
----
-
 This is my first experience with game programming,
 and also my first time working with the
 Python [Pyglet](https://bitbucket.org/pyglet/pyglet/wiki/Home) package.

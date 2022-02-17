@@ -1,8 +1,3 @@
----
-title: Contact
-description: Here's my contact information.
----
-
 # Contact
 
 ## Email

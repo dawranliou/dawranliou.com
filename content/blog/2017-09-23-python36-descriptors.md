@@ -1,10 +1,3 @@
----
-title: Writing descriptors in Python 3.6+
-slug: python36-descriptors
-cover: images/14-intercept.jpg
-tags: [python]
----
-
 _Special thanks to [Luciano Ramalho](https://twitter.com/ramalhoorg).
 I learned most of the knowledge about descriptors from his workshop in PyBay 2017_
 

@@ -1,9 +1,3 @@
----
-title: Compiling Emacs from Source on MacOS Big Sur
-authors: Daw-Ran Liou
-tags: [emacs]
----
-
 Recently I started to compile the Emacs master branch from source for daily use
 instead of using one of the popular formulas on Homebrew.[^1] It's pretty cool
 to try the latest features like the native compilation and the native emoji
