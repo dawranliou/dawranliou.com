@@ -41,6 +41,17 @@
 
  ;; /blog pages
 
+ ;; 2022
+ "/blog/i-too-wrote-myself-a-static-site-generator"
+ {:title "I, too, Wrote Myself a Static Site Generator"
+  :description "I, too, Wrote Myself a Static Site Generator"
+  :section :blog
+  :template :blog-page
+  :source "content/blog/2022-02-18-i-too-wrote-myself-a-static-site-generator.md"
+  :tags #{:emacs}
+  :published #inst "2022-02-18"
+  :updated #inst "2022-02-18"}
+
  ;; 2021
  "/blog/compiling-emacs-from-source"
  {:title "Compiling Emacs from Source on MacOS Big Sur"
