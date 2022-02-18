@@ -136,7 +136,7 @@
     html
     (when section-data
       (let [year-groups (->> section-data
-                             (map (fn [[uri {:keys [published] :as data}]]
+                             (map (fn [{:keys [uri published] :as data}]
                                     (assoc data
                                            :uri uri
                                            :year (+ 1900 (.getYear published)))))

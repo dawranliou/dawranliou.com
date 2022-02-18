@@ -25,13 +25,18 @@
 (def site-map
   (edn/read (PushbackReader. (io/reader "site-map.edn"))))
 
-(def section-tree
-  (->> (for [[uri {:keys [section-key] :as section-data}]
-             (filter (comp :section-key second) site-map)]
-         [uri (into {}
-                    (comp (filter (comp (partial = section-key) :section second))
-                          (filter (comp (partial not= uri) first)))
-                    site-map)])
+(def site-data
+  (into []
+        (map (fn [[uri data]] (assoc data :uri uri)))
+        site-map))
+
+(def section-map
+  (->> (for [{:keys [uri section-key] :as section-data}
+             (filter :section-key site-data)]
+         [uri (into []
+                    (comp (filter (comp (partial = section-key) :section))
+                          (filter (comp (partial not= uri) :uri)))
+                    site-data)])
        (into {})))
 
 (defn md-file->html
@@ -72,14 +77,14 @@
   ;;(println "TODO build atom feed")
 
   (println "Build markdown contents")
-  (doseq [[uri {:keys [source template section-key] :as context}] site-map
+  (doseq [{:keys [uri source template section-key] :as context} site-data
           :let [dest (fs/file (fs/path target-dir
                                        (str/replace uri #"^/" "")
                                        "index.html"))]]
     (println (format "%s -> %s" source (str dest)))
     (->> (cond-> (merge site-config context)
            true (assoc :html (source->html source))
-           section-key (assoc :section-data (section-tree uri)))
+           section-key (assoc :section-data (section-map uri)))
          (template/hiccup template)
          page
          (spit-file-ensure-parent dest))))
