@@ -48,7 +48,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2021-11-09-compiling-emacs-from-source.md"
-  :tags [:emacs]
+  :tags #{:emacs}
   :publish-date #inst "2021-11-09"
   :update-date #inst "2021-11-09"}
 
@@ -58,7 +58,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2021-10-23-structural-editing-in-vanilla-emacs.md"
-  :tags [:emacs]
+  :tags #{:emacs}
   :publish-date #inst "2021-10-23"
   :update-date #inst "2021-10-23"}
 
@@ -68,7 +68,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2021-08-14-back-to-paredit.md"
-  :tags [:emacs]
+  :tags #{:emacs}
   :publish-date #inst "2021-08-14"
   :update-date #inst "2021-08-14"}
 
@@ -78,7 +78,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2021-07-19-learning-clojure-and-emacs.md"
-  :tags [:clojure :emacs]
+  :tags #{:clojure :emacs}
   :publish-date #inst "2021-07-19"
   :update-date #inst "2021-07-19"}
 
@@ -88,7 +88,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2021-07-18-event-driven-clojurescript-front-end-with-core-async.md"
-  :tags [:clojure]
+  :tags #{:clojure}
   :publish-date #inst "2021-07-18"
   :update-date #inst "2021-07-18"}
 
@@ -98,7 +98,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2021-06-14-better-performance-with-java-arrays-in-clojure.md"
-  :tags [:clojure]
+  :tags #{:clojure}
   :publish-date #inst "2021-06-14"
   :update-date #inst "2021-06-14"}
 
@@ -108,7 +108,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2021-04-29-entering-spring-lisp-game-jam-2021.md"
-  :tags [:gamedev]
+  :tags #{:gamedev}
   :publish-date #inst "2021-04-29"
   :update-date #inst "2021-04-29"}
 
@@ -118,7 +118,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2021-04-06-on-personal-website.md"
-  :tags []
+  :tags #{}
   :publish-date #inst "2021-04-06"
   :update-date #inst "2021-04-06"}
 
@@ -128,7 +128,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2021-03-23-clojure-higher-order-functions-explained-complement.md"
-  :tags [:clojure]
+  :tags #{:clojure}
   :publish-date #inst "2021-03-23"
   :update-date #inst "2021-03-23"}
 
@@ -138,7 +138,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2021-03-21-reagent-component-vs-react-component.md"
-  :tags [:clojure]
+  :tags #{:clojure}
   :publish-date #inst "2021-03-21"
   :update-date #inst "2021-03-21"}
 
@@ -148,7 +148,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2021-03-19-clojure-higher-order-functions-explained-fnil.md"
-  :tags [:clojure]
+  :tags #{:clojure}
   :publish-date #inst "2021-03-19"
   :update-date #inst "2021-03-19"}
 
@@ -158,7 +158,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2021-03-18-the-biggest-positive-for-emacs.md"
-  :tags [:emacs]
+  :tags #{:emacs}
   :publish-date #inst "2021-03-18"
   :update-date #inst "2021-03-18"}
 
@@ -168,7 +168,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2021-03-12-clojure-higher-order-functions-explained-index.md"
-  :tags [:clojure]
+  :tags #{:clojure}
   :publish-date #inst "2021-03-12"
   :update-date #inst "2021-03-12"}
 
@@ -178,7 +178,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2021-03-10-clojure-nil-busting.md"
-  :tags [:clojure]
+  :tags #{:clojure}
   :publish-date #inst "2021-03-10"
   :update-date #inst "2021-03-10"}
 
@@ -190,7 +190,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2020-11-13-on-learning-emacs.md"
-  :tags [:emacs]
+  :tags #{:emacs}
   :publish-date #inst "2020-11-13"
   :update-date #inst "2020-11-13"}
 
@@ -200,7 +200,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2020-11-12-my-emacs-clojure-dev-env-overview.md"
-  :tags [:clojure :emacs]
+  :tags #{:clojure :emacs}
   :publish-date #inst "2020-11-12"
   :update-date #inst "2020-11-12"}
 
@@ -210,7 +210,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2020-11-06-rethink-syntax-highlighting.md"
-  :tags [:emacs]
+  :tags #{:emacs}
   :publish-date #inst "2020-11-06"
   :update-date #inst "2020-11-06"}
 
@@ -220,7 +220,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2020-11-06-rewriting-my-emacs-config.md"
-  :tags [:emacs]
+  :tags #{:emacs}
   :publish-date #inst "2020-11-06"
   :update-date #inst "2020-11-06"}
 
@@ -230,7 +230,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2020-04-06-from-vim-to-emacs.md"
-  :tags [:emacs :clojure]
+  :tags #{:clojure :emacs}
   :publish-date #inst "2020-04-06"
   :update-date #inst "2020-04-06"}
 
@@ -242,7 +242,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2019-11-20-think-rationally-talk-emotionally.md"
-  :tags [:philosophy]
+  :tags #{:philosophy}
   :publish-date #inst "2019-11-20"
   :update-date #inst "2019-11-20"}
 
@@ -252,7 +252,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2019-10-24-my-core-values.md"
-  :tags [:philosophy]
+  :tags #{:philosophy}
   :publish-date #inst "2019-10-24"
   :update-date #inst "2019-10-24"}
 
@@ -262,7 +262,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2019-10-17-domain-exploring-with-spec.md"
-  :tags [:clojure]
+  :tags #{:clojure}
   :publish-date #inst "2019-10-17"
   :update-date #inst "2019-10-17"}
 
@@ -272,7 +272,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2019-08-13-Re-frame-effects-vs-coeffects.md"
-  :tags [:clojure]
+  :tags #{:clojure}
   :publish-date #inst "2019-08-13"
   :update-date #inst "2019-08-13"}
 
@@ -282,7 +282,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2019-08-08-how-i-built-bex.md"
-  :tags [:clojure]
+  :tags #{:clojure}
   :publish-date #inst "2019-08-08"
   :update-date #inst "2019-08-08"}
 
@@ -292,7 +292,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2019-02-09-clojure-inspect.md"
-  :tags [:clojure :java]
+  :tags #{:clojure :java}
   :publish-date #inst "2019-02-09"
   :update-date #inst "2019-02-09"}
 
@@ -302,7 +302,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2019-02-02-tachyons-review.md"
-  :tags [:css]
+  :tags #{:css}
   :publish-date #inst "2019-02-02"
   :update-date #inst "2019-02-02"}
 
@@ -312,7 +312,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2019-01-31-interop-legacy-java-with-clojure.md"
-  :tags [:clojure :java]
+  :tags #{:clojure :java}
   :publish-date #inst "2019-01-31"
   :update-date #inst "2019-01-31"}
 
@@ -322,7 +322,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2019-01-02-recap-2018.md"
-  :tags [:book :life]
+  :tags #{:book :life}
   :publish-date #inst "2019-01-02"
   :update-date #inst "2019-01-02"}
 
@@ -334,7 +334,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2018-04-30-decode-phone-number.md"
-  :tags [:clojure]
+  :tags #{:clojure}
   :publish-date #inst "2018-04-30"
   :update-date #inst "2018-04-30"}
 
@@ -344,7 +344,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2018-04-24-study-group-at-work.md"
-  :tags [:python]
+  :tags #{:python}
   :publish-date #inst "2018-04-24"
   :update-date #inst "2018-04-24"}
 
@@ -354,7 +354,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2018-04-02-just-write-the-code.md"
-  :tags [:python :dev]
+  :tags #{:python}
   :publish-date #inst "2018-04-02"
   :update-date #inst "2018-04-02"}
 
@@ -366,7 +366,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2017-11-02-composing-namedtuple.md"
-  :tags [:python]
+  :tags #{:python}
   :publish-date #inst "2017-11-02"
   :update-date #inst "2017-11-02"}
 
@@ -376,7 +376,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2017-09-23-python36-descriptors.md"
-  :tags [:python]
+  :tags #{:python}
   :publish-date #inst "2017-09-23"
   :update-date #inst "2017-09-23"}
 
@@ -386,7 +386,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2017-02-20-getting-started-python-internals.md"
-  :tags [:python]
+  :tags #{:python}
   :publish-date #inst "2017-02-20"
   :update-date #inst "2017-02-20"}
 
@@ -396,7 +396,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2017-02-18-closures-bind-late.md"
-  :tags [:python]
+  :tags #{:python}
   :publish-date #inst "2017-02-18"
   :update-date #inst "2017-02-18"}
 
@@ -406,7 +406,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2017-01-07-generator-the-basics.md"
-  :tags [:python]
+  :tags #{:python}
   :publish-date #inst "2017-01-07"
   :update-date #inst "2017-01-07"}
 
@@ -416,7 +416,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2017-01-04-40-books-in-2016.md"
-  :tags [:book]
+  :tags #{:book}
   :publish-date #inst "2017-01-04"
   :update-date #inst "2017-01-04"}
 
@@ -428,7 +428,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2016-11-17-you-probably-dont-need-for-loops.md"
-  :tags [:python]
+  :tags #{:python}
   :publish-date #inst "2016-11-17"
   :update-date #inst "2016-11-17"}
 
@@ -438,7 +438,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2016-04-09-twitter-scraper-2.md"
-  :tags [:python]
+  :tags #{:python}
   :publish-date #inst "2016-04-09"
   :update-date #inst "2016-04-09"}
 
@@ -448,7 +448,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2016-03-26-twitter-scraper-1.md"
-  :tags [:python]
+  :tags #{:python}
   :publish-date #inst "2016-03-26"
   :update-date #inst "2016-03-26"}
 
@@ -458,7 +458,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2016-02-25-truth-testing.md"
-  :tags [:python]
+  :tags #{:python}
   :publish-date #inst "2016-02-25"
   :update-date #inst "2016-02-25"}
 
@@ -468,7 +468,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2016-03-10-first-hackathon.md"
-  :tags []
+  :tags #{}
   :publish-date #inst "2016-03-10"
   :update-date #inst "2016-03-10"}
 
@@ -478,7 +478,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2016-03-02-practical-boolean-operators.md"
-  :tags [:python]
+  :tags #{:python}
   :publish-date #inst "2016-03-02"
   :update-date #inst "2016-03-02"}
 
@@ -488,7 +488,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2016-02-18-flask-for-new-dev.md"
-  :tags [:python]
+  :tags #{:python}
   :publish-date #inst "2016-02-18"
   :update-date #inst "2016-02-18"}
 
@@ -498,7 +498,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2016-01-27-pyglet-game-under-30-mins.md"
-  :tags [:python]
+  :tags #{:python}
   :publish-date #inst "2016-01-27"
   :update-date #inst "2016-01-27"}
 
@@ -508,7 +508,7 @@
   :section :blog
   :template :blog-page
   :source "content/blog/2016-01-27-wake-up-2-hrs-earlier.md"
-  :tags [:life]
+  :tags #{:life}
   :publish-date #inst "2016-01-27"
   :update-date #inst "2016-01-27"}
  }
