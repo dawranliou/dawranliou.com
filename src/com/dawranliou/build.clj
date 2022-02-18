@@ -89,16 +89,27 @@
                           (remove nil?)
                           (apply max-key #(.getTime %))
                           date-to-rfc-3339-str)
-        site-config* (assoc site-config :site/updated site-updated)]
-    (->> (section-map "/blog")
-         (into [] (map (fn [{:keys [source updated published] :as context}]
-                         (assoc context
-                                :html (source->html source)
-                                :published-str (date-to-rfc-3339-str published)
-                                :updated-str (date-to-rfc-3339-str updated)))))
+        site-config* (assoc site-config :site/updated site-updated)
+        posts (->> (section-map "/blog")
+                   (into [] (map (fn [{:keys [source updated published] :as context}]
+                                   (assoc context
+                                          :html (source->html source)
+                                          :published-str (date-to-rfc-3339-str published)
+                                          :updated-str (date-to-rfc-3339-str updated))))))]
+    (->> posts
          (template/feed site-config*)
          rss-str
-         (spit-file-ensure-parent (fs/file (fs/path target-dir "atom.xml")))))
+         (spit-file-ensure-parent (fs/file (fs/path target-dir "atom.xml"))))
+    (->> posts
+         (filter (comp :emacs :tags))
+         (template/feed site-config*)
+         rss-str
+         (spit-file-ensure-parent (fs/file (fs/path target-dir "tags/emacs/atom.xml"))))
+    (->> posts
+         (filter (comp :clojure :tags))
+         (template/feed site-config*)
+         rss-str
+         (spit-file-ensure-parent (fs/file (fs/path target-dir "tags/clojure/atom.xml")))))
 
   (println "Build markdown contents")
   (doseq [{:keys [uri source template section-key] :as context} site-data
