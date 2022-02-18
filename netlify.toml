@@ -1,7 +1,7 @@
 [build]
 #base    = "."
 publish = "public"
-command = "./build.sh"
+command = "bash build.sh"
 
 [build.environment]
 # Set the version name that you want to use and Netlify will automatically use it.
