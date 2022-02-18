@@ -83,12 +83,12 @@ which considers square brackets `[]` and curly braces `{}` as valid s-exp as
 well as parentheses `()`, so there are multiple ways to close an s-exp. Also,
 it's one less keystroke to type 😛.
 
-[paredit]:https://www.emacswiki.org/emacs/ParEdit
-[lispy]:https://github.com/abo-abo/lispy
-[lispyville]:https://github.com/noctuid/lispyville
+[paredit]: https://www.emacswiki.org/emacs/ParEdit
+[lispy]: https://github.com/abo-abo/lispy
+[lispyville]: https://github.com/noctuid/lispyville
 
 [1]:/blog/my-emacs-clojure-dev-env-overview.md#lispy-lispyville-general-lisp-s-expression-editing
-[2]:https://www.reddit.com/r/emacs/comments/l7khmk/what_key_binding_scheme_do_you_use_to_handle/gl9fcqs?utm_source=share&utm_medium=web2x&context=3
+[2]: https://www.reddit.com/r/emacs/comments/l7khmk/what_key_binding_scheme_do_you_use_to_handle/gl9fcqs?utm_source=share&utm_medium=web2x&context=3
 
 <!--  LocalWords:  paredit lispy lispyville swiper exps
  -->

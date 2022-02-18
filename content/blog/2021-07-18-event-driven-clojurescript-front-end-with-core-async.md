@@ -455,19 +455,19 @@ cover.
 - [reagent][9]
 - [core.async][8]
 
-[1]:https://github.com/dawranliou/mini-reframe
-[2]:http://day8.github.io/re-frame/
-[3]:https://github.com/dawranliou/mini-reframe#self-guided-source-code-tour
-[4]:https://github.com/dawranliou/mini-reframe/blob/main/src/mini_reframe/event_loop.cljs
-[5]:https://figwheel.org/
-[6]:https://github.com/thheller/shadow-cljs
-[7]:https://rigsomelight.com/figwheel-main-template/
-[8]:https://github.com/clojure/core.async
-[9]:https://github.com/reagent-project/reagent/
-[10]:https://github.com/day8/re-frame/blob/master/src/re_frame/router.cljc#L71
-[11]:https://github.com/day8/re-frame/blob/master/src/re_frame/router.cljc#L179
-[12]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
-[13]:http://hueypetersen.com/posts/2013/08/02/the-state-machines-of-core-async/
-[14]:https://github.com/dawranliou/mini-reframe/blob/main/src/mini_reframe/event_loop.cljs#L21-L25
-[15]:http://reagent-project.github.io/docs/master/reagent.core.html#var-reaction
-[16]:https://purelyfunctional.tv/article/react-vs-re-frame/
+[1]: https://github.com/dawranliou/mini-reframe
+[2]: http://day8.github.io/re-frame/
+[3]: https://github.com/dawranliou/mini-reframe#self-guided-source-code-tour
+[4]: https://github.com/dawranliou/mini-reframe/blob/main/src/mini_reframe/event_loop.cljs
+[5]: https://figwheel.org/
+[6]: https://github.com/thheller/shadow-cljs
+[7]: https://rigsomelight.com/figwheel-main-template/
+[8]: https://github.com/clojure/core.async
+[9]: https://github.com/reagent-project/reagent/
+[10]: https://github.com/day8/re-frame/blob/master/src/re_frame/router.cljc#L71
+[11]: https://github.com/day8/re-frame/blob/master/src/re_frame/router.cljc#L179
+[12]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
+[13]: http://hueypetersen.com/posts/2013/08/02/the-state-machines-of-core-async/
+[14]: https://github.com/dawranliou/mini-reframe/blob/main/src/mini_reframe/event_loop.cljs#L21-L25
+[15]: http://reagent-project.github.io/docs/master/reagent.core.html#var-reaction
+[16]: https://purelyfunctional.tv/article/react-vs-re-frame/

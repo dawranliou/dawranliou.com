@@ -271,10 +271,10 @@ be productive at navigating and editing lispy code.[^4]
 
 [^4]: I also ditched evil-mode and learned code editing the Emacs way.  That's a story for another time.
 
-[paredit]:https://www.emacswiki.org/emacs/ParEdit
-[lispy]:https://github.com/abo-abo/lispy
-[lispyville]:https://github.com/noctuid/lispyville
+[paredit]: https://www.emacswiki.org/emacs/ParEdit
+[lispy]: https://github.com/abo-abo/lispy
+[lispyville]: https://github.com/noctuid/lispyville
 
 [back-to-paredit]:/blog/back-to-paredit
-[reddit thread]:https://www.reddit.com/r/emacs/comments/l7khmk/what_key_binding_scheme_do_you_use_to_handle/gl9fcqs?utm_source=share&utm_medium=web2x&context=3
-[Why is Paredit is so un-Emacsy?]:https://andreyorst.gitlab.io/posts/2021-09-30-why-is-paredit-is-so-un-emacsy/
+[reddit thread]: https://www.reddit.com/r/emacs/comments/l7khmk/what_key_binding_scheme_do_you_use_to_handle/gl9fcqs?utm_source=share&utm_medium=web2x&context=3
+[Why is Paredit is so un-Emacsy?]: https://andreyorst.gitlab.io/posts/2021-09-30-why-is-paredit-is-so-un-emacsy/

@@ -5,7 +5,7 @@ topic ["GNU Emacs + Cider vs VS Code + Calva"][1]. To summarize:
 - I recommend learning Emacs and Clojure at the same time. It's going to be very
   challenging and fun and rewarding.
 
-[1]:https://clojureverse.org/t/gnu-emacs-cider-vs-vs-code-calva/7829
+[1]: https://clojureverse.org/t/gnu-emacs-cider-vs-vs-code-calva/7829
 
 Quote:
 

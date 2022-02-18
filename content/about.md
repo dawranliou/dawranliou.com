@@ -69,8 +69,8 @@ _Last updated on September 2nd, 2021. Inspired by [nownownow][nownownow]._
 [my blog]: /blog/
 [nownownow]: https://nownownow.com/about
 [sketches]: https://github.com/dawranliou/sketch
-[AutoLISP]:https://en.wikipedia.org/wiki/AutoLISP
-[Litera]:https://www.litera.com/
-[LISP]:https://en.wikipedia.org/wiki/Lisp_(programming_language)
-[KLA]:https://www.kla-tencor.com/
-[Common Lisp]:https://lisp-lang.org/
+[AutoLISP]: https://en.wikipedia.org/wiki/AutoLISP
+[Litera]: https://www.litera.com/
+[LISP]: https://en.wikipedia.org/wiki/Lisp_(programming_language)
+[KLA]: https://www.kla-tencor.com/
+[Common Lisp]: https://lisp-lang.org/

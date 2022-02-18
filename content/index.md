@@ -22,7 +22,7 @@ write about technologies like the programming languages and tools I enjoy using.
 * [itch.io](https://dawranliou.itch.io/)
 
 
-[dawranliou]:https://twitter.com/dawranliou
+[dawranliou]: https://twitter.com/dawranliou
 [ClojureScript]: https://clojurescript.org/
 [Clojure]: https://clojure.org/
 [Emacs configuration]: https://github.com/dawranliou/emacs.d
@@ -33,4 +33,4 @@ write about technologies like the programming languages and tools I enjoy using.
 [my blog]: /blog/_index.md
 [nownownow]: https://nownownow.com/about
 [sketchbook]: https://github.com/dawranliou/sketch
-[AutoLISP]:https://en.wikipedia.org/wiki/AutoLISP
+[AutoLISP]: https://en.wikipedia.org/wiki/AutoLISP
