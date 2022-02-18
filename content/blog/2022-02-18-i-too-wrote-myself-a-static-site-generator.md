@@ -6,7 +6,7 @@ favourite among these off-the-shelf static site generators.[^1] There were very
 little things to complain about Zola, but one major painpoint was that - it
 isn't built on Clojure (or any Lisp) so I didn't know how to hack the sourcecode
 if there were something I want to change nor could I really understand the code.
-After reading the [Dominic][1]'s [I wrote myself a static site generator][2] and
+After reading [Dominic][1]'s [I wrote myself a static site generator][2] and
 [Kenton's Build Your Own Static Site Generator][4], I was really inspired and
 decided to follow suit.
 
@@ -44,6 +44,8 @@ As the time of writing, my code count is around:
 - ~180 lines for all hiccup templates
 - ~110 lines for parsing and generating the site
 - And... ~500 lines of site-map.edn
+
+## Footnotes
 
 [^1]: Zola has a relatively simple templating structure, and it's very fast.
 
