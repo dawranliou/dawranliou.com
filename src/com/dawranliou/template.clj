@@ -4,17 +4,11 @@
   [{:site/keys [og-image base-url twitter-image twitter-id]
     site-title :site/title
     site-description :site/description
-    section-title :section/title
-    section-description :section/description
-    page-title :page/title
-    page-description :page/description
+    page-title :title
+    page-description :description
     :as context}]
-  (let [title (cond->> site-title
-                section-title (format "%s | %s" section-title)
-                page-title (format "%s | %s" page-title))
-        description (or page-description
-                        section-description
-                        site-description)]
+  (let [title (or page-title site-title)
+        description (or page-description site-description)]
     [:head
      [:meta {:charset "utf-8"}]
      [:meta {:http-equiv "X-UA-Compatible" :content "IE=edge;chrome=1"}]
@@ -39,9 +33,9 @@
              :href "/atom.xml"}]]))
 
 (defn nav
-  [{:build/keys [section] :as context}]
+  [{:keys [section] :as context}]
   [:nav
-   [:a {:class (when (= section :index) "current")
+   [:a {:class (when (= section :home) "current")
         :href "/"
         :title "Home"}
     "Home"]
@@ -68,7 +62,7 @@
   [:footer [:p "© 2016 - 2021 Daw-Ran Liou"]])
 
 (defn page
-  [{:page/keys [html]
+  [{:keys [html]
     :as context}]
   [:html {:lang "en"}
    (head context)
@@ -87,7 +81,7 @@
    "."])
 
 (defn blog-page
-  [{:page/keys [title html]
+  [{:keys [title html]
     :as context}]
   [:html {:lang "en"}
    (head context)
@@ -99,8 +93,24 @@
     [:hr]
     (footer context)]])
 
+(def gallery
+  [["2021-03-19" "Note taking" "/images/profiles-all.png"]
+   ["2020-05-25" "Coding 16x14" "/images/2020-5-25-coding.gif"]
+   ["2020-05-10" "Tennis" "/images/2020-5-10-tennis.png"]
+   ["2020-04-26" "Dawran Bella 24px" "/images/2020-4-26-dawran-bella-24px.png"]
+   ["2020-04-23" "Church" "/images/2020-4-23-church.png"]
+   ["2020-04-21" "Sumikko Gurashi" "/images/2020-4-21-sumikko-gurashi.png"]
+   ["2020-04-20" "Vin" "/images/2020-4-20-figure.gif"]
+   ["2020-04-19" "Tatung cooker" "/images/2020-4-19-tatung-cooker.png"]
+   ["2020-04-19" "Daw-Ran Liou v2" "/images/2020-4-19-dawran-v2.png"]
+   ["2020-04-19" "Isabella v1" "/images/2020-4-19-isabella-v1.png"]
+   ["2020-04-18" "Desk" "/images/2020-4-18-desk_dream.gif"]
+   ["2020-04-17" "Macbook" "/images/2020-4-17-macbook.gif"]
+   ["2020-04-16" "Hario V60" "/images/2020-4-16-hario-v60-animate.gif"]
+   ["2020-04-15" "Bouncing Ball" "/images/2020-4-15-bouncing-ball.gif"]])
+
 (defn gallery-page
-  [{:page/keys [title gallery]
+  [{:keys [html]
     :as context}]
   (def -context context)
   [:html {:lang "en"}
@@ -108,50 +118,45 @@
    [:body
     (nav context)
     [:ul]
-    [:h1 title]
+    html
     [:main.gallery
-     ;; ["2020-04-15", "Bouncing Ball", "/images/2020-4-15-bouncing-ball.gif"]
-     ;; ["2020-04-16", "Hario V60", "/images/2020-4-16-hario-v60-animate.gif"]
-     ;; ["2020-04-17", "Macbook", "/images/2020-4-17-macbook.gif"]
-     ;; ["2020-04-18", "Desk", "/images/2020-4-18-desk_dream.gif"]
-     ;; ["2020-04-19", "Isabella v1", "/images/2020-4-19-isabella-v1.png"]
-     ;; ["2020-04-19", "Daw-Ran Liou v2", "/images/2020-4-19-dawran-v2.png"]
-     ;; ["2020-04-19", "Tatung cooker", "/images/2020-4-19-tatung-cooker.png"]
-     ;; ["2020-04-20", "Vin", "/images/2020-4-20-figure.gif"]
-     ;; ["2020-04-21", "Sumikko Gurashi", "/images/2020-4-21-sumikko-gurashi.png"]
-     ;; ["2020-04-23", "Church", "/images/2020-4-23-church.png"]
-     ;; ["2020-04-26", "Dawran Bella 24px", "/images/2020-4-26-dawran-bella-24px.png"]
-     ;; ["2020-05-10", "Tennis", "/images/2020-5-10-tennis.png"]
-     ;; ["2020-05-25", "Coding 16x14", "/images/2020-5-25-coding.gif"]
-     ;; ["2021-03-19", "Note taking", "/images/profiles-all.png"]
-     (for [[date alt-text src] (reverse gallery)]
-       ;; <img src="{{ image[2] }}" alt="{{ image[1] }} ({{ image[0] }})">
+     (for [[date alt-text src] gallery]
        [:img {:src src
               :alt (format "%s (%s)" alt-text date)}])]
     [:hr]
     (footer context)]])
 
 (defn list
-  [{:section/keys [html items render-list]
+  [{:keys [html section-data]
     :as context}]
   [:html {:lang "en"}
    (head context)
    [:body
     (nav context)
     html
-    (when render-list
-      [:ul
-       (for [{:page/keys [uri title]}
-             (sort-by :page/date #(compare %2 %1) items)]
-         [:li [:a {:href uri} title]])])
+    (when section-data
+      (let [year-groups (->> section-data
+                             (map (fn [[uri {:keys [publish-date] :as data}]]
+                                    (assoc data
+                                           :uri uri
+                                           :year (+ 1900 (.getYear publish-date)))))
+                             (group-by :year))]
+        (for [[year year-group] year-groups]
+          [:section
+           [:h2 year]
+           [:ul
+            (for [{:keys [uri title]}
+                  (sort-by :publish-date #(compare %2 %1) year-group)]
+              [:li [:a {:href uri} title]])]])))
     [:hr]
     (footer context)]])
 
 (def name->template
-  {"page" #'page
-   "list" #'list
-   "blog-page" #'blog-page
-   "gallery-page" #'gallery-page})
+  {:blog-page #'blog-page
+   :gallery #'gallery-page
+   :home #'page
+   :blog-list #'list
+   :page #'page})
 
 (defn hiccup
   [template-name context]
