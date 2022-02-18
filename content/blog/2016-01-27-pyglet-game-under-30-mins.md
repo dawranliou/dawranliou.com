@@ -1,9 +1,3 @@
-+++
-title = "First Game Programming Experience with Python and Pyglet under 30 Minutes"
-[taxonomies]
-tags = ["python"]
-+++
-
 This is my first experience with game programming,
 and also my first time working with the
 Python [Pyglet](https://bitbucket.org/pyglet/pyglet/wiki/Home) package.
@@ -22,8 +16,6 @@ Pyglet game programming like showing images on window, how to do animation,
 listening to keyboard or mouse event, and so on.
 After half an hour diving into the tutorial, suddenly he said,
 “_are you ready to make a game now?_”
-
-READMORE
 
 That was a shock. I don’t even know where to start!
 However, the goal was simple, to create a simple game with

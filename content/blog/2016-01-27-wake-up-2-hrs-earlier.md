@@ -1,10 +1,3 @@
-+++
-title = "How I wake up 2 hours earlier every day and become happier"
-tags = ["life"]
-slug = "morning-routine"
-cover = "https://tombasson.files.wordpress.com/2015/01/morning-routine.jpg"
-+++
-
 Here’s how I kick off my workdays.
 
 <!-- more -->
@@ -40,8 +33,6 @@ I shall be in the office by 9:50.
 I was nothing like the person described above at all three months ago.
 What I’d like to tell you is the story of __the routine I used to do
 three months ago__ and __what happens after adopting my new routine.__
-
-READMORE
 
 ## Background
 

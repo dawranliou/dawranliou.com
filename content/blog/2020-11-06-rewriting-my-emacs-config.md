@@ -1,11 +1,3 @@
-+++
-title = "Rewriting My Emacs Config"
-category = "Journal"
-authors = "Daw-Ran Liou"
-[taxonomies]
-tags = ["emacs"]
-+++
-
 Since the last post, I had switched over to [Doom
 Emacs](https://github.com/hlissner/doom-emacs) for a while and then, hopefully,
 have switched back to my hand-crafted emacs config for the last time. I wanted

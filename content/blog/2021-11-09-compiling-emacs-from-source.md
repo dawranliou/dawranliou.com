@@ -1,10 +1,3 @@
-+++
-title = "Compiling Emacs from Source on MacOS Big Sur"
-authors = "Daw-Ran Liou"
-[taxonomies]
-tags = ["emacs"]
-+++
-
 Recently I started to compile the Emacs master branch from source for daily use
 instead of using one of the popular formulas on Homebrew.[^1] It's pretty cool
 to try the latest features like the native compilation and the native emoji
@@ -65,8 +58,4 @@ copy it to the `/Applications` folder to use it.
 
 ## Footnotes
 
-[^1]: Probably the popular options are:
-[`emacs-mac`](https://bitbucket.org/mituharu/emacs-mac/src/master/),
-[`emacs-plus`](https://github.com/d12frosted/homebrew-emacs-plus), and
-[`emacs-head`](https://github.com/daviderestivo/homebrew-emacs-head).  I was
-mostly using `emacs-mac` in the past.
+[^1]: Probably the popular options are: [`emacs-mac`](https://bitbucket.org/mituharu/emacs-mac/src/master/), [`emacs-plus`](https://github.com/d12frosted/homebrew-emacs-plus), and [`emacs-head`](https://github.com/daviderestivo/homebrew-emacs-head).  I was mostly using `emacs-mac` in the past.

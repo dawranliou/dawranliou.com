@@ -1,11 +1,3 @@
-+++
-title = "From Vim to Emacs"
-category = "Journal"
-authors = "Daw-Ran Liou"
-[taxonomies]
-tags = ["emacs", "clojure"]
-+++
-
 I was a Vim user a couple years back.
 I totally loved (and still love) the philosophy of Vim
 as well as the `hjkl` navigation. In contrast, Emacs didn't make any

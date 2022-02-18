@@ -1,9 +1,3 @@
-+++
-title = "Domain Exploring with Clojure Spec"
-[taxonomies]
-tags = ["clojure"]
-+++
-
 I read a great article "[Domain modelling with clojure.spec](https://adambard.com/blog/domain-modeling-with-clojure-spec/)"
 by [Adam Bard](https://twitter.com/adambard) and started to use more
 `clojure.spec` for domain modeling. Here I want to share my process, which

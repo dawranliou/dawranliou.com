@@ -1,9 +1,3 @@
-+++
-title = "Projects"
-description = "Here's a list of projects that I am working or I worked on."
-draft = true
-+++
-
 ## Sites
 
 * [Clojure/Walk](https://clojurewalk.com) (currently down for maintenance)

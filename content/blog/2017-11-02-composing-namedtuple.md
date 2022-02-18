@@ -1,10 +1,3 @@
-+++
-title = "Composing namedtuple from namedtuples"
-slug = "composing-namedtuple"
-[taxonomies]
-tags = ["python"]
-+++
-
 The problem:
 
 > One namedtuples is great, two better. But how do I combine the two namedtuples to get the best nametuple of all?

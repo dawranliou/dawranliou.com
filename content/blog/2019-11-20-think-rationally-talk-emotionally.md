@@ -1,10 +1,3 @@
-+++
-title = "Think rationally, talk emotionally"
-category = "Opinions"
-tags = "philosophy"
-authors = "Daw-Ran Liou"
-+++
-
 _The current state of my mind was greatly influenced by John Locke (洛克)
 and Empiricism (經驗主義).
 In contrast to René Descartes's (笛卡爾) Rationalism (理性主義)

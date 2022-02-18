@@ -1,23 +1,18 @@
-+++
-title = "Daw-Ran Liou"
-description = "Hi there, my name is Daw-Ran. This is my personal website, where I share my writings and other public information about myself."
-+++
-
 # Hi, my name is Daw-Ran Liou
 
 You've found my personal website!  Thank you for visiting!
 
 I'm a software developer based in California.  I enjoy playing tennis, reading
-books, and writing software.  [Clojure] is my favorite programming language, and
-[Emacs] is my favorite development environment.  I like to write about
-technologies like the programming languages and tools I enjoy using.
+books, and writing software.  [Clojure][Clojure] is my favorite programming
+language, and [Emacs][Emacs] is my favorite development environment.  I like to
+write about technologies like the programming languages and tools I enjoy using.
 
-* [About](@/about.md)
-* [Blog](@/blog/_index.md)
+* [About](/about)
+* [Blog](/blog/)
 * [Blog - Emacs](tags/emacs)
 * [Blog - Clojure](tags/clojure)
-* [Gallery](@/gallery.md)
-* [Contact](@/contact.md)
+* [Gallery](/gallery)
+* [Contact](/contact)
 * [Atom Feed](/atom.xml)
 * [Atom Feed - Emacs](tags/emacs/atom.xml)
 * [Atom Feed - Clojure](tags/clojure/atom.xml)
@@ -35,7 +30,7 @@ technologies like the programming languages and tools I enjoy using.
 [Kira Systems]: https://kirasystems.com/
 [Project Hail Mary]: https://www.goodreads.com/book/show/54493401-project-hail-mary
 [React]: https://reactjs.org/
-[my blog]: @/blog/_index.md
+[my blog]: /blog/_index.md
 [nownownow]: https://nownownow.com/about
 [sketchbook]: https://github.com/dawranliou/sketch
 [AutoLISP]:https://en.wikipedia.org/wiki/AutoLISP

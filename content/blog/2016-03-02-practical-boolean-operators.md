@@ -1,10 +1,3 @@
-+++
-title = "Practical Uses of Python AND and OR Boolean Operators"
-slug = "practicle-boolean-operators"
-[taxonomies]
-tags = ["python"]
-+++
-
 In my previous post — Python Truth Value Testing is Awesome, 
 I mentioned about the sweet combo of the truth value testing and the boolean operators,
 and gave an example for it using the or-operator. One of my colleagues gave me a comment

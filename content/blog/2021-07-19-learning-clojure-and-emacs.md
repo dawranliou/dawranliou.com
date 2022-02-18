@@ -1,10 +1,3 @@
-+++
-title = "My personal experience to learn Clojure and Emacs together"
-authors = "Daw-Ran Liou"
-[taxonomies]
-tags = ["clojure", "emacs"]
-+++
-
 I recently made a bit lengthy response in the Clojureverse discussion on the
 topic ["GNU Emacs + Cider vs VS Code + Calva"][1]. To summarize:
 

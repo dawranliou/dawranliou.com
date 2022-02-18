@@ -1,0 +1,11 @@
+{:deps {markdown-clj/markdown-clj {:mvn/version "1.10.7"}}
+ :paths ["src"]
+ :tasks
+ {clean {:doc "Deletes the build targets"
+         :requires ([babashka.fs :as fs])
+         :task (fs/delete-tree "public")}
+  build {:doc "Builds the site into the public folder"
+         :requires ([com.dawranliou.build])
+         :task (com.dawranliou.build/-main)}
+  serve {:doc "Starts a server at 8000 for local development"
+         :task (shell "python3 -m http.server --directory public")}}}

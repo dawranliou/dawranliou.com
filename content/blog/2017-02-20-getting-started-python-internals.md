@@ -1,11 +1,3 @@
-+++
-title = "Getting Started with Python Internals"
-slug = "getting-started-python-internals"
-cover = "images/python-logo.png"
-[taxonomies]
-tags = ["python"]
-+++
-
 This article is a summary of what I learned from [Philip Guo](https://twitter.com/pgbovine)'s
 [CPython internals: A ten-hour codewalk through the Python interpreter source code](http://pgbovine.net/cpython-internals.htm).
 I highly recommend you to go through his course. He go through great materials

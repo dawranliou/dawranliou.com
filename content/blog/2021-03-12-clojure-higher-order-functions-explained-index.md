@@ -1,10 +1,3 @@
-+++
-title = "Clojure higher-order functions explained: index"
-authors = "Daw-Ran Liou"
-[taxonomies]
-tags = ["clojure"]
-+++
-
 Besides all the other amazing things Clojure enables, I just want to take a
 moment to appreciate Clojure being a functional programming language that offers
 many higher-order functions out of the box great for daily tasks. Although the
@@ -20,8 +13,8 @@ in the planning.
 
 _Updated 2021-03-23_
 
-- [fnil](@/blog/2021-03-19-clojure-higher-order-functions-explained-fnil.md)
-- [complement](@/blog/2021-03-23-clojure-higher-order-functions-explained-complement.md)
+- [fnil](/blog/clojure-higher-order-functions-explained-fnil)
+- [complement](/blog/clojure-higher-order-functions-explained-complement)
 
 ## The Backlog
 

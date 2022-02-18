@@ -1,10 +1,3 @@
-+++
-title = "Structural editing in vanilla Emacs"
-authors = "Daw-Ran Liou"
-[taxonomies]
-tags = ["emacs"]
-+++
-
 ## Strict structural editing
 
 [Last time][back-to-paredit] I switched from the [lispy]/[lispyville] combo for
@@ -272,19 +265,16 @@ be productive at navigating and editing lispy code.[^4]
 
 [^1]: With the help of `M-x check-parens` and `show-paren-mode`.
 
-[^2]: I also came across the blog [Why is Paredit is so un-Emacsy?] after the
-switch.  It's a nice read!  It kinda reassured me of my decision.
+[^2]: I also came across the blog [Why is Paredit is so un-Emacsy?] after the switch.  It's a nice read!  It kinda reassured me of my decision.
 
-[^3]: I might be able to write a function to automate slurping and barfing in the
-future.  Stay tuned!
+[^3]: I might be able to write a function to automate slurping and barfing in the future.  Stay tuned!
 
-[^4]: I also ditched evil-mode and learned code editing the Emacs way.  That's a
-story for another time.
+[^4]: I also ditched evil-mode and learned code editing the Emacs way.  That's a story for another time.
 
 [paredit]:https://www.emacswiki.org/emacs/ParEdit
 [lispy]:https://github.com/abo-abo/lispy
 [lispyville]:https://github.com/noctuid/lispyville
 
-[back-to-paredit]:@/blog/2021-08-14-back-to-paredit.md
+[back-to-paredit]:/blog/back-to-paredit
 [reddit thread]:https://www.reddit.com/r/emacs/comments/l7khmk/what_key_binding_scheme_do_you_use_to_handle/gl9fcqs?utm_source=share&utm_medium=web2x&context=3
 [Why is Paredit is so un-Emacsy?]:https://andreyorst.gitlab.io/posts/2021-09-30-why-is-paredit-is-so-un-emacsy/

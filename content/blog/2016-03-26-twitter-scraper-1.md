@@ -1,11 +1,3 @@
-+++
-title = "Twitter scraper tutorial with Python: Requests, BeautifulSoup, and Selenium — Part 1"
-slug = "twitter-scraper-1"
-[taxonomies]
-tags = ["python"]
-+++
-
-
 Inspired by Bruce, my friend’s take-home interview question, I started this 
 bite-size project to play around with some of the most popular PyPI packages: 
 Requests, BeautifulSoup, and Selenium. In this tutorial, I’ll show you the 

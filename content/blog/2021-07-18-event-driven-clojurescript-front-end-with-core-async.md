@@ -1,10 +1,3 @@
-+++
-title = "Implementing an Event-Driven ClojureScript mini-framework with core.async"
-authors = "Daw-Ran Liou"
-[taxonomies]
-tags = ["clojure"]
-+++
-
 This was my experiment of re-implementing a lighter version of the popular
 ClojureScript front-end framework, [`re-frame`][2], for the purpose of
 studying.[^1] A demo project of the result can be found here -
@@ -432,12 +425,7 @@ cover.
 
 ## Footnotes
 
-[^1] To be honest, I wasn't a big fan of `re-frame` before because I didn't see
-the value of using a framework for managing my states while being fully capable
-of managing them myself. I also didn't like having a big dependency unless I
-have to. After studying quite a significant bit of `re-frame`'s source code
-(which doesn't seem so big of a dependency anymore), I am now convinced that the
-cost of having it as a dependency is pretty well justified.
+[^1] To be honest, I wasn't a big fan of `re-frame` before because I didn't see the value of using a framework for managing my states while being fully capable of managing them myself. I also didn't like having a big dependency unless I have to. After studying quite a significant bit of `re-frame`'s source code (which doesn't seem so big of a dependency anymore), I am now convinced that the cost of having it as a dependency is pretty well justified.
 
 [^2] From ["The State Machines of core.async"]
 
@@ -458,8 +446,7 @@ cost of having it as a dependency is pretty well justified.
 > reagent.core/track, for function that caches the derafable value, and can thus
 > be safely used in e.g. render function safely.
 
-[^5] See ["6 things Reacters do that Re-framers avoid" by
-PurelyFunctional.tv][16].
+[^5] See ["6 things Reacters do that Re-framers avoid" by PurelyFunctional.tv][16].
 
 **Links**
 

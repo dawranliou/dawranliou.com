@@ -1,10 +1,3 @@
-+++
-title = "Clojure higher-order functions explained: complement"
-authors = "Daw-Ran Liou"
-[taxonomies]
-tags = ["clojure"]
-+++
-
 _Checkout the [index] for the full series._
 
 ## Source code
@@ -108,7 +101,7 @@ Already mentioned above, not-contain can be written as:
 - [Source of complement in clojure 1.10.1][1]
 - [Clojuredocs.org's complement page][2]
 
-[index]: @/blog/2021-03-12-clojure-higher-order-functions-explained-index.md
+[index]: /blog/clojure-higher-order-functions-explained-index
 
 [1]: https://github.com/clojure/clojure/blob/clojure-1.10.1/src/clj/clojure/core.clj#L1433
 

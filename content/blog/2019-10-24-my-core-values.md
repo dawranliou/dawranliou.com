@@ -1,8 +1,3 @@
-+++
-title = "My Core Values"
-tags = ["philosophy"]
-+++
-
 I've never tried to verbalize my core values before,
 though it feels right to do so for the first time in 30 years of my life.
 I hope this post serves the right place for the future me to reflect on.

@@ -1,10 +1,3 @@
-+++
-title = "Better performance with Java arrays in Clojure"
-authors = "Daw-Ran Liou"
-[taxonomies]
-tags = ["clojure"]
-+++
-
 I was working on re-implementing the [Stochastic gradient descent] algorithm in
 Clojure based on the blog post [How to Implement Linear Regression From Scratch
 in Python]. Because I wasn't happy about the performance when the dataset is in

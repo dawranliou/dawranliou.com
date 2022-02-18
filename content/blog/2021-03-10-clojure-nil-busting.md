@@ -1,10 +1,3 @@
-+++
-title = "Clojure nil busting one-liners"
-authors = "Daw-Ran Liou"
-[taxonomies]
-tags = ["clojure"]
-+++
-
 ## TL;DR
 
 To remove all `nil`s from a seq:

@@ -1,9 +1,3 @@
-+++
-title = "Inspect Java Objects with Clojure"
-[taxonomies]
-tags = ["clojure", "java"]
-+++
-
 The more I work with Clojure, the more frustration I found to work with
 Java objects. Mostly, it feels an unnecessary process to go through
 the class definition to find the getter methods to access the data I want,

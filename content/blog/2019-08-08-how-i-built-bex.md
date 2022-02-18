@@ -1,9 +1,3 @@
-+++
-title = "How I built Bex"
-[taxonomies]
-tags = ["clojure"]
-+++
-
 In this article, I'd like to share with you the technologies and services that I use
 to create [Bex](https://bexdesign.io). If you are, and I assume you are, a programmer,
 Bex is simply a personal online markdown text editor.
@@ -66,7 +60,7 @@ For some share markups like the navbar and the footer, I copy-and-paste
 each one of them whenever I make some change.
 
 It worked well, and I love the simplicity of it, no build tool, just HTML, CSS,
-and some vanilla JS. 
+and some vanilla JS.
 After a while, I wanted to start blogging on the Site, and I know I won't be able
 to hand-craft all the blog posts. I know a static site generator is a good option for me.
 What I need is to design the HTML layouts and fragments/partials once and let the tool build the Site for me.

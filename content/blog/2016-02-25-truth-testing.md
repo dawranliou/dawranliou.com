@@ -1,10 +1,3 @@
-+++
-title = "Python Truth Value Testing is Awesome"
-slug = "truth-value-testing"
-[taxonomies]
-tags = ["python"]
-+++
-
 I’m constantly amazed by the simplicity and readability Python provides.
 (See The [Zen of Python](https://www.python.org/dev/peps/pep-0020/).)
 As the industry evolves, more and more codes written each day,

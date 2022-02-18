@@ -1,11 +1,3 @@
-+++
-title = "Closures bind late"
-slug = "closures-bind-late"
-cover = "images/turtle.jpg"
-[taxonomies]
-tags = ["python"]
-+++
-
 "Closure is a turtle carrying its shell," my favorite explanation to
 closures, quote by [Raymond Hettinger](https://twitter.com/raymondh).
 With closures, lots of great features are possible
