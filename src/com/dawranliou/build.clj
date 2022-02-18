@@ -22,16 +22,16 @@
    :site/twitter-id "@dawranliou"
    :site/twitter-image "https://dawranliou.com/dawranliou-profile.png"})
 
-(def site-data
-  (edn/read (PushbackReader. (io/reader "site.edn"))))
+(def site-map
+  (edn/read (PushbackReader. (io/reader "site-map.edn"))))
 
 (def section-tree
   (->> (for [[uri {:keys [section-key] :as section-data}]
-             (filter (comp :section-key second) site-data)]
+             (filter (comp :section-key second) site-map)]
          [uri (into {}
                     (comp (filter (comp (partial = section-key) :section second))
                           (filter (comp (partial not= uri) first)))
-                    site-data)])
+                    site-map)])
        (into {})))
 
 (defn md-file->html
@@ -72,7 +72,7 @@
   ;;(println "TODO build atom feed")
 
   (println "Build markdown contents")
-  (doseq [[uri {:keys [source template section-key] :as context}] site-data
+  (doseq [[uri {:keys [source template section-key] :as context}] site-map
           :let [dest (fs/file (fs/path target-dir
                                        (str/replace uri #"^/" "")
                                        "index.html"))]]
