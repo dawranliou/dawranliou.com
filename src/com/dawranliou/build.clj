@@ -1,7 +1,7 @@
 (ns com.dawranliou.build
   (:require [babashka.fs :as fs]
-            [clojure.data.xml :as xml]
             [cheshire.core :as json]
+            [clojure.data.xml :as xml]
             [clojure.edn :as edn]
             [clojure.java.io :as io]
             [clojure.string :as str]
@@ -31,13 +31,9 @@
         site-map))
 
 (def section-map
-  (->> (for [{:keys [uri section-key] :as section-data}
-             (filter :section-key site-data)]
-         [uri (into []
-                    (comp (filter (comp (partial = section-key) :section))
-                          (filter (comp (partial not= uri) :uri)))
-                    site-data)])
-       (into {})))
+  (->> site-data
+       (remove :section-key)
+       (group-by :section)))
 
 (defn md-file->html
   [path]
@@ -84,13 +80,13 @@
   (fs/copy-tree static-dir target-dir {:replace-existing true})
 
   (println "Build blog atom feed")
-  (let [site-updated (->> (section-map "/blog")
+  (let [site-updated (->> (section-map :blog)
                           (map :updated)
                           (remove nil?)
                           (apply max-key #(.getTime %))
                           date-to-rfc-3339-str)
         site-config* (assoc site-config :site/updated site-updated)
-        posts (->> (section-map "/blog")
+        posts (->> (section-map :blog)
                    (into [] (map (fn [{:keys [source updated published] :as context}]
                                    (assoc context
                                           :html (source->html source)
@@ -119,7 +115,7 @@
     (println (format "%s -> %s" source (str dest)))
     (->> (cond-> (merge site-config context)
            true (assoc :html (source->html source))
-           section-key (assoc :section-data (section-map uri)))
+           section-key (assoc :section-data (section-map section-key)))
          (template/hiccup template)
          page
          (spit-file-ensure-parent dest))))
