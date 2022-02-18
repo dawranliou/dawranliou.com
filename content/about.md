@@ -42,7 +42,7 @@ company than Kira, with several products to offer to the legal world. It'll be
 interesting to see how Clojure will thrive in this industry.  And I'm excited
 about what's coming next!
 
-## What I'm doing now {#now}
+## What I'm doing now
 
 * Software Developer at [Kira Systems][Kira Systems] building Clojure/Script
   full-stack web app
