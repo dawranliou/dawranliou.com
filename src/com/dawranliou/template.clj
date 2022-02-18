@@ -141,7 +141,7 @@
                                            :uri uri
                                            :year (+ 1900 (.getYear published)))))
                              (group-by :year))]
-        (for [[year year-group] year-groups]
+        (for [[year year-group] (sort-by first > year-groups)]
           [:section
            [:h2 year]
            [:ul
