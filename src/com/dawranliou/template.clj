@@ -136,17 +136,17 @@
     html
     (when section-data
       (let [year-groups (->> section-data
-                             (map (fn [[uri {:keys [publish-date] :as data}]]
+                             (map (fn [[uri {:keys [published] :as data}]]
                                     (assoc data
                                            :uri uri
-                                           :year (+ 1900 (.getYear publish-date)))))
+                                           :year (+ 1900 (.getYear published)))))
                              (group-by :year))]
         (for [[year year-group] year-groups]
           [:section
            [:h2 year]
            [:ul
             (for [{:keys [uri title]}
-                  (sort-by :publish-date #(compare %2 %1) year-group)]
+                  (sort-by :published #(compare %2 %1) year-group)]
               [:li [:a {:href uri} title]])]])))
     [:hr]
     (footer context)]])
