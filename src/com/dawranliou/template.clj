@@ -165,24 +165,23 @@
 ;; feed
 
 (defn entry
-  [& {:keys [title published updated href id content]}]
+  [{:keys [title published-str updated-str uri html]
+    base-url :site/base-url}]
   [:entry {"xml:lang" "en"}
-   [:id id]
+   [:id (str base-url uri)]
+   [:author [:name "Daw-Ran Liou"]]
    [:title title]
-   [:updated updated]
-   [:published published]
-   [:link {"href" href "type" "text/html"}]
-   [:content {"type" "html"} content]])
+   [:updated updated-str]
+   [:published published-str]
+   [:link {"href" (str base-url uri) "type" "text/html"}]
+   [:content {"type" "html"} html]])
 
-(defn feed [posts]
-  [:feed {"xmlns" "http://www.w3.org/2005/Atom"
+(defn feed [{:site/keys [updated] :as site-config} posts]
+  [:feed {"xmlns:atom" "http://www.w3.org/2005/Atom"
           "xml:lang" "en"}
    [:id "https://dawranliou.com/atom.xml"]
    [:title "Daw-Ran Liou's website"]
-   [:updated (->> posts
-                  (map :updated)
-                  (remove nil?)
-                  (apply max-key #(.toEpochDay %)))]
+   [:updated updated]
    [:link {"href" "https://dawranliou.com/atom.xml"
            "rel" "self"
            "type" "application/atom+xml"}]
@@ -190,4 +189,4 @@
    [:author
     [:name "Daw-Ran Liou"]]
    (for [post posts]
-     (entry post))])
+     (entry (merge site-config post)))])

@@ -1,14 +1,14 @@
 (ns com.dawranliou.build
   (:require [babashka.fs :as fs]
             [clojure.data.xml :as xml]
+            [cheshire.core :as json]
             [clojure.edn :as edn]
             [clojure.java.io :as io]
             [clojure.string :as str]
             [com.dawranliou.template :as template]
             [hiccup.core :as hiccup]
             [markdown.core :as markdown])
-  (:import [java.io PushbackReader]
-           [java.time LocalDate]))
+  (:import [java.io PushbackReader]))
 
 (def content-source-dir "content")
 (def target-dir "public")
@@ -62,9 +62,18 @@
 (defn page [h]
   (hiccup/html {:mode :html} "<!DOCTYPE html>" h))
 
+(defn rss-str [feed]
+  (-> (xml/indent-str (xml/sexp-as-element feed))
+      ;; clojure.data.xml preemptively adds the namespace to the xmlns
+      ;; attribute, which I don't need.
+      (str/replace-first #"xmlns:atom" "xmlns")))
+
 (defn spit-file-ensure-parent [dest-file string]
   (io/make-parents dest-file)
   (spit dest-file string))
+
+(defn date-to-rfc-3339-str [date]
+  (str/replace (json/generate-string date) #"\"" ""))
 
 (defn -main [& _args]
   (println (format "Ensure directory exists: %s" target-dir))
@@ -74,7 +83,22 @@
   (println (format "Copy static directory: %s" static-dir))
   (fs/copy-tree static-dir target-dir {:replace-existing true})
 
-  ;;(println "TODO build atom feed")
+  (println "Build blog atom feed")
+  (let [site-updated (->> (section-map "/blog")
+                          (map :updated)
+                          (remove nil?)
+                          (apply max-key #(.getTime %))
+                          date-to-rfc-3339-str)
+        site-config* (assoc site-config :site/updated site-updated)]
+    (->> (section-map "/blog")
+         (into [] (map (fn [{:keys [source updated published] :as context}]
+                         (assoc context
+                                :html (source->html source)
+                                :published-str (date-to-rfc-3339-str published)
+                                :updated-str (date-to-rfc-3339-str updated)))))
+         (template/feed site-config*)
+         rss-str
+         (spit-file-ensure-parent (fs/file (fs/path target-dir "atom.xml")))))
 
   (println "Build markdown contents")
   (doseq [{:keys [uri source template section-key] :as context} site-data
