@@ -51,7 +51,7 @@ As the time of writing, my code count is around:
 
 [^2]: This was highly inspired by the ClojureScript compiler code I read earlier that year.
 
-[^3]: See sourcecode [here].
+[^3]: See sourcecode [here][6].
 
 [1]:https://freeston.me
 [2]:https://freeston.me/posts/2021-11-29-new-site-generator/
