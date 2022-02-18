@@ -1,37 +1,49 @@
-[
+{
  ;; Landing page
- {:uri "/"
-  :title "Daw-Ran Liou"
+
+ "/"
+ {:title "Daw-Ran Liou"
   :description "Hi there, my name is Daw-Ran. This is my personal website, where I share my writings and other public information about myself."
+  :section :home
   :template :home
   :source "content/index.md"}
 
  ;; Top-level pages
- {:uri "/about"
-  :title "About | Daw-Ran Liou"
+
+ "/about"
+ {:title "About | Daw-Ran Liou"
   :description "About myself and this website"
+  :section :about
   :template :page
   :source "content/about.md"}
- {:uri "/gallery"
-  :title "Gallery | Daw-Ran Liou"
+
+ "/gallery"
+ {:title "Gallery | Daw-Ran Liou"
   :description "My digital art gallery"
+  :section :gallery
   :template :gallery
   :source "content/gallery.md"}
- {:uri "/blog"
-  :title "Blog | Daw-Ran Liou"
+
+ "/blog"
+ {:title "Blog | Daw-Ran Liou"
   :description "My personal blog.  Here you can find all of my writings in chronological order."
+  :section :blog
+  :section-key :blog
   :template :blog-list
   :source "content/blog/index.md"}
- {:uri "/contact"
-  :title "Contact | Daw-Ran Liou"
+
+ "/contact"
+ {:title "Contact | Daw-Ran Liou"
   :description "Where you can find me on the internet."
+  :section :contact
   :template :page
   :source "content/contact.md"}
 
  ;; /blog pages
+
  ;; 2021
- {:uri "/blog/compiling-emacs-from-source"
-  :title "Compiling Emacs from Source on MacOS Big Sur"
+ "/blog/compiling-emacs-from-source"
+ {:title "Compiling Emacs from Source on MacOS Big Sur"
   :description "Compiling Emacs from Source on MacOS Big Sur"
   :section :blog
   :template :blog-page
@@ -39,8 +51,9 @@
   :tags [:emacs]
   :publish-date #inst "2021-11-09"
   :update-date #inst "2021-11-09"}
- {:uri "/blog/structural-editing-in-vanilla-emacs"
-  :title "Structural editing in vanilla Emacs"
+
+ "/blog/structural-editing-in-vanilla-emacs"
+ {:title "Structural editing in vanilla Emacs"
   :description "Structural editing in vanilla Emacs"
   :section :blog
   :template :blog-page
@@ -48,8 +61,9 @@
   :tags [:emacs]
   :publish-date #inst "2021-10-23"
   :update-date #inst "2021-10-23"}
- {:uri "/blog/back-to-paredit"
-  :title "Back to paredit"
+
+ "/blog/back-to-paredit"
+ {:title "Back to paredit"
   :description "Back to paredit"
   :section :blog
   :template :blog-page
@@ -57,8 +71,9 @@
   :tags [:emacs]
   :publish-date #inst "2021-08-14"
   :update-date #inst "2021-08-14"}
- {:uri "/blog/learning-clojure-and-emacs"
-  :title "My personal experience to learn Clojure and Emacs together"
+
+ "/blog/learning-clojure-and-emacs"
+ {:title "My personal experience to learn Clojure and Emacs together"
   :description "My personal experience to learn Clojure and Emacs together"
   :section :blog
   :template :blog-page
@@ -66,8 +81,9 @@
   :tags [:clojure :emacs]
   :publish-date #inst "2021-07-19"
   :update-date #inst "2021-07-19"}
- {:uri "/blog/event-driven-clojurescript-front-end-with-core-async"
-  :title "Implementing an Event-Driven ClojureScript mini-framework with core.async"
+
+ "/blog/event-driven-clojurescript-front-end-with-core-async"
+ {:title "Implementing an Event-Driven ClojureScript mini-framework with core.async"
   :description "Implementing an Event-Driven ClojureScript mini-framework with core.async"
   :section :blog
   :template :blog-page
@@ -75,8 +91,9 @@
   :tags [:clojure]
   :publish-date #inst "2021-07-18"
   :update-date #inst "2021-07-18"}
- {:uri "/blog/better-performance-with-java-arrays-in-clojure"
-  :title "Better performance with Java arrays in Clojure"
+
+ "/blog/better-performance-with-java-arrays-in-clojure"
+ {:title "Better performance with Java arrays in Clojure"
   :description "Better performance with Java arrays in Clojure"
   :section :blog
   :template :blog-page
@@ -84,8 +101,9 @@
   :tags [:clojure]
   :publish-date #inst "2021-06-14"
   :update-date #inst "2021-06-14"}
- {:uri "/blog/entering-spring-lisp-game-jam-2021"
-  :title "Entering Spring Lisp Game Jam 2021"
+
+ "/blog/entering-spring-lisp-game-jam-2021"
+ {:title "Entering Spring Lisp Game Jam 2021"
   :description "Entering Spring Lisp Game Jam 2021"
   :section :blog
   :template :blog-page
@@ -93,8 +111,9 @@
   :tags [:gamedev]
   :publish-date #inst "2021-04-29"
   :update-date #inst "2021-04-29"}
- {:uri "/blog/on-personal-website"
-  :title "On Personal Websites"
+
+ "/blog/on-personal-website"
+ {:title "On Personal Websites"
   :description "On Personal Websites"
   :section :blog
   :template :blog-page
@@ -102,8 +121,9 @@
   :tags []
   :publish-date #inst "2021-04-06"
   :update-date #inst "2021-04-06"}
- {:uri "/blog/clojure-higher-order-functions-explained-complement"
-  :title "Clojure higher-order functions explained: complement"
+
+ "/blog/clojure-higher-order-functions-explained-complement"
+ {:title "Clojure higher-order functions explained: complement"
   :description "Clojure higher-order functions explained: complement"
   :section :blog
   :template :blog-page
@@ -111,8 +131,9 @@
   :tags [:clojure]
   :publish-date #inst "2021-03-23"
   :update-date #inst "2021-03-23"}
- {:uri "/blog/reagent-component-vs-react-component"
-  :title "The distinction between Reagent component and React component"
+
+ "/blog/reagent-component-vs-react-component"
+ {:title "The distinction between Reagent component and React component"
   :description "The distinction between Reagent component and React component"
   :section :blog
   :template :blog-page
@@ -120,8 +141,9 @@
   :tags [:clojure]
   :publish-date #inst "2021-03-21"
   :update-date #inst "2021-03-21"}
- {:uri "/blog/clojure-higher-order-functions-explained-fnil"
-  :title "Clojure higher-order functions explained: fnil"
+
+ "/blog/clojure-higher-order-functions-explained-fnil"
+ {:title "Clojure higher-order functions explained: fnil"
   :description "Clojure higher-order functions explained: fnil"
   :section :blog
   :template :blog-page
@@ -129,8 +151,9 @@
   :tags [:clojure]
   :publish-date #inst "2021-03-19"
   :update-date #inst "2021-03-19"}
- {:uri "/blog/the-biggest-positive-for-emacs"
-  :title "The Biggest Positive for Emacs"
+
+ "/blog/the-biggest-positive-for-emacs"
+ {:title "The Biggest Positive for Emacs"
   :description "The Biggest Positive for Emacs"
   :section :blog
   :template :blog-page
@@ -138,8 +161,9 @@
   :tags [:emacs]
   :publish-date #inst "2021-03-18"
   :update-date #inst "2021-03-18"}
- {:uri "/blog/clojure-higher-order-functions-explained-"
-  :title "Clojure higher-order functions explained: index"
+
+ "/blog/clojure-higher-order-functions-explained-"
+ {:title "Clojure higher-order functions explained: index"
   :description "Clojure higher-order functions explained: index"
   :section :blog
   :template :blog-page
@@ -147,8 +171,9 @@
   :tags [:clojure]
   :publish-date #inst "2021-03-12"
   :update-date #inst "2021-03-12"}
- {:uri "/blog/clojure-nil-busting"
-  :title "Clojure nil busting one-liners"
+
+ "/blog/clojure-nil-busting"
+ {:title "Clojure nil busting one-liners"
   :description "Clojure nil busting one-liners"
   :section :blog
   :template :blog-page
@@ -158,8 +183,9 @@
   :update-date #inst "2021-03-10"}
 
  ;; 2020
- {:uri "/blog/on-learning-emacs"
-  :title "On Learning Emacs"
+
+ "/blog/on-learning-emacs"
+ {:title "On Learning Emacs"
   :description "On Learning Emacs"
   :section :blog
   :template :blog-page
@@ -167,8 +193,9 @@
   :tags [:emacs]
   :publish-date #inst "2020-11-13"
   :update-date #inst "2020-11-13"}
- {:uri "/blog/my-emacs-clojure-dev-env-overview"
-  :title "My Emacs Clojure Development Environment Overview"
+
+ "/blog/my-emacs-clojure-dev-env-overview"
+ {:title "My Emacs Clojure Development Environment Overview"
   :description "My Emacs Clojure Development Environment Overview"
   :section :blog
   :template :blog-page
@@ -176,8 +203,9 @@
   :tags [:clojure :emacs]
   :publish-date #inst "2020-11-12"
   :update-date #inst "2020-11-12"}
- {:uri "/blog/rethink-syntax-highlighting"
-  :title "Rethink Syntax Highlighting"
+
+ "/blog/rethink-syntax-highlighting"
+ {:title "Rethink Syntax Highlighting"
   :description "Rethink Syntax Highlighting"
   :section :blog
   :template :blog-page
@@ -185,8 +213,9 @@
   :tags [:emacs]
   :publish-date #inst "2020-11-06"
   :update-date #inst "2020-11-06"}
- {:uri "/blog/rewriting-my-emacs-config"
-  :title "Rewriting My Emacs Config"
+
+ "/blog/rewriting-my-emacs-config"
+ {:title "Rewriting My Emacs Config"
   :description "Rewriting My Emacs Config"
   :section :blog
   :template :blog-page
@@ -194,8 +223,9 @@
   :tags [:emacs]
   :publish-date #inst "2020-11-06"
   :update-date #inst "2020-11-06"}
- {:uri "/blog/from-vim-to-emacs"
-  :title "From Vim to Emacs"
+
+ "/blog/from-vim-to-emacs"
+ {:title "From Vim to Emacs"
   :description "From Vim to Emacs"
   :section :blog
   :template :blog-page
@@ -205,8 +235,9 @@
   :update-date #inst "2020-04-06"}
 
  ;; 2019
- {:uri "/blog/think-rationally-talk-emotionally"
-  :title "Think rationally, talk emotionally"
+
+ "/blog/think-rationally-talk-emotionally"
+ {:title "Think rationally, talk emotionally"
   :description "Think rationally, talk emotionally"
   :section :blog
   :template :blog-page
@@ -214,8 +245,9 @@
   :tags [:philosophy]
   :publish-date #inst "2019-11-20"
   :update-date #inst "2019-11-20"}
- {:uri "/blog/my-core-values"
-  :title "My Core Values"
+
+ "/blog/my-core-values"
+ {:title "My Core Values"
   :description "My Core Values"
   :section :blog
   :template :blog-page
@@ -223,8 +255,9 @@
   :tags [:philosophy]
   :publish-date #inst "2019-10-24"
   :update-date #inst "2019-10-24"}
- {:uri "/blog/domain-exploring-with-spec"
-  :title "Domain Exploring with Clojure Spec"
+
+ "/blog/domain-exploring-with-spec"
+ {:title "Domain Exploring with Clojure Spec"
   :description "Domain Exploring with Clojure Spec"
   :section :blog
   :template :blog-page
@@ -232,8 +265,9 @@
   :tags [:clojure]
   :publish-date #inst "2019-10-17"
   :update-date #inst "2019-10-17"}
- {:uri "/blog/Re-frame-effects-vs-coeffects"
-  :title "Re-frame Effects VS Coeffects"
+
+ "/blog/Re-frame-effects-vs-coeffects"
+ {:title "Re-frame Effects VS Coeffects"
   :description "Re-frame Effects VS Coeffects"
   :section :blog
   :template :blog-page
@@ -241,8 +275,9 @@
   :tags [:clojure]
   :publish-date #inst "2019-08-13"
   :update-date #inst "2019-08-13"}
- {:uri "/blog/how-i-built-bex"
-  :title "How I built Bex"
+
+ "/blog/how-i-built-bex"
+ {:title "How I built Bex"
   :description "How I built Bex"
   :section :blog
   :template :blog-page
@@ -250,8 +285,9 @@
   :tags [:clojure]
   :publish-date #inst "2019-08-08"
   :update-date #inst "2019-08-08"}
- {:uri "/blog/clojure-inspect"
-  :title "Inspect Java Objects with Clojure"
+
+ "/blog/clojure-inspect"
+ {:title "Inspect Java Objects with Clojure"
   :description "Inspect Java Objects with Clojure"
   :section :blog
   :template :blog-page
@@ -259,8 +295,9 @@
   :tags [:clojure :java]
   :publish-date #inst "2019-02-09"
   :update-date #inst "2019-02-09"}
- {:uri "/blog/tachyons-review"
-  :title "Tachyons CSS Framework / Library Review"
+
+ "/blog/tachyons-review"
+ {:title "Tachyons CSS Framework / Library Review"
   :description "Tachyons CSS Framework / Library Review"
   :section :blog
   :template :blog-page
@@ -268,8 +305,9 @@
   :tags [:css]
   :publish-date #inst "2019-02-02"
   :update-date #inst "2019-02-02"}
- {:uri "/blog/interop-legacy-java-with-clojure"
-  :title "Interop legacy Java project with Clojure"
+
+ "/blog/interop-legacy-java-with-clojure"
+ {:title "Interop legacy Java project with Clojure"
   :description "Interop legacy Java project with Clojure"
   :section :blog
   :template :blog-page
@@ -277,8 +315,9 @@
   :tags [:clojure :java]
   :publish-date #inst "2019-01-31"
   :update-date #inst "2019-01-31"}
- {:uri "/blog/recap-2018"
-  :title "Recap 2018"
+
+ "/blog/recap-2018"
+ {:title "Recap 2018"
   :description "Recap 2018"
   :section :blog
   :template :blog-page
@@ -288,8 +327,9 @@
   :update-date #inst "2019-01-02"}
 
  ;; 2018
- {:uri "/blog/decode-phone-number"
-  :title "Decode your phone number with Clojure"
+
+ "/blog/decode-phone-number"
+ {:title "Decode your phone number with Clojure"
   :description "Decode your phone number with Clojure"
   :section :blog
   :template :blog-page
@@ -297,8 +337,9 @@
   :tags [:clojure]
   :publish-date #inst "2018-04-30"
   :update-date #inst "2018-04-30"}
- {:uri "/blog/study-group-at-work"
-  :title "What is it like to start a study group at work"
+
+ "/blog/study-group-at-work"
+ {:title "What is it like to start a study group at work"
   :description "What is it like to start a study group at work"
   :section :blog
   :template :blog-page
@@ -306,8 +347,9 @@
   :tags [:python]
   :publish-date #inst "2018-04-24"
   :update-date #inst "2018-04-24"}
- {:uri "/blog/just-write-the-code"
-  :title "Don’t think. Just write the code!"
+
+ "/blog/just-write-the-code"
+ {:title "Don’t think. Just write the code!"
   :description "Don’t think. Just write the code!"
   :section :blog
   :template :blog-page
@@ -317,8 +359,9 @@
   :update-date #inst "2018-04-02"}
 
  ;; 2017
- {:uri "/blog/composing-namedtuple"
-  :title "Composing namedtuple from namedtuples"
+
+ "/blog/composing-namedtuple"
+ {:title "Composing namedtuple from namedtuples"
   :description "Composing namedtuple from namedtuples"
   :section :blog
   :template :blog-page
@@ -326,8 +369,9 @@
   :tags [:python]
   :publish-date #inst "2017-11-02"
   :update-date #inst "2017-11-02"}
- {:uri "/blog/python36-descriptors"
-  :title "Writing descriptors in Python 3.6+"
+
+ "/blog/python36-descriptors"
+ {:title "Writing descriptors in Python 3.6+"
   :description "Writing descriptors in Python 3.6+"
   :section :blog
   :template :blog-page
@@ -335,8 +379,9 @@
   :tags [:python]
   :publish-date #inst "2017-09-23"
   :update-date #inst "2017-09-23"}
- {:uri "/blog/getting-started-python-internals"
-  :title "Getting Started with Python Internals"
+
+ "/blog/getting-started-python-internals"
+ {:title "Getting Started with Python Internals"
   :description "Getting Started with Python Internals"
   :section :blog
   :template :blog-page
@@ -344,8 +389,9 @@
   :tags [:python]
   :publish-date #inst "2017-02-20"
   :update-date #inst "2017-02-20"}
- {:uri "/blog/closures-bind-late"
-  :title "Closures bind late"
+
+ "/blog/closures-bind-late"
+ {:title "Closures bind late"
   :description "Closures bind late"
   :section :blog
   :template :blog-page
@@ -353,8 +399,9 @@
   :tags [:python]
   :publish-date #inst "2017-02-18"
   :update-date #inst "2017-02-18"}
- {:uri "/blog/generator-the-basics"
-  :title "Generator - The Basics"
+
+ "/blog/generator-the-basics"
+ {:title "Generator - The Basics"
   :description "Generator - The Basics"
   :section :blog
   :template :blog-page
@@ -362,8 +409,9 @@
   :tags [:python]
   :publish-date #inst "2017-01-07"
   :update-date #inst "2017-01-07"}
- {:uri "/blog/40-books-in-2016"
-  :title "40 Books I Read in 2016"
+
+ "/blog/40-books-in-2016"
+ {:title "40 Books I Read in 2016"
   :description "40 Books I Read in 2016"
   :section :blog
   :template :blog-page
@@ -373,8 +421,9 @@
   :update-date #inst "2017-01-04"}
 
  ;; 2016
- {:uri "/blog/you-probably-dont-need-for-loops"
-  :title "You probably don't need for loops"
+
+ "/blog/you-probably-dont-need-for-loops"
+ {:title "You probably don't need for loops"
   :description "You probably don't need for loops"
   :section :blog
   :template :blog-page
@@ -382,8 +431,9 @@
   :tags [:python]
   :publish-date #inst "2016-11-17"
   :update-date #inst "2016-11-17"}
- {:uri "/blog/twitter-scraper-2"
-  :title "Twitter scraper tutorial with Python: Requests, BeautifulSoup, and Selenium - Part 2"
+
+ "/blog/twitter-scraper-2"
+ {:title "Twitter scraper tutorial with Python: Requests, BeautifulSoup, and Selenium - Part 2"
   :description "Twitter scraper tutorial with Python: Requests, BeautifulSoup, and Selenium - Part 2"
   :section :blog
   :template :blog-page
@@ -391,8 +441,9 @@
   :tags [:python]
   :publish-date #inst "2016-04-09"
   :update-date #inst "2016-04-09"}
- {:uri "/blog/twitter-scraper-1"
-  :title "Twitter scraper tutorial with Python: Requests, BeautifulSoup, and Selenium - Part 1"
+
+ "/blog/twitter-scraper-1"
+ {:title "Twitter scraper tutorial with Python: Requests, BeautifulSoup, and Selenium - Part 1"
   :description "Twitter scraper tutorial with Python: Requests, BeautifulSoup, and Selenium - Part 1"
   :section :blog
   :template :blog-page
@@ -400,8 +451,9 @@
   :tags [:python]
   :publish-date #inst "2016-03-26"
   :update-date #inst "2016-03-26"}
- {:uri "/blog/truth-testing"
-  :title "Python Truth Value Testing is Awesome"
+
+ "/blog/truth-testing"
+ {:title "Python Truth Value Testing is Awesome"
   :description "Python Truth Value Testing is Awesome"
   :section :blog
   :template :blog-page
@@ -409,8 +461,9 @@
   :tags [:python]
   :publish-date #inst "2016-02-25"
   :update-date #inst "2016-02-25"}
- {:uri "/blog/first-hackathon"
-  :title "Completed my first hackathon!"
+
+ "/blog/first-hackathon"
+ {:title "Completed my first hackathon!"
   :description "Completed my first hackathon!"
   :section :blog
   :template :blog-page
@@ -418,8 +471,9 @@
   :tags []
   :publish-date #inst "2016-03-10"
   :update-date #inst "2016-03-10"}
- {:uri "/blog/practical-boolean-operators"
-  :title "Practical Uses of Python AND and OR Boolean Operators"
+
+ "/blog/practical-boolean-operators"
+ {:title "Practical Uses of Python AND and OR Boolean Operators"
   :description "Practical Uses of Python AND and OR Boolean Operators"
   :section :blog
   :template :blog-page
@@ -427,8 +481,9 @@
   :tags [:python]
   :publish-date #inst "2016-03-02"
   :update-date #inst "2016-03-02"}
- {:uri "/blog/flask-for-new-dev"
-  :title "Flask for New Web Developer"
+
+ "/blog/flask-for-new-dev"
+ {:title "Flask for New Web Developer"
   :description "Flask for New Web Developer"
   :section :blog
   :template :blog-page
@@ -436,8 +491,9 @@
   :tags [:python]
   :publish-date #inst "2016-02-18"
   :update-date #inst "2016-02-18"}
- {:uri "/blog/pyglet-game-under-30-mins"
-  :title "First Game Programming Experience with Python and Pyglet under 30 Minutes"
+
+ "/blog/pyglet-game-under-30-mins"
+ {:title "First Game Programming Experience with Python and Pyglet under 30 Minutes"
   :description "First Game Programming Experience with Python and Pyglet under 30 Minutes"
   :section :blog
   :template :blog-page
@@ -445,12 +501,14 @@
   :tags [:python]
   :publish-date #inst "2016-01-27"
   :update-date #inst "2016-01-27"}
- {:uri "/blog/wake-up-2-hrs-earlier"
-  :title "How I wake up 2 hours earlier every day and become happier"
+
+ "/blog/wake-up-2-hrs-earlier"
+ {:title "How I wake up 2 hours earlier every day and become happier"
   :description "How I wake up 2 hours earlier every day and become happier"
   :section :blog
   :template :blog-page
   :source "content/blog/2016-01-27-wake-up-2-hrs-earlier.md"
   :tags [:life]
   :publish-date #inst "2016-01-27"
-  :update-date #inst "2016-01-27"}]
+  :update-date #inst "2016-01-27"}
+ }
