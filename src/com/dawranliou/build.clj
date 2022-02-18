@@ -14,7 +14,7 @@
 (def target-dir "public")
 (def static-dir "static")
 
-(def config
+(def site-config
   {:site/title "Daw-Ran Liou"
    :site/description "Hi there, my name is Daw-Ran. This is my personal website, where I share my writings and other public information about myself."
    :site/base-url "https://dawranliou.com"
@@ -57,6 +57,10 @@
 (defn page [h]
   (hiccup/html {:mode :html} "<!DOCTYPE html>" h))
 
+(defn spit-file-ensure-parent [dest-file string]
+  (io/make-parents dest-file)
+  (spit dest-file string))
+
 (defn -main [& _args]
   (println (format "Ensure directory exists: %s" target-dir))
   (when-not (fs/exists? target-dir)
@@ -73,11 +77,11 @@
                                        (str/replace uri #"^/" "")
                                        "index.html"))]]
     (println (format "%s -> %s" source (str dest)))
-    (io/make-parents dest)
-    (->> (cond-> (assoc context :html (source->html source))
+    (->> (cond-> (merge site-config context)
+           true (assoc :html (source->html source))
            section-key (assoc :section-data (section-tree uri)))
          (template/hiccup template)
          page
-         (spit dest))))
+         (spit-file-ensure-parent dest))))
 
 #_ (-main)
