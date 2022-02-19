@@ -61,6 +61,11 @@
   [context]
   [:footer [:p "© 2016 - 2021 Daw-Ran Liou"]])
 
+(defmacro main-content
+  [& body]
+  `[:main {:id "main-content"}
+    ~@body])
+
 (defn page
   [{:keys [html]
     :as context}]
@@ -68,7 +73,7 @@
    (head context)
    [:body
     (nav context)
-    html
+    (main-content html)
     [:hr]
     (footer context)]])
 
@@ -87,8 +92,9 @@
    (head context)
    [:body
     (nav context)
-    [:h1 title]
-    html
+    (main-content
+     [:h1 title]
+     html)
     cc
     [:hr]
     (footer context)]])
@@ -117,11 +123,12 @@
    (head context)
    [:body
     (nav context)
-    html
-    [:main.gallery
-     (for [[date alt-text src] gallery]
-       [:img {:src src
-              :alt (format "%s (%s)" alt-text date)}])]
+    (main-content
+     html
+     [:div.gallery
+      (for [[date alt-text src] gallery]
+        [:img {:src src
+               :alt (format "%s (%s)" alt-text date)}])])
     [:hr]
     (footer context)]])
 
@@ -132,10 +139,11 @@
    (head context)
    [:body
     (nav context)
-    html
-    [:ul
-     (for [{:keys [uri title]} (sort-by :published #(compare %2 %1) list-data)]
-       [:li [:a {:href uri} title]])]
+    (main-content
+     html
+     [:ul
+      (for [{:keys [uri title]} (sort-by :published #(compare %2 %1) list-data)]
+        [:li [:a {:href uri} title]])])
     [:hr]
     (footer context)]])
 
@@ -146,21 +154,22 @@
    (head context)
    [:body
     (nav context)
-    html
-    (when list-data
-      (let [year-groups (->> list-data
-                             (map (fn [{:keys [uri published] :as data}]
-                                    (assoc data
-                                           :uri uri
-                                           :year (+ 1900 (.getYear published)))))
-                             (group-by :year))]
-        (for [[year year-group] (sort-by first > year-groups)]
-          [:section
-           [:h2 year]
-           [:ul
-            (for [{:keys [uri title]}
-                  (sort-by :published #(compare %2 %1) year-group)]
-              [:li [:a {:href uri} title]])]])))
+    (main-content
+     html
+     (when list-data
+       (let [year-groups (->> list-data
+                              (map (fn [{:keys [uri published] :as data}]
+                                     (assoc data
+                                            :uri uri
+                                            :year (+ 1900 (.getYear published)))))
+                              (group-by :year))]
+         (for [[year year-group] (sort-by first > year-groups)]
+           [:section
+            [:h2 year]
+            [:ul
+             (for [{:keys [uri title]}
+                   (sort-by :published #(compare %2 %1) year-group)]
+               [:li [:a {:href uri} title]])]]))))
     [:hr]
     (footer context)]])
 
