@@ -28,7 +28,7 @@
  {:title "Blog | Daw-Ran Liou"
   :description "My personal blog.  Here you can find all of my writings in chronological order."
   :section :blog
-  :section-key :blog
+  :index :blog
   :template :blog-list
   :source "content/blog/index.md"}
 

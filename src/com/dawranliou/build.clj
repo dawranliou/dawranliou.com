@@ -32,7 +32,7 @@
 
 (def section-map
   (->> site-data
-       (remove :section-key)
+       (remove :index)
        (group-by :section)))
 
 (defn md-file->html
@@ -108,14 +108,14 @@
          (spit-file-ensure-parent (fs/file (fs/path target-dir "tags/clojure/atom.xml")))))
 
   (println "Build markdown contents")
-  (doseq [{:keys [uri source template section-key] :as context} site-data
+  (doseq [{:keys [uri source template index] :as context} site-data
           :let [dest (fs/file (fs/path target-dir
                                        (str/replace uri #"^/" "")
                                        "index.html"))]]
     (println (format "%s -> %s" source (str dest)))
     (->> (cond-> (merge site-config context)
            true (assoc :html (source->html source))
-           section-key (assoc :section-data (section-map section-key)))
+           index (assoc :section-data (section-map index)))
          (template/hiccup template)
          page
          (spit-file-ensure-parent dest))))
