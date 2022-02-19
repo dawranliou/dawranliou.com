@@ -55,6 +55,15 @@ a:hover {
     border-bottom: thin solid var(--color-link);
 }
 
+.skip-nav-link {
+    position: absolute;
+    transform: translateY(-260%);
+}
+
+.skip-nav-link:focus {
+    transform: translateY(-100%);
+}
+
 nav {
     display: flex;
     flex-wrap: wrap;

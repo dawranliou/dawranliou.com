@@ -34,28 +34,31 @@
 
 (defn nav
   [{:keys [section] :as context}]
-  [:nav
-   [:a {:class (when (= section :home) "current")
-        :href "/"
-        :title "Home"}
-    "Home"]
-   [:a {:class (when (= section :about) "current")
-        :href "/about/"
-        :title "Blog"}
-    "About"]
-   [:a {:class (when (= section :blog) "current")
-        :href "/blog/"
-        :title "Blog"}
-    "Blog"]
-   [:a {:class (when (= section :gallery) "current")
-        :href "/gallery/"
-        :title "Gallery"}
-    "Gallery"]
-   [:a {:class (when (= section :contact) "current")
-        :href "/contact/"
-        :title "Contact"}
-    "Contact"]
-   [:a {:href "/atom.xml", :title "Atom"} "Atom"]])
+  [:header
+   [:a {:href "#main-content"
+        :class "skip-nav-link"} "Skip Navigation"]
+   [:nav
+    [:a {:class (when (= section :home) "current")
+         :href "/"
+         :title "Home"}
+     "Home"]
+    [:a {:class (when (= section :about) "current")
+         :href "/about/"
+         :title "Blog"}
+     "About"]
+    [:a {:class (when (= section :blog) "current")
+         :href "/blog/"
+         :title "Blog"}
+     "Blog"]
+    [:a {:class (when (= section :gallery) "current")
+         :href "/gallery/"
+         :title "Gallery"}
+     "Gallery"]
+    [:a {:class (when (= section :contact) "current")
+         :href "/contact/"
+         :title "Contact"}
+     "Contact"]
+    [:a {:href "/atom.xml", :title "Atom"} "Atom"]]])
 
 (defn footer
   [context]
