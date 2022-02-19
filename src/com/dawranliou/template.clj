@@ -117,7 +117,6 @@
    (head context)
    [:body
     (nav context)
-    [:ul]
     html
     [:main.gallery
      (for [[date alt-text src] gallery]
