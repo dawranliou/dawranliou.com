@@ -127,15 +127,29 @@
     (footer context)]])
 
 (defn list
-  [{:keys [html section-data]
+  [{:keys [html list-data]
     :as context}]
   [:html {:lang "en"}
    (head context)
    [:body
     (nav context)
     html
-    (when section-data
-      (let [year-groups (->> section-data
+    [:ul
+     (for [{:keys [uri title]} (sort-by :published #(compare %2 %1) list-data)]
+       [:li [:a {:href uri} title]])]
+    [:hr]
+    (footer context)]])
+
+(defn blog-list
+  [{:keys [html list-data]
+    :as context}]
+  [:html {:lang "en"}
+   (head context)
+   [:body
+    (nav context)
+    html
+    (when list-data
+      (let [year-groups (->> list-data
                              (map (fn [{:keys [uri published] :as data}]
                                     (assoc data
                                            :uri uri
@@ -152,11 +166,15 @@
     (footer context)]])
 
 (def name->template
-  {:blog-page #'blog-page
-   :gallery #'gallery-page
+  {;; generic templates
+   :list #'list
+   :page #'page
+   ;; specific templates
    :home #'page
-   :blog-list #'list
-   :page #'page})
+   :gallery #'gallery-page
+   ;; blog templates
+   :blog-list #'blog-list
+   :blog-page #'blog-page})
 
 (defn hiccup
   [template-name context]

@@ -39,6 +39,24 @@
   :template :page
   :source "content/contact.md"}
 
+ ;; /tags pages
+
+ "/tags/emacs"
+ {:title "Emacs | Daw-Ran Liou"
+  :description "All the articles tagged with #emacs"
+  :section :blog
+  :index :emacs
+  :template :list
+  :source "content/tags/emacs.md"}
+
+ "/tags/clojure"
+ {:title "Blog | Daw-Ran Liou"
+  :description "All the articles tagged with #clojure"
+  :section :blog
+  :index :clojure
+  :template :list
+  :source "content/tags/clojure.md"}
+
  ;; /blog pages
 
  ;; 2022

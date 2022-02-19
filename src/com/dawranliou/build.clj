@@ -30,10 +30,22 @@
         (map (fn [[uri data]] (assoc data :uri uri)))
         site-map))
 
+(def non-index-pages
+  (into [] (remove :index) site-data))
+
 (def section-map
-  (->> site-data
-       (remove :index)
-       (group-by :section)))
+  (group-by :section non-index-pages))
+
+(def taxonomy
+  #{:emacs :clojure})
+
+(def taxonomy-map
+  (into {}
+        (map (fn [k]
+               [k (into []
+                        (filter (comp k :tags))
+                        non-index-pages)]))
+        taxonomy))
 
 (defn md-file->html
   [path]
@@ -115,7 +127,9 @@
     (println (format "%s -> %s" source (str dest)))
     (->> (cond-> (merge site-config context)
            true (assoc :html (source->html source))
-           index (assoc :section-data (section-map index)))
+           index (assoc :list-data (case index
+                                     (:clojure :emacs) (taxonomy-map index)
+                                     :blog (section-map index))))
          (template/hiccup template)
          page
          (spit-file-ensure-parent dest))))
