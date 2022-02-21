@@ -130,6 +130,10 @@ img {
     max-width: 100%;
 }
 
+.tags > * + * {
+    margin-left: var(--space-1);
+}
+
 .gallery {
     display: flex;
     flex-wrap: wrap;

@@ -89,7 +89,7 @@
    "."])
 
 (defn blog-page
-  [{:keys [title html]
+  [{:keys [title html tags]
     :as context}]
   [:html {:lang "en"}
    (head context)
@@ -97,6 +97,13 @@
     (nav context)
     (main-content
      [:h1 title]
+     (when (seq tags)
+       [:div.tags
+        (for [tag tags
+              :let [tag-name (name tag)]
+              :when (#{:clojure :emacs} tag)]
+          [:a {:href (str "/tags/" tag-name)}
+           (str "#" tag-name)])])
      html)
     cc
     [:hr]
@@ -160,19 +167,25 @@
     (main-content
      html
      (when list-data
-       (let [year-groups (->> list-data
-                              (map (fn [{:keys [uri published] :as data}]
-                                     (assoc data
-                                            :uri uri
-                                            :year (+ 1900 (.getYear published)))))
-                              (group-by :year))]
+       (let [year-groups
+             (->> list-data
+                  (map (fn [{:keys [uri published] :as data}]
+                         (assoc data
+                                :uri uri
+                                :year (+ 1900 (.getYear published)))))
+                  (group-by :year))]
          (for [[year year-group] (sort-by first > year-groups)]
            [:section
             [:h2 year]
             [:ul
              (for [{:keys [uri title]}
                    (sort-by :published #(compare %2 %1) year-group)]
-               [:li [:a {:href uri} title]])]]))))
+               [:li [:a {:href uri} title]])]])))
+     [:section
+      [:h2 "Tags"]
+      [:ul
+       [:li [:a {:href "/tags/clojure"} "#clojure"]]
+       [:li [:a {:href "/tags/emacs"} "#emacs"]]]])
     [:hr]
     (footer context)]])
 
