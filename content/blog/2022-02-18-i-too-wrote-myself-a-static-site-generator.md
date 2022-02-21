@@ -1,3 +1,5 @@
+You can view the source code [here][6].
+
 ## Story
 
 My history of playing with static site generator starts with Jekyll, Pelican,
@@ -58,3 +60,4 @@ As the time of writing, my code count is around:
 [3]: https://getzola.org
 [4]: https://blog.hamaluik.ca/posts/build-your-own-static-site-generator/
 [5]: https://validator.w3.org/feed/check.cgi
+[6]: https://github.com/dawranliou/dawranliou.com
