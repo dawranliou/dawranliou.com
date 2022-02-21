@@ -191,7 +191,7 @@
   :published #inst "2021-03-18"
   :updated #inst "2021-03-18"}
 
- "/blog/clojure-higher-order-functions-explained-"
+ "/blog/clojure-higher-order-functions-explained"
  {:title "Clojure higher-order functions explained: index"
   :description "Clojure higher-order functions explained: index"
   :section :blog
