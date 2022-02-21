@@ -4,10 +4,10 @@
             [clojure.data.xml :as xml]
             [clojure.edn :as edn]
             [clojure.java.io :as io]
+            [clojure.java.shell :refer [sh]]
             [clojure.string :as str]
             [com.dawranliou.template :as template]
-            [hiccup.core :as hiccup]
-            [markdown.core :as markdown])
+            [hiccup.core :as hiccup])
   (:import [java.io PushbackReader]))
 
 (def content-source-dir "content")
@@ -49,16 +49,7 @@
 
 (defn md-file->html
   [path]
-  (let [markdown (-> path
-                     fs/file
-                     slurp
-                     ;; allow links with markup over multiple lines
-                     (str/replace #"\[[^\]]+\n"
-                                  (fn [match]
-                                    (str/replace match "\n" " ")))
-                     (markdown/md-to-html-string :heading-anchors true
-                                                 :reference-links? true
-                                                 :footnotes? true))]
+  (let [markdown (:out (sh "./bin/pandoc" (str path)))]
     [(str path) markdown]))
 
 (def source->html

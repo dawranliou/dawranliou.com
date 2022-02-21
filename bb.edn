@@ -1,5 +1,4 @@
-{:deps {markdown-clj/markdown-clj {:mvn/version "1.10.7"}}
- :paths ["src"]
+{:paths ["src"]
  :tasks
  {clean {:doc "Deletes the build targets"
          :requires ([babashka.fs :as fs])
