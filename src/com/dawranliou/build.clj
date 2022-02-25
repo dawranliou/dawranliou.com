@@ -56,7 +56,7 @@
   "A map from source path to parsed html string"
   (into {}
         (map md-file->html)
-        (fs/glob "content" "**.md")))
+        (fs/glob "content" "**.{md,org}")))
 
 (defn page [h]
   (hiccup/html {:mode :html} "<!DOCTYPE html>" h))
