@@ -1,0 +1,194 @@
+# Message:
+# Information:
+# - Emacs is very dynamic. Changing things on-the-fly while the program is running
+#   is natural to do.
+# - aspect oriented programming + dynamic scoping is great in Emacs for modifying
+#   functionality
+# - AOP fits really well in Emacs
+# - The solution and explanation
+# Intention:
+# - Help Clojure adoption for people already using eglot
+# - Document the problem and solution so I don't have to face this again
+# Reader
+# - Rapport
+# - Order
+
+** Abstract
+
+The advice system and dynamic scoping are two powerful facilities in Emacs.  In
+this article, I'll show you how to use them to tweak Emacs' behaviors and facts
+to workaround the =eglot= package while setting up =clojure-lsp= for a monorepo.
+
+** Background
+
+In Emacs, there are two popular LSP clients: [[https://emacs-lsp.github.io/lsp-mode/][=lsp-mode=]] and [[https://github.com/joaotavora/eglot][=eglot=]].  Although
+[[https://github.com/joaotavora/eglot#historical-differences-to-lsp-modeel][historically, there were more noticeable differences between the two packages]] in
+terms of their usage and their UI, these days, I'm pretty happy with both of
+them.  I can achieve pretty minimal UI in =lsp-mode= (as =eglot= always is 🙂)
+by tweaking several custom settings, and both work well with built-in packages,
+which I've grown accustomed to over the years.
+
+Over the past few years of using Emacs, I started to prefer the class of
+packages that work very closely with the Emacs' built-in facilities instead of
+inventing their isolated world[fn:1].  Such packages provide a narrow focus that
+enhances a specific part of Emacs.  I love this class of packages because I can
+simply reject a dependency if it's not essential to my workflow.  Therefore, I
+decided to hop back from =lsp-mode= to =eglot= for its simplicity.
+
+Because of =clojure-lsp='s limitation on discovering source code ([[https://github.com/clojure-lsp/clojure-lsp/issues/191][issue #191]] and
+[[https://github.com/clojure-lsp/clojure-lsp/issues/551][issue #551]]) with the [[https://github.com/amperity/lein-monolith][=lein-monolith=]] setup and my needs at work, I didn't change
+the =:project-paths= setting as others did (e.g., [[https://github.com/clojure-lsp/clojure-lsp/issues/191#issuecomment-918373230][this comment]] and [[https://gist.github.com/bendlas/4a2a98b1cbe1d1efa8a7ef6850934e13][this gist]]).
+Instead, I run a different =clojure-lsp= server session for each sub-project.
+In =lsp-mode=, this can be done by customizing the project root the first time
+launching the =clojure-lsp=.  Next, I'll show you the issue I faced using
+=eglot= and how to teach it (or /advise/ it 😉) to work around it.
+
+** Problem
+
+When =eglot= starts the =clojure-lsp= server, it infers[fn:2] the project root
+by utilizing the =project.el= built-in package.  Out of the box, Emacs consider
+the project root to be the current version-controlled root directory.  If you
+are using =git=, the project root is the parent folder of the =.git/= folder.
+While this inference is correct most of the time, I want this to be different
+for my monorepo project at work, which has the directory structure like this:
+
+#+begin_src
+  root/
+    |--- .git/
+    |--- projects.clj
+    |--- project-a/
+    |      |--- projects.clj
+    |      |--- src/
+    |--- project-b/
+    |      |--- projects.clj
+    |      |--- src/
+    .
+    .
+    .
+    |--- project-n
+           |--- projects.clj
+           |--- src/
+#+end_src
+
+The =root/= is the root of our monorepo, which uses the =projects.clj= file and
+=lein-monolith= to tie all of its sub-projects together.  All sub-projects are
+version-controlled together under =root/=.  The =root/= project itself does not
+contain any source code, whereas the sub-projects do.
+
+With this setup, editing any source file in any sub-project will connect to the
+=clojure-lsp= server session at =root= by default.  The question is: how to
+tweak =eglot= to use the sub-project root as the =clojure-lsp= server session?
+
+** Solution
+
+I came up with this solution that ensures the =eglot-ensure= function will try
+to locate the =clojure-project-dir= as the project root when launching an LSP
+session.  If =clojure-project-dir= isn't found, it falls back to using the
+version-control root to launch the LSP server.
+
+#+begin_src clojure
+  ;; My personal settings that you might not require
+  ;;(add-hook 'clojure-mode-hook 'eglot-ensure)
+  ;;(custom-set-variables '(eglot-connect-timeout 300))
+
+  (defun project-try-clojure-project (dir)
+    "Try to locate a Clojure project."
+    (when-let ((found (clojure-project-dir)))
+      (cons 'transient found)))
+
+  (defun find-clojure-project-advice (orig-fun &rest args)
+    "Fix project-root for the clojure monorepo setup."
+    (let ((project-find-functions
+           (add-to-list 'project-find-functions #'project-try-clojure-project)))
+      (apply orig-fun args)))
+
+  (advice-add 'eglot-ensure :around #'find-clojure-project-advice)
+#+end_src
+
+But how does this work?
+
+** Teaching Emacs new tricks by giving it dynamic advices
+
+[[https://en.wikipedia.org/wiki/Aspect-oriented_programming][Aspect-Oriented Programming]] page on Wikipedia:
+
+#+begin_quote
+In computing, aspect-oriented programming (AOP) is a programming paradigm that
+aims to increase modularity by allowing the separation of cross-cutting
+concerns. It does so by *adding additional behavior to existing code (an advice)
+without modifying the code itself*, instead separately specifying which code is
+modified via a "pointcut" specification, such as "log all function calls when
+the function's name begins with 'set'".
+#+end_quote
+
+I only learned the concept of AOP because of Emacs.  It fits surprisingly well
+for a plug-in system in programs like Emacs.  The users of Emacs are empowered
+to enrich their experience with third-party packages and are empowered to hack
+the behaviors (functions) of any package from afar through [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Advising-Functions.html][the advice system]]
+without touching the source code of those packages.
+
+Not only are the behaviors hackable, but the facts (variables) are also
+modifiable thanks to [[https://www.emacswiki.org/emacs/DynamicScoping][Dynamic Scoping]].  Dynamic Scoping gives the Emacs users the
+power to change variable bindings with a dynamic extend.
+
+#+begin_src clojure
+  (defun project-try-clojure-project (dir)
+    "Try to locate a Clojure project."
+    (when-let ((found (clojure-project-dir)))
+      (cons 'transient found)))
+#+end_src
+
+Here we define a backend for the =project-find-functions=.  If a
+=clojure-project-dir= is found, =project-try-clojure-project= returns the tuple
+=(transient . <PROJECT DIR PATH STRING>)=, otherwise =nil=.  This function's
+signature will satisfy as an element in the =project-find-functions=.  However,
+we don't want to change the behavior across the board.  We want to limit the
+scope of the modified =project-find-functions= variable.  So we use a
+let-binding to change the dynamic scope:
+
+#+begin_src clojure
+  (defun find-clojure-project-advice (orig-fun &rest args)
+    "Fix project-root for the clojure monorepo setup."
+    (let ((project-find-functions
+           (add-to-list 'project-find-functions #'project-try-clojure-project)))
+      (apply orig-fun args)))
+#+end_src
+
+The =find-clojure-project-advice= function binds the =project-find-functions=
+variable with the =project-try-clojure-project= function as the first element in
+the list.  This binding only exists to the extent of this function call.
+Therefore, invoking =project-current= function under other contexts will not be
+affected.
+
+#+begin_src clojure
+  (advice-add 'eglot-ensure :around #'find-clojure-project-advice)
+#+end_src
+
+Lastly, we use the =add-advice= to advise the =eglot-ensure= function to invoke
+the =find-clojure-project-advice=.  The =:around= keyword denotes that we want
+to compose the advising function (=find-clojure-project-advice=) around the
+advised function (=eglot-ensure=) so the let-binding can enter the dynamic
+scope of =eglot-ensure=.
+
+** Conclusion
+
+To recap, this article:
+
+- Provides an alternative way of setting up =clojure-lsp= with the =eglot= LSP
+  client when working with a monorepo,
+- Demonstrates how to use Aspect-Oriented Programming and Dynamic Scoping in
+  Emacs.
+
+Without modifying any source code of Emacs or its packages, we can change the
+behavior (the =eglot-ensure= function) and the fact (the
+=project-find-functions= variable) to satisfy a specific use case while keeping
+other parts of Emacs intact.  I think this is a great example to showcase why
+Emacs is so powerful and valuable to its users.
+
+** Footnotes
+
+[fn:1] This philosophy plays well with my favorite programming language,
+Clojure.  The community has learned to work together by creating single-purpose
+libraries that strongly prefer to use Clojure data as the universal language.
+
+[fn:2] =eglot--guess-contact= is the internal function that makes this
+inference.

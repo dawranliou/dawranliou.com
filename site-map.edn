@@ -60,6 +60,16 @@
  ;; /blog pages
 
  ;; 2022
+ "/blog/advise-eglot-to-support-clojure-monorepo-setup"
+ {:title "Advise Eglot to Support Clojure Monorepo Setup"
+  :description "How to configure eglot to enable clojure-lsp for your Clojure monorepo"
+  :section :blog
+  :template :blog-page
+  :source "content/blog/advise-eglot-to-support-clojure-monorepo-setup.org"
+  :tags #{:clojure :emacs}
+  :published #inst "2022-02-27"
+  :updated #inst "2022-02-27"}
+
  "/blog/i-too-wrote-myself-a-static-site-generator"
  {:title "I, too, Wrote Myself a Static Site Generator"
   :description "I, too, Wrote Myself a Static Site Generator"
