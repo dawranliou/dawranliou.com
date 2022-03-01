@@ -13,7 +13,7 @@ After reading [Dominic][1]'s [I wrote myself a static site generator][2] and
 decided to follow suit.
 
 It took several tries to get to my ideal level of complexity.  Initially I was
-really annoyed by how impative the main function was, and so I rewrote the logic
+really annoyed by how imparative the main function was, and so I rewrote the logic
 into a desciptive `build-plan`, a series of descriptive steps each with a
 `:build/op` keyword, such as `:ensure-folder`, `:copy-dir`, or `:page`.  My main
 function becomes a `doseq` on the `build-plan` that will dispatch on the
@@ -43,6 +43,7 @@ it with a `str/replace-first` function.[^3] 🤷 (Also, did I mention that I use
 With Dominic's `build.sh` script, I was able to deploy my site on Netlify 🎉
 
 As the time of writing, my code count is around:
+
 - ~180 lines for all hiccup templates
 - ~110 lines for parsing and generating the site
 - And... ~500 lines of site-map.edn
