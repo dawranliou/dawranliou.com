@@ -68,7 +68,7 @@
   :source "content/blog/advise-eglot-to-support-clojure-monorepo-setup.org"
   :tags #{:clojure :emacs}
   :published #inst "2022-02-27"
-  :updated #inst "2022-02-27"}
+  :updated #inst "2022-03-02"}
 
  "/blog/i-too-wrote-myself-a-static-site-generator"
  {:title "I, too, Wrote Myself a Static Site Generator"

@@ -99,7 +99,7 @@ version-control root to launch the LSP server.
   (defun find-clojure-project-advice (orig-fun &rest args)
     "Fix project-root for the clojure monorepo setup."
     (let ((project-find-functions
-           (add-to-list 'project-find-functions #'project-try-clojure-project)))
+           (cons 'project-try-clojure-project project-find-functions)))
       (apply orig-fun args)))
 
   (advice-add 'eglot-ensure :around #'find-clojure-project-advice)
@@ -149,7 +149,7 @@ let-binding to change the dynamic scope:
   (defun find-clojure-project-advice (orig-fun &rest args)
     "Fix project-root for the clojure monorepo setup."
     (let ((project-find-functions
-           (add-to-list 'project-find-functions #'project-try-clojure-project)))
+           (cons 'project-try-clojure-project project-find-functions)))
       (apply orig-fun args)))
 #+end_src
 
