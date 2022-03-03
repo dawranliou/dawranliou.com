@@ -60,5 +60,5 @@ As the time of writing, my code count is around:
 [2]: https://freeston.me/posts/2021-11-29-new-site-generator/
 [3]: https://getzola.org
 [4]: https://blog.hamaluik.ca/posts/build-your-own-static-site-generator/
-[5]: https://validator.w3.org/feed/check.cgi
+[5]: https://validator.w3.org/feed/
 [6]: https://github.com/dawranliou/dawranliou.com
