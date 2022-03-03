@@ -1,6 +1,5 @@
 (ns com.dawranliou.build
   (:require [babashka.fs :as fs]
-            [cheshire.core :as json]
             [clojure.data.xml :as xml]
             [clojure.edn :as edn]
             [clojure.java.io :as io]
@@ -73,8 +72,10 @@
   (io/make-parents dest-file)
   (spit dest-file string))
 
-(defn date-to-rfc-3339-str [date]
-  (str/replace (json/generate-string date) #"\"" ""))
+(defn iso-instant-str [date]
+  (.format
+   (OffsetDateTime/ofInstant (.toInstant date) ZoneOffset/UTC)
+   DateTimeFormatter/ISO_INSTANT))
 
 (def blog-date-formatter
   (DateTimeFormatter/ofPattern "yyyy-MM-dd"))
@@ -97,14 +98,14 @@
                           (map :updated)
                           (remove nil?)
                           (apply max-key #(.getTime %))
-                          date-to-rfc-3339-str)
+                          iso-instant-str)
         site-config* (assoc site-config :site/updated site-updated)
         posts (->> (section-map :blog)
                    (into [] (map (fn [{:keys [source updated published] :as context}]
                                    (assoc context
                                           :html (source->html source)
-                                          :published-str (date-to-rfc-3339-str published)
-                                          :updated-str (date-to-rfc-3339-str updated))))))]
+                                          :published-str (iso-instant-str published)
+                                          :updated-str (iso-instant-str updated))))))]
     (->> posts
          (template/feed site-config*)
          rss-str
