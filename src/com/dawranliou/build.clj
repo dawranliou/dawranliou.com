@@ -8,7 +8,9 @@
             [clojure.string :as str]
             [com.dawranliou.template :as template]
             [hiccup.core :as hiccup])
-  (:import [java.io PushbackReader]))
+  (:import [java.io PushbackReader]
+           [java.time OffsetDateTime ZoneOffset]
+           [java.time.format DateTimeFormatter]))
 
 (def content-source-dir "content")
 (def target-dir "public")
@@ -74,6 +76,14 @@
 (defn date-to-rfc-3339-str [date]
   (str/replace (json/generate-string date) #"\"" ""))
 
+(def blog-date-formatter
+  (DateTimeFormatter/ofPattern "yyyy-MM-dd"))
+
+(defn blog-date-str [date]
+  (.format
+   (OffsetDateTime/ofInstant (.toInstant date) ZoneOffset/UTC)
+   blog-date-formatter))
+
 (defn -main [& _args]
   (println (format "Ensure directory exists: %s" target-dir))
   (when-not (fs/exists? target-dir)
@@ -111,13 +121,15 @@
          (spit-file-ensure-parent (fs/file (fs/path target-dir "tags/clojure/atom.xml")))))
 
   (println "Build markdown contents")
-  (doseq [{:keys [uri source template index] :as context} site-data
+  (doseq [{:keys [uri source template index published updated] :as context} site-data
           :let [dest (fs/file (fs/path target-dir
                                        (str/replace uri #"^/" "")
                                        "index.html"))]]
     (println (format "%s -> %s" source (str dest)))
     (->> (cond-> (merge site-config context)
            true (assoc :html (source->html source))
+           published (assoc :published-str (blog-date-str published))
+           updated (assoc :updated-str (blog-date-str updated))
            index (assoc :list-data (case index
                                      (:clojure :emacs) (taxonomy-map index)
                                      :blog (section-map index))))

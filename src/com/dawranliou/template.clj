@@ -89,7 +89,7 @@
    "."])
 
 (defn blog-page
-  [{:keys [title html tags]
+  [{:keys [title html tags published-str updated-str]
     :as context}]
   [:html {:lang "en"}
    (head context)
@@ -97,6 +97,11 @@
     (nav context)
     (main-content
      [:h1 title]
+     (when published-str
+       [:p
+        (str "Published: " published-str)
+        (when (and updated-str (not= updated-str published-str))
+          [:em " (last updated: " updated-str ")"])])
      (when (seq tags)
        [:div.tags
         (for [tag tags
