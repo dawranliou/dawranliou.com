@@ -48,9 +48,15 @@
                         non-index-pages)]))
         taxonomy))
 
+(def pandoc-path
+  (let [{:keys [exit out]} (sh "which" "pandoc")]
+    (if (zero? exit)
+      (str/trim out)
+      "./bin/pandoc")))
+
 (defn md-file->html
   [path]
-  (let [markdown (:out (sh "./bin/pandoc" (str path)))]
+  (let [markdown (:out (sh pandoc-path (str path)))]
     [(str path) markdown]))
 
 (def source->html
