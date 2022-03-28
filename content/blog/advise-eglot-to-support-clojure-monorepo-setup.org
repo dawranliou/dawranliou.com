@@ -13,6 +13,35 @@
 # - Rapport
 # - Order
 
+** /Updates 2022-03-28: A Better Solution/
+
+Since I published the original solution, I've found certain things were not
+working as I claimed.  There's a better solution, which is mentioned shortly in
+this section, without hacking Emacs lisp code.  Because my intent to write this
+article is less about giving you the solution but more about demonstrating a way
+to tweak Emacs' package to fit your own desires, I decided to keep its original
+content alive, with the hope that it would still be insightful to some of you.
+
+Here's the updated solution!  Since [[https://github.com/clojure-lsp/clojure-lsp/issues/752][clojure-lsp issue #752]], =clojure-lsp= uses the
+classpath to discover the source code to analyze.  The trick is to merge all the
+classpaths from the monorepo's sub-projects.  Conveniently, =lein-monolith=
+provides a way to [[https://github.com/amperity/lein-monolith#merged-source-profile][Merge Source Profile]].  Therefore we can invoke the command
+=lein monolith with-all classpath= instead.  Your =clojure-lsp= configuration file
+that goes to =<monorepo-root>/.lsp/config.edn= should look like this:
+
+#+begin_src clojure
+{:project-specs [{:project-path "project.clj"
+                  :classpath-cmd ["lein" "monolith" "with-all" "classpath"]}]}
+#+end_src
+
+Note that if you have a large monorepo, you might need to bump the
+=eglot-connect-timeout= to a larger number to let =clojure-lsp= finish analyzing all
+the source code.  I set my =eglot-connect-timeout= to =600= currently.
+
+-----
+
+/The following is the original content./
+
 ** Abstract
 
 The advice system and dynamic scoping are two powerful facilities in Emacs.  In
