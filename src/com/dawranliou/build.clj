@@ -56,7 +56,7 @@
 
 (defn md-file->html
   [path]
-  (let [markdown (:out (sh pandoc-path (str path)))]
+  (let [markdown (:out (sh pandoc-path "--no-highlight" (str path)))]
     [(str path) markdown]))
 
 (def source->html
