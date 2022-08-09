@@ -60,6 +60,16 @@
  ;; /blog pages
 
  ;; 2022
+ "/blog/vanilla-cljs"
+ {:title "Vanilla ClojureScript"
+  :description "What vanilla ClojureScript can do and cannot do"
+  :section :blog
+  :template :blog-page
+  :source "content/blog/vanilla-cljs.org"
+  :tags #{:clojure}
+  :published #inst "2022-08-09"
+  :updated #inst "2022-08-09"}
+
  "/blog/advise-eglot-to-support-clojure-monorepo-setup"
  {:title "Advise Eglot to Support Clojure Monorepo Setup"
   :description "How to configure eglot to enable clojure-lsp for your Clojure monorepo"
