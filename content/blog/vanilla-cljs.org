@@ -1,0 +1,551 @@
+#+TITLE: Vanilla ClojureScript
+#+AUTHOR: Daw-Ran Liou
+#+STARTUP: showall
+
+#+ATTR_HTML: :alt On-demand component re-rendering
+#+CAPTION: The vanilla ClojureScript app we'll be building throughout the article
+[[file:/images/vanilla-cljs-4.gif]]
+
+** Framework                                                       :noexport:
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+*** Message
+- CLJS seems very magical when I first started
+- CLJS tooling is very confusing.
+  - Why do we need various types of REPLs?
+    - Browser repl
+    - nREPL
+    - Node?
+  - What's nrepl/piggieback?
+  - shadow-cljs, lein-figwheel, figwheel-main?
+- Clarify the roles or CLJS compiler and its toolings
+**** Information
+- The role of CLJS the compiler + tooling
+- The role of CLJS tooling
+**** Intention
+- Help newcomers get into CLJS development
+- Help experienced JVM Clojure devs get into CLJS development
+*** Reader
+**** Rapport
+**** Order
+** Introduction
+
+When I started writing ClojureScript apps, I was introduced to many tooling that
+jointly contributed to this fantastic reloadable workflow that was unmatched by
+anything I knew. I had recently read several ClojureScript-specific questions
+from both Clojure newcomers and experienced JVM Clojure developers. It occurred
+to me that however impressive the ClojureScript + tooling experiences were, our
+ClojureScript community can benefit from some more clarity on what ClojureScript
+does vs. tooling.  [[https://twitter.com/thheller][@thheller]] already has [[https://code.thheller.com/blog/shadow-cljs/2019/03/01/what-shadow-cljs-is-and-isnt.html][an article focusing on what shadow-cljs
+is and isn't]].  I wrote this article to demonstrate the various things you can do
+with vanilla ClojureScript without addition toolings. My goals are:
+
+1. For newcomers, I hope this article clarifies what ClojureScript can do
+   without additional tooling and make your Clojure journey a bit less
+   overwhelming.
+2. For experienced JVM Clojure developers, I hope this article becomes a good
+   reference to ease your way into the ClojureScript ecosystem.
+
+My intention is not to dissuade you from using toolings like [[https://figwheel.org/][figwheel-main]],
+[[https://shadow-cljs.github.io/docs/UsersGuide.html][shadow-cljs]], or even [[https://cider.mx/][cider]] + [[https://nrepl.org/nrepl/index.html][nREPL]] + [[https://github.com/nrepl/piggieback][nrepl/piggieback]] combo.  Instead, I hope
+this article makes it even more clear to you why those additional tools are
+helpful in the first place.  Also, I hope to equip you with a mental model to
+help you deal with problems specific to your workflow.
+
+I realized that much of what I wanted to demonstrate was already covered by [[https://clojurescript.org/][the
+official ClojureScript site]].  For people want even more in-depth explanations,
+links to the relevant topics on the official ClojureScript site are included.
+
+Before diving into the topic, here's more about the ClojureScript REPL, or the
+many ClojureScript /REPLs/.  Feel free to [[Setup][skip the next section and jump into
+the project setup]].
+
+** ClojureScript REPL(s)
+
+From the [[https://docs.cider.mx/cider/cljs/overview.html][Cider documentation]]:
+
+#+begin_quote
+Unlike the Clojure ecosystem that is dominated by a single REPL, the
+ClojureScript ecosystem has a number of different choices for REPLs
+(e.g. =browser=, =node=, =weasel=, =figwheel= and =shadow-cljs=).  You’ll have
+to decide which one you want to run and how you want CIDER to interact with it.
+#+end_quote
+
+It was a bit confusing when I first read this.  Isn't REPL *the thing*?  What's
+going on with all the different REPLs listed?
+
+What I didn't understand was that *REPL is the application*, the runtime, or the
+service.  Just like you can develop applications on different platform/runtime -
+browser applications, nodejs applications, or webworker applications - the REPLs
+also comes in different flavours.
+
+For the rest of this article, we'll be focusing on the browser applications,
+which is the default[fn:1].  The nodejs ClojureScript REPL is available
+too[fn:2] (but *NOT* nREPL[fn:3]).
+
+FYI, you don't have to use the REPL in ClojureScript if you prefer the less
+interactive approach to compile and reload the static files in the browser.  I'm
+very into the REPL workflow so please expect to see a lot of REPL interactions
+throughout this article.
+
+To learn more about various ClojureScript REPLs, [[https://lambdaisland.com/guides/clojure-repls/clojurescript-repls][go checkout Lambda Island's
+article "ClojureScript REPLs"]].
+
+#+ATTR_HTML: :alt A screenshot of our p5.js sketch application
+#+ATTR_HTML: :width 100 :height 100
+[[file:/images/vanilla-cljs-sketch.png]]
+
+[fn:1] You can check the =cljs.main= options:
+#+begin_src bash
+$ clj -M -m cljs.main --help
+
+[...]
+   -t, --target name          The JavaScript target. Configures environment
+                              bootstrap and defaults to browser. Supported
+                              values: node or nodejs, webworker, bundle, none
+[...]
+#+end_src
+
+[fn:2] Here's a short example of a Node.js REPL:
+#+begin_src bash
+$ clj -M -m cljs.main --target nodejs --repl
+#+end_src
+#+begin_src clojure
+  (def http (js/require "http"))          ; Or (require '["http"])
+
+  (defn handler [req res]
+    (set! (.-statusCode res) 200)
+    (.setHeader res "Content-Type" "text/plain")
+    (.end res "Hello from nodejs REPL!"))
+
+  (def server
+    (.createServer http
+                   ;; Extra indirection to allow redefining handler on-the-fly
+                   (fn [req res]
+                     (handler req res))))
+
+  (.listen server 3000 "127.0.0.1"
+           #(js/console.log "Server listening at http://127.0.0.1:3000"))
+#+end_src
+
+[fn:3] What about the nREPL?  Strictly speaking, [[https://groups.google.com/g/clojure-dev/c/Dl3Stw5iRVA/m/IHoVWiJz5UIJ][an nREPL isn't a REPL]].  nREPL
+is an network layer that communicates between a live Clojure REPL environment
+and the tooling.
+
+** Setup
+
+/Relevant guide on ClojureScript.org website: [[https://clojurescript.org/guides/quick-start][Quick Start]]./
+
+In this example, we are going to build a ClojureScript [[https://p5js.org/][p5.js]] browser application
+to test how much vanilla ClojureScript can do.  Here's the project structure:
+
+#+begin_src bash
+  vanilla-cljs         # Our project folder
+  ├─ src               # The CLJS source code for our project
+  │  └─ vanilla_cljs   # Our vanilla-cljs namespace folder
+  │     ├─ main.cljs   # Our main file that binds everything together
+  │     └─ sketch.cljs # Our code to interact with p5.js sketch
+  ├─ build.edn         # The compiler options for our dev build
+  ├─ deps.edn          # A file for listing our dependencies
+  └─ index.html        # The HTML file for our browser application
+#+end_src
+
+=deps.edn= only needs to contain the ClojureScript as the project dependency:
+
+#+begin_src clojure
+  {:deps {org.clojure/clojurescript {:mvn/version "1.11.54"}}}
+#+end_src
+
+=index.html= includes the p5.js library and the compiled main entry file.
+Optionally, [[https://p5js.org/download/][download the p5.js library]] to the project root.
+
+#+begin_src html
+  <!DOCTYPE html>
+  <html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla CLJS with p5.js</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js"></script>
+    <!-- or download a local copy to project root directory -->
+    <!-- <script src="p5.js"></script> -->
+  </head>
+  <body>
+    <main>
+    </main>
+    <script src="out/main.js"></script>
+  </body>
+  </html>
+#+end_src
+
+=build.edn= contains the ClojureScript compiler options for our development
+build.  You can pass all the compiler options to the ClojureScript compiler
+using the CLI command.  However, we'll be passing this filename to the =-co= /
+=--compile-opts= option in throughout the article.  See all the compiler options
+at [[https://clojurescript.org/reference/compiler-options][ClojureScript's official reference to compiler options]].
+
+#+begin_src clojure
+  {:main vanilla-cljs.main
+   :output-to "out/main.js"
+   :output-dir "out"
+   :optimizations :none}
+#+end_src
+
+=sketch.cljs= contains the logic to setup and draw the sketch with p5.js.
+=redraw= and =reseed-redraw= are helper functions for us to play with in the
+REPL session.  You'll see their usages later in this article.
+
+#+begin_src clojure
+  (ns vanilla-cljs.sketch)
+
+  (def size 300)
+  (def step 15)
+  (def seed 1050879010481460)
+
+  (defn setup []
+    (js/noLoop)
+    (js/randomSeed seed)
+    (js/createCanvas size size))
+
+  (defn diagonal-line [x y w h]
+    (if (< 0.5 (js/random))
+      (js/line  x        y  (+ x w)  (+ y h))  ; top-left to bottom-right
+      (js/line  x  (+ y h)  (+ x w)       y))) ; bottom-left to top-right
+
+  (defn draw []
+    (js/background 200)
+    (doseq [[x y] (for [x (range 0 size step)
+                        y (range 0 size step)]
+                    [x y])]
+      (diagonal-line x y step step)))
+
+  (defn redraw []
+    (js/redraw))
+
+  (defn reseed-redraw []
+    (js/randomSeed seed)
+    (redraw))
+#+end_src
+
+=main.cljs= is the main entry point of our application.  It provides the
+side-effect-y code that is required to interact with p5.js, which looks up two
+global functions =setup= and =draw= to perform its magic.  To register global
+functions in ClojureScript, we'll use =goog.object/set= on the =js/window=
+global object.  Using the extra indirection to bind the anonymous function will
+make our code more REPL friendly.
+
+#+begin_src clojure
+  (ns vanilla-cljs.main
+    (:require [vanilla-cljs.sketch :as sketch]
+              [goog.object :as gobj]))
+
+  (gobj/set js/window "setup" #(sketch/setup))
+  (gobj/set js/window "draw" #(sketch/draw))
+#+end_src
+
+This is the project setup we need for the rests of the article.
+
+** Compile to JavaScript
+
+/Relevant guide on ClojureScript.org website: [[https://clojurescript.org/guides/quick-start][Quick Start]], [[https://clojurescript.org/reference/repl-and-main][The REPL and main
+entry points]]./
+
+To compile our ClojureScript app, we can invoke the =cljs.main= main option
+providing our =build.edn= as the compiler options.  Use =-c= / =--compile= to
+explicitly tell ClojureScript compiler to compile the code once.
+
+#+begin_src bash
+  $ clj -M -m cljs.main -co build.edn -c
+#+end_src
+
+To compile the source code for production, append the =-O= / =--optimization=
+option with =advanced= mode:
+
+#+begin_src bash
+  $ clj -M -m cljs.main -co build.edn -O advanced -c
+#+end_src
+
+** Serve static assets
+
+/Relevant guide on ClojureScript.org website: [[https://clojurescript.org/guides/quick-start][Quick Start]], [[https://clojurescript.org/reference/repl-and-main][The REPL and main
+entry points]]./
+
+ClojureScript has a built-in server to serve static files.  You can invoke it
+via =-s= / =--serve= option:
+
+#+begin_src bash
+  $ clj -M -m cljs.main -s
+#+end_src
+
+This command option can be combined with the compile option in the previous
+section to compile and serve the code:
+
+#+begin_src bash
+  $ clj -M -m cljs.main -co build.edn -c -s
+#+end_src
+
+This is useful for testing out the advanced compilation for the production
+build:
+
+#+begin_src bash
+  $ clj -M -m cljs.main -co build.edn -O advanced -c -s
+#+end_src
+
+** Start a browser REPL
+
+/Relevant guide on ClojureScript.org website: [[https://clojurescript.org/guides/quick-start][Quick Start]], [[https://clojurescript.org/reference/repl-and-main][The REPL and main
+entry points]]./
+
+It wouldn't be fun without a REPL to interact with.  Use =-r= / =--repl= option
+to start an interactive REPL once the compilation finishes.  Also use =-v= /
+=--verbose= for more debugging information:
+
+#+begin_src bash
+  $ clj -M -m cljs.main -co build.edn -v -c -r
+
+  # Observe the browser alert shows up after sending this form
+  cljs.user=> (js/alert "hi")
+  nil
+#+end_src
+
+** Interact with browser REPL
+
+/Relevant guide on ClojureScript.org website: [[https://clojurescript.org/guides/quick-start][Quick Start]], [[https://clojurescript.org/reference/repl-and-main][The REPL and main
+entry points]]./
+
+#+ATTR_HTML: :alt This is a gif of live-redrawing the sketch from the REPL
+#+CAPTION: Live-updating the sketch from the REPL
+[[file:/images/vanilla-cljs-1.gif]]
+
+Just like in JVM Clojure that you can redefine Vars on-the-fly in a REPL
+session, you can also do it in ClojureScript.  First we can try typing directly
+into the REPL.  Using the =redraw= helper function, each time the random number
+generator will give a different sketch.  We can also use the =reseed-redraw=
+function to reset the random seed and thus put the random number generator state
+back to the first drawing.  Changing the step size Var will give you a different
+result too.
+
+#+begin_src clojure
+  cljs.user=> (in-ns 'vanilla-cljs.sketch)
+  nil
+  vanilla-cljs.sketch=> (redraw)          ; Generate a new sketch
+  nil
+  vanilla-cljs.sketch=> (redraw)          ; Generate a new sketch
+  nil
+  vanilla-cljs.sketch=> (redraw)          ; Generate a new sketch
+  nil
+  vanilla-cljs.sketch=> (reseed-redraw)   ; Reset the sketch
+  nil
+  vanilla-cljs.sketch=> step              ; Check the original step size
+  15
+  vanilla-cljs.sketch=> (set! step 30)    ; Double the step size
+  30
+  vanilla-cljs.sketch=> (reseed-redraw)   ; Redraw with the new step size
+  nil
+#+end_src
+
+** Recompile ClojureScript from REPL
+
+/Relevant guide on ClojureScript.org website: [[https://clojurescript.org/guides/quick-start][Quick Start]], [[https://clojurescript.org/reference/repl-and-main][The REPL and main
+entry points]]./
+
+#+ATTR_HTML: :alt Reload and recompile the whole namespace to persist changes
+#+CAPTION: Reload/recompile code from the REPL
+[[file:/images/vanilla-cljs-2.gif]]
+
+Typing into the REPL is fine.  However, redefining the step size Var will not
+persist when the page gets reloaded.  Everything typed into the REPL directly
+will only affect the current REPL session.  This is great for exploration but
+when we need to codify our work, we'll need a slightly different workflow.
+Thankfully, we can also reload/recompile code from within the REPL.  For
+example, let's double the =step= size to =30= in =sketch.cljs=
+file:
+
+#+begin_src clojure
+  (def step 30)                           ; This was 15
+#+end_src
+
+We can then reload the file and see the code gets recompiled:
+
+#+begin_src clojure
+  vanilla-cljs.sketch=> (require 'vanilla-cljs.main :reload)
+  Compiling /home/dawran/projects/vanilla-cljs/src/vanilla_cljs/sketch.cljs to out/vanilla_cljs/sketch.js
+  Copying file:/home/dawran/projects/vanilla-cljs/src/vanilla_cljs/sketch.cljs to out/vanilla_cljs/sketch.cljs
+  nil
+#+end_src
+
+Now, refresh the page and you should see the new step size is used to draw the
+sketch.
+
+#+begin_quote
+Note: I think =(require 'vanilla-cljs.main :reload)= automatically recompiled
+all the transitive dependencies.  However, I'm not sure if this is guaranteed.
+If this doesn't work, reload with =(require 'vanilla-cljs.sketch :reload)= to be
+more specific.
+#+end_quote
+
+** Bundle with NPM dependencies
+
+/Relevant guide on ClojureScript.org website: [[https://clojurescript.org/guides/webpack][Webpack]]./
+
+Unlike how we added the p5.js dependency as a static file and serve it directly,
+when you start having npm dependencies for browser applications, we need tools
+to bundle up the JS files so the browser can load them.  ClojureScript can
+integrate with Webpack to bundle our app with a few changes.  But first, you
+need to install node.js and Webpack.
+
+#+begin_src bash
+  $ echo "{}" > package.json
+  $ npm install --save-dev webpack webpack-cli
+#+end_src
+
+In this example, we'll install react and react-dom as the npm dependencies:
+
+#+begin_src bash
+  npm install --save react react-dom
+#+end_src
+
+Modify the =build.edn= to the =:bundle= target:
+
+#+begin_src clojure
+  {:main vanilla-cljs.main
+   :optimizations :none
+   :output-to "out/index.js"
+   :output-dir "out"
+   :target :bundle
+   :bundle-cmd {:none ["npx" "webpack" "./out/index.js" "-o" "out" "--mode=development"]
+                :default ["npx" "webpack" "./out/index.js" "-o" "out"]}
+   :closure-defines {cljs.core/*global* "window"}} ;; needed for advanced
+#+end_src
+
+Next, to make our lives easier, I'll cheat and introduce a ClojureScript
+dependency - reagent to our project.  (Sorry this is no longer truly vanilla
+ClojureScript anymore!)  Update the =deps.edn= to:
+
+#+begin_src clojure
+  {:deps {org.clojure/clojurescript {:mvn/version "1.11.54"}
+          reagent/reagent {:mvn/version "1.1.1"
+                           ;; Exclude these since we're providing our own
+                           ;; react/react-dom from npm.
+                           :exclusions [cljsjs/react cljsjs/react-dom]}}}
+#+end_src
+
+Then we can update the =main.cljs= to:
+
+#+begin_src clojure
+  (ns vanilla-cljs.main
+    (:require
+     [goog.dom :as gdom]
+     [goog.object :as gobj]
+     [reagent.core :as r]
+     [reagent.dom :as dom]
+     [vanilla-cljs.sketch :as sketch]))
+
+  (defn canvas-control []
+    (let [state (r/atom sketch/step)]
+      (fn []
+        [:div
+         [:label {:for "step"} "Step size:"]
+         [:input {:type "number"
+                  :id "step"
+                  :name "step"
+                  :min "5"
+                  :max "300"
+                  :value @state
+                  :on-change (fn [event]
+                               (reset! state
+                                       (js/parseInt
+                                        (gobj/getValueByKeys event
+                                                             "target"
+                                                             "value"))))}]
+         [:br]
+         [:input {:type "button"
+                 :value "Redraw"
+                  :on-click (fn [_evt]
+                              (set! sketch/step @state)
+                              (sketch/redraw))}]
+         [:br]
+         [:input {:type "button"
+                  :value "Reseed + Redraw"
+                  :on-click (fn [_evt]
+                              (set! sketch/step @state)
+                              (sketch/reseed-redraw))}]])))
+
+  (defn mount []
+    (dom/render [canvas-control] (gdom/getElement "app")))
+
+  ;; This only runs once when the page loads.
+  (defonce start-up
+    (do
+      (gobj/set js/window "setup" #(sketch/setup))
+      (gobj/set js/window "draw" #(sketch/draw))
+      (mount)
+      true))
+#+end_src
+
+You can now build the app again.  Now you have UI buttons to interact with the
+p5.js sketch:
+
+#+begin_src bash
+  # Compile dev build and launch REPL
+  $ clj -M -m cljs.main -co build.edn -v -c -r
+  # Compile prod build and serve the static files
+  $ clj -M -m cljs.main -co build.edn -O advanced -v -c -s
+#+end_src
+
+#+ATTR_HTML: :alt An browser app with controls to redraw the sketch
+#+CAPTION: Using React component to update the p5.js sketch.
+[[file:/images/vanilla-cljs-3.gif]]
+
+The UI code is reload-able on demand via invoking the =mount= function.  Notice
+the component local state, the step size input, is preserved on component
+re-rendering.
+
+#+ATTR_HTML: :alt On-demand component re-rendering
+#+CAPTION: The vanilla ClojureScript app we'll be building throughout the article
+[[file:/images/vanilla-cljs-4.gif]]
+
+** Conclusion
+
+It's pretty amazing how much things the vanilla ClojureScript can do - compiling
+code, bundling NPM packages, connecting to a browser, plus other capabilities
+didn't get included in this article (e.g. [[https://clojurescript.org/guides/externs][Inferred Externs]] and [[https://clojurescript.org/guides/code-splitting][Code Splitting]])!
+Experienced people might already noticed what vanilla ClojureScript doesn't do:
+
+1. Hot-code reloading - this is where tooling like figwheel-main or shadow-cljs
+   shines.
+2. Editor integration - This is where nREPL, piggieback, and cider are useful.
+
+Thanks for reading!  I hope you find this article and the demos useful.  Feel
+free to give me your feedback.  Here is [[https://dawranliou.com/contact/][a list of my public contact channels]].
+Cheers!
+
+** Externs - interfacing third party JavaScript libraries          :noexport:
+1.10.238
+
+https://clojurescript.org/guides/externs
+
+** Code split                                                      :noexport:
+1.10.238
+
+https://clojurescript.org/guides/code-splitting
+
+** Hot-code reloading                                              :noexport:
+Figwheel-main
+
+** References
+- [[https://clojurescript.org][ClojureScript official website]]
+- [[https://clojurescript.org/guides/quick-start][ClojureScript - Quick Start]]
+- [[https://clojurescript.org/guides/webpack][ClojureScript - Webpack]]
+- [[https://clojurescript.org/reference/compiler-options][ClojureScript - Compiler Options]]
+- [[https://lambdaisland.com/guides/clojure-repls/clojurescript-repls][Lambda Island - ClojureScript REPLs]]
+- [[https://code.thheller.com/blog/shadow-cljs/2019/03/01/what-shadow-cljs-is-and-isnt.html][What shadow-cljs is and isn't]]
+- [[https://figwheel.org/docs/][Figwheel-main Documentations]]
+- [[https://groups.google.com/g/clojure-dev/c/Dl3Stw5iRVA/m/IHoVWiJz5UIJ][Rich Hickey on nREPL misnomer]]
