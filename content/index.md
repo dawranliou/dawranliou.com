@@ -2,10 +2,13 @@
 
 You've found my personal website!  Thank you for visiting!
 
-I'm a software developer based in California.  I enjoy playing tennis, reading
-books, and writing software.  [Clojure][Clojure] is my favorite programming
-language, and [Emacs][Emacs] is my favorite development environment.  I like to
-write about technologies like the programming languages and tools I enjoy using.
+I'm a [Taiwanese][Taiwan] software developer currently based in California, USA.
+I enjoy playing tennis, drawing, reading books, and writing
+software. Programming languages and software development tools are my favorite
+topics to write on my [blog](/blog/), where you'll find lots of articles about
+[Clojure][Clojure] and [Emacs][Emacs].  As I started learning more [Common
+Lisp][Common Lisp], game development, and generative arts, I hope to share some
+articles about those topics soon on this website.
 
 This site has [recently gone through a major rewrote][rewrote] with my low-tech
 hand-crafted static site generator based on [Babashka][Babashka], the Clojure
@@ -46,3 +49,5 @@ Here are some pointers to navigate this site:
 [rewrote]: /blog/i-too-wrote-myself-a-static-site-generator
 [Babashka]: https://babashka.org/
 [issue tracker]: https://github.com/dawranliou/dawranliou.com/issues
+[Common Lisp]: https://lisp-lang.org/
+[Taiwan]: https://en.wikipedia.org/wiki/Taiwan
