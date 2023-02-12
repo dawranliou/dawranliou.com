@@ -1,0 +1,73 @@
+#+TITLE: Don't kill my xref buffers
+#+AUTHOR: Daw-Ran Liou
+#+DESCRIPTION: A short article on customizing xref for my workflows with project.el and eglot.
+
+I like buffers.
+
+When I first started using Emacs, I used to feel paranoid about keeping too many
+buffers.  Nowadays, I don't even notice the hundreds or thousands of buffers
+buried in Emacs.
+
+I like =xref=.
+
+The built-in package, =xref=, is an essential part of my workflow at Kira
+Systems (now acquired by Litera).  We use a monorepo setup for our flagship
+Machine Learning contract analysis SaaS product written in Clojure and Go.  It's
+crucial for my day-to-day work to be able to do project-wide searches for
+references.  I use the ~project-find-regexp~ (a command from the built-in
+package, =project.el=, bound to =C-x p g=) to find matches for references in
+both Clojure and Go code.  If I'm only interested in the Clojure source code, I
+can use ~xref-find-references~ (bound to =M-?=) to find all references with
+=eglot=.
+
+There's one problem.  =xref= doesn't like buffers.
+
+Or every time the commands invokes =xref=, they reuse the =*xref*= buffer and
+effectively destroyed the results of the previous reference search.
+
+Of course, this is Emacs.  We can configure it ourselves.  All it requires is a
+little gentle advice:
+
+#+begin_src emacs-lisp
+  (with-eval-after-load 'project
+    (defun project-find-regexp-with-unique-buffer (orig-fun &rest args)
+      "An advice function that gives project-find-regexp a unique buffer name"
+      (require 'xref)
+      (let ((xref-buffer-name (format "%s %s" xref-buffer-name (car args))))
+        (apply orig-fun args)))
+
+    (advice-add 'project-find-regexp :around
+                #'project-find-regexp-with-unique-buffer))
+#+end_src
+
+#+begin_src emacs-lisp
+  (with-eval-after-load 'eglot
+    (defun xref-find-references-with-eglot (orig-fun &rest args)
+      "An advice function that gives xref-find-definitions a unique
+  buffer name when eglot is enabled."
+      (if (bound-and-true-p eglot--managed-mode)
+          (let ((xref-buffer-name (format "%s %s"
+                                          xref-buffer-name
+                                          (symbol-at-point))))
+            (apply orig-fun args))
+        (apply orig-fun args)))
+
+    (advice-add 'xref-find-references :around
+                #'xref-find-references-with-eglot))
+#+end_src
+
+By leveraging Emacs's advice-function facility and dynamic scoping, the Elisp
+code above customize the existing ~project-find-regexp~ and
+~xref-find-references~ to use a more descriptive buffer name for each
+invocation.  The result is that I get to keep multiple =xref= reference buffers
+till I finish using those.
+
+The configurability of Emacs is often brought up as the top reason to use Emacs.
+Yes, it took some time to traverse the source code of =eglot.el=, =package.el=,
+and =xref.el=.  Still, the customization described in this article can be done
+without a deep knowledge of the Emacs source code or individual packages.
+
+To me, this article is a perfect example of how Emacs adapts to the user's
+workflows instead of forcing the user to adapt to the editor's (or package
+authors') ideology.  I hope this short article inspires you to start customizing
+your Emacs experience.  Cheers!  :)

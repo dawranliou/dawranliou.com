@@ -59,6 +59,17 @@
 
  ;; /blog pages
 
+ ;; 2023
+ "/blog/xref-with-eglot-and-project"
+ {:title "Don't kill my xref buffers"
+  :description "A short article on customizing xref for my workflows with project.el and eglot"
+  :section :blog
+  :template :blog-page
+  :source "content/blog/xref-with-eglot-and-project.org"
+  :tags #{:emacs}
+  :published #inst "2023-02-12"
+  :updated #inst "2023-02-12"}
+
  ;; 2022
  "/blog/vanilla-cljs"
  {:title "Vanilla ClojureScript"
