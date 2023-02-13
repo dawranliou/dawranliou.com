@@ -62,7 +62,7 @@
 
 (defn footer
   [context]
-  [:footer [:p "© 2016 - 2022 Daw-Ran Liou"]])
+  [:footer [:p "© 2016 - 2023 Daw-Ran Liou"]])
 
 (defmacro main-content
   [& body]
