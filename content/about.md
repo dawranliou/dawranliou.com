@@ -10,7 +10,7 @@ articles about those topics soon on this website.
 
 ![An animated sprite I made for my game - Spirited](/images/sprite.gif "An animated sprite I made for my game - Spirited")
 
-The year 2022 marks my 9th year of being a professional software developer.
+The year 2023 marks my 10th year of being a professional software developer.
 After graduating with a Mechanical Engineering Master's degree, I started my
 career as a Java programmer writing the system software for the
 optical-mechanical wafer inspection tools at [KLA][KLA], a well-known company in
@@ -35,7 +35,7 @@ a software developer - we get the opportunities to learn different domains and
 industries.
 
 Kira was then acquired by [Litera][Litera] in September 2021, marking an
-impressive exit for a startup that betted itself on Clojure back in 2010.
+impressive exit for a startup that bet itself on Clojure back in 2010.
 Litera is a much bigger company than Kira, with several product offerings to the
 legal professionals.  This is kind of a classic "small Clojure team in a big
 org" situation.  It's nice to see Clojure continue to thrive as the Kira team
@@ -61,9 +61,11 @@ over-hyped ones.
 
 I'm very keen on my REPL-driven workflow while developing software.  There's
 nothing more disruptive to my productivity than not having a live REPL where I
-can reload code on-the-fly.  I also depend on using Emacs a lot doing other
+can hot-reload code on-the-fly.  I also depend on using Emacs a lot doing other
 development-related work - interfacing git, running shell commands, reading
 logs, check remote files on server, manipulating text, writing notes, etc.
+Emacs is crucial to my day-to-day workflows.  And I love to tinker with my
+settings when I'm not working.
 
 ## What I'm doing now
 
@@ -71,9 +73,10 @@ logs, check remote files on server, manipulating text, writing notes, etc.
   full-stack web app
 * Publishing articles on this website
 * Tinkering [my Emacs configuration][Emacs configuration]
-* Learning [Common Lisp][Common Lisp], game development, and computer graphics.
+* Learning [Common Lisp][Common Lisp], [Scheme][Scheme], game development,
+  computer graphics, and low-level system programming.
 
-_Last updated on September 2nd, 2021. Inspired by [nownownow][nownownow]._
+_Last updated on July 31st, 2023. Inspired by [nownownow][nownownow]._
 
 ## Footnotes
 

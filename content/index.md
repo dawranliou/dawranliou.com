@@ -2,7 +2,7 @@
 
 You've found my personal website!  Thank you for visiting!
 
-I'm a [Taiwanese][Taiwan] software developer currently based in California, USA.
+I'm a Taiwanese software developer currently based in California, USA.
 I enjoy playing tennis, drawing, reading books, and writing
 software. Programming languages and software development tools are my favorite
 topics to write on my [blog](/blog/), where you'll find lots of articles about
