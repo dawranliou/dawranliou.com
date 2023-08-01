@@ -29,7 +29,7 @@ to work on Clojure and [ClojureScript][ClojureScript] full time.  (Finally, the
 dream came true!)  At Kira, we've built a successful B2B SaaS product to solve
 contract reviewing/analysis using Machine Learning for the Legal Tech Industry.
 Though I don't work on our home-grown, hand-crafted, fine-tuned, artisan ML
-engine written in [GO](Golang), I enjoyed working with the ML researchers and
+engine written in [GO][Golang], I enjoyed working with the ML researchers and
 learning the domain knowledge.  This is probably one of the best perks of being
 a software developer - we get the opportunities to learn different domains and
 industries.
