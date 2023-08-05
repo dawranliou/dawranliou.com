@@ -60,6 +60,16 @@
  ;; /blog pages
 
  ;; 2023
+ "/blog/intermediate-dev"
+ {:title "Intermediate Developer"
+  :description "A story about an average intermediate Clojure developer"
+  :section :blog
+  :template :blog-page
+  :source "content/blog/intermediate-dev.org"
+  :tags #{:clojure}
+  :published #inst "2023-08-04"
+  :updated #inst "2023-08-04"}
+
  "/blog/xref-with-eglot-and-project"
  {:title "Don't kill my xref buffers"
   :description "A short article on customizing xref for my workflows with project.el and eglot"
