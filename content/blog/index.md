@@ -6,6 +6,7 @@ to article vary quite a bit.  While there are some subtle trends to my writings
 if viewed in chronological order, like most blogs, I'd instead recommend you to
 start with my favorite articles:
 
+- [Defaulting to Transducers][7]
 - [Vanilla ClojureScript][6]
 - [Better performance with Java arrays in Clojure][1]
 - [Clojure higher-order functions explained: fnil][2]
@@ -21,6 +22,7 @@ start with my favorite articles:
 [4]: /blog/rethink-syntax-highlighting
 [5]: /blog/on-personal-website
 [6]: /blog/vanilla-cljs
+[7]: /blog/default-transducers
 
 And if you must, here's the list of all articles I published on the web in
 chronological order:
