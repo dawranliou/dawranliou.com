@@ -1,0 +1,283 @@
+#+TITLE: Defaulting to Transducers
+#+AUTHOR: Daw-Ran Liou
+
+Transducers are great.  I've been defaulting to write transducers as opposed to
+the lazy-seq operations for the past two years at work.  To me, transducers are
+better building blocks to compose Clojure programs for their many benefits that
+come with reasonable drawbacks/obstacles.  And, you know what, though I don't
+always like recommending people to do things one way or another: you should
+default to write transducers, too.
+
+Here are the reasons:
+
+** Reason 1 - Eagerness is almost always what you want
+
+The article [[https://clojure-goes-fast.com/blog/clojures-deadly-sin/]["Clojure's Deadly Sin"]] by [[https://github.com/alexander-yakushev][Oleksandr Yakushev]] explains the laziness
+feature in Clojure and, more importantly, the cost of laziness in Clojure.  The
+article is fantastic and of high quality as many other articles on the website,
+and I highly recommend them all.
+
+The truth is, when I programmed in Clojure at work for the past 4 years, I
+rarely relied on laziness (apart from the one time when it made sense for the
+code organization reason, which I'll come back in [[*Reason 3 - On-demand laziness][Reason 3 - On-demand
+laziness]].)  When I wrote:
+
+#+begin_src clojure
+  (->> data
+       (map some-function)
+       (filter some-predicate-fn))
+#+end_src
+
+I almost always wanted the data to be mapped and filtered right away.  I never
+intended to return a lazy sequence and let the consumer force its evaluation.
+
+=lazy-seq= is a pretty nice abstraction for a source of an infinite stream of
+data, but the usage for laziness pretty much ends there.  If a software process
+can be split into three parts: a) pulling, b) transformation, and c) pushing,
+then pulling is the only place where laziness makes sense because a process
+could be pulling from an infinite source of data.  I've never seen a place where
+I need my transformation stage or pushing stage to be lazy.
+
+Lazy transformation can cause [[https://github.com/reagent-project/reagent/issues/18][the issue with reactive deref in lazy-seqs in
+Reagent]], which almost all ClojureScript front-end dev I worked with (myself
+included) had to face at some point in their career.  The lesson learned here is
+that you always want to eagerly evaluate the =lazy-seqs= in the Reagent
+component's rendering function.
+
+Lazy pushing isn't ideal, either.  Although mapping a side-effect function over
+a sequence is almost certainly an anti-pattern, sometimes there are use cases
+for it.  However, laziness in such cases might make you scratch your head for
+hours until you realize why the side effect never happened.
+
+** Reason 2 - Performance
+
+Quote the example and numbers from [[https://clojure-goes-fast.com/blog/clojures-deadly-sin/#performance-overhead][the proformance overhead numbers from
+Clojure's Deadly Sin]]:
+
+#+begin_src clojure
+  ;;;; Lazy map
+
+  (time+
+   (->> (repeat 1000 10)
+        (map inc)
+        (map inc)
+        (map #(* % 2))
+        (map inc)
+        (map inc)
+        doall))
+
+  ;; Time per call: 410.22 us   Alloc per call: 480,296b
+
+  ;;;; Transducers+into
+
+  (time+
+   (into []
+         (comp (map inc)
+               (map inc)
+               (map #(* % 2))
+               (map inc)
+               (map inc))
+         (repeat 1000 10)))
+
+  ;; Time per call: 43.95 us   Alloc per call: 6,264b
+#+end_src
+
+In this example, the transducer version isn't that much different (visually)
+from the lazy map version (such that you can almost glance over it without
+realizing it is using transducers.)  It's a bit ridiculous that the performance
+of the transducer version (with =clojure.core/into=) is *almost 10 times faster*
+than the lazy map version and produces *almost 80 times less memory usage* on
+the heap.  Yes, we are getting into the territory of [[https://en.wikipedia.org/wiki/Program_optimization#When_to_optimize][premature optimization]].
+However, considering how much code we Clojurians write is about functional
+transformation like this and how little friction it is to use transducers, I
+think transducers should be the default for most cases for most people instead
+of the other way around.
+
+** Reason 3 - On-demand laziness
+
+This reason number 3 is teased in [[*Reason 1 - Eagerness is almost always what you want][Reason 1 - Eagerness is almost always what you
+want]]: there was one instance at work where I still required some level of
+laziness because of the code organization like the following:
+
+#+begin_src clojure
+  ;; (ns a)
+  (defn s [db]
+    ,,,)
+
+  ;; (ns b)
+  (defn b [db]
+    (into []
+          ;; transformation: t-b
+          (comp (map ,,,)
+                (filter ,,,))
+          (a/s db)))
+
+  ;; (ns c)
+  (defn c [db n]
+    (into []
+          ;; transformation: t-c
+          (comp (map ,,,)
+                (filter ,,,)
+                (take n))
+          (a/s db)))
+#+end_src
+
+1. ns =a= defines a data source =s=
+2. ns =b= depends on =a='s data source and does some transformation =t-b=
+3. Transformation =t-b= requires the full set of data source =s=
+4. ns =c= depends on =a='s data source and does some transformation =t-c=
+5. Transformation =t-c= only requires the first filtered =n= data points from
+   =s=
+
+Now, imagine some common transformation, =t-0=, that both =t-b= and =t-c= depend
+on, such as some data normalization logic.  In this case, =a= would be the ideal
+place to host this logic.  We don't want to transduce the data source =s= with
+=t-0= in ns =a= because =c= does not need the rest of the data to be transformed
+after the =n+1= data point.  Therefore, the problem is this: how do we bind the
+transformation =t-0= to the data source =s= early but hold off the evaluation
+later?  If that sounds like laziness to you, congratulations!  You are correct
+that this is laziness again.  However, there is a different type of laziness
+that doesn't cost us performance.
+
+This is the use case for =clojure.core/eduction=.  It gives you a different type
+of laziness - a pushing type of laziness (whereas the lazy map/filter is the
+pulling type of laziness.)  This allows us to bind the data source with some
+transformation early.  This early-bounded transformation =t-0= would only be
+invoked until this Eduction object is being transduced.
+
+#+begin_src clojure
+  ;; (ns a)
+  (defn s [db]
+    ,,,)
+
+  (defn s-normalized [db]
+    (eduction (map normalize)             ; transformation t-0
+              (s db)))
+
+  ;; (ns b)
+  (defn b [db]
+    (into []
+          ;; transformation t-b
+          (comp (map ,,,)
+                (filter ,,,))
+          (a/s-normalized db)))
+
+  ;; (ns c)
+  (defn c [db n]
+    (into []
+          ;; transformation t-c
+          (comp (map ,,,)
+                (filter ,,,)
+                (take n))
+          (a/s-normalized db)))
+#+end_src
+
+** Things to consider
+
+Here are a few things to consider that may or may not be obstacles for you:
+
+*** Shapes of the program can be a bit tricky
+
+Consider the shape of the code from this example that most Clojure devs are
+familiar with and how to rewrite it using transducers:
+
+#+begin_src clojure
+  ;; Variation #1: Lazy map
+  (->> (repeat 1000 10)
+       (map inc)
+       (map inc)
+       (map #(* % 2))
+       (map inc)
+       (map inc)
+       doall)
+
+  ;; Variation #2: Transduer+into
+  (into []
+        (comp (map inc)
+              (map inc)
+              (map #(* % 2))
+              (map inc)
+              (map inc))
+        (repeat 1000 10))
+
+  ;; Variation #3: Transducer+into+thread-last
+  (->> (repeat 1000 10)
+       (into []
+             (comp (map inc)
+                   (map inc)
+                   (map #(* % 2))
+                   (map inc)
+                   (map inc))))
+#+end_src
+
+I personally tend to write variation #3 for its resemblance to the lazy map
+variation.  However, notice that the code is wider, and the indentation level is
+deeper now.  Instead of all vertically aligned at 5 spaces in variation #1, the
+inner-most transducers (the mappers inside the `comp` form) in variation #3 are
+now indented with 17 spaces.  I like the aesthetics of variation #1 the most, to
+be honest, but I've convinced myself to write variation #2 or #3 for their
+benefits.
+
+*** Imperative programming for fully customized transducers
+
+This obstacle will probably throw many die-hard functional programmers off.
+However, we Clojure programmers are practical, and it's okay to throw in some
+local states in a controlled manner.  At work, I needed a partitioning logic
+that partitions the data using the running total so each partition has a running
+total of less than a given limit while maintaining the order of the data.
+
+This problem fits the use cases for transducers well, even though I don't really
+care about integrating it with =core.async= at the moment, but I know the option
+is open to the future.  I implemented this with a custom transducer function
+that accepts the limit number (and a few other key functions) and returns a
+transducer.  The implementation itself isn't that hard to figure out with the
+help of the [[https://github.com/clojure/clojure/blob/clojure-1.10.1/src/clj/clojure/core.clj#L7160-L7194][=clojure.core/partition-by= source code]].  Below is the simplified
+implementation of the =partition-by-running-total= custom transducer (note that
+this simplified version doesn't handle an initial value that's larger than the
+limit gracefully, but I want to burry you with too many details):
+
+#+begin_src clojure
+  (defn partition-by-running-total [limit]
+    (fn [rf]
+      (let [a (java.util.ArrayList.)
+            total (volatile! 0)]
+        (fn
+          ([] (rf))
+          ([result]
+           (let [result (if (.isEmpty a)
+                          result
+                          (let [v (vec (.toArray a))]
+                            (.clear a)
+                            (unreduced (rf result v))))]
+             (rf result)))
+          ([result input]
+           (let [total-val @total]
+             (if (<= (+ total-val input) limit)
+               (do
+                 (.add a input)
+                 (vswap! total + input)
+                 result)
+               (let [v (vec (.toArray a))]
+                 (.clear a)
+                 (let [ret (rf result v)]
+                   (when-not (reduced? ret)
+                     (.add a input)
+                     (vreset! total input))
+                   ret)))))))))
+
+  (into [] (partition-by-running-total 10) [2 5 5 5 2 2 2 5])
+  ;; => [[2 5] [5 5] [2 2 2] [5]]
+#+end_src
+
+The implementation of this custom transducer undoubtedly requires writing
+imperative code to keep track of and mutate the internal states.  However, this
+is the only case in the past 4 years where I needed to implement the transducer
+from the ground up.  Chances are that the =clojure.core= already has you
+covered.
+
+** Conclusion
+
+*I think you should default to compose transducers for all the sequence
+transformations*.  Transducers are more optimized for speed and memory.  You can
+opt-in for laziness when needed.  And they are as easy to compose.  If you are
+not already writing transducers as your default, please give them a try.

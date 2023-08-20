@@ -60,7 +60,17 @@
  ;; /blog pages
 
  ;; 2023
- "/blog/intermediate-dev"
+ "/blog/default-transducers"
+ {:title "Defaulting to Transducers"
+  :description "Perhaps I can convince you to write more transducers"
+  :section :blog
+  :template :blog-page
+  :source "content/blog/default-transducers.org"
+  :tags #{:clojure}
+  :published #inst "2023-08-20"
+  :updated #inst "2023-08-20"}
+
+"/blog/intermediate-dev"
  {:title "Intermediate Developer"
   :description "A story about an average intermediate Clojure developer"
   :section :blog
