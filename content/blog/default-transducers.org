@@ -51,7 +51,7 @@ hours until you realize why the side effect never happened.
 
 ** Reason 2 - Performance
 
-Quote the example and numbers from [[https://clojure-goes-fast.com/blog/clojures-deadly-sin/#performance-overhead][the proformance overhead numbers from
+Quote the example and numbers from [[https://clojure-goes-fast.com/blog/clojures-deadly-sin/#performance-overhead][the performance overhead numbers from
 Clojure's Deadly Sin]]:
 
 #+begin_src clojure
