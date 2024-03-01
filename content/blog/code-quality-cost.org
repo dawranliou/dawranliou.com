@@ -1,0 +1,61 @@
+#+TITLE: The Cost of Code Quality
+#+AUTHOR: Daw-Ran Liou
+
+I recently came across [[https://www.taoensso.com/][Peter Taoussanis]]'s London Clojurians talk - [[https://www.youtube.com/watch?v=Jz9NcnQbH5I][Some
+controversial truths]], resonated with me a lot.  It's funny that I wouldn't be
+ready for this talk two years ago (and I'd probably dismissed the ideas
+immediately and called it heresy).  As I spent more and more time in the
+software industry, I'm finally ready for this talk.  Similar ideas had been
+brewing in my mind for the past few years.  I want to touch on code quality more
+with my experiences.
+
+In his talk, Peter argues that quality doesn't always matter (a statement I
+would have frowned upon years ago), and I fully agree.
+
+At work, I had always tried to produce the best code I could and meticulously
+write documentation/commit messages as thoroughly as possible.  "What if someone
+wants to extend this function?  Can I anticipate it and make it easier to change
+in the future?"  "What if someone checked the commit message and wants to learn
+why we changed this line?"  "What if no one else is around in ten years, and
+someone needs to learn from the documentation?"
+
+On the other hand, my old colleague Jeff is almost the polar opposite of my
+working style.  He was best described as a one-person army, delivering
+high-value features at speed while helping the organization tremendously by
+aligning the product visions.  He tended to submit large quantities of messy
+code in bursts that were impossible for me to review.  I used to
+self-righteously argue against his coding practice. Gradually, I started seeing
+the bigger picture - judging Jeff's work solely based on the quality wasn't
+fair.  His time and energy have better impacts elsewhere.  The opportunity costs
+were far greater than the value of the additional code quality I complained
+about.
+
+Quality is another decision that comes with its tradeoffs.  Sometimes, the
+opportunity costs could be as little as causing a bug in an edge case that no
+real-life users will ever hit; sometimes, as significant as losing business to
+competitors, or even worse - going out of business.  Similar to what I learned
+from participating in Game Jams - I could either submit finished games with
+crapy code or submit crapy unfinished games with beautiful code.  (I chose the
+former for all my past three Game Jams.)  The opportunity costs of perfecting
+code quality were just too high (that it would've impacted the delivery of a
+playable game).
+
+Similarly, about code reviews (which is also a typical part of ensuring code
+quality), there are times to review code meticulously because the efforts and
+social energies are well justified - perhaps you are onboarding new people, or
+maybe you are aligning on an architectural decision that is hard to reverse.
+Yet, there are times to strategically let code quality slides when that gives
+you something better in return.
+
+Lastly, I love this quote I learned from Peter's talk:
+
+#+begin_quote
+Any idiot can build a bridge that stands, but it takes an engineer to build a
+bridge that barely stands.
+#+end_quote
+
+Being biased heavily on the code quality side for most of my career, I often
+need to remind myself to set aside my programmer's pride and look at the bigger
+picture.  To end this on a more optimistic note, as I gained more experiences,
+the quality of work does come more easily.  (With the help of Emacs and =magit=,
+of course!)

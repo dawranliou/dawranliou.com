@@ -59,6 +59,17 @@
 
  ;; /blog pages
 
+ ;; 2024
+ "/blog/code-quality-cost"
+ {:title "The Cost of Code Quality"
+  :description "The Cost of Code Quality"
+  :section :blog
+  :template :blog-page
+  :source "content/blog/code-quality-cost.org"
+  :tags #{:engineering}
+  :published #inst "2024-03-01"
+  :updated #inst "2024-03-01"}
+
  ;; 2023
  "/blog/default-transducers"
  {:title "Defaulting to Transducers"
