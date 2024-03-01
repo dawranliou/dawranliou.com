@@ -1,3 +1,10 @@
+---
+{:title "Daw-Ran Liou"
+ :description "Hi there, my name is Daw-Ran. This is my personal website, where I share my writings and other public information about myself."
+ :section :home
+ :template :home
+ :source "content/index.md"}
+---
 # Hi, my name is Daw-Ran Liou
 
 You've found my personal website!  Thank you for visiting!
