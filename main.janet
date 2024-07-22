@@ -59,3 +59,6 @@
 # (setdyn *redef* true)
 # (setdyn *debug* true)
 # (read-pages "content")
+
+(import /htmlgen :as htmlgen)
+(htmlgen/html [:div "hi"])
