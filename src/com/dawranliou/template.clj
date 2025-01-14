@@ -58,6 +58,9 @@
          :href "/contact/"
          :title "Contact"}
      "Contact"]
+    [:a {:href "/Daw-Ran_Liou_Resume.pdf"
+         :title "Resume"}
+     "Resume"]
     [:a {:href "/atom.xml", :title "Atom"} "Atom"]]])
 
 (defn footer
